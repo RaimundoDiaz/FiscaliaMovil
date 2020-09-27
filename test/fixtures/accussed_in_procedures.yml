@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  procedure: one
+  acussed: one
+
+two:
+  procedure: two
+  acussed: two

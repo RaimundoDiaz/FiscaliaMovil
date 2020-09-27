@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  crime_id: 1
+  description: MyString
+
+two:
+  crime_id: 1
+  description: MyString
