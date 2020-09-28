@@ -37,9 +37,17 @@ ActiveRecord::Schema.define(version: 2020_09_27_001751) do
 
   create_table "crimes", force: :cascade do |t|
     t.integer "crime_id"
-    t.string "description"
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "local_prosecutions", force: :cascade do |t|
+    t.string "name"
+    t.bigint "regional_prosecution_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["regional_prosecution_id"], name: "index_local_prosecutions_on_regional_prosecution_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -79,39 +87,77 @@ ActiveRecord::Schema.define(version: 2020_09_27_001751) do
     t.index ["procedure_id"], name: "index_person_in_procedures_on_procedure_id"
   end
 
+  create_table "police_stations", force: :cascade do |t|
+    t.string "name"
+    t.integer "police_type"
+    t.bigint "prefecture_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["prefecture_id"], name: "index_police_stations_on_prefecture_id"
+  end
+
+  create_table "police_units", force: :cascade do |t|
+    t.string "name"
+    t.bigint "police_station_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["police_station_id"], name: "index_police_units_on_police_station_id"
+  end
+
+  create_table "prefectures", force: :cascade do |t|
+    t.string "name"
+    t.integer "region"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "procedures", force: :cascade do |t|
     t.integer "classification"
     t.text "categories", array: true
-    t.bigint "police_in_charge_id", null: false
-    t.bigint "prosecutor_in_charge_id", null: false
+    t.bigint "user_id"
+    t.bigint "local_prosecution_id"
     t.string "story"
     t.string "address"
     t.integer "state"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["police_in_charge_id"], name: "index_procedures_on_police_in_charge_id"
-    t.index ["prosecutor_in_charge_id"], name: "index_procedures_on_prosecutor_in_charge_id"
+    t.index ["local_prosecution_id"], name: "index_procedures_on_local_prosecution_id"
+    t.index ["user_id"], name: "index_procedures_on_user_id"
+  end
+
+  create_table "regional_prosecutions", force: :cascade do |t|
+    t.string "name"
+    t.integer "region"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.integer "role"
     t.string "rut"
     t.date "birthday"
-    t.integer "id_prosecution"
-    t.integer "id_police_unit"
+    t.bigint "police_unit_id"
+    t.bigint "local_prosecution_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["local_prosecution_id"], name: "index_users_on_local_prosecution_id"
+    t.index ["police_unit_id"], name: "index_users_on_police_unit_id"
   end
 
   add_foreign_key "alias_accuseds", "people"
   add_foreign_key "crime_in_accuseds", "crimes"
   add_foreign_key "crime_in_accuseds", "people"
   add_foreign_key "crime_in_accuseds", "procedures"
+  add_foreign_key "local_prosecutions", "regional_prosecutions"
   add_foreign_key "messages", "users", column: "receiver_user_id"
   add_foreign_key "messages", "users", column: "sender_user_id"
   add_foreign_key "notifications", "users"
   add_foreign_key "person_in_procedures", "people"
   add_foreign_key "person_in_procedures", "procedures"
-  add_foreign_key "procedures", "users", column: "police_in_charge_id"
-  add_foreign_key "procedures", "users", column: "prosecutor_in_charge_id"
+  add_foreign_key "police_stations", "prefectures"
+  add_foreign_key "police_units", "police_stations"
+  add_foreign_key "procedures", "local_prosecutions"
+  add_foreign_key "procedures", "users"
+  add_foreign_key "users", "local_prosecutions"
+  add_foreign_key "users", "police_units"
 end

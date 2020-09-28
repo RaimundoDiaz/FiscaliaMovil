@@ -4,8 +4,8 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.integer :role
       t.string :rut
       t.date :birthday
-      t.integer :id_prosecution
-      t.integer :id_police_unit
+      t.references :police_unit, null: true, foreign_key: true
+      t.references :local_prosecution, null: true, foreign_key: true
 
       t.timestamps
     end
