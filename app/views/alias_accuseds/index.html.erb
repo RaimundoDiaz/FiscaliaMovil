@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Alias Accuseds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Alias</th>
+      <th>Person</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @alias_accuseds.each do |alias_accused| %>
+      <tr>
+        <td><%= alias_accused.alias %></td>
+        <td><%= alias_accused.person_id %></td>
+        <td><%= link_to 'Show', alias_accused %></td>
+        <td><%= link_to 'Edit', edit_alias_accused_path(alias_accused) %></td>
+        <td><%= link_to 'Destroy', alias_accused, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Alias Accused', new_alias_accused_path %>

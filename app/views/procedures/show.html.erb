@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Classification:</strong>
+  <%= @procedure.classification %>
+</p>
+
+<p>
+  <strong>Categories:</strong>
+  <%= @procedure.categories %>
+</p>
+
+<p>
+  <strong>Police in charge:</strong>
+  <%= @procedure.police_in_charge_id %>
+</p>
+
+<p>
+  <strong>Local prosecution:</strong>
+  <%= @procedure.local_prosecution_id %>
+</p>
+
+<p>
+  <strong>Story:</strong>
+  <%= @procedure.story %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @procedure.address %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @procedure.state %>
+</p>
+
+<%= link_to 'Edit', edit_procedure_path(@procedure) %> |
+<%= link_to 'Back', procedures_path %>

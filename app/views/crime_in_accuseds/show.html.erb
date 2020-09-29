@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Preponderant:</strong>
+  <%= @crime_in_accused.preponderant %>
+</p>
+
+<p>
+  <strong>Crime:</strong>
+  <%= @crime_in_accused.crime_id %>
+</p>
+
+<p>
+  <strong>Person:</strong>
+  <%= @crime_in_accused.person_id %>
+</p>
+
+<p>
+  <strong>Procedure:</strong>
+  <%= @crime_in_accused.procedure_id %>
+</p>
+
+<%= link_to 'Edit', edit_crime_in_accused_path(@crime_in_accused) %> |
+<%= link_to 'Back', crime_in_accuseds_path %>

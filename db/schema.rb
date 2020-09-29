@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 2020_09_27_001751) do
   end
 
   create_table "crimes", force: :cascade do |t|
-    t.integer "crime_id"
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

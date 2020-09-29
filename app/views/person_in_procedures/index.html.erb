@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Person In Procedures</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Person</th>
+      <th>Procedure</th>
+      <th>Role</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @person_in_procedures.each do |person_in_procedure| %>
+      <tr>
+        <td><%= person_in_procedure.person_id %></td>
+        <td><%= person_in_procedure.procedure_id %></td>
+        <td><%= person_in_procedure.role %></td>
+        <td><%= link_to 'Show', person_in_procedure %></td>
+        <td><%= link_to 'Edit', edit_person_in_procedure_path(person_in_procedure) %></td>
+        <td><%= link_to 'Destroy', person_in_procedure, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Person In Procedure', new_person_in_procedure_path %>

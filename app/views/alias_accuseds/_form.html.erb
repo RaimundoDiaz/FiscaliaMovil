@@ -1,0 +1,27 @@
+<%= form_with(model: alias_accused, local: true) do |form| %>
+  <% if alias_accused.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(alias_accused.errors.count, "error") %> prohibited this alias_accused from being saved:</h2>
+
+      <ul>
+        <% alias_accused.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :alias %>
+    <%= form.text_field :alias %>
+  </div>
+
+  <div class="field">
+    <%= form.label :person_id %>
+    <%= form.text_field :person_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

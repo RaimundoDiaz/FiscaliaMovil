@@ -3943,3 +3943,2107 @@ FOREIGN KEY ("procedure_id")
   [1m[36mProcedure Load (0.4ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures" ORDER BY "procedures"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
   [1m[36mProcedure Load (0.3ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures" ORDER BY "procedures"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mProcedure Load (2.8ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures" ORDER BY "procedures"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProcedure Load (0.3ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures" ORDER BY "procedures"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mLocalProsecution Load (2.3ms)[0m  [1m[34mSELECT "local_prosecutions".* FROM "local_prosecutions" WHERE "local_prosecutions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (4.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (6.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (39.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "atenas_development"[0m
+  [1m[35m (25.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "atenas_test"[0m
+  [1m[35m (114.3ms)[0m  [1m[35mCREATE DATABASE "atenas_development" ENCODING = 'unicode'[0m
+  [1m[35m (48.0ms)[0m  [1m[35mCREATE DATABASE "atenas_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "alias_accuseds" CASCADE[0m
+  [1m[35m (13.0ms)[0m  [1m[35mCREATE TABLE "alias_accuseds" ("id" bigserial primary key, "alias" character varying, "person_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_alias_accuseds_on_person_id" ON "alias_accuseds"  ("person_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "crime_in_accuseds" CASCADE[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "crime_in_accuseds" ("id" bigserial primary key, "preponderant" boolean, "crime_id" bigint NOT NULL, "person_id" bigint NOT NULL, "procedure_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_crime_id" ON "crime_in_accuseds"  ("crime_id")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_person_id" ON "crime_in_accuseds"  ("person_id")[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_procedure_id" ON "crime_in_accuseds"  ("procedure_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "crimes" CASCADE[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "crimes" ("id" bigserial primary key, "crime_id" integer, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "local_prosecutions" CASCADE[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "local_prosecutions" ("id" bigserial primary key, "name" character varying, "regional_prosecution_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_local_prosecutions_on_regional_prosecution_id" ON "local_prosecutions"  ("regional_prosecution_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "messages" CASCADE[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "sender_user_id" bigint NOT NULL, "receiver_user_id" bigint NOT NULL, "content" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_receiver_user_id" ON "messages"  ("receiver_user_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_sender_user_id" ON "messages"  ("sender_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "notifications" CASCADE[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" bigserial primary key, "notification_type" integer, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_notifications_on_user_id" ON "notifications"  ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "people" CASCADE[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "people" ("id" bigserial primary key, "name" character varying, "last_name" character varying, "birthday" date, "rut" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "person_in_procedures" CASCADE[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "person_in_procedures" ("id" bigserial primary key, "person_id" bigint NOT NULL, "procedure_id" bigint NOT NULL, "role" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_person_in_procedures_on_person_id" ON "person_in_procedures"  ("person_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_person_in_procedures_on_procedure_id" ON "person_in_procedures"  ("procedure_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "police_stations" CASCADE[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "police_stations" ("id" bigserial primary key, "name" character varying, "police_type" integer, "prefecture_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX  "index_police_stations_on_prefecture_id" ON "police_stations"  ("prefecture_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "police_units" CASCADE[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "police_units" ("id" bigserial primary key, "name" character varying, "police_station_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_police_units_on_police_station_id" ON "police_units"  ("police_station_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "prefectures" CASCADE[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "prefectures" ("id" bigserial primary key, "name" character varying, "region" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "procedures" CASCADE[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "procedures" ("id" bigserial primary key, "classification" integer, "categories" text[], "police_in_charge_id" bigint NOT NULL, "local_prosecution_id" bigint NOT NULL, "story" character varying, "address" character varying, "state" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_local_prosecution_id" ON "procedures"  ("local_prosecution_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_police_in_charge_id" ON "procedures"  ("police_in_charge_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "regional_prosecutions" CASCADE[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "regional_prosecutions" ("id" bigserial primary key, "name" character varying, "region" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "role" integer, "rut" character varying, "birthday" date, "police_unit_id" bigint, "local_prosecution_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_local_prosecution_id" ON "users"  ("local_prosecution_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_police_unit_id" ON "users"  ("police_unit_id")[0m
+  [1m[35m (2.8ms)[0m  [1m[35mALTER TABLE "alias_accuseds" ADD CONSTRAINT "fk_rails_cea260112a"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "crime_in_accuseds" ADD CONSTRAINT "fk_rails_e9f93f7522"
+FOREIGN KEY ("crime_id")
+  REFERENCES "crimes" ("id")
+[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "crime_in_accuseds" ADD CONSTRAINT "fk_rails_b5a506532a"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "crime_in_accuseds" ADD CONSTRAINT "fk_rails_39897d71a6"
+FOREIGN KEY ("procedure_id")
+  REFERENCES "procedures" ("id")
+[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "local_prosecutions" ADD CONSTRAINT "fk_rails_052e4cb340"
+FOREIGN KEY ("regional_prosecution_id")
+  REFERENCES "regional_prosecutions" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_e5915b2324"
+FOREIGN KEY ("receiver_user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_3197d016f7"
+FOREIGN KEY ("sender_user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "notifications" ADD CONSTRAINT "fk_rails_b080fb4855"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "person_in_procedures" ADD CONSTRAINT "fk_rails_ef243c3ec5"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "person_in_procedures" ADD CONSTRAINT "fk_rails_7206b5a771"
+FOREIGN KEY ("procedure_id")
+  REFERENCES "procedures" ("id")
+[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "police_stations" ADD CONSTRAINT "fk_rails_00b2d2edda"
+FOREIGN KEY ("prefecture_id")
+  REFERENCES "prefectures" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "police_units" ADD CONSTRAINT "fk_rails_88b607ecbc"
+FOREIGN KEY ("police_station_id")
+  REFERENCES "police_stations" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "procedures" ADD CONSTRAINT "fk_rails_9bef32ff58"
+FOREIGN KEY ("local_prosecution_id")
+  REFERENCES "local_prosecutions" ("id")
+[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "procedures" ADD CONSTRAINT "fk_rails_01ebe2587f"
+FOREIGN KEY ("police_in_charge_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_a0c816d758"
+FOREIGN KEY ("local_prosecution_id")
+  REFERENCES "local_prosecutions" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_4459d5b4e8"
+FOREIGN KEY ("police_unit_id")
+  REFERENCES "police_units" ("id")
+[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200927001751)[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200925000000),
+(20200926000000),
+(20200926000004),
+(20200926000005),
+(20200926000006),
+(20200926215954),
+(20200926220239),
+(20200926220258),
+(20200926221325),
+(20200926225000),
+(20200926230432),
+(20200926230841),
+(20200926230928);
+
+[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-09-29 19:00:32.958274"], ["updated_at", "2020-09-29 19:00:32.958274"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "0d8d943efd0b91c745c6f8ea4dfc62dc7be4ae23"], ["created_at", "2020-09-29 19:00:32.965540"], ["updated_at", "2020-09-29 19:00:32.965540"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "alias_accuseds" CASCADE[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "alias_accuseds" ("id" bigserial primary key, "alias" character varying, "person_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_alias_accuseds_on_person_id" ON "alias_accuseds"  ("person_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "crime_in_accuseds" CASCADE[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "crime_in_accuseds" ("id" bigserial primary key, "preponderant" boolean, "crime_id" bigint NOT NULL, "person_id" bigint NOT NULL, "procedure_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_crime_id" ON "crime_in_accuseds"  ("crime_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_person_id" ON "crime_in_accuseds"  ("person_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_procedure_id" ON "crime_in_accuseds"  ("procedure_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "crimes" CASCADE[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "crimes" ("id" bigserial primary key, "crime_id" integer, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "local_prosecutions" CASCADE[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "local_prosecutions" ("id" bigserial primary key, "name" character varying, "regional_prosecution_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_local_prosecutions_on_regional_prosecution_id" ON "local_prosecutions"  ("regional_prosecution_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "messages" CASCADE[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "sender_user_id" bigint NOT NULL, "receiver_user_id" bigint NOT NULL, "content" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_receiver_user_id" ON "messages"  ("receiver_user_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_sender_user_id" ON "messages"  ("sender_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "notifications" CASCADE[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" bigserial primary key, "notification_type" integer, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_notifications_on_user_id" ON "notifications"  ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "people" CASCADE[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "people" ("id" bigserial primary key, "name" character varying, "last_name" character varying, "birthday" date, "rut" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "person_in_procedures" CASCADE[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "person_in_procedures" ("id" bigserial primary key, "person_id" bigint NOT NULL, "procedure_id" bigint NOT NULL, "role" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_person_in_procedures_on_person_id" ON "person_in_procedures"  ("person_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_person_in_procedures_on_procedure_id" ON "person_in_procedures"  ("procedure_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "police_stations" CASCADE[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "police_stations" ("id" bigserial primary key, "name" character varying, "police_type" integer, "prefecture_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_police_stations_on_prefecture_id" ON "police_stations"  ("prefecture_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "police_units" CASCADE[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "police_units" ("id" bigserial primary key, "name" character varying, "police_station_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX  "index_police_units_on_police_station_id" ON "police_units"  ("police_station_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "prefectures" CASCADE[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "prefectures" ("id" bigserial primary key, "name" character varying, "region" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "procedures" CASCADE[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "procedures" ("id" bigserial primary key, "classification" integer, "categories" text[], "police_in_charge_id" bigint NOT NULL, "local_prosecution_id" bigint NOT NULL, "story" character varying, "address" character varying, "state" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_local_prosecution_id" ON "procedures"  ("local_prosecution_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_police_in_charge_id" ON "procedures"  ("police_in_charge_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "regional_prosecutions" CASCADE[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "regional_prosecutions" ("id" bigserial primary key, "name" character varying, "region" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "role" integer, "rut" character varying, "birthday" date, "police_unit_id" bigint, "local_prosecution_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_local_prosecution_id" ON "users"  ("local_prosecution_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_police_unit_id" ON "users"  ("police_unit_id")[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "alias_accuseds" ADD CONSTRAINT "fk_rails_cea260112a"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "crime_in_accuseds" ADD CONSTRAINT "fk_rails_e9f93f7522"
+FOREIGN KEY ("crime_id")
+  REFERENCES "crimes" ("id")
+[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "crime_in_accuseds" ADD CONSTRAINT "fk_rails_b5a506532a"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "crime_in_accuseds" ADD CONSTRAINT "fk_rails_39897d71a6"
+FOREIGN KEY ("procedure_id")
+  REFERENCES "procedures" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "local_prosecutions" ADD CONSTRAINT "fk_rails_052e4cb340"
+FOREIGN KEY ("regional_prosecution_id")
+  REFERENCES "regional_prosecutions" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_e5915b2324"
+FOREIGN KEY ("receiver_user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_3197d016f7"
+FOREIGN KEY ("sender_user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "notifications" ADD CONSTRAINT "fk_rails_b080fb4855"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "person_in_procedures" ADD CONSTRAINT "fk_rails_ef243c3ec5"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "person_in_procedures" ADD CONSTRAINT "fk_rails_7206b5a771"
+FOREIGN KEY ("procedure_id")
+  REFERENCES "procedures" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "police_stations" ADD CONSTRAINT "fk_rails_00b2d2edda"
+FOREIGN KEY ("prefecture_id")
+  REFERENCES "prefectures" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "police_units" ADD CONSTRAINT "fk_rails_88b607ecbc"
+FOREIGN KEY ("police_station_id")
+  REFERENCES "police_stations" ("id")
+[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "procedures" ADD CONSTRAINT "fk_rails_9bef32ff58"
+FOREIGN KEY ("local_prosecution_id")
+  REFERENCES "local_prosecutions" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "procedures" ADD CONSTRAINT "fk_rails_01ebe2587f"
+FOREIGN KEY ("police_in_charge_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_a0c816d758"
+FOREIGN KEY ("local_prosecution_id")
+  REFERENCES "local_prosecutions" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_4459d5b4e8"
+FOREIGN KEY ("police_unit_id")
+  REFERENCES "police_units" ("id")
+[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200927001751)[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200925000000),
+(20200926000000),
+(20200926000004),
+(20200926000005),
+(20200926000006),
+(20200926215954),
+(20200926220239),
+(20200926220258),
+(20200926221325),
+(20200926225000),
+(20200926230432),
+(20200926230841),
+(20200926230928);
+
+[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-09-29 19:00:33.100446"], ["updated_at", "2020-09-29 19:00:33.100446"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (1.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-09-29 19:00:33.104973"], ["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "0d8d943efd0b91c745c6f8ea4dfc62dc7be4ae23"], ["created_at", "2020-09-29 19:00:33.110106"], ["updated_at", "2020-09-29 19:00:33.110106"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPrefecture Create (0.6ms)[0m  [1m[32mINSERT INTO "prefectures" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "prefectura"], ["created_at", "2020-09-29 19:00:33.151267"], ["updated_at", "2020-09-29 19:00:33.151267"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPoliceStation Create (2.7ms)[0m  [1m[32mINSERT INTO "police_stations" ("prefecture_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["prefecture_id", 1], ["created_at", "2020-09-29 19:00:33.168111"], ["updated_at", "2020-09-29 19:00:33.168111"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPoliceUnit Create (0.6ms)[0m  [1m[32mINSERT INTO "police_units" ("police_station_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["police_station_id", 1], ["created_at", "2020-09-29 19:00:33.182946"], ["updated_at", "2020-09-29 19:00:33.182946"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRegionalProsecution Create (0.5ms)[0m  [1m[32mINSERT INTO "regional_prosecutions" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "fiscalia regional"], ["created_at", "2020-09-29 19:00:33.195458"], ["updated_at", "2020-09-29 19:00:33.195458"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLocalProsecution Create (0.7ms)[0m  [1m[32mINSERT INTO "local_prosecutions" ("name", "regional_prosecution_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "fiscalia 1"], ["regional_prosecution_id", 1], ["created_at", "2020-09-29 19:00:33.208090"], ["updated_at", "2020-09-29 19:00:33.208090"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("role", "rut", "police_unit_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["role", 0], ["rut", "19838173k"], ["police_unit_id", 1], ["created_at", "2020-09-29 19:00:33.223986"], ["updated_at", "2020-09-29 19:00:33.223986"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProcedure Create (0.8ms)[0m  [1m[32mINSERT INTO "procedures" ("classification", "categories", "police_in_charge_id", "local_prosecution_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["classification", 0], ["categories", "{\"Categoria 1\",\"Categoria 2\"}"], ["police_in_charge_id", 1], ["local_prosecution_id", 1], ["created_at", "2020-09-29 19:00:33.241079"], ["updated_at", "2020-09-29 19:00:33.241079"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPerson Create (0.4ms)[0m  [1m[32mINSERT INTO "people" ("name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Juan"], ["last_name", "Perez"], ["created_at", "2020-09-29 19:00:33.256694"], ["updated_at", "2020-09-29 19:00:33.256694"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPersonInProcedure Create (0.8ms)[0m  [1m[32mINSERT INTO "person_in_procedures" ("person_id", "procedure_id", "role", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["person_id", 1], ["procedure_id", 1], ["role", 1], ["created_at", "2020-09-29 19:00:33.268910"], ["updated_at", "2020-09-29 19:00:33.268910"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCrime Create (0.4ms)[0m  [1m[32mINSERT INTO "crimes" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2020-09-29 19:00:33.280619"], ["updated_at", "2020-09-29 19:00:33.280619"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCrime Create (0.1ms)[0m  [1m[32mINSERT INTO "crimes" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2020-09-29 19:00:33.284031"], ["updated_at", "2020-09-29 19:00:33.284031"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mProcedure Load (0.4ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures" ORDER BY "procedures"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE DATABASE "atenas_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE DATABASE "atenas_test" ENCODING = 'unicode'[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (6.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "alias_accuseds" CASCADE[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "alias_accuseds" ("id" bigserial primary key, "alias" character varying, "person_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_alias_accuseds_on_person_id" ON "alias_accuseds"  ("person_id")[0m
+  [1m[35m (2.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "crime_in_accuseds" CASCADE[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "crime_in_accuseds" ("id" bigserial primary key, "preponderant" boolean, "crime_id" bigint NOT NULL, "person_id" bigint NOT NULL, "procedure_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_crime_id" ON "crime_in_accuseds"  ("crime_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_person_id" ON "crime_in_accuseds"  ("person_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_procedure_id" ON "crime_in_accuseds"  ("procedure_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "crimes" CASCADE[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "crimes" ("id" bigserial primary key, "crime_id" integer, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "local_prosecutions" CASCADE[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "local_prosecutions" ("id" bigserial primary key, "name" character varying, "regional_prosecution_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_local_prosecutions_on_regional_prosecution_id" ON "local_prosecutions"  ("regional_prosecution_id")[0m
+  [1m[35m (1.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "messages" CASCADE[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "sender_user_id" bigint NOT NULL, "receiver_user_id" bigint NOT NULL, "content" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_receiver_user_id" ON "messages"  ("receiver_user_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_sender_user_id" ON "messages"  ("sender_user_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "notifications" CASCADE[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" bigserial primary key, "notification_type" integer, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_notifications_on_user_id" ON "notifications"  ("user_id")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "people" CASCADE[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "people" ("id" bigserial primary key, "name" character varying, "last_name" character varying, "birthday" date, "rut" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "person_in_procedures" CASCADE[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "person_in_procedures" ("id" bigserial primary key, "person_id" bigint NOT NULL, "procedure_id" bigint NOT NULL, "role" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_person_in_procedures_on_person_id" ON "person_in_procedures"  ("person_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_person_in_procedures_on_procedure_id" ON "person_in_procedures"  ("procedure_id")[0m
+  [1m[35m (1.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "police_stations" CASCADE[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "police_stations" ("id" bigserial primary key, "name" character varying, "police_type" integer, "prefecture_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_police_stations_on_prefecture_id" ON "police_stations"  ("prefecture_id")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "police_units" CASCADE[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "police_units" ("id" bigserial primary key, "name" character varying, "police_station_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_police_units_on_police_station_id" ON "police_units"  ("police_station_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "prefectures" CASCADE[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "prefectures" ("id" bigserial primary key, "name" character varying, "region" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "procedures" CASCADE[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "procedures" ("id" bigserial primary key, "classification" integer, "categories" text[], "police_in_charge_id" bigint NOT NULL, "local_prosecution_id" bigint NOT NULL, "story" character varying, "address" character varying, "state" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_local_prosecution_id" ON "procedures"  ("local_prosecution_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_police_in_charge_id" ON "procedures"  ("police_in_charge_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "regional_prosecutions" CASCADE[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "regional_prosecutions" ("id" bigserial primary key, "name" character varying, "region" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "role" integer, "rut" character varying, "birthday" date, "police_unit_id" bigint, "local_prosecution_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_local_prosecution_id" ON "users"  ("local_prosecution_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_police_unit_id" ON "users"  ("police_unit_id")[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "alias_accuseds" ADD CONSTRAINT "fk_rails_cea260112a"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "crime_in_accuseds" ADD CONSTRAINT "fk_rails_e9f93f7522"
+FOREIGN KEY ("crime_id")
+  REFERENCES "crimes" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "crime_in_accuseds" ADD CONSTRAINT "fk_rails_b5a506532a"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "crime_in_accuseds" ADD CONSTRAINT "fk_rails_39897d71a6"
+FOREIGN KEY ("procedure_id")
+  REFERENCES "procedures" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "local_prosecutions" ADD CONSTRAINT "fk_rails_052e4cb340"
+FOREIGN KEY ("regional_prosecution_id")
+  REFERENCES "regional_prosecutions" ("id")
+[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_e5915b2324"
+FOREIGN KEY ("receiver_user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_3197d016f7"
+FOREIGN KEY ("sender_user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "notifications" ADD CONSTRAINT "fk_rails_b080fb4855"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "person_in_procedures" ADD CONSTRAINT "fk_rails_ef243c3ec5"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "person_in_procedures" ADD CONSTRAINT "fk_rails_7206b5a771"
+FOREIGN KEY ("procedure_id")
+  REFERENCES "procedures" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "police_stations" ADD CONSTRAINT "fk_rails_00b2d2edda"
+FOREIGN KEY ("prefecture_id")
+  REFERENCES "prefectures" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "police_units" ADD CONSTRAINT "fk_rails_88b607ecbc"
+FOREIGN KEY ("police_station_id")
+  REFERENCES "police_stations" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "procedures" ADD CONSTRAINT "fk_rails_9bef32ff58"
+FOREIGN KEY ("local_prosecution_id")
+  REFERENCES "local_prosecutions" ("id")
+[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "procedures" ADD CONSTRAINT "fk_rails_01ebe2587f"
+FOREIGN KEY ("police_in_charge_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_a0c816d758"
+FOREIGN KEY ("local_prosecution_id")
+  REFERENCES "local_prosecutions" ("id")
+[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_4459d5b4e8"
+FOREIGN KEY ("police_unit_id")
+  REFERENCES "police_units" ("id")
+[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35mSQL (0.1ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (4.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "alias_accuseds" CASCADE[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "alias_accuseds" ("id" bigserial primary key, "alias" character varying, "person_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_alias_accuseds_on_person_id" ON "alias_accuseds"  ("person_id")[0m
+  [1m[35m (1.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "crime_in_accuseds" CASCADE[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "crime_in_accuseds" ("id" bigserial primary key, "preponderant" boolean, "crime_id" bigint NOT NULL, "person_id" bigint NOT NULL, "procedure_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_crime_id" ON "crime_in_accuseds"  ("crime_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_person_id" ON "crime_in_accuseds"  ("person_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_procedure_id" ON "crime_in_accuseds"  ("procedure_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "crimes" CASCADE[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "crimes" ("id" bigserial primary key, "crime_id" integer, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "local_prosecutions" CASCADE[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "local_prosecutions" ("id" bigserial primary key, "name" character varying, "regional_prosecution_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_local_prosecutions_on_regional_prosecution_id" ON "local_prosecutions"  ("regional_prosecution_id")[0m
+  [1m[35m (1.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "messages" CASCADE[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "sender_user_id" bigint NOT NULL, "receiver_user_id" bigint NOT NULL, "content" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_receiver_user_id" ON "messages"  ("receiver_user_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_sender_user_id" ON "messages"  ("sender_user_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "notifications" CASCADE[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" bigserial primary key, "notification_type" integer, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_notifications_on_user_id" ON "notifications"  ("user_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "people" CASCADE[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "people" ("id" bigserial primary key, "name" character varying, "last_name" character varying, "birthday" date, "rut" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "person_in_procedures" CASCADE[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "person_in_procedures" ("id" bigserial primary key, "person_id" bigint NOT NULL, "procedure_id" bigint NOT NULL, "role" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_person_in_procedures_on_person_id" ON "person_in_procedures"  ("person_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_person_in_procedures_on_procedure_id" ON "person_in_procedures"  ("procedure_id")[0m
+  [1m[35m (1.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "police_stations" CASCADE[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "police_stations" ("id" bigserial primary key, "name" character varying, "police_type" integer, "prefecture_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_police_stations_on_prefecture_id" ON "police_stations"  ("prefecture_id")[0m
+  [1m[35m (1.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "police_units" CASCADE[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "police_units" ("id" bigserial primary key, "name" character varying, "police_station_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_police_units_on_police_station_id" ON "police_units"  ("police_station_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "prefectures" CASCADE[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "prefectures" ("id" bigserial primary key, "name" character varying, "region" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "procedures" CASCADE[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "procedures" ("id" bigserial primary key, "classification" integer, "categories" text[], "police_in_charge_id" bigint NOT NULL, "local_prosecution_id" bigint NOT NULL, "story" character varying, "address" character varying, "state" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_local_prosecution_id" ON "procedures"  ("local_prosecution_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_police_in_charge_id" ON "procedures"  ("police_in_charge_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "regional_prosecutions" CASCADE[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "regional_prosecutions" ("id" bigserial primary key, "name" character varying, "region" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "role" integer, "rut" character varying, "birthday" date, "police_unit_id" bigint, "local_prosecution_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_local_prosecution_id" ON "users"  ("local_prosecution_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_police_unit_id" ON "users"  ("police_unit_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "alias_accuseds" ADD CONSTRAINT "fk_rails_cea260112a"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "crime_in_accuseds" ADD CONSTRAINT "fk_rails_e9f93f7522"
+FOREIGN KEY ("crime_id")
+  REFERENCES "crimes" ("id")
+[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "crime_in_accuseds" ADD CONSTRAINT "fk_rails_b5a506532a"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "crime_in_accuseds" ADD CONSTRAINT "fk_rails_39897d71a6"
+FOREIGN KEY ("procedure_id")
+  REFERENCES "procedures" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "local_prosecutions" ADD CONSTRAINT "fk_rails_052e4cb340"
+FOREIGN KEY ("regional_prosecution_id")
+  REFERENCES "regional_prosecutions" ("id")
+[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_e5915b2324"
+FOREIGN KEY ("receiver_user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_3197d016f7"
+FOREIGN KEY ("sender_user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "notifications" ADD CONSTRAINT "fk_rails_b080fb4855"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "person_in_procedures" ADD CONSTRAINT "fk_rails_ef243c3ec5"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "person_in_procedures" ADD CONSTRAINT "fk_rails_7206b5a771"
+FOREIGN KEY ("procedure_id")
+  REFERENCES "procedures" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "police_stations" ADD CONSTRAINT "fk_rails_00b2d2edda"
+FOREIGN KEY ("prefecture_id")
+  REFERENCES "prefectures" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "police_units" ADD CONSTRAINT "fk_rails_88b607ecbc"
+FOREIGN KEY ("police_station_id")
+  REFERENCES "police_stations" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "procedures" ADD CONSTRAINT "fk_rails_9bef32ff58"
+FOREIGN KEY ("local_prosecution_id")
+  REFERENCES "local_prosecutions" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "procedures" ADD CONSTRAINT "fk_rails_01ebe2587f"
+FOREIGN KEY ("police_in_charge_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_a0c816d758"
+FOREIGN KEY ("local_prosecution_id")
+  REFERENCES "local_prosecutions" ("id")
+[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_4459d5b4e8"
+FOREIGN KEY ("police_unit_id")
+  REFERENCES "police_units" ("id")
+[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "development"], ["updated_at", "2020-09-29 19:05:46.825233"], ["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-09-29 19:05:46.829686"], ["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPrefecture Create (0.5ms)[0m  [1m[32mINSERT INTO "prefectures" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "prefectura"], ["created_at", "2020-09-29 19:05:46.866155"], ["updated_at", "2020-09-29 19:05:46.866155"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPoliceStation Create (0.7ms)[0m  [1m[32mINSERT INTO "police_stations" ("prefecture_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["prefecture_id", 1], ["created_at", "2020-09-29 19:05:46.880258"], ["updated_at", "2020-09-29 19:05:46.880258"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPoliceUnit Create (0.6ms)[0m  [1m[32mINSERT INTO "police_units" ("police_station_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["police_station_id", 1], ["created_at", "2020-09-29 19:05:46.892096"], ["updated_at", "2020-09-29 19:05:46.892096"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRegionalProsecution Create (0.5ms)[0m  [1m[32mINSERT INTO "regional_prosecutions" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "fiscalia regional"], ["created_at", "2020-09-29 19:05:46.903690"], ["updated_at", "2020-09-29 19:05:46.903690"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLocalProsecution Create (0.6ms)[0m  [1m[32mINSERT INTO "local_prosecutions" ("name", "regional_prosecution_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "fiscalia 1"], ["regional_prosecution_id", 1], ["created_at", "2020-09-29 19:05:46.918970"], ["updated_at", "2020-09-29 19:05:46.918970"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("role", "rut", "police_unit_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["role", 0], ["rut", "19838173k"], ["police_unit_id", 1], ["created_at", "2020-09-29 19:05:46.933883"], ["updated_at", "2020-09-29 19:05:46.933883"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProcedure Create (0.8ms)[0m  [1m[32mINSERT INTO "procedures" ("classification", "categories", "police_in_charge_id", "local_prosecution_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["classification", 0], ["categories", "{\"Categoria 1\",\"Categoria 2\"}"], ["police_in_charge_id", 1], ["local_prosecution_id", 1], ["created_at", "2020-09-29 19:05:46.949552"], ["updated_at", "2020-09-29 19:05:46.949552"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPerson Create (0.4ms)[0m  [1m[32mINSERT INTO "people" ("name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Juan"], ["last_name", "Perez"], ["created_at", "2020-09-29 19:05:46.964054"], ["updated_at", "2020-09-29 19:05:46.964054"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPersonInProcedure Create (0.7ms)[0m  [1m[32mINSERT INTO "person_in_procedures" ("person_id", "procedure_id", "role", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["person_id", 1], ["procedure_id", 1], ["role", 1], ["created_at", "2020-09-29 19:05:46.975469"], ["updated_at", "2020-09-29 19:05:46.975469"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCrime Create (0.6ms)[0m  [1m[32mINSERT INTO "crimes" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2020-09-29 19:05:46.987105"], ["updated_at", "2020-09-29 19:05:46.987105"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCrime Create (0.2ms)[0m  [1m[32mINSERT INTO "crimes" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2020-09-29 19:05:46.991336"], ["updated_at", "2020-09-29 19:05:46.991336"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (43.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "atenas_development"[0m
+  [1m[35m (40.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "atenas_test"[0m
+  [1m[35m (123.1ms)[0m  [1m[35mCREATE DATABASE "atenas_development" ENCODING = 'unicode'[0m
+  [1m[35m (53.7ms)[0m  [1m[35mCREATE DATABASE "atenas_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "alias_accuseds" CASCADE[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "alias_accuseds" ("id" bigserial primary key, "alias" character varying, "person_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_alias_accuseds_on_person_id" ON "alias_accuseds"  ("person_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "crime_in_accuseds" CASCADE[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "crime_in_accuseds" ("id" bigserial primary key, "preponderant" boolean, "crime_id" bigint NOT NULL, "person_id" bigint NOT NULL, "procedure_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_crime_id" ON "crime_in_accuseds"  ("crime_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_person_id" ON "crime_in_accuseds"  ("person_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_procedure_id" ON "crime_in_accuseds"  ("procedure_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "crimes" CASCADE[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "crimes" ("id" bigserial primary key, "crime_id" integer, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "local_prosecutions" CASCADE[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "local_prosecutions" ("id" bigserial primary key, "name" character varying, "regional_prosecution_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_local_prosecutions_on_regional_prosecution_id" ON "local_prosecutions"  ("regional_prosecution_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "messages" CASCADE[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "sender_user_id" bigint NOT NULL, "receiver_user_id" bigint NOT NULL, "content" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_receiver_user_id" ON "messages"  ("receiver_user_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_sender_user_id" ON "messages"  ("sender_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "notifications" CASCADE[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" bigserial primary key, "notification_type" integer, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_notifications_on_user_id" ON "notifications"  ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "people" CASCADE[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "people" ("id" bigserial primary key, "name" character varying, "last_name" character varying, "birthday" date, "rut" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "person_in_procedures" CASCADE[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "person_in_procedures" ("id" bigserial primary key, "person_id" bigint NOT NULL, "procedure_id" bigint NOT NULL, "role" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_person_in_procedures_on_person_id" ON "person_in_procedures"  ("person_id")[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_person_in_procedures_on_procedure_id" ON "person_in_procedures"  ("procedure_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "police_stations" CASCADE[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "police_stations" ("id" bigserial primary key, "name" character varying, "police_type" integer, "prefecture_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_police_stations_on_prefecture_id" ON "police_stations"  ("prefecture_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "police_units" CASCADE[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "police_units" ("id" bigserial primary key, "name" character varying, "police_station_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_police_units_on_police_station_id" ON "police_units"  ("police_station_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "prefectures" CASCADE[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "prefectures" ("id" bigserial primary key, "name" character varying, "region" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "procedures" CASCADE[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "procedures" ("id" bigserial primary key, "classification" integer, "categories" text[], "police_in_charge_id" bigint NOT NULL, "local_prosecution_id" bigint NOT NULL, "story" character varying, "address" character varying, "state" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_local_prosecution_id" ON "procedures"  ("local_prosecution_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_police_in_charge_id" ON "procedures"  ("police_in_charge_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "regional_prosecutions" CASCADE[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "regional_prosecutions" ("id" bigserial primary key, "name" character varying, "region" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "role" integer, "rut" character varying, "birthday" date, "police_unit_id" bigint, "local_prosecution_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_local_prosecution_id" ON "users"  ("local_prosecution_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_police_unit_id" ON "users"  ("police_unit_id")[0m
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "alias_accuseds" ADD CONSTRAINT "fk_rails_cea260112a"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "crime_in_accuseds" ADD CONSTRAINT "fk_rails_e9f93f7522"
+FOREIGN KEY ("crime_id")
+  REFERENCES "crimes" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "crime_in_accuseds" ADD CONSTRAINT "fk_rails_b5a506532a"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "crime_in_accuseds" ADD CONSTRAINT "fk_rails_39897d71a6"
+FOREIGN KEY ("procedure_id")
+  REFERENCES "procedures" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "local_prosecutions" ADD CONSTRAINT "fk_rails_052e4cb340"
+FOREIGN KEY ("regional_prosecution_id")
+  REFERENCES "regional_prosecutions" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_e5915b2324"
+FOREIGN KEY ("receiver_user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_3197d016f7"
+FOREIGN KEY ("sender_user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "notifications" ADD CONSTRAINT "fk_rails_b080fb4855"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "person_in_procedures" ADD CONSTRAINT "fk_rails_ef243c3ec5"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "person_in_procedures" ADD CONSTRAINT "fk_rails_7206b5a771"
+FOREIGN KEY ("procedure_id")
+  REFERENCES "procedures" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "police_stations" ADD CONSTRAINT "fk_rails_00b2d2edda"
+FOREIGN KEY ("prefecture_id")
+  REFERENCES "prefectures" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "police_units" ADD CONSTRAINT "fk_rails_88b607ecbc"
+FOREIGN KEY ("police_station_id")
+  REFERENCES "police_stations" ("id")
+[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "procedures" ADD CONSTRAINT "fk_rails_9bef32ff58"
+FOREIGN KEY ("local_prosecution_id")
+  REFERENCES "local_prosecutions" ("id")
+[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "procedures" ADD CONSTRAINT "fk_rails_01ebe2587f"
+FOREIGN KEY ("police_in_charge_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_a0c816d758"
+FOREIGN KEY ("local_prosecution_id")
+  REFERENCES "local_prosecutions" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_4459d5b4e8"
+FOREIGN KEY ("police_unit_id")
+  REFERENCES "police_units" ("id")
+[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200927001751)[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200925000000),
+(20200926000000),
+(20200926000004),
+(20200926000005),
+(20200926000006),
+(20200926215954),
+(20200926220239),
+(20200926220258),
+(20200926221325),
+(20200926225000),
+(20200926230432),
+(20200926230841),
+(20200926230928);
+
+[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-09-29 19:40:23.740439"], ["updated_at", "2020-09-29 19:40:23.740439"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "0d8d943efd0b91c745c6f8ea4dfc62dc7be4ae23"], ["created_at", "2020-09-29 19:40:23.747677"], ["updated_at", "2020-09-29 19:40:23.747677"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "alias_accuseds" CASCADE[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "alias_accuseds" ("id" bigserial primary key, "alias" character varying, "person_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_alias_accuseds_on_person_id" ON "alias_accuseds"  ("person_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "crime_in_accuseds" CASCADE[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "crime_in_accuseds" ("id" bigserial primary key, "preponderant" boolean, "crime_id" bigint NOT NULL, "person_id" bigint NOT NULL, "procedure_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_crime_id" ON "crime_in_accuseds"  ("crime_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_person_id" ON "crime_in_accuseds"  ("person_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_procedure_id" ON "crime_in_accuseds"  ("procedure_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "crimes" CASCADE[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "crimes" ("id" bigserial primary key, "crime_id" integer, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "local_prosecutions" CASCADE[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "local_prosecutions" ("id" bigserial primary key, "name" character varying, "regional_prosecution_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_local_prosecutions_on_regional_prosecution_id" ON "local_prosecutions"  ("regional_prosecution_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "messages" CASCADE[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "sender_user_id" bigint NOT NULL, "receiver_user_id" bigint NOT NULL, "content" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_receiver_user_id" ON "messages"  ("receiver_user_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_sender_user_id" ON "messages"  ("sender_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "notifications" CASCADE[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" bigserial primary key, "notification_type" integer, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_notifications_on_user_id" ON "notifications"  ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "people" CASCADE[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "people" ("id" bigserial primary key, "name" character varying, "last_name" character varying, "birthday" date, "rut" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "person_in_procedures" CASCADE[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "person_in_procedures" ("id" bigserial primary key, "person_id" bigint NOT NULL, "procedure_id" bigint NOT NULL, "role" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_person_in_procedures_on_person_id" ON "person_in_procedures"  ("person_id")[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_person_in_procedures_on_procedure_id" ON "person_in_procedures"  ("procedure_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "police_stations" CASCADE[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "police_stations" ("id" bigserial primary key, "name" character varying, "police_type" integer, "prefecture_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_police_stations_on_prefecture_id" ON "police_stations"  ("prefecture_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "police_units" CASCADE[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "police_units" ("id" bigserial primary key, "name" character varying, "police_station_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_police_units_on_police_station_id" ON "police_units"  ("police_station_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "prefectures" CASCADE[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "prefectures" ("id" bigserial primary key, "name" character varying, "region" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "procedures" CASCADE[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "procedures" ("id" bigserial primary key, "classification" integer, "categories" text[], "police_in_charge_id" bigint NOT NULL, "local_prosecution_id" bigint NOT NULL, "story" character varying, "address" character varying, "state" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_local_prosecution_id" ON "procedures"  ("local_prosecution_id")[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_police_in_charge_id" ON "procedures"  ("police_in_charge_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "regional_prosecutions" CASCADE[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "regional_prosecutions" ("id" bigserial primary key, "name" character varying, "region" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "role" integer, "rut" character varying, "birthday" date, "police_unit_id" bigint, "local_prosecution_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_local_prosecution_id" ON "users"  ("local_prosecution_id")[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_police_unit_id" ON "users"  ("police_unit_id")[0m
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "alias_accuseds" ADD CONSTRAINT "fk_rails_cea260112a"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "crime_in_accuseds" ADD CONSTRAINT "fk_rails_e9f93f7522"
+FOREIGN KEY ("crime_id")
+  REFERENCES "crimes" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "crime_in_accuseds" ADD CONSTRAINT "fk_rails_b5a506532a"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "crime_in_accuseds" ADD CONSTRAINT "fk_rails_39897d71a6"
+FOREIGN KEY ("procedure_id")
+  REFERENCES "procedures" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "local_prosecutions" ADD CONSTRAINT "fk_rails_052e4cb340"
+FOREIGN KEY ("regional_prosecution_id")
+  REFERENCES "regional_prosecutions" ("id")
+[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_e5915b2324"
+FOREIGN KEY ("receiver_user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_3197d016f7"
+FOREIGN KEY ("sender_user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "notifications" ADD CONSTRAINT "fk_rails_b080fb4855"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "person_in_procedures" ADD CONSTRAINT "fk_rails_ef243c3ec5"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "person_in_procedures" ADD CONSTRAINT "fk_rails_7206b5a771"
+FOREIGN KEY ("procedure_id")
+  REFERENCES "procedures" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "police_stations" ADD CONSTRAINT "fk_rails_00b2d2edda"
+FOREIGN KEY ("prefecture_id")
+  REFERENCES "prefectures" ("id")
+[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "police_units" ADD CONSTRAINT "fk_rails_88b607ecbc"
+FOREIGN KEY ("police_station_id")
+  REFERENCES "police_stations" ("id")
+[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "procedures" ADD CONSTRAINT "fk_rails_9bef32ff58"
+FOREIGN KEY ("local_prosecution_id")
+  REFERENCES "local_prosecutions" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "procedures" ADD CONSTRAINT "fk_rails_01ebe2587f"
+FOREIGN KEY ("police_in_charge_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_a0c816d758"
+FOREIGN KEY ("local_prosecution_id")
+  REFERENCES "local_prosecutions" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_4459d5b4e8"
+FOREIGN KEY ("police_unit_id")
+  REFERENCES "police_units" ("id")
+[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200927001751)[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200925000000),
+(20200926000000),
+(20200926000004),
+(20200926000005),
+(20200926000006),
+(20200926215954),
+(20200926220239),
+(20200926220258),
+(20200926221325),
+(20200926225000),
+(20200926230432),
+(20200926230841),
+(20200926230928);
+
+[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-09-29 19:40:23.909139"], ["updated_at", "2020-09-29 19:40:23.909139"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-09-29 19:40:23.914162"], ["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "0d8d943efd0b91c745c6f8ea4dfc62dc7be4ae23"], ["created_at", "2020-09-29 19:40:23.918492"], ["updated_at", "2020-09-29 19:40:23.918492"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPrefecture Create (0.6ms)[0m  [1m[32mINSERT INTO "prefectures" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "prefectura"], ["created_at", "2020-09-29 19:40:23.964139"], ["updated_at", "2020-09-29 19:40:23.964139"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPoliceStation Create (0.8ms)[0m  [1m[32mINSERT INTO "police_stations" ("prefecture_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["prefecture_id", 1], ["created_at", "2020-09-29 19:40:23.980373"], ["updated_at", "2020-09-29 19:40:23.980373"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPoliceUnit Create (0.8ms)[0m  [1m[32mINSERT INTO "police_units" ("police_station_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["police_station_id", 1], ["created_at", "2020-09-29 19:40:23.992890"], ["updated_at", "2020-09-29 19:40:23.992890"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRegionalProsecution Create (0.5ms)[0m  [1m[32mINSERT INTO "regional_prosecutions" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "fiscalia regional"], ["created_at", "2020-09-29 19:40:24.005394"], ["updated_at", "2020-09-29 19:40:24.005394"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLocalProsecution Create (0.7ms)[0m  [1m[32mINSERT INTO "local_prosecutions" ("name", "regional_prosecution_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "fiscalia 1"], ["regional_prosecution_id", 1], ["created_at", "2020-09-29 19:40:24.017498"], ["updated_at", "2020-09-29 19:40:24.017498"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("role", "rut", "police_unit_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["role", 0], ["rut", "19838173k"], ["police_unit_id", 1], ["created_at", "2020-09-29 19:40:24.033625"], ["updated_at", "2020-09-29 19:40:24.033625"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProcedure Create (0.9ms)[0m  [1m[32mINSERT INTO "procedures" ("id", "classification", "categories", "police_in_charge_id", "local_prosecution_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["id", 100], ["classification", 0], ["categories", "{\"Categoria 1\",\"Categoria 2\"}"], ["police_in_charge_id", 1], ["local_prosecution_id", 1], ["created_at", "2020-09-29 19:40:24.052209"], ["updated_at", "2020-09-29 19:40:24.052209"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPerson Create (0.5ms)[0m  [1m[32mINSERT INTO "people" ("name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Juan"], ["last_name", "Perez"], ["created_at", "2020-09-29 19:40:24.069421"], ["updated_at", "2020-09-29 19:40:24.069421"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPersonInProcedure Create (0.9ms)[0m  [1m[32mINSERT INTO "person_in_procedures" ("person_id", "procedure_id", "role", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["person_id", 1], ["procedure_id", 100], ["role", 1], ["created_at", "2020-09-29 19:40:24.082584"], ["updated_at", "2020-09-29 19:40:24.082584"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCrime Create (0.4ms)[0m  [1m[32mINSERT INTO "crimes" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2020-09-29 19:40:24.095568"], ["updated_at", "2020-09-29 19:40:24.095568"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCrime Create (0.2ms)[0m  [1m[32mINSERT INTO "crimes" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2020-09-29 19:40:24.099038"], ["updated_at", "2020-09-29 19:40:24.099038"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProcedure Load (0.4ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (36.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "atenas_development"[0m
+  [1m[35m (32.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "atenas_test"[0m
+  [1m[35m (59.8ms)[0m  [1m[35mCREATE DATABASE "atenas_development" ENCODING = 'unicode'[0m
+  [1m[35m (58.8ms)[0m  [1m[35mCREATE DATABASE "atenas_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "alias_accuseds" CASCADE[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "alias_accuseds" ("id" bigserial primary key, "alias" character varying, "person_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_alias_accuseds_on_person_id" ON "alias_accuseds"  ("person_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "crime_in_accuseds" CASCADE[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "crime_in_accuseds" ("id" bigserial primary key, "preponderant" boolean, "crime_id" bigint NOT NULL, "person_id" bigint NOT NULL, "procedure_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_crime_id" ON "crime_in_accuseds"  ("crime_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_person_id" ON "crime_in_accuseds"  ("person_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_procedure_id" ON "crime_in_accuseds"  ("procedure_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "crimes" CASCADE[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "crimes" ("id" bigserial primary key, "crime_id" integer, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "local_prosecutions" CASCADE[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "local_prosecutions" ("id" bigserial primary key, "name" character varying, "regional_prosecution_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_local_prosecutions_on_regional_prosecution_id" ON "local_prosecutions"  ("regional_prosecution_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "messages" CASCADE[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "sender_user_id" bigint NOT NULL, "receiver_user_id" bigint NOT NULL, "content" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_receiver_user_id" ON "messages"  ("receiver_user_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_sender_user_id" ON "messages"  ("sender_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "notifications" CASCADE[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" bigserial primary key, "notification_type" integer, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_notifications_on_user_id" ON "notifications"  ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "people" CASCADE[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "people" ("id" bigserial primary key, "name" character varying, "last_name" character varying, "birthday" date, "rut" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "person_in_procedures" CASCADE[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "person_in_procedures" ("id" bigserial primary key, "person_id" bigint NOT NULL, "procedure_id" bigint NOT NULL, "role" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_person_in_procedures_on_person_id" ON "person_in_procedures"  ("person_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_person_in_procedures_on_procedure_id" ON "person_in_procedures"  ("procedure_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "police_stations" CASCADE[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "police_stations" ("id" bigserial primary key, "name" character varying, "police_type" integer, "prefecture_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_police_stations_on_prefecture_id" ON "police_stations"  ("prefecture_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "police_units" CASCADE[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "police_units" ("id" bigserial primary key, "name" character varying, "police_station_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_police_units_on_police_station_id" ON "police_units"  ("police_station_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "prefectures" CASCADE[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "prefectures" ("id" bigserial primary key, "name" character varying, "region" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "procedures" CASCADE[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "procedures" ("id" bigserial primary key, "classification" integer, "categories" text[], "police_in_charge_id" bigint NOT NULL, "local_prosecution_id" bigint NOT NULL, "story" character varying, "address" character varying, "state" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_local_prosecution_id" ON "procedures"  ("local_prosecution_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_police_in_charge_id" ON "procedures"  ("police_in_charge_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "regional_prosecutions" CASCADE[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "regional_prosecutions" ("id" bigserial primary key, "name" character varying, "region" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "role" integer, "rut" character varying, "birthday" date, "police_unit_id" bigint, "local_prosecution_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_local_prosecution_id" ON "users"  ("local_prosecution_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_police_unit_id" ON "users"  ("police_unit_id")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "alias_accuseds" ADD CONSTRAINT "fk_rails_cea260112a"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "crime_in_accuseds" ADD CONSTRAINT "fk_rails_e9f93f7522"
+FOREIGN KEY ("crime_id")
+  REFERENCES "crimes" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "crime_in_accuseds" ADD CONSTRAINT "fk_rails_b5a506532a"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "crime_in_accuseds" ADD CONSTRAINT "fk_rails_39897d71a6"
+FOREIGN KEY ("procedure_id")
+  REFERENCES "procedures" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "local_prosecutions" ADD CONSTRAINT "fk_rails_052e4cb340"
+FOREIGN KEY ("regional_prosecution_id")
+  REFERENCES "regional_prosecutions" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_e5915b2324"
+FOREIGN KEY ("receiver_user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_3197d016f7"
+FOREIGN KEY ("sender_user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "notifications" ADD CONSTRAINT "fk_rails_b080fb4855"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "person_in_procedures" ADD CONSTRAINT "fk_rails_ef243c3ec5"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "person_in_procedures" ADD CONSTRAINT "fk_rails_7206b5a771"
+FOREIGN KEY ("procedure_id")
+  REFERENCES "procedures" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "police_stations" ADD CONSTRAINT "fk_rails_00b2d2edda"
+FOREIGN KEY ("prefecture_id")
+  REFERENCES "prefectures" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "police_units" ADD CONSTRAINT "fk_rails_88b607ecbc"
+FOREIGN KEY ("police_station_id")
+  REFERENCES "police_stations" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "procedures" ADD CONSTRAINT "fk_rails_9bef32ff58"
+FOREIGN KEY ("local_prosecution_id")
+  REFERENCES "local_prosecutions" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "procedures" ADD CONSTRAINT "fk_rails_01ebe2587f"
+FOREIGN KEY ("police_in_charge_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_a0c816d758"
+FOREIGN KEY ("local_prosecution_id")
+  REFERENCES "local_prosecutions" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_4459d5b4e8"
+FOREIGN KEY ("police_unit_id")
+  REFERENCES "police_units" ("id")
+[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200927001751)[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200925000000),
+(20200926000000),
+(20200926000004),
+(20200926000005),
+(20200926000006),
+(20200926215954),
+(20200926220239),
+(20200926220258),
+(20200926221325),
+(20200926225000),
+(20200926230432),
+(20200926230841),
+(20200926230928);
+
+[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-09-29 19:41:31.378214"], ["updated_at", "2020-09-29 19:41:31.378214"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "0d8d943efd0b91c745c6f8ea4dfc62dc7be4ae23"], ["created_at", "2020-09-29 19:41:31.384574"], ["updated_at", "2020-09-29 19:41:31.384574"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "alias_accuseds" CASCADE[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "alias_accuseds" ("id" bigserial primary key, "alias" character varying, "person_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_alias_accuseds_on_person_id" ON "alias_accuseds"  ("person_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "crime_in_accuseds" CASCADE[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "crime_in_accuseds" ("id" bigserial primary key, "preponderant" boolean, "crime_id" bigint NOT NULL, "person_id" bigint NOT NULL, "procedure_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_crime_id" ON "crime_in_accuseds"  ("crime_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_person_id" ON "crime_in_accuseds"  ("person_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_procedure_id" ON "crime_in_accuseds"  ("procedure_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "crimes" CASCADE[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "crimes" ("id" bigserial primary key, "crime_id" integer, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "local_prosecutions" CASCADE[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "local_prosecutions" ("id" bigserial primary key, "name" character varying, "regional_prosecution_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX  "index_local_prosecutions_on_regional_prosecution_id" ON "local_prosecutions"  ("regional_prosecution_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "messages" CASCADE[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "sender_user_id" bigint NOT NULL, "receiver_user_id" bigint NOT NULL, "content" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_receiver_user_id" ON "messages"  ("receiver_user_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_sender_user_id" ON "messages"  ("sender_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "notifications" CASCADE[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" bigserial primary key, "notification_type" integer, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_notifications_on_user_id" ON "notifications"  ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "people" CASCADE[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "people" ("id" bigserial primary key, "name" character varying, "last_name" character varying, "birthday" date, "rut" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "person_in_procedures" CASCADE[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "person_in_procedures" ("id" bigserial primary key, "person_id" bigint NOT NULL, "procedure_id" bigint NOT NULL, "role" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX  "index_person_in_procedures_on_person_id" ON "person_in_procedures"  ("person_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_person_in_procedures_on_procedure_id" ON "person_in_procedures"  ("procedure_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "police_stations" CASCADE[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "police_stations" ("id" bigserial primary key, "name" character varying, "police_type" integer, "prefecture_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_police_stations_on_prefecture_id" ON "police_stations"  ("prefecture_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "police_units" CASCADE[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "police_units" ("id" bigserial primary key, "name" character varying, "police_station_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_police_units_on_police_station_id" ON "police_units"  ("police_station_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "prefectures" CASCADE[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "prefectures" ("id" bigserial primary key, "name" character varying, "region" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "procedures" CASCADE[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "procedures" ("id" bigserial primary key, "classification" integer, "categories" text[], "police_in_charge_id" bigint NOT NULL, "local_prosecution_id" bigint NOT NULL, "story" character varying, "address" character varying, "state" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_local_prosecution_id" ON "procedures"  ("local_prosecution_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_police_in_charge_id" ON "procedures"  ("police_in_charge_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "regional_prosecutions" CASCADE[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "regional_prosecutions" ("id" bigserial primary key, "name" character varying, "region" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "role" integer, "rut" character varying, "birthday" date, "police_unit_id" bigint, "local_prosecution_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_local_prosecution_id" ON "users"  ("local_prosecution_id")[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_police_unit_id" ON "users"  ("police_unit_id")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "alias_accuseds" ADD CONSTRAINT "fk_rails_cea260112a"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "crime_in_accuseds" ADD CONSTRAINT "fk_rails_e9f93f7522"
+FOREIGN KEY ("crime_id")
+  REFERENCES "crimes" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "crime_in_accuseds" ADD CONSTRAINT "fk_rails_b5a506532a"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "crime_in_accuseds" ADD CONSTRAINT "fk_rails_39897d71a6"
+FOREIGN KEY ("procedure_id")
+  REFERENCES "procedures" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "local_prosecutions" ADD CONSTRAINT "fk_rails_052e4cb340"
+FOREIGN KEY ("regional_prosecution_id")
+  REFERENCES "regional_prosecutions" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_e5915b2324"
+FOREIGN KEY ("receiver_user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_3197d016f7"
+FOREIGN KEY ("sender_user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "notifications" ADD CONSTRAINT "fk_rails_b080fb4855"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "person_in_procedures" ADD CONSTRAINT "fk_rails_ef243c3ec5"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "person_in_procedures" ADD CONSTRAINT "fk_rails_7206b5a771"
+FOREIGN KEY ("procedure_id")
+  REFERENCES "procedures" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "police_stations" ADD CONSTRAINT "fk_rails_00b2d2edda"
+FOREIGN KEY ("prefecture_id")
+  REFERENCES "prefectures" ("id")
+[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "police_units" ADD CONSTRAINT "fk_rails_88b607ecbc"
+FOREIGN KEY ("police_station_id")
+  REFERENCES "police_stations" ("id")
+[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "procedures" ADD CONSTRAINT "fk_rails_9bef32ff58"
+FOREIGN KEY ("local_prosecution_id")
+  REFERENCES "local_prosecutions" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "procedures" ADD CONSTRAINT "fk_rails_01ebe2587f"
+FOREIGN KEY ("police_in_charge_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_a0c816d758"
+FOREIGN KEY ("local_prosecution_id")
+  REFERENCES "local_prosecutions" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_4459d5b4e8"
+FOREIGN KEY ("police_unit_id")
+  REFERENCES "police_units" ("id")
+[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200927001751)[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200925000000),
+(20200926000000),
+(20200926000004),
+(20200926000005),
+(20200926000006),
+(20200926215954),
+(20200926220239),
+(20200926220258),
+(20200926221325),
+(20200926225000),
+(20200926230432),
+(20200926230841),
+(20200926230928);
+
+[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-09-29 19:41:31.530943"], ["updated_at", "2020-09-29 19:41:31.530943"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-09-29 19:41:31.535644"], ["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "0d8d943efd0b91c745c6f8ea4dfc62dc7be4ae23"], ["created_at", "2020-09-29 19:41:31.539898"], ["updated_at", "2020-09-29 19:41:31.539898"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPrefecture Create (0.6ms)[0m  [1m[32mINSERT INTO "prefectures" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "prefectura"], ["created_at", "2020-09-29 19:41:31.580779"], ["updated_at", "2020-09-29 19:41:31.580779"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPoliceStation Create (0.7ms)[0m  [1m[32mINSERT INTO "police_stations" ("prefecture_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["prefecture_id", 1], ["created_at", "2020-09-29 19:41:31.594940"], ["updated_at", "2020-09-29 19:41:31.594940"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPoliceUnit Create (0.5ms)[0m  [1m[32mINSERT INTO "police_units" ("police_station_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["police_station_id", 1], ["created_at", "2020-09-29 19:41:31.605567"], ["updated_at", "2020-09-29 19:41:31.605567"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRegionalProsecution Create (0.5ms)[0m  [1m[32mINSERT INTO "regional_prosecutions" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "fiscalia regional"], ["created_at", "2020-09-29 19:41:31.615095"], ["updated_at", "2020-09-29 19:41:31.615095"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLocalProsecution Create (0.6ms)[0m  [1m[32mINSERT INTO "local_prosecutions" ("name", "regional_prosecution_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "fiscalia 1"], ["regional_prosecution_id", 1], ["created_at", "2020-09-29 19:41:31.626248"], ["updated_at", "2020-09-29 19:41:31.626248"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("role", "rut", "police_unit_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["role", 0], ["rut", "19838173k"], ["police_unit_id", 1], ["created_at", "2020-09-29 19:41:31.640677"], ["updated_at", "2020-09-29 19:41:31.640677"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProcedure Create (0.7ms)[0m  [1m[32mINSERT INTO "procedures" ("classification", "categories", "police_in_charge_id", "local_prosecution_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["classification", 0], ["categories", "{\"Categoria 1\",\"Categoria 2\"}"], ["police_in_charge_id", 1], ["local_prosecution_id", 1], ["created_at", "2020-09-29 19:41:31.656825"], ["updated_at", "2020-09-29 19:41:31.656825"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPerson Create (0.5ms)[0m  [1m[32mINSERT INTO "people" ("name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Juan"], ["last_name", "Perez"], ["created_at", "2020-09-29 19:41:31.669295"], ["updated_at", "2020-09-29 19:41:31.669295"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPersonInProcedure Create (0.9ms)[0m  [1m[32mINSERT INTO "person_in_procedures" ("person_id", "procedure_id", "role", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["person_id", 1], ["procedure_id", 1], ["role", 1], ["created_at", "2020-09-29 19:41:31.680748"], ["updated_at", "2020-09-29 19:41:31.680748"]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCrime Create (0.4ms)[0m  [1m[32mINSERT INTO "crimes" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2020-09-29 19:41:31.695559"], ["updated_at", "2020-09-29 19:41:31.695559"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCrime Create (0.2ms)[0m  [1m[32mINSERT INTO "crimes" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2020-09-29 19:41:31.699247"], ["updated_at", "2020-09-29 19:41:31.699247"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCrime Load (0.3ms)[0m  [1m[34mSELECT "crimes".* FROM "crimes" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (36.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "atenas_development"[0m
+  [1m[35m (30.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "atenas_test"[0m
+  [1m[35m (55.6ms)[0m  [1m[35mCREATE DATABASE "atenas_development" ENCODING = 'unicode'[0m
+  [1m[35m (55.4ms)[0m  [1m[35mCREATE DATABASE "atenas_test" ENCODING = 'unicode'[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3556230671141507205)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateRegionalProsecutions (20200925000000)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "regional_prosecutions" ("id" bigserial primary key, "name" character varying, "region" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200925000000"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateLocalProsecutions (20200926000000)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "local_prosecutions" ("id" bigserial primary key, "name" character varying, "regional_prosecution_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_052e4cb340"
+FOREIGN KEY ("regional_prosecution_id")
+  REFERENCES "regional_prosecutions" ("id")
+)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_local_prosecutions_on_regional_prosecution_id" ON "local_prosecutions"  ("regional_prosecution_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926000000"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePrefectures (20200926000004)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "prefectures" ("id" bigserial primary key, "name" character varying, "region" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926000004"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePoliceStations (20200926000005)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "police_stations" ("id" bigserial primary key, "name" character varying, "police_type" integer, "prefecture_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_00b2d2edda"
+FOREIGN KEY ("prefecture_id")
+  REFERENCES "prefectures" ("id")
+)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_police_stations_on_prefecture_id" ON "police_stations"  ("prefecture_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926000005"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePoliceUnits (20200926000006)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "police_units" ("id" bigserial primary key, "name" character varying, "police_station_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_88b607ecbc"
+FOREIGN KEY ("police_station_id")
+  REFERENCES "police_stations" ("id")
+)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_police_units_on_police_station_id" ON "police_units"  ("police_station_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926000006"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsers (20200926215954)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "role" integer, "rut" character varying, "birthday" date, "police_unit_id" bigint, "local_prosecution_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_4459d5b4e8"
+FOREIGN KEY ("police_unit_id")
+  REFERENCES "police_units" ("id")
+, CONSTRAINT "fk_rails_a0c816d758"
+FOREIGN KEY ("local_prosecution_id")
+  REFERENCES "local_prosecutions" ("id")
+)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_police_unit_id" ON "users"  ("police_unit_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_local_prosecution_id" ON "users"  ("local_prosecution_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926215954"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateNotifications (20200926220239)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" bigserial primary key, "notification_type" integer, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_b080fb4855"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_notifications_on_user_id" ON "notifications"  ("user_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926220239"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMessages (20200926220258)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "sender_user_id" bigint NOT NULL, "receiver_user_id" bigint NOT NULL, "content" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_3197d016f7"
+FOREIGN KEY ("sender_user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_e5915b2324"
+FOREIGN KEY ("receiver_user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_sender_user_id" ON "messages"  ("sender_user_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_receiver_user_id" ON "messages"  ("receiver_user_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926220258"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProcedures (20200926221325)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "procedures" ("id" bigserial primary key, "classification" integer, "categories" text[], "police_in_charge_id" bigint NOT NULL, "local_prosecution_id" bigint NOT NULL, "story" character varying, "address" character varying, "state" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_01ebe2587f"
+FOREIGN KEY ("police_in_charge_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_9bef32ff58"
+FOREIGN KEY ("local_prosecution_id")
+  REFERENCES "local_prosecutions" ("id")
+)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_police_in_charge_id" ON "procedures"  ("police_in_charge_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_local_prosecution_id" ON "procedures"  ("local_prosecution_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926221325"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePeople (20200926225000)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "people" ("id" bigserial primary key, "name" character varying, "last_name" character varying, "birthday" date, "rut" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926225000"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAliasAccuseds (20200926230432)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "alias_accuseds" ("id" bigserial primary key, "alias" character varying, "person_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_cea260112a"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_alias_accuseds_on_person_id" ON "alias_accuseds"  ("person_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926230432"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCrimes (20200926230841)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "crimes" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926230841"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCrimeInAccuseds (20200926230928)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "crime_in_accuseds" ("id" bigserial primary key, "preponderant" boolean, "crime_id" bigint NOT NULL, "person_id" bigint NOT NULL, "procedure_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_e9f93f7522"
+FOREIGN KEY ("crime_id")
+  REFERENCES "crimes" ("id")
+, CONSTRAINT "fk_rails_b5a506532a"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+, CONSTRAINT "fk_rails_39897d71a6"
+FOREIGN KEY ("procedure_id")
+  REFERENCES "procedures" ("id")
+)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_crime_id" ON "crime_in_accuseds"  ("crime_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_person_id" ON "crime_in_accuseds"  ("person_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_procedure_id" ON "crime_in_accuseds"  ("procedure_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926230928"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePersonInProcedures (20200927001751)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "person_in_procedures" ("id" bigserial primary key, "person_id" bigint NOT NULL, "procedure_id" bigint NOT NULL, "role" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_ef243c3ec5"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+, CONSTRAINT "fk_rails_7206b5a771"
+FOREIGN KEY ("procedure_id")
+  REFERENCES "procedures" ("id")
+)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_person_in_procedures_on_person_id" ON "person_in_procedures"  ("person_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_person_in_procedures_on_procedure_id" ON "person_in_procedures"  ("procedure_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200927001751"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-09-29 19:42:30.191811"], ["updated_at", "2020-09-29 19:42:30.191811"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3556230671141507205)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCrime Load (0.3ms)[0m  [1m[34mSELECT "crimes".* FROM "crimes" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPrefecture Create (0.8ms)[0m  [1m[32mINSERT INTO "prefectures" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "prefectura"], ["created_at", "2020-09-29 19:42:45.228647"], ["updated_at", "2020-09-29 19:42:45.228647"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPoliceStation Create (0.9ms)[0m  [1m[32mINSERT INTO "police_stations" ("prefecture_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["prefecture_id", 1], ["created_at", "2020-09-29 19:42:45.245600"], ["updated_at", "2020-09-29 19:42:45.245600"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPoliceUnit Create (0.5ms)[0m  [1m[32mINSERT INTO "police_units" ("police_station_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["police_station_id", 1], ["created_at", "2020-09-29 19:42:45.257811"], ["updated_at", "2020-09-29 19:42:45.257811"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRegionalProsecution Create (0.4ms)[0m  [1m[32mINSERT INTO "regional_prosecutions" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "fiscalia regional"], ["created_at", "2020-09-29 19:42:45.268710"], ["updated_at", "2020-09-29 19:42:45.268710"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLocalProsecution Create (0.6ms)[0m  [1m[32mINSERT INTO "local_prosecutions" ("name", "regional_prosecution_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "fiscalia 1"], ["regional_prosecution_id", 1], ["created_at", "2020-09-29 19:42:45.280190"], ["updated_at", "2020-09-29 19:42:45.280190"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("role", "rut", "police_unit_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["role", 0], ["rut", "19838173k"], ["police_unit_id", 1], ["created_at", "2020-09-29 19:42:45.295868"], ["updated_at", "2020-09-29 19:42:45.295868"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProcedure Create (0.8ms)[0m  [1m[32mINSERT INTO "procedures" ("classification", "categories", "police_in_charge_id", "local_prosecution_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["classification", 0], ["categories", "{\"Categoria 1\",\"Categoria 2\"}"], ["police_in_charge_id", 1], ["local_prosecution_id", 1], ["created_at", "2020-09-29 19:42:45.312870"], ["updated_at", "2020-09-29 19:42:45.312870"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPerson Create (0.4ms)[0m  [1m[32mINSERT INTO "people" ("name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Juan"], ["last_name", "Perez"], ["created_at", "2020-09-29 19:42:45.328230"], ["updated_at", "2020-09-29 19:42:45.328230"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPersonInProcedure Create (0.8ms)[0m  [1m[32mINSERT INTO "person_in_procedures" ("person_id", "procedure_id", "role", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["person_id", 1], ["procedure_id", 1], ["role", 1], ["created_at", "2020-09-29 19:42:45.344997"], ["updated_at", "2020-09-29 19:42:45.344997"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCrime Create (0.4ms)[0m  [1m[32mINSERT INTO "crimes" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2020-09-29 19:42:45.355103"], ["updated_at", "2020-09-29 19:42:45.355103"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCrime Create (0.2ms)[0m  [1m[32mINSERT INTO "crimes" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2020-09-29 19:42:45.358328"], ["updated_at", "2020-09-29 19:42:45.358328"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCrime Load (0.3ms)[0m  [1m[34mSELECT "crimes".* FROM "crimes" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/" for ::1 at 2020-09-29 16:57:01 -0300
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#index as HTML
+  Rendering procedures/index.html.erb within layouts/application
+  [1m[36mProcedure Load (0.6ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures"[0m
+  ↳ app/views/procedures/index.html.erb:20
+  Rendered procedures/index.html.erb within layouts/application (Duration: 48.5ms | Allocations: 11362)
+Completed 500 Internal Server Error in 72ms (ActiveRecord: 4.2ms | Allocations: 15910)
+
+
+  
+ActionView::Template::Error (undefined method `classificaction' for #<Procedure:0x00007ff6aeeb6bb0>
+Did you mean?  classification
+               classification=
+               classification?):
+    19:   <tbody>
+    20:     <% @procedures.each do |procedure| %>
+    21:       <tr>
+    22:         <td><%= procedure.classificaction %></td>
+    23:         <td><%= procedure.categories %></td>
+    24:         <td><%= procedure.user_id %></td>
+    25:         <td><%= procedure.local_prosecution_id %></td>
+  
+app/views/procedures/index.html.erb:22
+app/views/procedures/index.html.erb:20
+Started GET "/" for ::1 at 2020-09-29 17:02:23 -0300
+  
+ArgumentError (must be called with a path and/or options):
+  
+config/routes.rb:3:in `block in <main>'
+config/routes.rb:1:in `<main>'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (28.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "atenas_development"[0m
+  [1m[35m (21.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "atenas_test"[0m
+  [1m[35m (55.9ms)[0m  [1m[35mCREATE DATABASE "atenas_development" ENCODING = 'unicode'[0m
+  [1m[35m (57.2ms)[0m  [1m[35mCREATE DATABASE "atenas_test" ENCODING = 'unicode'[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3556230671141507205)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateRegionalProsecutions (20200925000000)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "regional_prosecutions" ("id" bigserial primary key, "name" character varying, "region" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200925000000"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateLocalProsecutions (20200926000000)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "local_prosecutions" ("id" bigserial primary key, "name" character varying, "regional_prosecution_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_052e4cb340"
+FOREIGN KEY ("regional_prosecution_id")
+  REFERENCES "regional_prosecutions" ("id")
+)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_local_prosecutions_on_regional_prosecution_id" ON "local_prosecutions"  ("regional_prosecution_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926000000"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePrefectures (20200926000004)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "prefectures" ("id" bigserial primary key, "name" character varying, "region" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926000004"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePoliceStations (20200926000005)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "police_stations" ("id" bigserial primary key, "name" character varying, "police_type" integer, "prefecture_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_00b2d2edda"
+FOREIGN KEY ("prefecture_id")
+  REFERENCES "prefectures" ("id")
+)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_police_stations_on_prefecture_id" ON "police_stations"  ("prefecture_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926000005"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePoliceUnits (20200926000006)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "police_units" ("id" bigserial primary key, "name" character varying, "police_station_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_88b607ecbc"
+FOREIGN KEY ("police_station_id")
+  REFERENCES "police_stations" ("id")
+)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_police_units_on_police_station_id" ON "police_units"  ("police_station_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926000006"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsers (20200926215954)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "role" integer, "rut" character varying, "birthday" date, "police_unit_id" bigint, "local_prosecution_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_4459d5b4e8"
+FOREIGN KEY ("police_unit_id")
+  REFERENCES "police_units" ("id")
+, CONSTRAINT "fk_rails_a0c816d758"
+FOREIGN KEY ("local_prosecution_id")
+  REFERENCES "local_prosecutions" ("id")
+)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_police_unit_id" ON "users"  ("police_unit_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_local_prosecution_id" ON "users"  ("local_prosecution_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926215954"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateNotifications (20200926220239)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" bigserial primary key, "notification_type" integer, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_b080fb4855"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_notifications_on_user_id" ON "notifications"  ("user_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926220239"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMessages (20200926220258)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "sender_user_id" bigint NOT NULL, "receiver_user_id" bigint NOT NULL, "content" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_3197d016f7"
+FOREIGN KEY ("sender_user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_e5915b2324"
+FOREIGN KEY ("receiver_user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_sender_user_id" ON "messages"  ("sender_user_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_receiver_user_id" ON "messages"  ("receiver_user_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926220258"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProcedures (20200926221325)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "procedures" ("id" bigserial primary key, "classification" integer, "categories" text[], "police_in_charge_id" bigint NOT NULL, "local_prosecution_id" bigint NOT NULL, "story" character varying, "address" character varying, "state" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_01ebe2587f"
+FOREIGN KEY ("police_in_charge_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_9bef32ff58"
+FOREIGN KEY ("local_prosecution_id")
+  REFERENCES "local_prosecutions" ("id")
+)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_police_in_charge_id" ON "procedures"  ("police_in_charge_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_local_prosecution_id" ON "procedures"  ("local_prosecution_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926221325"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePeople (20200926225000)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "people" ("id" bigserial primary key, "name" character varying, "last_name" character varying, "birthday" date, "rut" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926225000"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAliasAccuseds (20200926230432)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "alias_accuseds" ("id" bigserial primary key, "alias" character varying, "person_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_cea260112a"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_alias_accuseds_on_person_id" ON "alias_accuseds"  ("person_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926230432"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCrimes (20200926230841)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "crimes" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926230841"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCrimeInAccuseds (20200926230928)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "crime_in_accuseds" ("id" bigserial primary key, "preponderant" boolean, "crime_id" bigint NOT NULL, "person_id" bigint NOT NULL, "procedure_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_e9f93f7522"
+FOREIGN KEY ("crime_id")
+  REFERENCES "crimes" ("id")
+, CONSTRAINT "fk_rails_b5a506532a"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+, CONSTRAINT "fk_rails_39897d71a6"
+FOREIGN KEY ("procedure_id")
+  REFERENCES "procedures" ("id")
+)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_crime_id" ON "crime_in_accuseds"  ("crime_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_person_id" ON "crime_in_accuseds"  ("person_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_procedure_id" ON "crime_in_accuseds"  ("procedure_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926230928"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePersonInProcedures (20200927001751)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "person_in_procedures" ("id" bigserial primary key, "person_id" bigint NOT NULL, "procedure_id" bigint NOT NULL, "role" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_ef243c3ec5"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+, CONSTRAINT "fk_rails_7206b5a771"
+FOREIGN KEY ("procedure_id")
+  REFERENCES "procedures" ("id")
+)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_person_in_procedures_on_person_id" ON "person_in_procedures"  ("person_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_person_in_procedures_on_procedure_id" ON "person_in_procedures"  ("procedure_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200927001751"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-09-29 20:05:33.406154"], ["updated_at", "2020-09-29 20:05:33.406154"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3556230671141507205)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPrefecture Create (0.6ms)[0m  [1m[32mINSERT INTO "prefectures" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "prefectura"], ["created_at", "2020-09-29 20:05:38.699895"], ["updated_at", "2020-09-29 20:05:38.699895"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPoliceStation Create (0.7ms)[0m  [1m[32mINSERT INTO "police_stations" ("prefecture_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["prefecture_id", 1], ["created_at", "2020-09-29 20:05:38.712669"], ["updated_at", "2020-09-29 20:05:38.712669"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPoliceUnit Create (0.6ms)[0m  [1m[32mINSERT INTO "police_units" ("police_station_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["police_station_id", 1], ["created_at", "2020-09-29 20:05:38.723133"], ["updated_at", "2020-09-29 20:05:38.723133"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRegionalProsecution Create (0.4ms)[0m  [1m[32mINSERT INTO "regional_prosecutions" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "fiscalia regional"], ["created_at", "2020-09-29 20:05:38.732729"], ["updated_at", "2020-09-29 20:05:38.732729"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLocalProsecution Create (0.6ms)[0m  [1m[32mINSERT INTO "local_prosecutions" ("name", "regional_prosecution_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "fiscalia 1"], ["regional_prosecution_id", 1], ["created_at", "2020-09-29 20:05:38.742553"], ["updated_at", "2020-09-29 20:05:38.742553"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("role", "rut", "police_unit_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["role", 0], ["rut", "19838173k"], ["police_unit_id", 1], ["created_at", "2020-09-29 20:05:38.754322"], ["updated_at", "2020-09-29 20:05:38.754322"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProcedure Create (0.7ms)[0m  [1m[32mINSERT INTO "procedures" ("classification", "categories", "police_in_charge_id", "local_prosecution_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["classification", 0], ["categories", "{\"Categoria 1\",\"Categoria 2\"}"], ["police_in_charge_id", 1], ["local_prosecution_id", 1], ["created_at", "2020-09-29 20:05:38.766959"], ["updated_at", "2020-09-29 20:05:38.766959"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPerson Create (0.3ms)[0m  [1m[32mINSERT INTO "people" ("name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Juan"], ["last_name", "Perez"], ["created_at", "2020-09-29 20:05:38.778377"], ["updated_at", "2020-09-29 20:05:38.778377"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPersonInProcedure Create (0.7ms)[0m  [1m[32mINSERT INTO "person_in_procedures" ("person_id", "procedure_id", "role", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["person_id", 1], ["procedure_id", 1], ["role", 1], ["created_at", "2020-09-29 20:05:38.793275"], ["updated_at", "2020-09-29 20:05:38.793275"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCrime Create (0.4ms)[0m  [1m[32mINSERT INTO "crimes" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2020-09-29 20:05:38.803057"], ["updated_at", "2020-09-29 20:05:38.803057"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCrime Create (0.2ms)[0m  [1m[32mINSERT INTO "crimes" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2020-09-29 20:05:38.805925"], ["updated_at", "2020-09-29 20:05:38.805925"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2020-09-29 17:05:43 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#index as HTML
+  Rendering procedures/index.html.erb within layouts/application
+  [1m[36mProcedure Load (0.6ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures"[0m
+  ↳ app/views/procedures/index.html.erb:20
+  Rendered procedures/index.html.erb within layouts/application (Duration: 50.7ms | Allocations: 11015)
+Completed 500 Internal Server Error in 73ms (ActiveRecord: 5.4ms | Allocations: 15564)
+
+
+  
+ActionView::Template::Error (undefined method `classificaction' for #<Procedure:0x00007f89288629b0>
+Did you mean?  classification
+               classification=
+               classification?):
+    19:   <tbody>
+    20:     <% @procedures.each do |procedure| %>
+    21:       <tr>
+    22:         <td><%= procedure.classificaction %></td>
+    23:         <td><%= procedure.categories %></td>
+    24:         <td><%= procedure.user_id %></td>
+    25:         <td><%= procedure.local_prosecution_id %></td>
+  
+app/views/procedures/index.html.erb:22
+app/views/procedures/index.html.erb:20
+Started GET "/" for ::1 at 2020-09-29 17:07:06 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:18
+  Rendered users/index.html.erb within layouts/application (Duration: 124.8ms | Allocations: 68453)
+Completed 500 Internal Server Error in 148ms (ActiveRecord: 4.7ms | Allocations: 73422)
+
+
+  
+ActionView::Template::Error (undefined method `user_path' for #<#<Class:0x00007f932287c9b0>:0x00007f93228cd248>):
+    22:         <td><%= user.birthday %></td>
+    23:         <td><%= user.police_unit_id %></td>
+    24:         <td><%= user.local_prosecution_id %></td>
+    25:         <td><%= link_to 'Show', user %></td>
+    26:         <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    27:         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    28:       </tr>
+  
+app/views/users/index.html.erb:25
+app/views/users/index.html.erb:18
+Started GET "/" for ::1 at 2020-09-29 17:07:31 -0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:18
+  Rendered users/index.html.erb within layouts/application (Duration: 14.7ms | Allocations: 5175)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/martinmorenocerda/Desktop/Atenas/public/packs
+[Webpacker] Hash: 15d1bb7b54cf6326b9ba
+Version: webpack 4.44.2
+Time: 1331ms
+Built at: 09/29/2020 5:07:34 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9afcbb5693aa87623e69.js    124 KiB  application  [emitted] [immutable]  application
+js/application-9afcbb5693aa87623e69.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-9afcbb5693aa87623e69.js js/application-9afcbb5693aa87623e69.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+Completed 200 OK in 3031ms (Views: 3022.1ms | ActiveRecord: 3.4ms | Allocations: 21844)
+
+
+Started GET "/" for ::1 at 2020-09-29 17:07:48 -0300
+Processing by ProceduresController#index as HTML
+  Rendering procedures/index.html.erb within layouts/application
+  [1m[36mProcedure Load (0.5ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures"[0m
+  ↳ app/views/procedures/index.html.erb:20
+  Rendered procedures/index.html.erb within layouts/application (Duration: 25.3ms | Allocations: 10174)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 3.3ms | Allocations: 13464)
+
+
+  
+ActionView::Template::Error (undefined method `classificaction' for #<Procedure:0x00007f9327069fc0>
+Did you mean?  classification
+               classification=
+               classification?):
+    19:   <tbody>
+    20:     <% @procedures.each do |procedure| %>
+    21:       <tr>
+    22:         <td><%= procedure.classificaction %></td>
+    23:         <td><%= procedure.categories %></td>
+    24:         <td><%= procedure.user_id %></td>
+    25:         <td><%= procedure.local_prosecution_id %></td>
+  
+app/views/procedures/index.html.erb:22
+app/views/procedures/index.html.erb:20
+Started GET "/" for ::1 at 2020-09-29 17:07:52 -0300
+Processing by ProceduresController#index as HTML
+  Rendering procedures/index.html.erb within layouts/application
+  [1m[36mProcedure Load (0.2ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures"[0m
+  ↳ app/views/procedures/index.html.erb:20
+  Rendered procedures/index.html.erb within layouts/application (Duration: 11.5ms | Allocations: 4234)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.2ms | Allocations: 4665)
+
+
+  
+ActionView::Template::Error (undefined method `classificaction' for #<Procedure:0x00007f9327823ab8>
+Did you mean?  classification
+               classification=
+               classification?):
+    19:   <tbody>
+    20:     <% @procedures.each do |procedure| %>
+    21:       <tr>
+    22:         <td><%= procedure.classificaction %></td>
+    23:         <td><%= procedure.categories %></td>
+    24:         <td><%= procedure.user_id %></td>
+    25:         <td><%= procedure.local_prosecution_id %></td>
+  
+app/views/procedures/index.html.erb:22
+app/views/procedures/index.html.erb:20
+Started GET "/" for ::1 at 2020-09-29 17:09:43 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#index as HTML
+  Rendering procedures/index.html.erb within layouts/application
+  [1m[36mProcedure Load (0.6ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures"[0m
+  ↳ app/views/procedures/index.html.erb:20
+  Rendered procedures/index.html.erb within layouts/application (Duration: 34.3ms | Allocations: 10777)
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 5.2ms | Allocations: 15426)
+
+
+  
+ActionView::Template::Error (undefined method `user_id' for #<Procedure:0x00007fd2660e38b0>):
+    21:       <tr>
+    22:         <td><%= procedure.classification %></td>
+    23:         <td><%= procedure.categories %></td>
+    24:         <td><%= procedure.user_id %></td>
+    25:         <td><%= procedure.local_prosecution_id %></td>
+    26:         <td><%= procedure.story %></td>
+    27:         <td><%= procedure.address %></td>
+  
+app/views/procedures/index.html.erb:24
+app/views/procedures/index.html.erb:20
+Started GET "/" for ::1 at 2020-09-29 17:10:32 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#index as HTML
+  Rendering procedures/index.html.erb within layouts/application
+  [1m[36mProcedure Load (1.5ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures"[0m
+  ↳ app/views/procedures/index.html.erb:20
+  Rendered procedures/index.html.erb within layouts/application (Duration: 33.6ms | Allocations: 7365)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 72ms (Views: 46.8ms | ActiveRecord: 5.3ms | Allocations: 16989)
+
+
+Started GET "/procedures/1" for ::1 at 2020-09-29 17:10:45 -0300
+Processing by ProceduresController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProcedure Load (0.2ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures" WHERE "procedures"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/procedures_controller.rb:67:in `set_procedure'
+  Rendering procedures/show.html.erb within layouts/application
+  Rendered procedures/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 374)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 6.4ms | ActiveRecord: 0.4ms | Allocations: 5244)
+
+
+Started GET "/procedures/new" for ::1 at 2020-09-29 17:10:54 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/_form.html.erb (Duration: 13.6ms | Allocations: 4395)
+  Rendered procedures/new.html.erb within layouts/application (Duration: 15.3ms | Allocations: 4730)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 20.3ms | ActiveRecord: 0.0ms | Allocations: 8610)
+
+
+Started GET "/procedures/1" for ::1 at 2020-09-29 17:15:59 -0300
+Processing by ProceduresController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProcedure Load (0.3ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures" WHERE "procedures"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/procedures_controller.rb:67:in `set_procedure'
+  Rendering procedures/show.html.erb within layouts/application
+  Rendered procedures/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 102)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 6.1ms | ActiveRecord: 0.3ms | Allocations: 4408)
+
+
+Started GET "/procedures" for ::1 at 2020-09-29 17:16:00 -0300
+Processing by ProceduresController#index as HTML
+  Rendering procedures/index.html.erb within layouts/application
+  [1m[36mProcedure Load (0.3ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures"[0m
+  ↳ app/views/procedures/index.html.erb:20
+  Rendered procedures/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 830)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.3ms | Allocations: 4562)
+
+
+Started GET "/procedures/1/edit" for ::1 at 2020-09-29 17:16:02 -0300
+Processing by ProceduresController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProcedure Load (0.3ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures" WHERE "procedures"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/procedures_controller.rb:67:in `set_procedure'
+  Rendering procedures/edit.html.erb within layouts/application
+  Rendered procedures/_form.html.erb (Duration: 2.8ms | Allocations: 1738)
+  Rendered procedures/edit.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1978)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 9.5ms | ActiveRecord: 0.3ms | Allocations: 6384)
+
+
+Started GET "/procedures" for ::1 at 2020-09-29 17:16:04 -0300
+Processing by ProceduresController#index as HTML
+  Rendering procedures/index.html.erb within layouts/application
+  [1m[36mProcedure Load (0.3ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures"[0m
+  ↳ app/views/procedures/index.html.erb:20
+  Rendered procedures/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 819)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.3ms | Allocations: 4536)
+
+
+Started GET "/procedures/new" for ::1 at 2020-09-29 17:16:05 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/_form.html.erb (Duration: 2.5ms | Allocations: 1638)
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1720)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.0ms | Allocations: 5443)
+
+
+Started GET "/procedures" for ::1 at 2020-09-29 17:16:07 -0300
+Processing by ProceduresController#index as HTML
+  Rendering procedures/index.html.erb within layouts/application
+  [1m[36mProcedure Load (0.4ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures"[0m
+  ↳ app/views/procedures/index.html.erb:20
+  Rendered procedures/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 817)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.4ms | Allocations: 4538)
+
+
+Started GET "/procedures/new" for ::1 at 2020-09-29 17:16:15 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/_form.html.erb (Duration: 2.3ms | Allocations: 1638)
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1720)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.0ms | Allocations: 5441)
+
+
+Started GET "/procedures" for ::1 at 2020-09-29 17:17:21 -0300
+Processing by ProceduresController#index as HTML
+  Rendering procedures/index.html.erb within layouts/application
+  [1m[36mProcedure Load (0.3ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures"[0m
+  ↳ app/views/procedures/index.html.erb:20
+  Rendered procedures/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 816)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.3ms | Allocations: 4534)
+
+
+Started GET "/procedures" for ::1 at 2020-09-29 17:19:42 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/procedures"):
+  
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/1/procedures" for ::1 at 2020-09-29 17:19:47 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/1/procedures"):
+  
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users/1/procedures" for ::1 at 2020-09-29 17:20:39 -0300
+Processing by ProceduresController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering procedures/index.html.erb within layouts/application
+  [1m[36mProcedure Load (0.3ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures"[0m
+  ↳ app/views/procedures/index.html.erb:20
+  Rendered procedures/index.html.erb within layouts/application (Duration: 134.9ms | Allocations: 70348)
+Completed 500 Internal Server Error in 140ms (ActiveRecord: 3.5ms | Allocations: 73146)
+
+
+  
+ActionView::Template::Error (undefined method `procedure_path' for #<#<Class:0x00007fcfdc15db88>:0x00007fcfdc151540>):
+    26:         <td><%= procedure.story %></td>
+    27:         <td><%= procedure.address %></td>
+    28:         <td><%= procedure.state %></td>
+    29:         <td><%= link_to 'Show', procedure %></td>
+    30:         <td><%= link_to 'Edit', edit_procedure_path(procedure) %></td>
+    31:         <td><%= link_to 'Destroy', procedure, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    32:       </tr>
+  
+app/views/procedures/index.html.erb:29
+app/views/procedures/index.html.erb:20
+Started GET "/users/1/procedures" for ::1 at 2020-09-29 17:23:25 -0300
+Processing by ProceduresController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering procedures/index.html.erb within layouts/application
+  [1m[36mProcedure Load (0.2ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures"[0m
+  ↳ app/views/procedures/index.html.erb:20
+  Rendered procedures/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 2018)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms | Allocations: 3202)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"procedures", :user_id=>#<Procedure id: 1, classification: 0, categories: ["Categoria 1", "Categoria 2"], police_in_charge_id: 1, local_prosecution_id: 1, story: nil, address: nil, state: nil, created_at: "2020-09-29 20:05:38", updated_at: "2020-09-29 20:05:38">}, missing required keys: [:id]):
+    26:         <td><%= procedure.story %></td>
+    27:         <td><%= procedure.address %></td>
+    28:         <td><%= procedure.state %></td>
+    29:         <td><%= link_to 'Show', user_procedure_path(procedure) %></td>
+    30:         <td><%= link_to 'Edit', edit_user_procedure_path(procedure) %></td>
+    31:         <td><%= link_to 'Destroy', user_procedure_path(procedure), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    32:       </tr>
+  
+app/views/procedures/index.html.erb:29
+app/views/procedures/index.html.erb:20
+Started GET "/users/1/procedures" for ::1 at 2020-09-29 17:26:33 -0300
+Processing by ProceduresController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering procedures/index.html.erb within layouts/application
+  [1m[36mProcedure Load (0.2ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures"[0m
+  ↳ app/views/procedures/index.html.erb:20
+  Rendered procedures/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 2049)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms | Allocations: 3232)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"procedures", :user_id=>#<Procedure id: 1, classification: 0, categories: ["Categoria 1", "Categoria 2"], police_in_charge_id: 1, local_prosecution_id: 1, story: nil, address: nil, state: nil, created_at: "2020-09-29 20:05:38", updated_at: "2020-09-29 20:05:38">}, missing required keys: [:id]):
+    27:         <td><%= procedure.address %></td>
+    28:         <td><%= procedure.state %></td>
+    29:         <td><%= link_to 'Show', user_procedure_path(1, procedure) %></td>
+    30:         <td><%= link_to 'Edit', edit_user_procedure_path(procedure) %></td>
+    31:         <td><%= link_to 'Destroy', user_procedure_path(procedure), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    32:       </tr>
+    33:     <% end %>
+  
+app/views/procedures/index.html.erb:30
+app/views/procedures/index.html.erb:20
+Started GET "/users/1/procedures" for ::1 at 2020-09-29 17:26:48 -0300
+Processing by ProceduresController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering procedures/index.html.erb within layouts/application
+  [1m[36mProcedure Load (0.2ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures"[0m
+  ↳ app/views/procedures/index.html.erb:20
+  Rendered procedures/index.html.erb within layouts/application (Duration: 201.7ms | Allocations: 126235)
+Completed 500 Internal Server Error in 204ms (ActiveRecord: 0.2ms | Allocations: 127418)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `new_procedure_path' for #<#<Class:0x00007fcfd81c3f90>:0x00007fcfd81c25f0>
+Did you mean?  new_user_procedure_path):
+    36: 
+    37: <br>
+    38: 
+    39: <%= link_to 'New Procedure', new_procedure_path %>
+  
+app/views/procedures/index.html.erb:39
+Started GET "/users/1/procedures" for ::1 at 2020-09-29 17:27:11 -0300
+Processing by ProceduresController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering procedures/index.html.erb within layouts/application
+  [1m[36mProcedure Load (0.3ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures"[0m
+  ↳ app/views/procedures/index.html.erb:20
+  Rendered procedures/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1134)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 13.2ms | ActiveRecord: 0.3ms | Allocations: 5809)
+
+
+Started GET "/users/1/procedures" for ::1 at 2020-09-29 17:28:58 -0300
+Processing by ProceduresController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering procedures/index.html.erb within layouts/application
+  [1m[36mProcedure Load (0.4ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures"[0m
+  ↳ app/views/procedures/index.html.erb:20
+  Rendered procedures/index.html.erb within layouts/application (Duration: 70488.9ms | Allocations: 192689)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 70504ms (Views: 70502.4ms | ActiveRecord: 0.4ms | Allocations: 202781)
+
+
+Started GET "/users/1/procedures" for ::1 at 2020-09-29 17:30:11 -0300
+Processing by ProceduresController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering procedures/index.html.erb within layouts/application
+  [1m[36mProcedure Load (0.3ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures"[0m
+  ↳ app/views/procedures/index.html.erb:20
+  Rendered procedures/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1157)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 29.6ms | ActiveRecord: 0.3ms | Allocations: 5800)
+
+
