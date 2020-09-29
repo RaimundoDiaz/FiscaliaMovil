@@ -3,6 +3,6 @@ class User < ApplicationRecord
   has_many :receiver_messages, class_name: 'Message', foreign_key: 'receiver_user_id'
   has_many :procedures
   has_many :notifications
-  has_one :local_prosecution
-  has_one :police_unit
+  belongs_to :local_prosecution, optional: true
+  belongs_to :police_unit, optional: true
 end
