@@ -5,6 +5,7 @@ class CreatePeople < ActiveRecord::Migration[6.0]
       t.string :last_name
       t.date :birthday
       t.string :rut
+      t.boolean :deceased
 
       t.timestamps
     end

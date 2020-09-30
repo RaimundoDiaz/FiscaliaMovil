@@ -5,4 +5,6 @@ class User < ApplicationRecord
   has_many :notifications
   belongs_to :local_prosecution, optional: true
   belongs_to :police_unit, optional: true
+  validates :rut, presence: true, rut: true
 end
+
