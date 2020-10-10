@@ -20,18 +20,58 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e78bd00-05eb-47f1-83a9-96a5096b2ba1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/atenas.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/atenas.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/police_man.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/prosecutor.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/migrate/20200926221323_create_prosecutors.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/migrate/20200926221324_create_police_men.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/fixtures/police_men.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/fixtures/prosecutors.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/models/police_man_test.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/models/prosecutor_test.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/person.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/person.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20200926215954_create_users.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20200926215954_create_users.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20200926221325_create_procedures.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20200926221325_create_procedures.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/development.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/development.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/08/ce9a00732837b7" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/08/ce9a00732837b7" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/24/3d76163ac95b5e" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/24/3d76163ac95b5e" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/5c/7815e966d49dfe" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/5c/7815e966d49dfe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/b0/6d8b282dc448cc" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/b0/6d8b282dc448cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.yarn-integrity" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.yarn-integrity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bindings/LICENSE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bindings/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bindings/bindings.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bindings/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/History.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/test/test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/test/tests.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/ISSUE_TEMPLATE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/Readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/binding.gyp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/build/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/build/config.gypi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/build/fse.target.mk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/build/gyp-mac-tool" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/fsevents.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/fsevents.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/install.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/src/async.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/src/constants.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/src/methods.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/src/storage.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/src/thread.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/watchpack/node_modules/fsevents/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/watchpack/node_modules/fsevents/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/watchpack/node_modules/fsevents/fsevents.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/watchpack/node_modules/fsevents/fsevents.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/watchpack/node_modules/fsevents/fsevents.node" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/watchpack/node_modules/fsevents/package.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap-load-path-cache" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap-load-path-cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,13 +83,17 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1i4BiQMDN2f3bfYEX62CE2fTWFt" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.ruby.settings.RubyActiveModuleSdkConfigurable" />
@@ -153,8 +197,11 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" RAKE_SPRING_PRE_LOADER_OPTION="true" RAILS_SPRING_PRE_LOADER_OPTION="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="7e78bd00-05eb-47f1-83a9-96a5096b2ba1" name="Default Changelist" comment="" />
@@ -165,23 +212,28 @@
       <workItem from="1601157112723" duration="7553000" />
       <workItem from="1601324101431" duration="7439000" />
       <workItem from="1601404889568" duration="8610000" />
+      <workItem from="1602365043334" duration="5626000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="490" y="176" key="SettingsEditor" timestamp="1601328234962">
