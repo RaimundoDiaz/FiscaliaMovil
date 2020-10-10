@@ -1,0 +1,2 @@
+class PoliceMan < ApplicationRecord
+end

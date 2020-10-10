@@ -1,0 +1,2 @@
+class Prosecutor < ApplicationRecord
+end
