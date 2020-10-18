@@ -1,5 +1,21 @@
-<h1>New Procedure</h1>
+<span>
+  <h1>Ingreso de procedimiento</h1>
 
-<%= render 'form', procedure: @procedure %>
+  <%= form_with model: @procedure do |form| %>
+    <section>
+      <label for="direccion"> Direccion: </label>
+      <%= form.text_field :direccion %>
+    </section>
 
-<%= link_to 'Back', procedures_path %>
+    <section>
+      <label for="direccion"> Direccion: </label>
+      <%= form.text_field :direccion %>
+    </section>
+
+    <section>
+      <%= form.submit "Enviar", class: "btn btn-primary" %>
+    </section>
+
+  <% end %>
+
+</span>

@@ -8767,3 +8767,291 @@ FOREIGN KEY ("procedure_id")
   [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3556230671141507205)[0m
   [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE DATABASE "atenas_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE DATABASE "atenas_test" ENCODING = 'unicode'[0m
+  [1m[35m (6.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3556230671141507205)[0m
+  [1m[35m (5.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateProsecutors (20200926221323)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (61.9ms)[0m  [1m[35mCREATE TABLE "prosecutors" ("id" bigserial primary key, "name" character varying, "rut" character varying, "local_prosecutions_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_3883c3b60f"
+FOREIGN KEY ("local_prosecutions_id")
+  REFERENCES "local_prosecutions" ("id")
+)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_prosecutors_on_local_prosecutions_id" ON "prosecutors"  ("local_prosecutions_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926221323"]]
+  [1m[35m (8.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePoliceMen (20200926221324)
+  [1m[35m (6.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (22.2ms)[0m  [1m[35mCREATE TABLE "police_men" ("id" bigserial primary key, "name" character varying, "rut" character varying, "badge" integer, "police_unit_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_ade1fabd96"
+FOREIGN KEY ("police_unit_id")
+  REFERENCES "police_units" ("id")
+)[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE  INDEX  "index_police_men_on_police_unit_id" ON "police_men"  ("police_unit_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926221324"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (19.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3556230671141507205)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 17:29:52 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.9ms | Allocations: 1160)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: 90b039f8fea92e322d54
+Version: webpack 4.44.2
+Time: 4441ms
+Built at: 10/18/2020 5:29:59 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-cad94896a69c871b30ca.js    124 KiB  application  [emitted] [immutable]  application
+js/application-cad94896a69c871b30ca.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-cad94896a69c871b30ca.js js/application-cad94896a69c871b30ca.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 810 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+Completed 200 OK in 7178ms (Views: 7110.7ms | ActiveRecord: 8.2ms | Allocations: 29679)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 17:30:47 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 500)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 14.4ms | ActiveRecord: 0.0ms | Allocations: 5147)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 17:30:48 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 310)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.0ms | Allocations: 4034)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 17:31:17 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 497)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 0.0ms | Allocations: 5136)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 17:31:18 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 310)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.0ms | Allocations: 4042)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 17:32:24 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 303)
+Completed 500 Internal Server Error in 199ms (ActiveRecord: 0.0ms | Allocations: 9057)
+
+
+  
+ActionView::Template::Error (couldn't find file 'bootstrap' with type 'text/css'
+Checked in these paths: 
+  /home/toor/Desktop/Atenas/app/assets/config
+  /home/toor/Desktop/Atenas/app/assets/images
+  /home/toor/Desktop/Atenas/app/assets/stylesheets
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/jquery-rails-4.4.0/vendor/assets/javascripts
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/actioncable-6.0.3.3/app/assets/javascripts
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/activestorage-6.0.3.3/app/assets/javascripts
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/actionview-6.0.3.3/lib/assets/compiled
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /home/toor/Desktop/Atenas/node_modules
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/popper_js-1.16.0/assets/javascripts
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/bootstrap-4.3.1/assets/stylesheets
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/bootstrap-4.3.1/assets/javascripts):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+  
+app/assets/stylesheets/application.css:15
+app/views/layouts/application.html.erb:8
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 17:32:26 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 315)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms | Allocations: 12973)
+
+
+  
+ActionView::Template::Error (couldn't find file 'bootstrap' with type 'text/css'
+Checked in these paths: 
+  /home/toor/Desktop/Atenas/app/assets/config
+  /home/toor/Desktop/Atenas/app/assets/images
+  /home/toor/Desktop/Atenas/app/assets/stylesheets
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/jquery-rails-4.4.0/vendor/assets/javascripts
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/actioncable-6.0.3.3/app/assets/javascripts
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/activestorage-6.0.3.3/app/assets/javascripts
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/actionview-6.0.3.3/lib/assets/compiled
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /home/toor/Desktop/Atenas/node_modules
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/popper_js-1.16.0/assets/javascripts
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/bootstrap-4.3.1/assets/stylesheets
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/bootstrap-4.3.1/assets/javascripts):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+  
+app/assets/stylesheets/application.css:15
+app/views/layouts/application.html.erb:8
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 17:34:32 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 499)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms | Allocations: 7469)
+
+
+  
+ActionView::Template::Error (couldn't find file 'bootstrap' with type 'text/css'
+Checked in these paths: 
+  /home/toor/Desktop/Atenas/app/assets/config
+  /home/toor/Desktop/Atenas/app/assets/images
+  /home/toor/Desktop/Atenas/app/assets/stylesheets
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/jquery-rails-4.4.0/vendor/assets/javascripts
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/actioncable-6.0.3.3/app/assets/javascripts
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/activestorage-6.0.3.3/app/assets/javascripts
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/actionview-6.0.3.3/lib/assets/compiled
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /home/toor/Desktop/Atenas/node_modules
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/popper_js-1.16.0/assets/javascripts
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/bootstrap-4.3.1/assets/stylesheets
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/bootstrap-4.3.1/assets/javascripts):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:     <link href="https://getbootstrap.com/docs/4.0/examples/jumbotron/jumbotron.css" rel="stylesheet">
+    11:   </head>
+  
+app/assets/stylesheets/application.css:15
+app/views/layouts/application.html.erb:8
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 17:34:41 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 314)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 21.4ms | ActiveRecord: 0.0ms | Allocations: 4120)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 17:34:44 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 9.2ms | Allocations: 303)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 18.9ms | ActiveRecord: 0.0ms | Allocations: 4021)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 17:34:46 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 303)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 4027)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 17:45:53 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 303)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms | Allocations: 6374)
+
+
+  
+ActionView::Template::Error (couldn't find file 'bootstrap' with type 'text/css'
+Checked in these paths: 
+  /home/toor/Desktop/Atenas/app/assets/config
+  /home/toor/Desktop/Atenas/app/assets/images
+  /home/toor/Desktop/Atenas/app/assets/stylesheets
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/jquery-rails-4.4.0/vendor/assets/javascripts
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/actioncable-6.0.3.3/app/assets/javascripts
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/activestorage-6.0.3.3/app/assets/javascripts
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/actionview-6.0.3.3/lib/assets/compiled
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /home/toor/Desktop/Atenas/node_modules
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/popper_js-1.16.0/assets/javascripts
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/bootstrap-4.3.1/assets/stylesheets
+  /home/toor/.rvm/gems/ruby-2.7.1/gems/bootstrap-4.3.1/assets/javascripts):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:     <link href="https://getbootstrap.com/docs/4.0/examples/jumbotron/jumbotron.css" rel="stylesheet">
+    11:   </head>
+  
+app/assets/stylesheets/application.css:15
+app/views/layouts/application.html.erb:8
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 17:46:47 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 308)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+/home/toor/Desktop/Atenas/config/webpack/environment.js:3
+const { environment } = require('@rails/webpacker')
+        ^
+
+SyntaxError: Identifier 'environment' has already been declared
+    at new Script (vm.js:88:7)
+    at NativeCompileCache._moduleCompile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:242:18)
+    at Module._compile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:186:36)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)
+    at Object.<anonymous> (/home/toor/Desktop/Atenas/config/webpack/development.js:3:21)
+    at Module._compile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:194:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)
+    at WEBPACK_OPTIONS (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:114:13)
+    at requireConfig (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:116:6)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:123:17
+    at Array.forEach (<anonymous>)
+    at module.exports (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:121:15)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:71:45
+    at Object.parse (/home/toor/Desktop/Atenas/node_modules/yargs/yargs.js:576:18)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:49:8
+    at Object.<anonymous> (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:366:3)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (internal/modules/cjs/helpers.js:77:18)
+
+Completed 200 OK in 9980ms (Views: 9979.3ms | ActiveRecord: 0.0ms | Allocations: 29821)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 17:47:33 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 965)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 191ms (Views: 154.0ms | ActiveRecord: 5.1ms | Allocations: 47896)
+
+
