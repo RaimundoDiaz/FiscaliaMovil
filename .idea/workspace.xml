@@ -20,58 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e78bd00-05eb-47f1-83a9-96a5096b2ba1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/models/police_man.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/prosecutor.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrate/20200926221323_create_prosecutors.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrate/20200926221324_create_police_men.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/fixtures/police_men.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/fixtures/prosecutors.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/models/police_man_test.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/models/prosecutor_test.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.generators" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.generators" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/atenas.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/atenas.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20200926215954_create_users.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20200926215954_create_users.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20200926221325_create_procedures.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20200926221325_create_procedures.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/application.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/development.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/development.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/.yarn-integrity" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.yarn-integrity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bindings/LICENSE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bindings/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bindings/bindings.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bindings/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/History.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/index.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/test/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/test/tests.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/ISSUE_TEMPLATE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/Readme.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/binding.gyp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/build/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/build/config.gypi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/build/fse.target.mk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/build/gyp-mac-tool" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/fsevents.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/fsevents.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/install.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/src/async.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/src/constants.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/src/methods.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/src/storage.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/src/thread.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/watchpack/node_modules/fsevents/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/watchpack/node_modules/fsevents/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/watchpack/node_modules/fsevents/fsevents.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/watchpack/node_modules/fsevents/fsevents.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/watchpack/node_modules/fsevents/fsevents.node" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/watchpack/node_modules/fsevents/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/node-sass/vendor/darwin-x64-83/binding.node" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap-load-path-cache" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap-load-path-cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -213,6 +171,8 @@
       <workItem from="1601324101431" duration="7439000" />
       <workItem from="1601404889568" duration="8610000" />
       <workItem from="1602365043334" duration="5626000" />
+      <workItem from="1603051266972" duration="116000" />
+      <workItem from="1603051633080" duration="262000" />
     </task>
     <servers />
   </component>
