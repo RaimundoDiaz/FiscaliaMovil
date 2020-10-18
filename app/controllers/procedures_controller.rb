@@ -1,5 +1,6 @@
 class ProceduresController < ApplicationController
   before_action :set_procedure, only: [:show, :edit, :update, :destroy]
+  include ProceduresHelper
 
   # GET /procedures
   # GET /procedures.json
@@ -15,6 +16,7 @@ class ProceduresController < ApplicationController
   # GET /procedures/new
   def new
     @procedure = Procedure.new
+    get_regiones
   end
 
   # GET /procedures/1/edit

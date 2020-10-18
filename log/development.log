@@ -9055,3 +9055,778 @@ Processing by ProceduresController#new as HTML
 Completed 200 OK in 191ms (Views: 154.0ms | ActiveRecord: 5.1ms | Allocations: 47896)
 
 
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3556230671141507205)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3556230671141507205)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 18:25:22 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.3ms | Allocations: 3064)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 71ms (Views: 33.0ms | ActiveRecord: 5.2ms | Allocations: 22238)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 18:26:40 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 22.2ms | Allocations: 3596)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 30.5ms | ActiveRecord: 0.0ms | Allocations: 8689)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 18:35:25 -0300
+Processing by ProceduresController#new as HTML
+Completed 500 Internal Server Error in 332ms (ActiveRecord: 0.0ms | Allocations: 92372)
+
+
+  
+NameError (undefined local variable or method `get_regiones' for #<ProceduresController:0x000055ff980bb8a8>):
+  
+app/controllers/procedures_controller.rb:18:in `new'
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 18:36:36 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1771)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+/home/toor/Desktop/Atenas/config/webpack/environment.js:3
+const { environment } = require('@rails/webpacker')
+        ^
+
+SyntaxError: Identifier 'environment' has already been declared
+    at new Script (vm.js:88:7)
+    at NativeCompileCache._moduleCompile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:242:18)
+    at Module._compile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:186:36)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)
+    at Object.<anonymous> (/home/toor/Desktop/Atenas/config/webpack/development.js:3:21)
+    at Module._compile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:194:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)
+    at WEBPACK_OPTIONS (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:114:13)
+    at requireConfig (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:116:6)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:123:17
+    at Array.forEach (<anonymous>)
+    at module.exports (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:121:15)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:71:45
+    at Object.parse (/home/toor/Desktop/Atenas/node_modules/yargs/yargs.js:576:18)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:49:8
+    at Object.<anonymous> (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:366:3)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (internal/modules/cjs/helpers.js:77:18)
+
+Completed 200 OK in 1536ms (Views: 1505.0ms | ActiveRecord: 5.4ms | Allocations: 18935)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 18:37:48 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.5ms | Allocations: 1715)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 22.3ms | ActiveRecord: 0.0ms | Allocations: 7999)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 18:37:49 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 939)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.0ms | Allocations: 6309)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 18:39:52 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 932)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+/home/toor/Desktop/Atenas/config/webpack/environment.js:3
+const { environment } = require('@rails/webpacker')
+        ^
+
+SyntaxError: Identifier 'environment' has already been declared
+    at new Script (vm.js:88:7)
+    at NativeCompileCache._moduleCompile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:242:18)
+    at Module._compile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:186:36)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)
+    at Object.<anonymous> (/home/toor/Desktop/Atenas/config/webpack/development.js:3:21)
+    at Module._compile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:194:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)
+    at WEBPACK_OPTIONS (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:114:13)
+    at requireConfig (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:116:6)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:123:17
+    at Array.forEach (<anonymous>)
+    at module.exports (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:121:15)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:71:45
+    at Object.parse (/home/toor/Desktop/Atenas/node_modules/yargs/yargs.js:576:18)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:49:8
+    at Object.<anonymous> (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:366:3)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (internal/modules/cjs/helpers.js:77:18)
+
+Completed 200 OK in 1381ms (Views: 1379.7ms | ActiveRecord: 0.0ms | Allocations: 7499)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 18:40:19 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 13.4ms | Allocations: 3588)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 96ms (Views: 47.1ms | ActiveRecord: 4.3ms | Allocations: 23856)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 18:41:28 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 941)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+/home/toor/Desktop/Atenas/config/webpack/environment.js:3
+const { environment } = require('@rails/webpacker')
+        ^
+
+SyntaxError: Identifier 'environment' has already been declared
+    at new Script (vm.js:88:7)
+    at NativeCompileCache._moduleCompile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:242:18)
+    at Module._compile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:186:36)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)
+    at Object.<anonymous> (/home/toor/Desktop/Atenas/config/webpack/development.js:3:21)
+    at Module._compile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:194:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)
+    at WEBPACK_OPTIONS (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:114:13)
+    at requireConfig (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:116:6)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:123:17
+    at Array.forEach (<anonymous>)
+    at module.exports (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:121:15)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:71:45
+    at Object.parse (/home/toor/Desktop/Atenas/node_modules/yargs/yargs.js:576:18)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:49:8
+    at Object.<anonymous> (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:366:3)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (internal/modules/cjs/helpers.js:77:18)
+
+Completed 200 OK in 1919ms (Views: 1918.5ms | ActiveRecord: 0.0ms | Allocations: 7543)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 18:43:07 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 934)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+/home/toor/Desktop/Atenas/config/webpack/environment.js:3
+const { environment } = require('@rails/webpacker')
+        ^
+
+SyntaxError: Identifier 'environment' has already been declared
+    at new Script (vm.js:88:7)
+    at NativeCompileCache._moduleCompile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:242:18)
+    at Module._compile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:186:36)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)
+    at Object.<anonymous> (/home/toor/Desktop/Atenas/config/webpack/development.js:3:21)
+    at Module._compile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:194:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)
+    at WEBPACK_OPTIONS (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:114:13)
+    at requireConfig (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:116:6)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:123:17
+    at Array.forEach (<anonymous>)
+    at module.exports (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:121:15)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:71:45
+    at Object.parse (/home/toor/Desktop/Atenas/node_modules/yargs/yargs.js:576:18)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:49:8
+    at Object.<anonymous> (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:366:3)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (internal/modules/cjs/helpers.js:77:18)
+
+Completed 200 OK in 1364ms (Views: 1363.2ms | ActiveRecord: 0.0ms | Allocations: 7501)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 18:43:32 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 933)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 15.5ms | ActiveRecord: 0.0ms | Allocations: 6300)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 18:48:20 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered procedures/new.html.erb within layouts/application (Duration: 40.1ms | Allocations: 5478)
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 0.0ms | Allocations: 7748)
+
+
+  
+ActionView::Template::Error (Webpacker can't find procedure in /home/toor/Desktop/Atenas/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+  "application.js": "/packs/js/application-cad94896a69c871b30ca.js",
+  "application.js.map": "/packs/js/application-cad94896a69c871b30ca.js.map",
+  "entrypoints": {
+    "application": {
+      "js": [
+        "/packs/js/application-cad94896a69c871b30ca.js"
+      ],
+      "js.map": [
+        "/packs/js/application-cad94896a69c871b30ca.js.map"
+      ]
+    }
+  }
+}
+):
+    1: <%= javascript_pack_tag 'procedure' %>
+    2: <span>
+    3:   <h1>Ingreso de procedimiento</h1>
+    4: 
+  
+app/views/procedures/new.html.erb:1
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 18:52:24 -0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+[Webpacker] Compiling...
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 18:52:24 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+/home/toor/Desktop/Atenas/config/webpack/environment.js:3
+const { environment } = require('@rails/webpacker')
+        ^
+
+SyntaxError: Identifier 'environment' has already been declared
+    at new Script (vm.js:88:7)
+    at NativeCompileCache._moduleCompile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:242:18)
+    at Module._compile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:186:36)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)
+    at Object.<anonymous> (/home/toor/Desktop/Atenas/config/webpack/development.js:3:21)
+    at Module._compile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:194:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)
+    at WEBPACK_OPTIONS (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:114:13)
+    at requireConfig (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:116:6)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:123:17
+    at Array.forEach (<anonymous>)
+    at module.exports (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:121:15)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:71:45
+    at Object.parse (/home/toor/Desktop/Atenas/node_modules/yargs/yargs.js:576:18)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:49:8
+    at Object.<anonymous> (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:366:3)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (internal/modules/cjs/helpers.js:77:18)
+
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2022.2ms | Allocations: 11884)
+Completed 500 Internal Server Error in 2064ms (ActiveRecord: 5.5ms | Allocations: 25745)
+
+
+  
+ActionView::Template::Error (Webpacker can't find procedure in /home/toor/Desktop/Atenas/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+  "application.js": "/packs/js/application-cad94896a69c871b30ca.js",
+  "application.js.map": "/packs/js/application-cad94896a69c871b30ca.js.map",
+  "entrypoints": {
+    "application": {
+      "js": [
+        "/packs/js/application-cad94896a69c871b30ca.js"
+      ],
+      "js.map": [
+        "/packs/js/application-cad94896a69c871b30ca.js.map"
+      ]
+    }
+  }
+}
+):
+    1: <%= javascript_pack_tag 'procedure' %>
+    2: <span>
+    3:   <h1>Ingreso de procedimiento</h1>
+    4: 
+  
+app/views/procedures/new.html.erb:1
+[Webpacker] Compilation failed:
+/home/toor/Desktop/Atenas/config/webpack/environment.js:3
+const { environment } = require('@rails/webpacker')
+        ^
+
+SyntaxError: Identifier 'environment' has already been declared
+    at new Script (vm.js:88:7)
+    at NativeCompileCache._moduleCompile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:242:18)
+    at Module._compile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:186:36)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)
+    at Object.<anonymous> (/home/toor/Desktop/Atenas/config/webpack/development.js:3:21)
+    at Module._compile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:194:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)
+    at WEBPACK_OPTIONS (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:114:13)
+    at requireConfig (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:116:6)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:123:17
+    at Array.forEach (<anonymous>)
+    at module.exports (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:121:15)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:71:45
+    at Object.parse (/home/toor/Desktop/Atenas/node_modules/yargs/yargs.js:576:18)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:49:8
+    at Object.<anonymous> (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:366:3)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (internal/modules/cjs/helpers.js:77:18)
+
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2744.5ms | Allocations: 367353)
+Completed 500 Internal Server Error in 2752ms (ActiveRecord: 0.0ms | Allocations: 368890)
+
+
+  
+ActionView::Template::Error (Webpacker can't find procedure in /home/toor/Desktop/Atenas/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+  "application.js": "/packs/js/application-cad94896a69c871b30ca.js",
+  "application.js.map": "/packs/js/application-cad94896a69c871b30ca.js.map",
+  "entrypoints": {
+    "application": {
+      "js": [
+        "/packs/js/application-cad94896a69c871b30ca.js"
+      ],
+      "js.map": [
+        "/packs/js/application-cad94896a69c871b30ca.js.map"
+      ]
+    }
+  }
+}
+):
+    1: <%= javascript_pack_tag 'procedure' %>
+    2: <span>
+    3:   <h1>Ingreso de procedimiento</h1>
+    4: 
+  
+app/views/procedures/new.html.erb:1
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 18:55:49 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered procedures/new.html.erb within layouts/application (Duration: 184.8ms | Allocations: 7661)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 255ms (Views: 249.6ms | ActiveRecord: 0.0ms | Allocations: 16236)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 18:57:28 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1234)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+/home/toor/Desktop/Atenas/config/webpack/environment.js:3
+const { environment } = require('@rails/webpacker')
+        ^
+
+SyntaxError: Identifier 'environment' has already been declared
+    at new Script (vm.js:88:7)
+    at NativeCompileCache._moduleCompile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:242:18)
+    at Module._compile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:186:36)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)
+    at Object.<anonymous> (/home/toor/Desktop/Atenas/config/webpack/development.js:3:21)
+    at Module._compile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:194:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)
+    at WEBPACK_OPTIONS (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:114:13)
+    at requireConfig (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:116:6)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:123:17
+    at Array.forEach (<anonymous>)
+    at module.exports (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:121:15)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:71:45
+    at Object.parse (/home/toor/Desktop/Atenas/node_modules/yargs/yargs.js:576:18)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:49:8
+    at Object.<anonymous> (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:366:3)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (internal/modules/cjs/helpers.js:77:18)
+
+Completed 200 OK in 1450ms (Views: 1448.6ms | ActiveRecord: 0.0ms | Allocations: 8700)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 18:59:32 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 939)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+/home/toor/Desktop/Atenas/config/webpack/environment.js:3
+const { environment } = require('@rails/webpacker')
+        ^
+
+SyntaxError: Identifier 'environment' has already been declared
+    at new Script (vm.js:88:7)
+    at NativeCompileCache._moduleCompile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:242:18)
+    at Module._compile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:186:36)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)
+    at Object.<anonymous> (/home/toor/Desktop/Atenas/config/webpack/development.js:3:21)
+    at Module._compile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:194:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)
+    at WEBPACK_OPTIONS (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:114:13)
+    at requireConfig (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:116:6)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:123:17
+    at Array.forEach (<anonymous>)
+    at module.exports (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:121:15)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:71:45
+    at Object.parse (/home/toor/Desktop/Atenas/node_modules/yargs/yargs.js:576:18)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:49:8
+    at Object.<anonymous> (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:366:3)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (internal/modules/cjs/helpers.js:77:18)
+
+Completed 200 OK in 1580ms (Views: 1579.5ms | ActiveRecord: 0.0ms | Allocations: 7492)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 19:08:15 -0300
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 13.3ms | Allocations: 3589)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+/home/toor/Desktop/Atenas/config/webpack/environment.js:3
+const { environment } = require('@rails/webpacker')
+        ^
+
+SyntaxError: Identifier 'environment' has already been declared
+    at new Script (vm.js:88:7)
+    at NativeCompileCache._moduleCompile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:242:18)
+    at Module._compile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:186:36)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)
+    at Object.<anonymous> (/home/toor/Desktop/Atenas/config/webpack/development.js:3:21)
+    at Module._compile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:194:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)
+    at WEBPACK_OPTIONS (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:114:13)
+    at requireConfig (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:116:6)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:123:17
+    at Array.forEach (<anonymous>)
+    at module.exports (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:121:15)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:71:45
+    at Object.parse (/home/toor/Desktop/Atenas/node_modules/yargs/yargs.js:576:18)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:49:8
+    at Object.<anonymous> (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:366:3)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (internal/modules/cjs/helpers.js:77:18)
+
+Completed 200 OK in 2087ms (Views: 2001.7ms | ActiveRecord: 10.2ms | Allocations: 24981)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 19:09:45 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.9ms | Allocations: 3589)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+/home/toor/Desktop/Atenas/config/webpack/environment.js:3
+const { environment } = require('@rails/webpacker')
+        ^
+
+SyntaxError: Identifier 'environment' has already been declared
+    at new Script (vm.js:88:7)
+    at NativeCompileCache._moduleCompile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:242:18)
+    at Module._compile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:186:36)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)
+    at Object.<anonymous> (/home/toor/Desktop/Atenas/config/webpack/development.js:3:21)
+    at Module._compile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:194:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)
+    at WEBPACK_OPTIONS (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:114:13)
+    at requireConfig (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:116:6)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:123:17
+    at Array.forEach (<anonymous>)
+    at module.exports (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:121:15)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:71:45
+    at Object.parse (/home/toor/Desktop/Atenas/node_modules/yargs/yargs.js:576:18)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:49:8
+    at Object.<anonymous> (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:366:3)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (internal/modules/cjs/helpers.js:77:18)
+
+Completed 200 OK in 1332ms (Views: 1292.0ms | ActiveRecord: 4.4ms | Allocations: 24973)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 19:09:57 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 941)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 18.2ms | ActiveRecord: 0.0ms | Allocations: 6315)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 19:14:36 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.0ms | Allocations: 3590)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+/home/toor/Desktop/Atenas/config/webpack/environment.js:3
+const { environment } = require('@rails/webpacker')
+        ^
+
+SyntaxError: Identifier 'environment' has already been declared
+    at new Script (vm.js:88:7)
+    at NativeCompileCache._moduleCompile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:242:18)
+    at Module._compile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:186:36)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)
+    at Object.<anonymous> (/home/toor/Desktop/Atenas/config/webpack/development.js:3:21)
+    at Module._compile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:194:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)
+    at WEBPACK_OPTIONS (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:114:13)
+    at requireConfig (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:116:6)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:123:17
+    at Array.forEach (<anonymous>)
+    at module.exports (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:121:15)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:71:45
+    at Object.parse (/home/toor/Desktop/Atenas/node_modules/yargs/yargs.js:576:18)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:49:8
+    at Object.<anonymous> (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:366:3)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (internal/modules/cjs/helpers.js:77:18)
+
+Completed 200 OK in 1384ms (Views: 1343.2ms | ActiveRecord: 5.1ms | Allocations: 24976)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 19:19:56 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 3590)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+/home/toor/Desktop/Atenas/config/webpack/environment.js:3
+const { environment } = require('@rails/webpacker')
+        ^
+
+SyntaxError: Identifier 'environment' has already been declared
+    at new Script (vm.js:88:7)
+    at NativeCompileCache._moduleCompile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:242:18)
+    at Module._compile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:186:36)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)
+    at Object.<anonymous> (/home/toor/Desktop/Atenas/config/webpack/development.js:3:21)
+    at Module._compile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:194:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)
+    at WEBPACK_OPTIONS (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:114:13)
+    at requireConfig (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:116:6)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:123:17
+    at Array.forEach (<anonymous>)
+    at module.exports (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:121:15)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:71:45
+    at Object.parse (/home/toor/Desktop/Atenas/node_modules/yargs/yargs.js:576:18)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:49:8
+    at Object.<anonymous> (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:366:3)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (internal/modules/cjs/helpers.js:77:18)
+
+Completed 200 OK in 1476ms (Views: 1438.3ms | ActiveRecord: 4.3ms | Allocations: 25084)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 19:20:11 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 941)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 0.0ms | Allocations: 6317)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 19:26:51 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.9ms | Allocations: 3590)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+/home/toor/Desktop/Atenas/config/webpack/environment.js:3
+const { environment } = require('@rails/webpacker')
+        ^
+
+SyntaxError: Identifier 'environment' has already been declared
+    at new Script (vm.js:88:7)
+    at NativeCompileCache._moduleCompile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:242:18)
+    at Module._compile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:186:36)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)
+    at Object.<anonymous> (/home/toor/Desktop/Atenas/config/webpack/development.js:3:21)
+    at Module._compile (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:194:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (/home/toor/Desktop/Atenas/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)
+    at WEBPACK_OPTIONS (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:114:13)
+    at requireConfig (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:116:6)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:123:17
+    at Array.forEach (<anonymous>)
+    at module.exports (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/utils/convert-argv.js:121:15)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:71:45
+    at Object.parse (/home/toor/Desktop/Atenas/node_modules/yargs/yargs.js:576:18)
+    at /home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:49:8
+    at Object.<anonymous> (/home/toor/Desktop/Atenas/node_modules/webpack-cli/bin/cli.js:366:3)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)
+    at Module.require (internal/modules/cjs/loader.js:1044:19)
+    at require (internal/modules/cjs/helpers.js:77:18)
+
+Completed 200 OK in 1469ms (Views: 1424.6ms | ActiveRecord: 8.1ms | Allocations: 25084)
+
+

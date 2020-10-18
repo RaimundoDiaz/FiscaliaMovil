@@ -1,15 +1,26 @@
+
 <span>
   <h1>Ingreso de procedimiento</h1>
 
-  <%= form_with model: @procedure do |form| %>
-    <section>
-      <label for="direccion"> Direccion: </label>
-      <%= form.text_field :direccion %>
-    </section>
+  <%= form_for(:precedure, :url => {:action => 'create', :controller=>"procedures"}, :class => "col s12") do |form| %>
+
+    <div class="form-group">
+        <%= form.label :start_date %>
+        <%= form.datetime_local_field :start_date %>
+    </div>
 
     <section>
+
+
       <label for="direccion"> Direccion: </label>
       <%= form.text_field :direccion %>
+
+      <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+      <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+      <%= form.label :region %>
+
+      <%= form.select(:comuna, [], {}, {})  %>
+      <%= form.label :comuna %>
     </section>
 
     <section>
@@ -19,3 +30,4 @@
   <% end %>
 
 </span>
+
