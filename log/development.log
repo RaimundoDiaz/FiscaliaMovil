@@ -9055,3 +9055,1074 @@ Processing by ProceduresController#new as HTML
 Completed 200 OK in 191ms (Views: 154.0ms | ActiveRecord: 5.1ms | Allocations: 47896)
 
 
+  [1m[35m (42.3ms)[0m  [1m[35mCREATE DATABASE "atenas_development" ENCODING = 'unicode'[0m
+  [1m[35m (31.0ms)[0m  [1m[35mCREATE DATABASE "atenas_test" ENCODING = 'unicode'[0m
+  [1m[35m (11.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3556230671141507205)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateRegionalProsecutions (20200925000000)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "regional_prosecutions" ("id" bigserial primary key, "name" character varying, "region" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200925000000"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateLocalProsecutions (20200926000000)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "local_prosecutions" ("id" bigserial primary key, "name" character varying, "regional_prosecution_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_052e4cb340"
+FOREIGN KEY ("regional_prosecution_id")
+  REFERENCES "regional_prosecutions" ("id")
+)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_local_prosecutions_on_regional_prosecution_id" ON "local_prosecutions"  ("regional_prosecution_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926000000"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePrefectures (20200926000004)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "prefectures" ("id" bigserial primary key, "name" character varying, "region" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926000004"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePoliceStations (20200926000005)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "police_stations" ("id" bigserial primary key, "name" character varying, "police_type" integer, "prefecture_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_00b2d2edda"
+FOREIGN KEY ("prefecture_id")
+  REFERENCES "prefectures" ("id")
+)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_police_stations_on_prefecture_id" ON "police_stations"  ("prefecture_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926000005"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePoliceUnits (20200926000006)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "police_units" ("id" bigserial primary key, "name" character varying, "police_station_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_88b607ecbc"
+FOREIGN KEY ("police_station_id")
+  REFERENCES "police_stations" ("id")
+)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_police_units_on_police_station_id" ON "police_units"  ("police_station_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926000006"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsers (20200926215954)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "police_unit_id" bigint, "local_prosecution_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_4459d5b4e8"
+FOREIGN KEY ("police_unit_id")
+  REFERENCES "police_units" ("id")
+, CONSTRAINT "fk_rails_a0c816d758"
+FOREIGN KEY ("local_prosecution_id")
+  REFERENCES "local_prosecutions" ("id")
+)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_police_unit_id" ON "users"  ("police_unit_id")[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_local_prosecution_id" ON "users"  ("local_prosecution_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926215954"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateNotifications (20200926220239)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" bigserial primary key, "notification_type" integer, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_b080fb4855"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_notifications_on_user_id" ON "notifications"  ("user_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926220239"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMessages (20200926220258)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "sender_user_id" bigint NOT NULL, "receiver_user_id" bigint NOT NULL, "content" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_3197d016f7"
+FOREIGN KEY ("sender_user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_e5915b2324"
+FOREIGN KEY ("receiver_user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_sender_user_id" ON "messages"  ("sender_user_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_receiver_user_id" ON "messages"  ("receiver_user_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926220258"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProsecutors (20200926221323)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "prosecutors" ("id" bigserial primary key, "name" character varying, "rut" character varying, "local_prosecutions_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_3883c3b60f"
+FOREIGN KEY ("local_prosecutions_id")
+  REFERENCES "local_prosecutions" ("id")
+)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_prosecutors_on_local_prosecutions_id" ON "prosecutors"  ("local_prosecutions_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926221323"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePoliceMen (20200926221324)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "police_men" ("id" bigserial primary key, "name" character varying, "rut" character varying, "badge" integer, "police_unit_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_ade1fabd96"
+FOREIGN KEY ("police_unit_id")
+  REFERENCES "police_units" ("id")
+)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_police_men_on_police_unit_id" ON "police_men"  ("police_unit_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926221324"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProcedures (20200926221325)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "procedures" ("id" bigserial primary key, "classification" integer, "categories" text[], "police_in_charge_id" bigint NOT NULL, "police_unit_in_charge_id" bigint NOT NULL, "prosecutor_in_charge_id" bigint NOT NULL, "local_prosecution_in_charge_id" bigint NOT NULL, "story" character varying, "address" character varying, "sector" character varying, "region" character varying, "state" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_01ebe2587f"
+FOREIGN KEY ("police_in_charge_id")
+  REFERENCES "police_men" ("id")
+, CONSTRAINT "fk_rails_97971b8cb0"
+FOREIGN KEY ("police_unit_in_charge_id")
+  REFERENCES "police_units" ("id")
+, CONSTRAINT "fk_rails_8c74c14b3c"
+FOREIGN KEY ("prosecutor_in_charge_id")
+  REFERENCES "prosecutors" ("id")
+, CONSTRAINT "fk_rails_9ce32a8a19"
+FOREIGN KEY ("local_prosecution_in_charge_id")
+  REFERENCES "local_prosecutions" ("id")
+)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_police_in_charge_id" ON "procedures"  ("police_in_charge_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_police_unit_in_charge_id" ON "procedures"  ("police_unit_in_charge_id")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_prosecutor_in_charge_id" ON "procedures"  ("prosecutor_in_charge_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_local_prosecution_in_charge_id" ON "procedures"  ("local_prosecution_in_charge_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926221325"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePeople (20200926225000)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "people" ("id" bigserial primary key, "name" character varying, "last_name" character varying, "birthday" date, "rut" character varying, "deceased" boolean, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926225000"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAliasAccuseds (20200926230432)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "alias_accuseds" ("id" bigserial primary key, "alias" character varying, "person_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_cea260112a"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_alias_accuseds_on_person_id" ON "alias_accuseds"  ("person_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926230432"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCrimes (20200926230841)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "crimes" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926230841"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCrimeInAccuseds (20200926230928)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "crime_in_accuseds" ("id" bigserial primary key, "preponderant" boolean, "crime_id" bigint NOT NULL, "person_id" bigint NOT NULL, "procedure_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_e9f93f7522"
+FOREIGN KEY ("crime_id")
+  REFERENCES "crimes" ("id")
+, CONSTRAINT "fk_rails_b5a506532a"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+, CONSTRAINT "fk_rails_39897d71a6"
+FOREIGN KEY ("procedure_id")
+  REFERENCES "procedures" ("id")
+)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_crime_id" ON "crime_in_accuseds"  ("crime_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_person_id" ON "crime_in_accuseds"  ("person_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_procedure_id" ON "crime_in_accuseds"  ("procedure_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926230928"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePersonInProcedures (20200927001751)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "person_in_procedures" ("id" bigserial primary key, "person_id" bigint NOT NULL, "procedure_id" bigint NOT NULL, "role" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_ef243c3ec5"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+, CONSTRAINT "fk_rails_7206b5a771"
+FOREIGN KEY ("procedure_id")
+  REFERENCES "procedures" ("id")
+)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_person_in_procedures_on_person_id" ON "person_in_procedures"  ("person_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_person_in_procedures_on_procedure_id" ON "person_in_procedures"  ("procedure_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200927001751"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddDeviseToUsers (20201027214157)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "users" ADD "email" character varying DEFAULT '' NOT NULL[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "encrypted_password" character varying DEFAULT '' NOT NULL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_sent_at" timestamp[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_created_at" timestamp[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201027214157"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-10-27 21:42:56.415984"], ["updated_at", "2020-10-27 21:42:56.415984"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3556230671141507205)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (13.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "atenas_development"[0m
+  [1m[35m (10.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "atenas_test"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "atenas_development"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "atenas_test"[0m
+Started GET "/" for 127.0.0.1 at 2020-10-27 18:57:53 -0300
+  
+ActiveRecord::NoDatabaseError (FATAL:  database "atenas_development" does not exist
+):
+  
+activerecord (6.0.3.3) lib/active_record/connection_adapters/postgresql_adapter.rb:50:in `rescue in postgresql_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/postgresql_adapter.rb:33:in `postgresql_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:887:in `new_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:931:in `checkout_new_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:910:in `try_to_checkout_new_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:871:in `acquire_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:593:in `checkout'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:437:in `connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:1119:in `retrieve_connection'
+activerecord (6.0.3.3) lib/active_record/connection_handling.rb:221:in `retrieve_connection'
+activerecord (6.0.3.3) lib/active_record/connection_handling.rb:189:in `connection'
+activerecord (6.0.3.3) lib/active_record/migration.rb:562:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  [1m[35m (41.7ms)[0m  [1m[35mCREATE DATABASE "atenas_development" ENCODING = 'unicode'[0m
+  [1m[35m (32.7ms)[0m  [1m[35mCREATE DATABASE "atenas_test" ENCODING = 'unicode'[0m
+  [1m[35m (11.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3556230671141507205)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateRegionalProsecutions (20200925000000)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "regional_prosecutions" ("id" bigserial primary key, "name" character varying, "region" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200925000000"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateLocalProsecutions (20200926000000)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "local_prosecutions" ("id" bigserial primary key, "name" character varying, "regional_prosecution_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_052e4cb340"
+FOREIGN KEY ("regional_prosecution_id")
+  REFERENCES "regional_prosecutions" ("id")
+)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_local_prosecutions_on_regional_prosecution_id" ON "local_prosecutions"  ("regional_prosecution_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926000000"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePrefectures (20200926000004)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "prefectures" ("id" bigserial primary key, "name" character varying, "region" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926000004"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePoliceStations (20200926000005)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "police_stations" ("id" bigserial primary key, "name" character varying, "police_type" integer, "prefecture_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_00b2d2edda"
+FOREIGN KEY ("prefecture_id")
+  REFERENCES "prefectures" ("id")
+)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_police_stations_on_prefecture_id" ON "police_stations"  ("prefecture_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926000005"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePoliceUnits (20200926000006)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "police_units" ("id" bigserial primary key, "name" character varying, "police_station_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_88b607ecbc"
+FOREIGN KEY ("police_station_id")
+  REFERENCES "police_stations" ("id")
+)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_police_units_on_police_station_id" ON "police_units"  ("police_station_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926000006"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsers (20200926215954)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "police_unit_id" bigint, "local_prosecution_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_4459d5b4e8"
+FOREIGN KEY ("police_unit_id")
+  REFERENCES "police_units" ("id")
+, CONSTRAINT "fk_rails_a0c816d758"
+FOREIGN KEY ("local_prosecution_id")
+  REFERENCES "local_prosecutions" ("id")
+)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_police_unit_id" ON "users"  ("police_unit_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_local_prosecution_id" ON "users"  ("local_prosecution_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926215954"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateNotifications (20200926220239)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" bigserial primary key, "notification_type" integer, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_b080fb4855"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_notifications_on_user_id" ON "notifications"  ("user_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926220239"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMessages (20200926220258)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "sender_user_id" bigint NOT NULL, "receiver_user_id" bigint NOT NULL, "content" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_3197d016f7"
+FOREIGN KEY ("sender_user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_e5915b2324"
+FOREIGN KEY ("receiver_user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_sender_user_id" ON "messages"  ("sender_user_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_receiver_user_id" ON "messages"  ("receiver_user_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926220258"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProsecutors (20200926221323)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "prosecutors" ("id" bigserial primary key, "name" character varying, "rut" character varying, "local_prosecutions_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_3883c3b60f"
+FOREIGN KEY ("local_prosecutions_id")
+  REFERENCES "local_prosecutions" ("id")
+)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_prosecutors_on_local_prosecutions_id" ON "prosecutors"  ("local_prosecutions_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926221323"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePoliceMen (20200926221324)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "police_men" ("id" bigserial primary key, "name" character varying, "rut" character varying, "badge" integer, "police_unit_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_ade1fabd96"
+FOREIGN KEY ("police_unit_id")
+  REFERENCES "police_units" ("id")
+)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_police_men_on_police_unit_id" ON "police_men"  ("police_unit_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926221324"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProcedures (20200926221325)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "procedures" ("id" bigserial primary key, "classification" integer, "categories" text[], "police_in_charge_id" bigint NOT NULL, "police_unit_in_charge_id" bigint NOT NULL, "prosecutor_in_charge_id" bigint NOT NULL, "local_prosecution_in_charge_id" bigint NOT NULL, "story" character varying, "address" character varying, "sector" character varying, "region" character varying, "state" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_01ebe2587f"
+FOREIGN KEY ("police_in_charge_id")
+  REFERENCES "police_men" ("id")
+, CONSTRAINT "fk_rails_97971b8cb0"
+FOREIGN KEY ("police_unit_in_charge_id")
+  REFERENCES "police_units" ("id")
+, CONSTRAINT "fk_rails_8c74c14b3c"
+FOREIGN KEY ("prosecutor_in_charge_id")
+  REFERENCES "prosecutors" ("id")
+, CONSTRAINT "fk_rails_9ce32a8a19"
+FOREIGN KEY ("local_prosecution_in_charge_id")
+  REFERENCES "local_prosecutions" ("id")
+)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_police_in_charge_id" ON "procedures"  ("police_in_charge_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_police_unit_in_charge_id" ON "procedures"  ("police_unit_in_charge_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_prosecutor_in_charge_id" ON "procedures"  ("prosecutor_in_charge_id")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_local_prosecution_in_charge_id" ON "procedures"  ("local_prosecution_in_charge_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926221325"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePeople (20200926225000)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "people" ("id" bigserial primary key, "name" character varying, "last_name" character varying, "birthday" date, "rut" character varying, "deceased" boolean, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926225000"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAliasAccuseds (20200926230432)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "alias_accuseds" ("id" bigserial primary key, "alias" character varying, "person_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_cea260112a"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_alias_accuseds_on_person_id" ON "alias_accuseds"  ("person_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926230432"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCrimes (20200926230841)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "crimes" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926230841"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCrimeInAccuseds (20200926230928)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "crime_in_accuseds" ("id" bigserial primary key, "preponderant" boolean, "crime_id" bigint NOT NULL, "person_id" bigint NOT NULL, "procedure_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_e9f93f7522"
+FOREIGN KEY ("crime_id")
+  REFERENCES "crimes" ("id")
+, CONSTRAINT "fk_rails_b5a506532a"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+, CONSTRAINT "fk_rails_39897d71a6"
+FOREIGN KEY ("procedure_id")
+  REFERENCES "procedures" ("id")
+)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_crime_id" ON "crime_in_accuseds"  ("crime_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_person_id" ON "crime_in_accuseds"  ("person_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_procedure_id" ON "crime_in_accuseds"  ("procedure_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926230928"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePersonInProcedures (20200927001751)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "person_in_procedures" ("id" bigserial primary key, "person_id" bigint NOT NULL, "procedure_id" bigint NOT NULL, "role" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_ef243c3ec5"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+, CONSTRAINT "fk_rails_7206b5a771"
+FOREIGN KEY ("procedure_id")
+  REFERENCES "procedures" ("id")
+)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_person_in_procedures_on_person_id" ON "person_in_procedures"  ("person_id")[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_person_in_procedures_on_procedure_id" ON "person_in_procedures"  ("procedure_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200927001751"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddDeviseToUsers (20201027214157)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.8ms)[0m  [1m[35mALTER TABLE "users" ADD "email" character varying DEFAULT '' NOT NULL[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "encrypted_password" character varying DEFAULT '' NOT NULL[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_sent_at" timestamp[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_created_at" timestamp[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201027214157"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-10-27 21:58:21.875295"], ["updated_at", "2020-10-27 21:58:21.875295"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3556230671141507205)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2020-10-27 18:58:31 -0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#index as HTML
+  Rendering procedures/index.html.erb within layouts/application
+  [1m[36mProcedure Load (1.0ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures"[0m
+  ↳ app/views/procedures/index.html.erb:20
+  Rendered procedures/index.html.erb within layouts/application (Duration: 7.4ms | Allocations: 3355)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 3.2ms | Allocations: 7372)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"new", :controller=>"procedures", :user_id=>nil}, missing required keys: [:user_id]):
+    36: 
+    37: <br>
+    38: 
+    39: <%= link_to 'New Procedure', new_user_procedure_path(params['user_id']) %>
+  
+app/views/procedures/index.html.erb:39
+Started POST "/__web_console/repl_sessions/d61416a39c7ac06a37c07a5e8af82fa3/trace" for 127.0.0.1 at 2020-10-27 18:58:41 -0300
+Started POST "/__web_console/repl_sessions/d61416a39c7ac06a37c07a5e8af82fa3/trace" for 127.0.0.1 at 2020-10-27 18:59:18 -0300
+Started GET "/" for 127.0.0.1 at 2020-10-27 19:01:01 -0300
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#index as HTML
+  Rendering procedures/index.html.erb within layouts/application
+  [1m[36mProcedure Load (0.7ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures"[0m
+  ↳ app/views/procedures/index.html.erb:20
+  Rendered procedures/index.html.erb within layouts/application (Duration: 19.1ms | Allocations: 2057)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 89ms (Views: 77.7ms | ActiveRecord: 3.9ms | Allocations: 42198)
+
+
+Started GET "/" for 127.0.0.1 at 2020-10-27 19:02:08 -0300
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (uninitialized constant PagesController
+Did you mean?  DeviseController):
+  
+actionpack (6.0.3.3) lib/action_dispatch/http/request.rb:92:in `rescue in controller_class_for'
+actionpack (6.0.3.3) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (6.0.3.3) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:44:in `controller'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.3) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2020-10-27 19:02:10 -0300
+  
+ActionController::RoutingError (uninitialized constant PagesController
+Did you mean?  DeviseController):
+  
+actionpack (6.0.3.3) lib/action_dispatch/http/request.rb:92:in `rescue in controller_class_for'
+actionpack (6.0.3.3) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (6.0.3.3) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:44:in `controller'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.3) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2020-10-27 19:02:33 -0300
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+AbstractController::ActionNotFound (The action 'home' could not be found for DeviseController):
+  
+actionpack (6.0.3.3) lib/abstract_controller/base.rb:131:in `process'
+actionview (6.0.3.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.3) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.3) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.3) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2020-10-27 19:02:35 -0300
+  
+AbstractController::ActionNotFound (The action 'home' could not be found for DeviseController):
+  
+actionpack (6.0.3.3) lib/abstract_controller/base.rb:131:in `process'
+actionview (6.0.3.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.3) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.3) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.3) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2020-10-27 19:02:58 -0300
+  
+AbstractController::ActionNotFound (The action 'sessions' could not be found for DeviseController):
+  
+actionpack (6.0.3.3) lib/abstract_controller/base.rb:131:in `process'
+actionview (6.0.3.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.3) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.3) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.3) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2020-10-27 19:03:11 -0300
+Processing by Devise::SessionsController#new as HTML
+[Devise] Could not find devise mapping for path "/".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms | Allocations: 509)
+
+
+  
+AbstractController::ActionNotFound (Could not find devise mapping for path "/".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+):
+  
+devise (4.7.3) app/controllers/devise_controller.rb:90:in `unknown_action!'
+devise (4.7.3) app/controllers/devise_controller.rb:65:in `assert_is_devise_resource!'
+devise (4.7.3) app/controllers/devise_controller.rb:103:in `require_no_authentication'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:428:in `block in make_lambda'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:181:in `block (2 levels) in halting_and_conditional'
+actionpack (6.0.3.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:182:in `block in halting_and_conditional'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:513:in `block in invoke_before'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:513:in `each'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:513:in `invoke_before'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:134:in `run_callbacks'
+actionpack (6.0.3.3) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.3.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.3.3) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.3.3) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.3.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.3.3) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.3.3) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.3.3) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.3.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.3) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.3.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.3) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.3) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.3) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2020-10-27 19:05:20 -0300
+  
+ActionController::RoutingError (uninitialized constant HomeController):
+  
+actionpack (6.0.3.3) lib/action_dispatch/http/request.rb:92:in `rescue in controller_class_for'
+actionpack (6.0.3.3) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (6.0.3.3) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:44:in `controller'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.3) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2020-10-27 19:06:33 -0300
+  
+AbstractController::ActionNotFound (The action 'sessions' could not be found for UsersController):
+  
+actionpack (6.0.3.3) lib/abstract_controller/base.rb:131:in `process'
+actionview (6.0.3.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.3) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.3) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.3) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2020-10-27 19:06:41 -0300
+  
+AbstractController::ActionNotFound (The action 'session' could not be found for UsersController):
+  
+actionpack (6.0.3.3) lib/abstract_controller/base.rb:131:in `process'
+actionview (6.0.3.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.3) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.3) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.3) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2020-10-27 19:07:56 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 594)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 26.2ms | Allocations: 7555)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 59ms (Views: 38.4ms | ActiveRecord: 6.4ms | Allocations: 21740)
+
+

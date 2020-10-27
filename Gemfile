@@ -25,6 +25,15 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+# Add devise for user authentication, registration, etc.
+gem 'devise', '~> 4.7'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+
+# Add CanCanCan for user authorization
+gem 'cancancan', '~> 3.1'
+
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
