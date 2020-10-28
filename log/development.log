@@ -10723,3 +10723,1370 @@ Processing by ProceduresController#new as HTML
 Completed 200 OK in 20ms (Views: 18.8ms | ActiveRecord: 0.0ms | Allocations: 7906)
 
 
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 16:11:17 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.9ms | Allocations: 3673)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: 47993bf066951e140a60
+Version: webpack 4.44.2
+Time: 3396ms
+Built at: 10/28/2020 4:11:22 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-ecc07a90b6cbe0a7823a.js    865 KiB  application  [emitted] [immutable]  application
+js/application-ecc07a90b6cbe0a7823a.js.map    926 KiB  application  [emitted] [dev]        application
+     js/procedures-9eec34da7e8069164539.js    745 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-9eec34da7e8069164539.js.map    791 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-ecc07a90b6cbe0a7823a.js js/application-ecc07a90b6cbe0a7823a.js.map
+Entrypoint procedures = js/procedures-9eec34da7e8069164539.js js/procedures-9eec34da7e8069164539.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 859 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 21.9 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 5101ms (Views: 5055.7ms | ActiveRecord: 7.0ms | Allocations: 25328)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 16:22:50 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1164)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 573ms (Views: 572.4ms | ActiveRecord: 0.0ms | Allocations: 6521)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 16:23:45 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1443)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 101ms (Views: 99.4ms | ActiveRecord: 0.0ms | Allocations: 7810)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 16:24:20 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.5ms | Allocations: 1625)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 44ms (Views: 39.4ms | ActiveRecord: 0.0ms | Allocations: 7992)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 16:25:20 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.9ms | Allocations: 1497)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 34.0ms | ActiveRecord: 0.0ms | Allocations: 7893)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 16:25:45 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.4ms | Allocations: 1288)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 29.2ms | ActiveRecord: 0.0ms | Allocations: 7652)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 16:26:19 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1293)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 34.2ms | ActiveRecord: 0.0ms | Allocations: 7649)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 16:26:56 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 10.7ms | Allocations: 1213)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 30.9ms | ActiveRecord: 0.0ms | Allocations: 7571)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 16:27:53 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.2ms | Allocations: 1183)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 27.8ms | ActiveRecord: 0.0ms | Allocations: 7564)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 16:28:24 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1180)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 26.9ms | ActiveRecord: 0.0ms | Allocations: 7534)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 16:46:10 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.9ms | Allocations: 1562)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 597ms (Views: 595.2ms | ActiveRecord: 0.0ms | Allocations: 20942)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 16:56:00 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1564)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 26.8ms | ActiveRecord: 0.0ms | Allocations: 7942)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 16:56:13 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.5ms | Allocations: 1517)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 23.2ms | ActiveRecord: 0.0ms | Allocations: 7873)
+
+
+Started POST "/procedures" for ::1 at 2020-10-28 16:56:24 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"8ALNHljPqDQ2iTqZNJtEmjzdozihSALDA19/YFnnIcFUnURBOPQz7UE9qv4hgn1ynhX5vSinVddmUz8OHn8srg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 18.6ms | Allocations: 1869)
+Completed 500 Internal Server Error in 141ms (ActiveRecord: 0.0ms | Allocations: 10233)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started POST "/procedures" for ::1 at 2020-10-28 16:56:25 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"8ALNHljPqDQ2iTqZNJtEmjzdozihSALDA19/YFnnIcFUnURBOPQz7UE9qv4hgn1ynhX5vSinVddmUz8OHn8srg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1582)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms | Allocations: 3355)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started POST "/procedures" for ::1 at 2020-10-28 16:56:26 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"8ALNHljPqDQ2iTqZNJtEmjzdozihSALDA19/YFnnIcFUnURBOPQz7UE9qv4hgn1ynhX5vSinVddmUz8OHn8srg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1576)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms | Allocations: 5901)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started GET "/procedures/new" for ::1 at 2020-10-28 17:14:31 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.7ms | Allocations: 2487)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms | Allocations: 4751)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 0, expected 1..2)):
+    36:         <%= form.select( :delito_preponderante, options_for_select(delitos), {}) %>
+    37:         <div id="new_delito">
+    38:           <%= form.label :delito %>
+    39:           <%= form.select( :delito[] , options_for_select(delitos), {}) %>
+    40:         </div>
+    41:       </section>
+    42: 
+  
+app/views/procedures/new.html.erb:39:in `[]'
+app/views/procedures/new.html.erb:39
+app/views/procedures/new.html.erb:5
+Started GET "/procedures/new" for ::1 at 2020-10-28 17:15:03 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 10.2ms | Allocations: 1899)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: dc369926505d86103519
+Version: webpack 4.44.2
+Time: 9353ms
+Built at: 10/28/2020 5:15:20 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-499ab0398e2b87d79e4d.js    865 KiB  application  [emitted] [immutable]  application
+js/application-499ab0398e2b87d79e4d.js.map    926 KiB  application  [emitted] [dev]        application
+     js/procedures-745678a5128dd1713708.js    745 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-745678a5128dd1713708.js.map    791 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-499ab0398e2b87d79e4d.js js/application-499ab0398e2b87d79e4d.js.map
+Entrypoint procedures = js/procedures-745678a5128dd1713708.js js/procedures-745678a5128dd1713708.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 859 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 17821ms (Views: 17818.5ms | ActiveRecord: 0.0ms | Allocations: 9500)
+
+
+Started POST "/procedures" for ::1 at 2020-10-28 17:15:25 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"w74qq/slLgZQZVK01vzZU9tczZ9Q4FcskQwDBrpi35JnIaP0mx613yfRwtPD5eC7eZSXGtkPADj0AENo/frS/Q==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1576)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms | Allocations: 3323)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started POST "/procedures" for ::1 at 2020-10-28 17:15:25 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"w74qq/slLgZQZVK01vzZU9tczZ9Q4FcskQwDBrpi35JnIaP0mx613yfRwtPD5eC7eZSXGtkPADj0AENo/frS/Q==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1575)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 0.0ms | Allocations: 16272)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started POST "/procedures" for ::1 at 2020-10-28 17:15:27 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"w74qq/slLgZQZVK01vzZU9tczZ9Q4FcskQwDBrpi35JnIaP0mx613yfRwtPD5eC7eZSXGtkPADj0AENo/frS/Q==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1576)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms | Allocations: 3332)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started POST "/procedures" for ::1 at 2020-10-28 17:15:28 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"w74qq/slLgZQZVK01vzZU9tczZ9Q4FcskQwDBrpi35JnIaP0mx613yfRwtPD5eC7eZSXGtkPADj0AENo/frS/Q==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 10.7ms | Allocations: 1576)
+Completed 500 Internal Server Error in 131ms (ActiveRecord: 0.0ms | Allocations: 39871)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started POST "/procedures" for ::1 at 2020-10-28 17:15:28 -0300
+Started POST "/procedures" for ::1 at 2020-10-28 17:15:28 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"w74qq/slLgZQZVK01vzZU9tczZ9Q4FcskQwDBrpi35JnIaP0mx613yfRwtPD5eC7eZSXGtkPADj0AENo/frS/Q==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1577)
+Completed 500 Internal Server Error in 248ms (ActiveRecord: 0.0ms | Allocations: 66668)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Processing by ProceduresController#create as JS
+Started POST "/procedures" for ::1 at 2020-10-28 17:15:29 -0300
+  Parameters: {"authenticity_token"=>"w74qq/slLgZQZVK01vzZU9tczZ9Q4FcskQwDBrpi35JnIaP0mx613yfRwtPD5eC7eZSXGtkPADj0AENo/frS/Q==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1575)
+Completed 500 Internal Server Error in 444ms (ActiveRecord: 0.0ms | Allocations: 153988)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"w74qq/slLgZQZVK01vzZU9tczZ9Q4FcskQwDBrpi35JnIaP0mx613yfRwtPD5eC7eZSXGtkPADj0AENo/frS/Q==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1575)
+Completed 500 Internal Server Error in 442ms (ActiveRecord: 0.0ms | Allocations: 113881)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started GET "/procedures/new" for ::1 at 2020-10-28 17:15:32 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1459)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 58ms (Views: 57.3ms | ActiveRecord: 0.0ms | Allocations: 30314)
+
+
+Started POST "/procedures" for ::1 at 2020-10-28 17:15:34 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"2WyczKZXXlcesyByQosebNweiFvr/PFLZt/oORyL1y598xWTxmzFjmkHsBVXkieEftbS3mITpl8D06hXWxPaQQ==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.7ms | Allocations: 1572)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.0ms | Allocations: 3315)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started GET "/procedures/new" for ::1 at 2020-10-28 17:15:44 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1458)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 31.4ms | ActiveRecord: 0.0ms | Allocations: 6908)
+
+
+Started POST "/procedures" for ::1 at 2020-10-28 17:15:54 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"8bYFmFsWnDjKPA+MW5FdiTbioBDCdOtNqqPsttEqRdxVKYzHOy0H4b2In+tOiGRhlCr6lUubvFnPr6zYlrJIsw==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1570)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms | Allocations: 3312)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started POST "/procedures" for ::1 at 2020-10-28 17:15:57 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"8bYFmFsWnDjKPA+MW5FdiTbioBDCdOtNqqPsttEqRdxVKYzHOy0H4b2In+tOiGRhlCr6lUubvFnPr6zYlrJIsw==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1575)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms | Allocations: 3317)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started GET "/procedures/new" for ::1 at 2020-10-28 17:21:13 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1458)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: c21dbfe0232049e7acea
+Version: webpack 4.44.2
+Time: 8731ms
+Built at: 10/28/2020 5:21:25 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-6ea3fc465fcd2cded1a3.js    865 KiB  application  [emitted] [immutable]  application
+js/application-6ea3fc465fcd2cded1a3.js.map    926 KiB  application  [emitted] [dev]        application
+     js/procedures-bb84361bdfa17e4998cd.js    745 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-bb84361bdfa17e4998cd.js.map    791 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-6ea3fc465fcd2cded1a3.js js/application-6ea3fc465fcd2cded1a3.js.map
+Entrypoint procedures = js/procedures-bb84361bdfa17e4998cd.js js/procedures-bb84361bdfa17e4998cd.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 859 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 12431ms (Views: 12429.8ms | ActiveRecord: 0.0ms | Allocations: 8123)
+
+
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:27 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1570)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms | Allocations: 3312)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:28 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1575)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms | Allocations: 3317)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:29 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1575)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 3317)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:30 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1576)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.0ms | Allocations: 12221)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:30 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1576)
+Completed 500 Internal Server Error in 213ms (ActiveRecord: 0.0ms | Allocations: 93585)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:31 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.4ms | Allocations: 1575)
+Completed 500 Internal Server Error in 132ms (ActiveRecord: 0.0ms | Allocations: 36713)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:32 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1575)
+Completed 500 Internal Server Error in 220ms (ActiveRecord: 0.0ms | Allocations: 50856)
+
+
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:33 -0300
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1575)
+Completed 500 Internal Server Error in 120ms (ActiveRecord: 0.0ms | Allocations: 60658)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:34 -0300
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:34 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1575)
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 0.0ms | Allocations: 22367)
+
+
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1570)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 0.0ms | Allocations: 18174)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:35 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:36 -0300
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 18.9ms | Allocations: 1575)
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.4ms | Allocations: 1575)
+Completed 500 Internal Server Error in 825ms (ActiveRecord: 0.0ms | Allocations: 278765)
+
+
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:37 -0300
+Completed 500 Internal Server Error in 168ms (ActiveRecord: 0.0ms | Allocations: 50688)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Processing by ProceduresController#create as JS
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1576)
+Completed 500 Internal Server Error in 710ms (ActiveRecord: 0.0ms | Allocations: 350116)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:39 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1575)
+Completed 500 Internal Server Error in 217ms (ActiveRecord: 0.0ms | Allocations: 113534)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:42 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 10.4ms | Allocations: 1575)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.0ms | Allocations: 3317)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:43 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1575)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms | Allocations: 7957)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:44 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1576)
+Completed 500 Internal Server Error in 121ms (ActiveRecord: 0.0ms | Allocations: 27714)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:45 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1575)
+Completed 500 Internal Server Error in 243ms (ActiveRecord: 0.0ms | Allocations: 100568)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:46 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1575)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.0ms | Allocations: 13159)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:47 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1575)
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 0.0ms | Allocations: 16512)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:47 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 9.2ms | Allocations: 1576)
+Completed 500 Internal Server Error in 231ms (ActiveRecord: 0.0ms | Allocations: 62420)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:48 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1576)
+Completed 500 Internal Server Error in 428ms (ActiveRecord: 0.0ms | Allocations: 100005)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:49 -0300
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:49 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1576)
+Completed 500 Internal Server Error in 537ms (ActiveRecord: 0.0ms | Allocations: 128886)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 214.2ms | Allocations: 30841)
+Completed 500 Internal Server Error in 651ms (ActiveRecord: 0.0ms | Allocations: 177351)
+
+
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:52 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.5ms | Allocations: 1575)
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:53 -0300
+Completed 500 Internal Server Error in 327ms (ActiveRecord: 0.0ms | Allocations: 169414)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:54 -0300
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1575)
+Completed 500 Internal Server Error in 431ms (ActiveRecord: 0.0ms | Allocations: 145964)
+
+
+Processing by ProceduresController#create as JS
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1575)
+Completed 500 Internal Server Error in 125ms (ActiveRecord: 0.0ms | Allocations: 68830)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:54 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:55 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.6ms | Allocations: 1570)
+Completed 500 Internal Server Error in 118ms (ActiveRecord: 0.0ms | Allocations: 44785)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1575)
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:56 -0300
+Completed 500 Internal Server Error in 523ms (ActiveRecord: 0.0ms | Allocations: 214694)
+
+
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1575)
+Completed 500 Internal Server Error in 658ms (ActiveRecord: 0.0ms | Allocations: 254323)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:57 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1575)
+Completed 500 Internal Server Error in 359ms (ActiveRecord: 0.0ms | Allocations: 133573)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:58 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1575)
+Completed 500 Internal Server Error in 122ms (ActiveRecord: 0.0ms | Allocations: 61473)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:59 -0300
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:59 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+Processing by ProceduresController#create as JS
+  Rendering procedures/new.html.erb within layouts/application
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1575)
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+Completed 500 Internal Server Error in 236ms (ActiveRecord: 0.0ms | Allocations: 111419)
+
+
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 11.1ms | Allocations: 1572)
+Started POST "/procedures" for ::1 at 2020-10-28 17:21:59 -0300
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Completed 500 Internal Server Error in 310ms (ActiveRecord: 0.0ms | Allocations: 135083)
+
+
+Processing by ProceduresController#create as JS
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1575)
+Started POST "/procedures" for ::1 at 2020-10-28 17:22:01 -0300
+Completed 500 Internal Server Error in 602ms (ActiveRecord: 0.0ms | Allocations: 327039)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1575)
+Completed 500 Internal Server Error in 116ms (ActiveRecord: 0.0ms | Allocations: 64510)
+
+
+Started POST "/procedures" for ::1 at 2020-10-28 17:22:01 -0300
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"C1abGLbN26jbTu+TEYYmprq1GY14OXQ1PqwCvi/L9RGvyRJH1vZAcaz6f/QEnx9OGH1DCPHWIyFboELQaFP4fg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1575)
+Completed 500 Internal Server Error in 219ms (ActiveRecord: 0.0ms | Allocations: 134606)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'

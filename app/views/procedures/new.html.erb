@@ -1,26 +1,46 @@
 
 <span>
-  <h1>Ingreso de procedimiento</h1>
+  <div>
+    <h1>Ingreso de procedimiento</h1>
+    <%= form_with model: @procedure do |form| %>
 
-  <%= form_with model: @procedure do |form| %>
+    <section class="form-group">
+      <%= form.label :fecha, 'Fecha:' %>
+      <%= form.datetime_local_field :fecha %>
+    </section>
 
-    <div class="form-group">
-        <%= form.label :start_date %>
-        <%= form.datetime_local_field :start_date %>
-    </div>
-
-    <section>
-
-
-      <label for="direccion"> Direccion: </label>
+    <section class="form-group">
+      <%= form.label :direccion, 'Direccion:' %>
       <%= form.text_field :direccion %>
 
-      <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
-      <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
-      <%= form.label :region %>
+      <section class="form-group">
+        <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+        <%= form.label :region, 'Region:' %>
+        <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
 
-      <%= form.select(:comuna, [], {}, {})  %>
-      <%= form.label :comuna %>
+        <%= form.label :comuna, 'Comuna:' %>
+        <%= form.select(:comuna, [], {}, {})  %>
+      </section>
+
+      <section id="delitos">
+
+        <% delitos = [nil,
+                      "acoso",
+                      "homicidio",
+                      "conduccion en estado de ebriedad",
+                      "Robo a mano armada",
+                      "femicidio",
+                      "violacion",
+                      "pisar las lineas de la vereda"].map{|delito| [delito]} %>
+        <%= form.label :delito_preponderante, 'Delito prepopnderante:' %>
+        <%= form.select( :delito_preponderante, options_for_select(delitos), {}) %>
+        <div id="new_delito">
+          <%= form.label :delito %>
+          <%= form.select( :delito , options_for_select(delitos), {}) %>
+        </div>
+      </section>
+
+      <button id="add_delito_btn" class="btn btn-primary"> Agregar delito </button>
     </section>
 
     <section>
@@ -28,6 +48,7 @@
     </section>
 
   <% end %>
+  </div>
 
 </span>
 

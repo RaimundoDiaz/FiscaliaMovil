@@ -148,7 +148,7 @@ $(document).ready(function(){
         {codigo : "06307",   nombre : "Peralillo"},
         {codigo : "06308",   nombre : "Placilla"},
         {codigo : "06309",   nombre : "Pumanque"},
-        {codigo : "06310","   nombre" : "Santa Cruz"}
+        {codigo : "06310",   nombre : "Santa Cruz"}
     ]
     },{
     codigo : 7,
@@ -183,7 +183,7 @@ $(document).ready(function(){
         {codigo : "07405",   nombre : "Retiro"},
         {codigo : "07406",   nombre : "San Javier"},
         {codigo : "07407",   nombre : "Villa Alegre"},
-        {codigo : "07408", "  nombre" : "Yerbas Buenas"}
+        {codigo : "07408",   nombre : "Yerbas Buenas"}
     ]
     },{
     codigo : 8,
@@ -345,7 +345,7 @@ $(document).ready(function(){
         {codigo : "11301",   nombre : "Cochrane"},
         {codigo : "11302",   nombre : "O’Higgins"},
         {codigo : "11303",   nombre : "Tortel"},
-        {codigo : "11401","   nombre" : "Chile Chico"},
+        {codigo : "11401",   nombre : "Chile Chico"},
         {codigo : "11402",   nombre : "Río Ibáñez"}
     ]
     },{
@@ -456,4 +456,9 @@ $(document).ready(function(){
             }));
         });
     });
+
+    $('#add_delito_btn').click(function () {
+        $('#delitos').append($('#new_delito').clone())
+    })
+
 });
