@@ -13337,3 +13337,28 @@ Processing by ProceduresController#new as HTML
 Completed 200 OK in 21ms (Views: 19.2ms | ActiveRecord: 0.0ms | Allocations: 9696)
 
 
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:45:30 -0300
+  [1m[35m (8.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 29.0ms | Allocations: 4189)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 177ms (Views: 118.2ms | ActiveRecord: 5.8ms | Allocations: 24571)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:45:48 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1898)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 16.7ms | ActiveRecord: 0.0ms | Allocations: 9716)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:45:58 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1898)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 21.4ms | ActiveRecord: 0.0ms | Allocations: 9718)
+
+
