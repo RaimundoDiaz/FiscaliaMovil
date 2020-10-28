@@ -2,7 +2,7 @@
 <span>
   <h1>Ingreso de procedimiento</h1>
 
-  <%= form_for(:precedure, :url => {:action => 'create', :controller=>"procedures"}, :class => "col s12") do |form| %>
+  <%= form_with model: @procedure do |form| %>
 
     <div class="form-group">
         <%= form.label :start_date %>
