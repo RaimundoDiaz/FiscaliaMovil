@@ -20,21 +20,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e78bd00-05eb-47f1-83a9-96a5096b2ba1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/javascript/packs/procedures.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.browserslistrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/webpack/environment.js.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.generators" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.generators" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/atenas.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/atenas.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/procedures_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/procedures_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/procedures_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/procedures_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/javascript/packs/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/application.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/procedures/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/procedures/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/procedures.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/procedures.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/webpack/development.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/webpack/development.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/webpack/environment.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/webpack/production.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/webpack/production.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/webpack/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/webpack/test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/development.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/development.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/a8/96ef074adb062c" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/a8/96ef074adb062c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/c9/a7d2c36b193c90" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/c9/a7d2c36b193c90" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/ee/ece3b7351957cc" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/ee/ece3b7351957cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap-load-path-cache" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap-load-path-cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/packs/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/packs/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/1H/1HyneLliGLAocm4KVeWzj5tKGWdomYfz7rWloxQlXRc.cache" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/1H/1HyneLliGLAocm4KVeWzj5tKGWdomYfz7rWloxQlXRc.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/3_/3_t1wmf4ke-IX6EhIa1WIGM-wn8ZE1nZIk_YTIlzdtA.cache" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/3_/3_t1wmf4ke-IX6EhIa1WIGM-wn8ZE1nZIk_YTIlzdtA.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/3e/3eFGclaSCPwfGhxlDYaTcBiZwn2lNDIp_b5_bUfTVog.cache" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/3e/3eFGclaSCPwfGhxlDYaTcBiZwn2lNDIp_b5_bUfTVog.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/Fl/FllaAr-Bj6XhAGCFwhPOiRn-xyF0L9-OneokMXE-sEI.cache" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/Fl/FllaAr-Bj6XhAGCFwhPOiRn-xyF0L9-OneokMXE-sEI.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/WC/WC-O3sgXHUD8XUuGQB_GA4O3o9DMC8wkimWCn-e6y-g.cache" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/WC/WC-O3sgXHUD8XUuGQB_GA4O3o9DMC8wkimWCn-e6y-g.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/Xm/XmrJW6pmTROpmTVOqrbWZEVMEaMb77we3RiMkrkzTbE.cache" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/Xm/XmrJW6pmTROpmTVOqrbWZEVMEaMb77we3RiMkrkzTbE.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tmp/cache/webpacker/last-compilation-digest-development" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/webpacker/last-compilation-digest-development" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/pids/server.pid" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/pids/server.pid" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +79,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="jsx.switch.disabled" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="configurable.group.language" />
@@ -192,7 +201,8 @@
       <workItem from="1602365043334" duration="5626000" />
       <workItem from="1603051266972" duration="116000" />
       <workItem from="1603051633080" duration="262000" />
-      <workItem from="1603052782887" duration="7576000" />
+      <workItem from="1603052782887" duration="10671000" />
+      <workItem from="1603888371542" duration="1541000" />
     </task>
     <servers />
   </component>
@@ -216,45 +226,53 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1864" height="232" key="GridCell.Tab.0.bottom" timestamp="1603060002743">
+    <state width="1864" height="232" key="GridCell.Tab.0.bottom" timestamp="1603889273122">
       <screen x="0" y="0" width="1920" height="951" />
     </state>
-    <state width="1864" height="232" key="GridCell.Tab.0.bottom/0.0.1920.951@0.0.1920.951" timestamp="1603060002743" />
-    <state width="1864" height="232" key="GridCell.Tab.0.center" timestamp="1603060002742">
+    <state width="1864" height="232" key="GridCell.Tab.0.bottom/0.0.1920.951@0.0.1920.951" timestamp="1603889273122" />
+    <state width="1864" height="232" key="GridCell.Tab.0.center" timestamp="1603889273122">
       <screen x="0" y="0" width="1920" height="951" />
     </state>
-    <state width="1864" height="232" key="GridCell.Tab.0.center/0.0.1920.951@0.0.1920.951" timestamp="1603060002742" />
-    <state width="1864" height="232" key="GridCell.Tab.0.left" timestamp="1603060002742">
+    <state width="1864" height="232" key="GridCell.Tab.0.center/0.0.1920.951@0.0.1920.951" timestamp="1603889273122" />
+    <state width="1864" height="232" key="GridCell.Tab.0.left" timestamp="1603889273121">
       <screen x="0" y="0" width="1920" height="951" />
     </state>
-    <state width="1864" height="232" key="GridCell.Tab.0.left/0.0.1920.951@0.0.1920.951" timestamp="1603060002742" />
-    <state width="1864" height="232" key="GridCell.Tab.0.right" timestamp="1603060002743">
+    <state width="1864" height="232" key="GridCell.Tab.0.left/0.0.1920.951@0.0.1920.951" timestamp="1603889273121" />
+    <state width="1864" height="232" key="GridCell.Tab.0.right" timestamp="1603889273122">
       <screen x="0" y="0" width="1920" height="951" />
     </state>
-    <state width="1864" height="232" key="GridCell.Tab.0.right/0.0.1920.951@0.0.1920.951" timestamp="1603060002743" />
-    <state width="1864" height="232" key="GridCell.Tab.1.bottom" timestamp="1603060002744">
+    <state width="1864" height="232" key="GridCell.Tab.0.right/0.0.1920.951@0.0.1920.951" timestamp="1603889273122" />
+    <state width="1864" height="232" key="GridCell.Tab.1.bottom" timestamp="1603889273123">
       <screen x="0" y="0" width="1920" height="951" />
     </state>
-    <state width="1864" height="232" key="GridCell.Tab.1.bottom/0.0.1920.951@0.0.1920.951" timestamp="1603060002744" />
-    <state width="1864" height="232" key="GridCell.Tab.1.center" timestamp="1603060002743">
+    <state width="1864" height="232" key="GridCell.Tab.1.bottom/0.0.1920.951@0.0.1920.951" timestamp="1603889273123" />
+    <state width="1864" height="232" key="GridCell.Tab.1.center" timestamp="1603889273123">
       <screen x="0" y="0" width="1920" height="951" />
     </state>
-    <state width="1864" height="232" key="GridCell.Tab.1.center/0.0.1920.951@0.0.1920.951" timestamp="1603060002743" />
-    <state width="1864" height="232" key="GridCell.Tab.1.left" timestamp="1603060002743">
+    <state width="1864" height="232" key="GridCell.Tab.1.center/0.0.1920.951@0.0.1920.951" timestamp="1603889273123" />
+    <state width="1864" height="232" key="GridCell.Tab.1.left" timestamp="1603889273123">
       <screen x="0" y="0" width="1920" height="951" />
     </state>
-    <state width="1864" height="232" key="GridCell.Tab.1.left/0.0.1920.951@0.0.1920.951" timestamp="1603060002743" />
-    <state width="1864" height="232" key="GridCell.Tab.1.right" timestamp="1603060002744">
+    <state width="1864" height="232" key="GridCell.Tab.1.left/0.0.1920.951@0.0.1920.951" timestamp="1603889273123" />
+    <state width="1864" height="232" key="GridCell.Tab.1.right" timestamp="1603889273123">
       <screen x="0" y="0" width="1920" height="951" />
     </state>
-    <state width="1864" height="232" key="GridCell.Tab.1.right/0.0.1920.951@0.0.1920.951" timestamp="1603060002744" />
+    <state width="1864" height="232" key="GridCell.Tab.1.right/0.0.1920.951@0.0.1920.951" timestamp="1603889273123" />
     <state x="525" y="44" width="1269" height="907" key="SettingsEditor" timestamp="1603053791535">
       <screen x="0" y="0" width="1920" height="951" />
     </state>
     <state x="525" y="44" width="1269" height="907" key="SettingsEditor/0.0.1920.951@0.0.1920.951" timestamp="1603053791535" />
     <state x="490" y="176" key="SettingsEditor/0.23.1792.1021@0.23.1792.1021" timestamp="1601328234962" />
+    <state x="686" y="379" width="540" height="197" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603889865499">
+      <screen x="0" y="0" width="1920" height="951" />
+    </state>
+    <state x="686" y="379" width="540" height="197" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.951@0.0.1920.951" timestamp="1603889865499" />
+    <state x="539" y="211" key="run.anything.popup" timestamp="1603889969843">
+      <screen x="0" y="0" width="1920" height="951" />
+    </state>
+    <state x="539" y="211" key="run.anything.popup/0.0.1920.951@0.0.1920.951" timestamp="1603889969843" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Atenas@Development__atenas.rcov" NAME="Development: atenas Coverage Results" MODIFIED="1603060002637" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="atenas" />
+    <SUITE FILE_PATH="coverage/Atenas@Development__atenas.rcov" NAME="Development: atenas Coverage Results" MODIFIED="1603889246246" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="atenas" />
   </component>
 </project>

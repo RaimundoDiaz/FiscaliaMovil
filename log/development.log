@@ -9830,3 +9830,655 @@ SyntaxError: Identifier 'environment' has already been declared
 Completed 200 OK in 1469ms (Views: 1424.6ms | ActiveRecord: 8.1ms | Allocations: 25084)
 
 
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-18 19:36:01 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.0ms | Allocations: 3590)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 70ms (Views: 28.4ms | ActiveRecord: 4.8ms | Allocations: 23869)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 08:56:41 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 203.1ms | Allocations: 3590)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: cff3d299e54537ffa599
+Version: webpack 4.44.2
+Time: 2763ms
+Built at: 10/28/2020 8:56:51 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-a3ed5204be7ed224e51a.js    126 KiB  application  [emitted] [immutable]  application
+js/application-a3ed5204be7ed224e51a.js.map    141 KiB  application  [emitted] [dev]        application
+     js/procedures-020031e8882a06a0f529.js   5.27 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-020031e8882a06a0f529.js.map   5.33 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-a3ed5204be7ed224e51a.js js/application-a3ed5204be7ed224e51a.js.map
+Entrypoint procedures = js/procedures-020031e8882a06a0f529.js js/procedures-020031e8882a06a0f529.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 868 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 1.38 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+Completed 200 OK in 9718ms (Views: 9526.8ms | ActiveRecord: 5.5ms | Allocations: 26391)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 08:56:59 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 941)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.0ms | Allocations: 6329)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 08:57:13 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 931)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 18.4ms | ActiveRecord: 0.0ms | Allocations: 6303)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 09:00:49 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.9ms | Allocations: 3590)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: a412a21aee5f9fed161d
+Version: webpack 4.44.2
+Time: 1091ms
+Built at: 10/28/2020 9:00:51 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-14d95acd91262e20e81a.js    126 KiB  application  [emitted] [immutable]  application
+js/application-14d95acd91262e20e81a.js.map    141 KiB  application  [emitted] [dev]        application
+     js/procedures-020031e8882a06a0f529.js   5.27 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-020031e8882a06a0f529.js.map   5.33 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-14d95acd91262e20e81a.js js/application-14d95acd91262e20e81a.js.map
+Entrypoint procedures = js/procedures-020031e8882a06a0f529.js js/procedures-020031e8882a06a0f529.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 910 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 1.38 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+Completed 200 OK in 2759ms (Views: 2725.7ms | ActiveRecord: 4.8ms | Allocations: 55018)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 09:00:52 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 941)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 17.8ms | ActiveRecord: 0.0ms | Allocations: 6408)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 09:00:55 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 934)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 6376)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 09:07:34 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.5ms | Allocations: 3590)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: 7ba934d5a74f44ecc957
+Version: webpack 4.44.2
+Time: 7249ms
+Built at: 10/28/2020 9:07:43 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-a8396cd52a62b2a17154.js    844 KiB  application  [emitted] [immutable]  application
+js/application-a8396cd52a62b2a17154.js.map    900 KiB  application  [emitted] [dev]        application
+     js/procedures-e2594bce82b6212eb390.js    725 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-e2594bce82b6212eb390.js.map    765 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-a8396cd52a62b2a17154.js js/application-a8396cd52a62b2a17154.js.map
+Entrypoint procedures = js/procedures-e2594bce82b6212eb390.js js/procedures-e2594bce82b6212eb390.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 891 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 1.38 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 9099ms (Views: 9061.4ms | ActiveRecord: 4.1ms | Allocations: 25267)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 09:15:55 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 941)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: 36eee23a146f5fd76ba3
+Version: webpack 4.44.2
+Time: 2578ms
+Built at: 10/28/2020 9:16:00 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-ac30fc4f054a5cd17093.js    844 KiB  application  [emitted] [immutable]  application
+js/application-ac30fc4f054a5cd17093.js.map    900 KiB  application  [emitted] [dev]        application
+     js/procedures-5858f2038c246cfaccd6.js    725 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-5858f2038c246cfaccd6.js.map    765 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-ac30fc4f054a5cd17093.js js/application-ac30fc4f054a5cd17093.js.map
+Entrypoint procedures = js/procedures-5858f2038c246cfaccd6.js js/procedures-5858f2038c246cfaccd6.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 891 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 1.39 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 4252ms (Views: 4250.5ms | ActiveRecord: 0.0ms | Allocations: 7567)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 09:17:36 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.8ms | Allocations: 931)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: a61fc5d4a0b1620da8be
+Version: webpack 4.44.2
+Time: 2331ms
+Built at: 10/28/2020 9:17:40 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-705d5fe11ef686ab69f7.js    844 KiB  application  [emitted] [immutable]  application
+js/application-705d5fe11ef686ab69f7.js.map    900 KiB  application  [emitted] [dev]        application
+     js/procedures-97512398e50fd088a5b8.js    725 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-97512398e50fd088a5b8.js.map    765 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-705d5fe11ef686ab69f7.js js/application-705d5fe11ef686ab69f7.js.map
+Entrypoint procedures = js/procedures-97512398e50fd088a5b8.js js/procedures-97512398e50fd088a5b8.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 891 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 1.37 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 3839ms (Views: 3838.0ms | ActiveRecord: 0.0ms | Allocations: 7551)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 09:19:22 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 931)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Hash: e9758205d9115e5a5d9d
+Version: webpack 4.44.2
+Time: 2459ms
+Built at: 10/28/2020 9:19:26 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-75811ff994b2d66ccc97.js    846 KiB  application  [emitted] [immutable]  application
+js/application-75811ff994b2d66ccc97.js.map    898 KiB  application  [emitted] [dev]        application
+     js/procedures-38be7f0979a73ec5493d.js   7.49 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-38be7f0979a73ec5493d.js.map   3.52 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-75811ff994b2d66ccc97.js js/application-75811ff994b2d66ccc97.js.map
+Entrypoint procedures = js/procedures-38be7f0979a73ec5493d.js js/procedures-38be7f0979a73ec5493d.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 891 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 3.6 KiB {procedures} {application} [built] [failed] [1 error]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 111 hidden modules
+
+ERROR in ./app/javascript/packs/procedures.js
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/toor/Desktop/Atenas/app/javascript/packs/procedures.js: Unexpected token (3:18)
+
+  1 | $(document).ready(function(){
+  2 |     //transformar la variable de ruby a un json
+> 3 |     var comunas = <%= @regiones[0].to_json %>;
+    |                   ^
+  4 |     comunas = comunas.replace(/&quot;/g,'\"');
+  5 |     console.log(comunas)
+  6 |     comunas = JSON.parse(comunas);
+    at Parser._raise (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:766:17)
+    at Parser.raiseWithData (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:759:17)
+    at Parser.raise (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:753:17)
+    at Parser.unexpected (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:8966:16)
+    at Parser.parseExprAtom (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:10282:20)
+    at Parser.parseExprSubscripts (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:9844:23)
+    at Parser.parseUpdate (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:9824:21)
+    at Parser.parseMaybeUnary (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:9813:17)
+    at Parser.parseExprOps (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:9683:23)
+    at Parser.parseMaybeConditional (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:9657:23)
+    at Parser.parseMaybeAssign (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:9620:21)
+    at /home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:9586:39
+    at Parser.allowInAnd (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:11297:16)
+    at Parser.parseMaybeAssignAllowIn (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:9586:17)
+    at Parser.parseVar (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:12097:70)
+    at Parser.parseVarStatement (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:11906:10)
+    at Parser.parseStatementContent (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:11498:21)
+    at Parser.parseStatement (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:11431:17)
+    at Parser.parseBlockOrModuleBlockBody (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:12013:25)
+    at Parser.parseBlockBody (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:11999:10)
+    at Parser.parseBlock (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:11983:10)
+    at Parser.parseFunctionBody (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:10963:24)
+    at Parser.parseFunctionBodyAndFinish (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:10946:10)
+    at /home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:12153:12
+    at Parser.withTopicForbiddingContext (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:11272:14)
+    at Parser.parseFunction (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:12152:10)
+    at Parser.parseFunctionOrFunctionSent (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:10377:17)
+    at Parser.parseExprAtom (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:10202:21)
+    at Parser.parseExprSubscripts (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:9844:23)
+    at Parser.parseUpdate (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:9824:21)
+
+Completed 200 OK in 4152ms (Views: 4151.4ms | ActiveRecord: 0.0ms | Allocations: 7469)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 09:22:13 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 933)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Hash: cba79afb62ea5a25e7a5
+Version: webpack 4.44.2
+Time: 2371ms
+Built at: 10/28/2020 9:22:17 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9dbd8f147d0bcfb5b413.js    847 KiB  application  [emitted] [immutable]  application
+js/application-9dbd8f147d0bcfb5b413.js.map    898 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-9dbd8f147d0bcfb5b413.js js/application-9dbd8f147d0bcfb5b413.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 898 bytes {application} [built]
+[./app/javascript/packs/procedures.js.erb] 3.6 KiB {application} [built] [failed] [1 error]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 111 hidden modules
+
+ERROR in ./app/javascript/packs/procedures.js.erb
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/toor/Desktop/Atenas/app/javascript/packs/procedures.js.erb: Unexpected token (3:18)
+
+  1 | $(document).ready(function(){
+  2 |     //transformar la variable de ruby a un json
+> 3 |     var comunas = <%= @regiones[0].to_json %>;
+    |                   ^
+  4 |     comunas = comunas.replace(/&quot;/g,'\"');
+  5 |     console.log(comunas)
+  6 |     comunas = JSON.parse(comunas);
+    at Parser._raise (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:766:17)
+    at Parser.raiseWithData (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:759:17)
+    at Parser.raise (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:753:17)
+    at Parser.unexpected (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:8966:16)
+    at Parser.parseExprAtom (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:10282:20)
+    at Parser.parseExprSubscripts (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:9844:23)
+    at Parser.parseUpdate (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:9824:21)
+    at Parser.parseMaybeUnary (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:9813:17)
+    at Parser.parseExprOps (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:9683:23)
+    at Parser.parseMaybeConditional (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:9657:23)
+    at Parser.parseMaybeAssign (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:9620:21)
+    at /home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:9586:39
+    at Parser.allowInAnd (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:11297:16)
+    at Parser.parseMaybeAssignAllowIn (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:9586:17)
+    at Parser.parseVar (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:12097:70)
+    at Parser.parseVarStatement (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:11906:10)
+    at Parser.parseStatementContent (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:11498:21)
+    at Parser.parseStatement (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:11431:17)
+    at Parser.parseBlockOrModuleBlockBody (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:12013:25)
+    at Parser.parseBlockBody (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:11999:10)
+    at Parser.parseBlock (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:11983:10)
+    at Parser.parseFunctionBody (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:10963:24)
+    at Parser.parseFunctionBodyAndFinish (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:10946:10)
+    at /home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:12153:12
+    at Parser.withTopicForbiddingContext (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:11272:14)
+    at Parser.parseFunction (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:12152:10)
+    at Parser.parseFunctionOrFunctionSent (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:10377:17)
+    at Parser.parseExprAtom (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:10202:21)
+    at Parser.parseExprSubscripts (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:9844:23)
+    at Parser.parseUpdate (/home/toor/Desktop/Atenas/node_modules/@babel/parser/lib/index.js:9824:21)
+ @ ./app/javascript/packs/application.js 13:0-30
+
+Completed 200 OK in 3784ms (Views: 3779.9ms | ActiveRecord: 0.0ms | Allocations: 7429)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 09:22:43 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 933)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 18.4ms | ActiveRecord: 0.0ms | Allocations: 6347)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 09:23:20 -0300
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.4ms | Allocations: 3590)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 54ms (Views: 20.8ms | ActiveRecord: 4.1ms | Allocations: 24008)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 09:26:04 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 941)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 17.8ms | ActiveRecord: 0.0ms | Allocations: 6358)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 09:27:28 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 933)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 19.9ms | ActiveRecord: 0.0ms | Allocations: 6357)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 09:28:05 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.8ms | Allocations: 3590)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: 3e3af4ab64dc49c50929
+Version: webpack 4.44.2
+Time: 2538ms
+Built at: 10/28/2020 9:28:09 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-ea56d1f54dc92db41e4e.js    844 KiB  application  [emitted] [immutable]  application
+js/application-ea56d1f54dc92db41e4e.js.map    900 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-ea56d1f54dc92db41e4e.js js/application-ea56d1f54dc92db41e4e.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 866 bytes {application} [built]
+[./app/javascript/packs/procedures.js.erb] 1.39 KiB {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 3927ms (Views: 3887.7ms | ActiveRecord: 5.2ms | Allocations: 25206)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 09:28:40 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 941)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 13.9ms | ActiveRecord: 0.0ms | Allocations: 6370)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 09:28:58 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.9ms | Allocations: 3590)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 55ms (Views: 20.5ms | ActiveRecord: 4.3ms | Allocations: 24008)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 09:29:33 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.8ms | Allocations: 3591)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 55ms (Views: 22.5ms | ActiveRecord: 4.1ms | Allocations: 24021)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 09:30:44 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 9.0ms | Allocations: 3590)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 90ms (Views: 43.9ms | ActiveRecord: 9.1ms | Allocations: 24010)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 09:33:28 -0300
+  [1m[35m (7.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 45.5ms | Allocations: 3590)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 387ms (Views: 132.3ms | ActiveRecord: 15.5ms | Allocations: 24014)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 09:35:02 -0300
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.5ms | Allocations: 3590)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 64ms (Views: 26.5ms | ActiveRecord: 4.2ms | Allocations: 24004)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 09:35:05 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 941)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 20.2ms | ActiveRecord: 0.0ms | Allocations: 6376)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 09:46:20 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.3ms | Allocations: 3591)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 71ms (Views: 25.5ms | ActiveRecord: 12.2ms | Allocations: 24007)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 09:47:31 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 941)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: 214c8844fa4b880901d3
+Version: webpack 4.44.2
+Time: 3539ms
+Built at: 10/28/2020 9:47:37 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-990f2effb6ce9126ebcc.js    844 KiB  application  [emitted] [immutable]  application
+js/application-990f2effb6ce9126ebcc.js.map    900 KiB  application  [emitted] [dev]        application
+     js/procedures-934790593749657312b4.js    725 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-934790593749657312b4.js.map    765 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-990f2effb6ce9126ebcc.js js/application-990f2effb6ce9126ebcc.js.map
+Entrypoint procedures = js/procedures-934790593749657312b4.js js/procedures-934790593749657312b4.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 862 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 1.35 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 6079ms (Views: 6077.9ms | ActiveRecord: 0.0ms | Allocations: 7609)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 09:48:29 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 9.2ms | Allocations: 3591)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: d7de0cc50e8d63e07948
+Version: webpack 4.44.2
+Time: 2449ms
+Built at: 10/28/2020 9:48:33 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-b0607dfcb8ced2136954.js    844 KiB  application  [emitted] [immutable]  application
+js/application-b0607dfcb8ced2136954.js.map    900 KiB  application  [emitted] [dev]        application
+     js/procedures-a033e4bb6ca0dec5a2fc.js    725 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-a033e4bb6ca0dec5a2fc.js.map    765 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-b0607dfcb8ced2136954.js js/application-b0607dfcb8ced2136954.js.map
+Entrypoint procedures = js/procedures-a033e4bb6ca0dec5a2fc.js js/procedures-a033e4bb6ca0dec5a2fc.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 862 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 1.35 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 3872ms (Views: 3834.6ms | ActiveRecord: 4.1ms | Allocations: 25250)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 09:52:21 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 938)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: 52ef772de9f88150e540
+Version: webpack 4.44.2
+Time: 2414ms
+Built at: 10/28/2020 9:52:25 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-d1776189885f34988d7a.js    844 KiB  application  [emitted] [immutable]  application
+js/application-d1776189885f34988d7a.js.map    900 KiB  application  [emitted] [dev]        application
+     js/procedures-66cab22781d3792d49c2.js    725 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-66cab22781d3792d49c2.js.map    765 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-d1776189885f34988d7a.js js/application-d1776189885f34988d7a.js.map
+Entrypoint procedures = js/procedures-66cab22781d3792d49c2.js js/procedures-66cab22781d3792d49c2.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 862 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 1.37 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 3780ms (Views: 3779.1ms | ActiveRecord: 0.0ms | Allocations: 7544)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 09:53:54 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 934)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: d35143add190e2843f17
+Version: webpack 4.44.2
+Time: 2423ms
+Built at: 10/28/2020 9:53:58 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-e972cbafac75f883536a.js    844 KiB  application  [emitted] [immutable]  application
+js/application-e972cbafac75f883536a.js.map    900 KiB  application  [emitted] [dev]        application
+     js/procedures-b3df2eef81a04dd45add.js    725 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-b3df2eef81a04dd45add.js.map    765 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-e972cbafac75f883536a.js js/application-e972cbafac75f883536a.js.map
+Entrypoint procedures = js/procedures-b3df2eef81a04dd45add.js js/procedures-b3df2eef81a04dd45add.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 862 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 1.39 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 3806ms (Views: 3805.2ms | ActiveRecord: 0.0ms | Allocations: 7550)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 09:58:35 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 20.1ms | Allocations: 933)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: 32e254879111d66a6067
+Version: webpack 4.44.2
+Time: 2264ms
+Built at: 10/28/2020 9:58:38 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-4b5da7ca816c2c1a549a.js    844 KiB  application  [emitted] [immutable]  application
+js/application-4b5da7ca816c2c1a549a.js.map    900 KiB  application  [emitted] [dev]        application
+     js/procedures-697b16558e160b39c993.js    725 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-697b16558e160b39c993.js.map    765 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-4b5da7ca816c2c1a549a.js js/application-4b5da7ca816c2c1a549a.js.map
+Entrypoint procedures = js/procedures-697b16558e160b39c993.js js/procedures-697b16558e160b39c993.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 862 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 1.36 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 3648ms (Views: 3646.7ms | ActiveRecord: 0.0ms | Allocations: 7565)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 10:00:06 -0300
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.9ms | Allocations: 3590)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: c84ba95adc143f2723c0
+Version: webpack 4.44.2
+Time: 2267ms
+Built at: 10/28/2020 10:00:10 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-8a71822aae8030436cd1.js    844 KiB  application  [emitted] [immutable]  application
+js/application-8a71822aae8030436cd1.js.map    900 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-8a71822aae8030436cd1.js js/application-8a71822aae8030436cd1.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 866 bytes {application} [built]
+[./app/javascript/packs/procedures.js.erb] 1.37 KiB {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 3925ms (Views: 3887.1ms | ActiveRecord: 4.7ms | Allocations: 25201)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 10:00:43 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.0ms | Allocations: 941)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 14.3ms | ActiveRecord: 0.0ms | Allocations: 6356)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 10:00:59 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.9ms | Allocations: 3590)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 69ms (Views: 30.8ms | ActiveRecord: 4.9ms | Allocations: 24020)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 10:01:28 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 941)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 18.2ms | ActiveRecord: 0.0ms | Allocations: 6362)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-28 10:02:01 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 11.1ms | Allocations: 3590)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 110ms (Views: 45.1ms | ActiveRecord: 7.2ms | Allocations: 24000)
+
+
