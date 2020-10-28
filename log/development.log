@@ -12090,3 +12090,1250 @@ app/views/procedures/new.html.erb:17
 app/views/procedures/new.html.erb:5
 app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
 app/controllers/procedures_controller.rb:31:in `create'
+Started GET "/procedures/new" for ::1 at 2020-10-28 17:37:42 -0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 37.0ms | Allocations: 4189)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1369ms (Views: 1308.3ms | ActiveRecord: 6.2ms | Allocations: 42118)
+
+
+Started POST "/procedures" for ::1 at 2020-10-28 17:38:57 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"szmmUB3X7LsaUUNKNVeJpEJHKM4tbN2w9Fwt/BZp1j6nqr8c7OFE+IelkJDw7AMVqSfRUZs/lW61TEP/dabZWg==", "procedure"=>{"fecha"=>"", "direccion"=>"", "region"=>"15", "comuna"=>"15101", "delito_preponderante"=>"homicidio", "delito"=>""}}
+[31mUnpermitted parameters: :fecha, :direccion, :region, :comuna, :delito_preponderante, :delito[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1869)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.0ms | Allocations: 10226)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14:       <%= form.text_field :direccion %>
+    15: 
+    16:       <section class="form-group">
+    17:         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    18:         <%= form.label :region, 'Region:' %>
+    19:         <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+    20: 
+  
+app/views/procedures/new.html.erb:17
+app/views/procedures/new.html.erb:5
+app/controllers/procedures_controller.rb:36:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:31:in `create'
+Started GET "/procedures/new" for ::1 at 2020-10-28 17:42:49 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.3ms | Allocations: 1931)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 500 Internal Server Error in 187ms (ActiveRecord: 0.0ms | Allocations: 85118)
+
+
+  
+ActionView::Template::Error (undefined method `registered_user_signed_in?' for #<#<Class:0x00007fa13a7ee798>:0x00007fa13a7ec718>):
+    15:       <a class="navbar-brand"><%= link_to "E-Calendar", root_path %></a>
+    16:       <ul class="navbar-nav mr-auto">
+    17:       </ul>
+    18:       <% if registered_user_signed_in? %>
+    19:         <li class="nav-link"><%= link_to(inbox_path) do %>
+    20:             <i class="fa fa-inbox"></i>
+    21:           <% end %></li>
+  
+app/views/layouts/application.html.erb:18
+Started GET "/procedures/new" for ::1 at 2020-10-28 17:43:11 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1903)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 500 Internal Server Error in 340ms (ActiveRecord: 0.0ms | Allocations: 158052)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `inbox_path' for #<#<Class:0x00007fa13a6ea7c0>:0x00007fa13a6e8470>):
+    16:       <ul class="navbar-nav mr-auto">
+    17:       </ul>
+    18: 
+    19:         <li class="nav-link"><%= link_to(inbox_path) do %>
+    20:             <i class="fa fa-inbox"></i>
+    21:           <% end %></li>
+    22: 
+  
+app/views/layouts/application.html.erb:19
+Started GET "/procedures/new" for ::1 at 2020-10-28 17:43:28 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.5ms | Allocations: 1904)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.0ms | Allocations: 9299)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"users"}, missing required keys: [:id]):
+    16:       <ul class="navbar-nav mr-auto">
+    17:       </ul>
+    18: 
+    19:         <li class="nav-link"><%= link_to(user_path) do %>
+    20:             <i class="fa fa-inbox"></i>
+    21:           <% end %></li>
+    22: 
+  
+app/views/layouts/application.html.erb:19
+Started GET "/procedures/new" for ::1 at 2020-10-28 17:43:47 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1903)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 500 Internal Server Error in 256ms (ActiveRecord: 0.0ms | Allocations: 158144)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `procedure_new' for #<#<Class:0x00007fa13ab65188>:0x00007fa13e01ab30>
+Did you mean?  procedure_url
+               procedures_url
+               procedure_path
+               @procedure):
+    16:       <ul class="navbar-nav mr-auto">
+    17:       </ul>
+    18: 
+    19:         <li class="nav-link"><%= link_to(procedure_new) do %>
+    20:             <i class="fa fa-inbox"></i>
+    21:           <% end %></li>
+    22: 
+  
+app/views/layouts/application.html.erb:19
+Started GET "/procedures/new" for ::1 at 2020-10-28 17:44:00 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1904)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms | Allocations: 5418)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html>
+  <head>
+    <title>Atenas</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <nav class="navbar-dark navbar-expand-lg">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <a class="navbar-brand"><%= link_to "E-Calendar", root_path %></a>
+      <ul class="navbar-nav mr-auto">
+      </ul>
+
+        <li class="nav-link"><%= do %>
+            <i class="fa fa-inbox"></i>
+          <% end %></li>
+
+      <span class="form-inline my-2 my-lg-0">
+      <%= form_tag("/search", method: "get") do %>
+        <%= label_tag(:q, "") %>
+          <%= text_field_tag(:q) %>
+          <%= submit_tag("Search") %>
+      <% end %>
+    </span>
+
+
+        <%= link_to "Log Out", destroy_registered_user_session_path, method: :delete%>
+
+        <%= link_to "Sign In", new_registered_user_session_path%>
+        <%= link_to "Sign Up", new_registered_user_registration_path%>
+
+
+    </div>
+  </nav>
+    <header>
+
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+
+    </footer>
+  </body>
+</html>
+
+):
+1:    <!DOCTYPE html>
+2:    <html>
+3:      <head>
+4:        <title>Atenas</title>
+5:        <%= csrf_meta_tags %>
+6:        <%= csp_meta_tag %>
+7:    
+8:        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+9:        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+10:      </head>
+11:    
+12:      <body>
+13:      <nav class="navbar-dark navbar-expand-lg">
+14:        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+15:          <a class="navbar-brand"><%= link_to "E-Calendar", root_path %></a>
+16:          <ul class="navbar-nav mr-auto">
+17:          </ul>
+18:    
+19:            <li class="nav-link"><%= do %>
+20:                <i class="fa fa-inbox"></i>
+21:              <% end %></li>
+22:    
+23:          <span class="form-inline my-2 my-lg-0">
+24:          <%= form_tag("/search", method: "get") do %>
+25:            <%= label_tag(:q, "") %>
+26:              <%= text_field_tag(:q) %>
+27:              <%= submit_tag("Search") %>
+28:          <% end %>
+29:        </span>
+30:    
+31:    
+32:            <%= link_to "Log Out", destroy_registered_user_session_path, method: :delete%>
+33:    
+34:            <%= link_to "Sign In", new_registered_user_session_path%>
+35:            <%= link_to "Sign Up", new_registered_user_registration_path%>
+36:    
+37:    
+38:        </div>
+39:      </nav>
+40:        <header>
+41:    
+42:        </header>
+43:        <main>
+44:          <%= yield %>
+45:        </main>
+46:        <footer>
+47:    
+48:        </footer>
+49:      </body>
+50:    </html>
+  
+app/views/layouts/application.html.erb:19: syntax error, unexpected `do'
+app/views/layouts/application.html.erb:53: syntax error, unexpected `end', expecting end-of-input
+app/views/layouts/application.html.erb:19: syntax error, unexpected `do'
+app/views/layouts/application.html.erb:53: syntax error, unexpected `end', expecting end-of-input
+app/views/layouts/application.html.erb:19: syntax error, unexpected `do'
+app/views/layouts/application.html.erb:53: syntax error, unexpected `end', expecting end-of-input
+app/views/layouts/application.html.erb:19: syntax error, unexpected `do'
+app/views/layouts/application.html.erb:53: syntax error, unexpected `end', expecting end-of-input
+app/views/layouts/application.html.erb:19: syntax error, unexpected `do'
+app/views/layouts/application.html.erb:53: syntax error, unexpected `end', expecting end-of-input
+app/views/layouts/application.html.erb:19: syntax error, unexpected `do'
+app/views/layouts/application.html.erb:53: syntax error, unexpected `end', expecting end-of-input
+Started GET "/procedures/new" for ::1 at 2020-10-28 17:44:17 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1462)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 4216)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html>
+  <head>
+    <title>Atenas</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <nav class="navbar-dark navbar-expand-lg">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <a class="navbar-brand"><%= link_to "E-Calendar", root_path %></a>
+      <ul class="navbar-nav mr-auto">
+      </ul>
+
+        <li class="nav-link"><%= do %>
+            <i class="fa fa-inbox"></i>
+          <% end %></li>
+
+      <span class="form-inline my-2 my-lg-0">
+      <%= form_tag("/search", method: "get") do %>
+        <%= label_tag(:q, "") %>
+          <%= text_field_tag(:q) %>
+          <%= submit_tag("Search") %>
+      <% end %>
+    </span>
+
+
+        <%= link_to "Log Out", destroy_registered_user_session_path, method: :delete%>
+
+        <%= link_to "Sign In", new_registered_user_session_path%>
+        <%= link_to "Sign Up", new_registered_user_registration_path%>
+
+
+    </div>
+  </nav>
+    <header>
+
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+
+    </footer>
+  </body>
+</html>
+
+):
+1:    <!DOCTYPE html>
+2:    <html>
+3:      <head>
+4:        <title>Atenas</title>
+5:        <%= csrf_meta_tags %>
+6:        <%= csp_meta_tag %>
+7:    
+8:        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+9:        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+10:      </head>
+11:    
+12:      <body>
+13:      <nav class="navbar-dark navbar-expand-lg">
+14:        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+15:          <a class="navbar-brand"><%= link_to "E-Calendar", root_path %></a>
+16:          <ul class="navbar-nav mr-auto">
+17:          </ul>
+18:    
+19:            <li class="nav-link"><%= do %>
+20:                <i class="fa fa-inbox"></i>
+21:              <% end %></li>
+22:    
+23:          <span class="form-inline my-2 my-lg-0">
+24:          <%= form_tag("/search", method: "get") do %>
+25:            <%= label_tag(:q, "") %>
+26:              <%= text_field_tag(:q) %>
+27:              <%= submit_tag("Search") %>
+28:          <% end %>
+29:        </span>
+30:    
+31:    
+32:            <%= link_to "Log Out", destroy_registered_user_session_path, method: :delete%>
+33:    
+34:            <%= link_to "Sign In", new_registered_user_session_path%>
+35:            <%= link_to "Sign Up", new_registered_user_registration_path%>
+36:    
+37:    
+38:        </div>
+39:      </nav>
+40:        <header>
+41:    
+42:        </header>
+43:        <main>
+44:          <%= yield %>
+45:        </main>
+46:        <footer>
+47:    
+48:        </footer>
+49:      </body>
+50:    </html>
+  
+app/views/layouts/application.html.erb:19: syntax error, unexpected `do'
+app/views/layouts/application.html.erb:53: syntax error, unexpected `end', expecting end-of-input
+app/views/layouts/application.html.erb:19: syntax error, unexpected `do'
+app/views/layouts/application.html.erb:53: syntax error, unexpected `end', expecting end-of-input
+app/views/layouts/application.html.erb:19: syntax error, unexpected `do'
+app/views/layouts/application.html.erb:53: syntax error, unexpected `end', expecting end-of-input
+app/views/layouts/application.html.erb:19: syntax error, unexpected `do'
+app/views/layouts/application.html.erb:53: syntax error, unexpected `end', expecting end-of-input
+app/views/layouts/application.html.erb:19: syntax error, unexpected `do'
+app/views/layouts/application.html.erb:53: syntax error, unexpected `end', expecting end-of-input
+app/views/layouts/application.html.erb:19: syntax error, unexpected `do'
+app/views/layouts/application.html.erb:53: syntax error, unexpected `end', expecting end-of-input
+Started GET "/procedures/new" for ::1 at 2020-10-28 17:44:58 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1903)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 500 Internal Server Error in 272ms (ActiveRecord: 0.0ms | Allocations: 158105)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `destroy_registered_user_session_path' for #<#<Class:0x00007fa13a69be18>:0x00007fa13a6993c0>):
+    27:     </span>
+    28: 
+    29: 
+    30:         <%= link_to "Log Out", destroy_registered_user_session_path, method: :delete%>
+    31: 
+    32:         <%= link_to "Sign In", new_registered_user_session_path%>
+    33:         <%= link_to "Sign Up", new_registered_user_registration_path%>
+  
+app/views/layouts/application.html.erb:30
+Started GET "/procedures/new" for ::1 at 2020-10-28 17:45:15 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1466)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 500 Internal Server Error in 279ms (ActiveRecord: 0.0ms | Allocations: 156578)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `destroy_registered_user_session_path' for #<#<Class:0x00007fa13a69be18>:0x00007fa1397369a0>):
+    27:     </span>
+    28: 
+    29: 
+    30: 
+    31: 
+    32:         <%= link_to "Sign In", 1%>
+    33:         <%= link_to "Sign Up", 2%>
+  
+app/views/layouts/application.html.erb:30
+Started GET "/procedures/new" for ::1 at 2020-10-28 17:45:21 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1902)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms | Allocations: 10302)
+
+
+  
+ActionView::Template::Error (undefined method `to_model' for 1:Integer
+Did you mean?  to_yaml):
+    29: 
+    30: 
+    31: 
+    32:         <%= link_to "Sign In", 1%>
+    33:         <%= link_to "Sign Up", 2%>
+    34: 
+    35: 
+  
+app/views/layouts/application.html.erb:32
+Started GET "/procedures/new" for ::1 at 2020-10-28 17:45:23 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.2ms | Allocations: 1466)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms | Allocations: 8785)
+
+
+  
+ActionView::Template::Error (undefined method `to_model' for 1:Integer
+Did you mean?  to_yaml):
+    29: 
+    30: 
+    31: 
+    32:         <%= link_to "Sign In", 1%>
+    33:         <%= link_to "Sign Up", 2%>
+    34: 
+    35: 
+  
+app/views/layouts/application.html.erb:32
+Started GET "/procedures/new" for ::1 at 2020-10-28 17:45:24 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1463)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms | Allocations: 8771)
+
+
+  
+ActionView::Template::Error (undefined method `to_model' for 1:Integer
+Did you mean?  to_yaml):
+    29: 
+    30: 
+    31: 
+    32:         <%= link_to "Sign In", 1%>
+    33:         <%= link_to "Sign Up", 2%>
+    34: 
+    35: 
+  
+app/views/layouts/application.html.erb:32
+Started GET "/procedures/new" for ::1 at 2020-10-28 17:45:32 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.8ms | Allocations: 1462)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms | Allocations: 8770)
+
+
+  
+ActionView::Template::Error (undefined method `to_model' for 1:Integer
+Did you mean?  to_yaml):
+    29: 
+    30: 
+    31: 
+    32: 
+    33: 
+    34: 
+    35:     </div>
+  
+app/views/layouts/application.html.erb:32
+Started GET "/procedures/new" for ::1 at 2020-10-28 17:45:34 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1902)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 16.3ms | ActiveRecord: 0.0ms | Allocations: 8562)
+
+
+Started GET "/" for ::1 at 2020-10-28 17:45:40 -0300
+Processing by ProceduresController#index as HTML
+  Rendering procedures/index.html.erb within layouts/application
+  [1m[36mProcedure Load (2.6ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures"[0m
+  ↳ app/views/procedures/index.html.erb:20
+  Rendered procedures/index.html.erb within layouts/application (Duration: 10.1ms | Allocations: 2123)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 2.6ms | Allocations: 2727)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"procedures", :id=>"1", :user_id=>nil}, missing required keys: [:user_id]):
+    26:         <td><%= procedure.story %></td>
+    27:         <td><%= procedure.address %></td>
+    28:         <td><%= procedure.state %></td>
+    29:         <td><%= link_to 'Show', user_procedure_path(params['user_id'], procedure) %></td>
+    30:         <td><%= link_to 'Edit', edit_user_procedure_path(params['user_id'], procedure) %></td>
+    31:         <td><%= link_to 'Destroy', user_procedure_path(params['user_id'], procedure), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    32:       </tr>
+  
+app/views/procedures/index.html.erb:29
+app/views/procedures/index.html.erb:20
+Started GET "/procedures/new" for ::1 at 2020-10-28 17:45:42 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1469)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 13.9ms | ActiveRecord: 0.0ms | Allocations: 7070)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 17:46:39 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 27.2ms | ActiveRecord: 0.0ms | Allocations: 8286)
+
+
+Started GET "/docs/4.0/assets/brand/bootstrap-solid.svg" for ::1 at 2020-10-28 17:46:39 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/docs/4.0/assets/brand/bootstrap-solid.svg"):
+  
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:03:27 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1900)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1295ms (Views: 1292.8ms | ActiveRecord: 0.0ms | Allocations: 31058)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:03:31 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1463)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 0.0ms | Allocations: 7407)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:05:28 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1898)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1041ms (Views: 1039.2ms | ActiveRecord: 0.0ms | Allocations: 32502)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:05:32 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1463)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 23.2ms | ActiveRecord: 0.0ms | Allocations: 7415)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:07:57 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1902)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 16.5ms | ActiveRecord: 0.0ms | Allocations: 8752)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:08:55 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 84ms (Views: 82.0ms | ActiveRecord: 0.0ms | Allocations: 25345)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:09:04 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1463)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 19.7ms | ActiveRecord: 0.0ms | Allocations: 7411)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:09:06 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1457)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.0ms | Allocations: 7365)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:09:32 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1898)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 14.6ms | ActiveRecord: 0.0ms | Allocations: 8763)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:09:54 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 13.8ms | ActiveRecord: 0.0ms | Allocations: 8744)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:09:54 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1463)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.2ms | ActiveRecord: 0.0ms | Allocations: 7379)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:11:05 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1898)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 12.8ms | ActiveRecord: 0.0ms | Allocations: 8289)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:11:36 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 17.1ms | ActiveRecord: 0.0ms | Allocations: 8770)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:12:03 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 16.8ms | ActiveRecord: 0.0ms | Allocations: 8767)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:12:04 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1465)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 16.0ms | ActiveRecord: 0.0ms | Allocations: 7384)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:12:14 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1902)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 16.2ms | ActiveRecord: 0.0ms | Allocations: 8777)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:13:23 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1463)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 0.0ms | Allocations: 7373)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:13:53 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 17.7ms | ActiveRecord: 0.0ms | Allocations: 8760)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:14:05 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 15.4ms | ActiveRecord: 0.0ms | Allocations: 8756)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:14:14 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 20.2ms | ActiveRecord: 0.0ms | Allocations: 8760)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:14:24 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1898)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 14.1ms | ActiveRecord: 0.0ms | Allocations: 8764)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:14:28 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 24.7ms | ActiveRecord: 0.0ms | Allocations: 8752)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:14:33 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.5ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 21.4ms | ActiveRecord: 0.0ms | Allocations: 8749)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:14:52 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1898)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 15.7ms | ActiveRecord: 0.0ms | Allocations: 8745)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:16:20 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 127ms (Views: 124.9ms | ActiveRecord: 0.0ms | Allocations: 34299)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:16:26 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1907)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 20.7ms | ActiveRecord: 0.0ms | Allocations: 9263)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:17:07 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 17.6ms | ActiveRecord: 0.0ms | Allocations: 9196)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:17:30 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 0.0ms | Allocations: 9202)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:17:31 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1463)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.3ms | ActiveRecord: 0.0ms | Allocations: 7812)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:17:35 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1898)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 22.8ms | ActiveRecord: 0.0ms | Allocations: 9224)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:18:00 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 21.0ms | ActiveRecord: 0.0ms | Allocations: 9211)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:18:47 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 16.2ms | ActiveRecord: 0.0ms | Allocations: 9209)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:19:00 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1898)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 15.2ms | ActiveRecord: 0.0ms | Allocations: 9208)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:19:16 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.5ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 29.9ms | ActiveRecord: 0.0ms | Allocations: 9208)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:19:28 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.2ms | Allocations: 1902)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 24.9ms | ActiveRecord: 0.0ms | Allocations: 9224)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:21:23 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 19.9ms | ActiveRecord: 0.0ms | Allocations: 9343)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:21:42 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1898)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 16.6ms | ActiveRecord: 0.0ms | Allocations: 9341)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:22:16 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 14.7ms | ActiveRecord: 0.0ms | Allocations: 9293)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:22:35 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1463)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 15.7ms | ActiveRecord: 0.0ms | Allocations: 7811)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:22:36 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 15.2ms | ActiveRecord: 0.0ms | Allocations: 9291)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:23:17 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1898)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 24.5ms | ActiveRecord: 0.0ms | Allocations: 9299)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:23:37 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 18.7ms | ActiveRecord: 0.0ms | Allocations: 9302)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:23:44 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.1ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 24.8ms | ActiveRecord: 0.0ms | Allocations: 9289)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:23:52 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1898)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 18.5ms | ActiveRecord: 0.0ms | Allocations: 9291)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:24:34 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1907)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 30.5ms | ActiveRecord: 0.0ms | Allocations: 9318)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:25:29 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 0.0ms | Allocations: 12940)
+
+
+  
+ActionView::Template::Error (The asset "logo.jpg.png" is not present in the asset pipeline.
+):
+    85: 
+    86:           <!-- Grid column -->
+    87:           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+    88:             <a class="ml-sm-5"><%= image_tag("logo.jpg.png", width: "40em") %></a>
+    89: 
+    90: 
+    91:           </div>
+  
+app/views/layouts/application.html.erb:88
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:25:39 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.6ms | Allocations: 1902)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 23.1ms | ActiveRecord: 0.0ms | Allocations: 9762)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:25:46 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 21.9ms | ActiveRecord: 0.0ms | Allocations: 9741)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:25:56 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 15.7ms | ActiveRecord: 0.0ms | Allocations: 9753)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:26:56 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 25.0ms | ActiveRecord: 0.0ms | Allocations: 9707)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:27:14 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1902)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 15.7ms | ActiveRecord: 0.0ms | Allocations: 9741)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:27:31 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 22.7ms | ActiveRecord: 0.0ms | Allocations: 9704)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:27:51 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 25.2ms | ActiveRecord: 0.0ms | Allocations: 9713)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:28:00 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 24.6ms | ActiveRecord: 0.0ms | Allocations: 9698)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:28:21 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1463)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 21.0ms | ActiveRecord: 0.0ms | Allocations: 8279)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:28:21 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1898)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.0ms | Allocations: 9703)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:28:29 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 19.4ms | ActiveRecord: 0.0ms | Allocations: 9716)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:28:30 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1463)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.0ms | Allocations: 8277)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:28:35 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 29.0ms | ActiveRecord: 0.0ms | Allocations: 9705)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:28:39 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 32.4ms | ActiveRecord: 0.0ms | Allocations: 9703)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:28:40 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1465)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 14.4ms | ActiveRecord: 0.0ms | Allocations: 8279)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:29:03 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1457)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 14.5ms | ActiveRecord: 0.0ms | Allocations: 8265)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:29:04 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1902)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 15.8ms | ActiveRecord: 0.0ms | Allocations: 9717)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:29:10 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 27.2ms | ActiveRecord: 0.0ms | Allocations: 9701)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:29:11 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1463)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 19.5ms | ActiveRecord: 0.0ms | Allocations: 8259)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:29:12 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1457)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 24.0ms | ActiveRecord: 0.0ms | Allocations: 8258)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:30:15 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1457)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 17.4ms | ActiveRecord: 0.0ms | Allocations: 8264)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:30:43 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1898)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 20.2ms | ActiveRecord: 0.0ms | Allocations: 9707)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:30:58 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1463)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 22.1ms | ActiveRecord: 0.0ms | Allocations: 8289)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:30:59 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 15.7ms | ActiveRecord: 0.0ms | Allocations: 9710)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:31:22 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 23.1ms | ActiveRecord: 0.0ms | Allocations: 9713)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:31:36 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.6ms | Allocations: 1905)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 31.9ms | ActiveRecord: 0.0ms | Allocations: 9723)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:31:50 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 27.5ms | ActiveRecord: 0.0ms | Allocations: 9713)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:32:23 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1463)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 16.6ms | ActiveRecord: 0.0ms | Allocations: 8265)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:32:24 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1898)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 17.1ms | ActiveRecord: 0.0ms | Allocations: 9704)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:32:32 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 17.7ms | ActiveRecord: 0.0ms | Allocations: 9704)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:32:41 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 23.7ms | ActiveRecord: 0.0ms | Allocations: 9704)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:32:42 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1463)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 15.2ms | ActiveRecord: 0.0ms | Allocations: 8261)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:32:43 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1457)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 15.1ms | ActiveRecord: 0.0ms | Allocations: 8260)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:32:44 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1457)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 12.2ms | ActiveRecord: 0.0ms | Allocations: 8268)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:33:21 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1898)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 31.4ms | ActiveRecord: 0.0ms | Allocations: 9704)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:33:22 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1465)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 19.6ms | ActiveRecord: 0.0ms | Allocations: 8279)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:33:29 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1902)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.0ms | Allocations: 9710)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:33:30 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1463)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 14.4ms | ActiveRecord: 0.0ms | Allocations: 8276)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-28 18:33:49 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 19.2ms | ActiveRecord: 0.0ms | Allocations: 9696)
+
+
