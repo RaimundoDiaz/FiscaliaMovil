@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root 'procedures#index'
 
   resources :users do
-    resources :procedures
+    resources :procedures do
+      resources :messages
+    end
   end
-
-  resources :procedures
 
 end

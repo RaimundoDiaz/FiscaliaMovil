@@ -7,7 +7,7 @@
 
 <p>
   <strong>Categories:</strong>
-  <%= @procedure.categories %>
+  <%= @procedure.marks %>
 </p>
 
 <p>
@@ -17,7 +17,7 @@
 
 <p>
   <strong>Local prosecution:</strong>
-  <%= @procedure.local_prosecution_id %>
+  <%= @procedure.local_prosecution_in_charge_id %>
 </p>
 
 <p>
@@ -35,5 +35,4 @@
   <%= @procedure.state %>
 </p>
 
-<%= link_to 'Edit', edit_procedure_path(@procedure) %> |
-<%= link_to 'Back', procedures_path %>
+<%= link_to 'Back', user_procedures_path() %>
