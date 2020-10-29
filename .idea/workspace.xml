@@ -20,64 +20,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e78bd00-05eb-47f1-83a9-96a5096b2ba1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.generators" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.generators" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/atenas.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/atenas.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/procedures/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/procedures/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/webpack/environment.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/webpack/environment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/development.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/development.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/.yarn-integrity" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.yarn-integrity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bindings/LICENSE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bindings/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bindings/bindings.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bindings/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/History.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/index.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/test/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/test/tests.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/ISSUE_TEMPLATE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/Readme.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/binding.gyp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/build/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/build/config.gypi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/build/fse.target.mk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/build/gyp-mac-tool" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/fsevents.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/fsevents.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/install.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/src/async.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/src/constants.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/src/methods.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/src/storage.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/src/thread.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/watchpack/node_modules/fsevents/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/watchpack/node_modules/fsevents/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/watchpack/node_modules/fsevents/fsevents.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/watchpack/node_modules/fsevents/fsevents.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/watchpack/node_modules/fsevents/fsevents.node" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/watchpack/node_modules/fsevents/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/packs/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/packs/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/1H/1HyneLliGLAocm4KVeWzj5tKGWdomYfz7rWloxQlXRc.cache" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/1H/1HyneLliGLAocm4KVeWzj5tKGWdomYfz7rWloxQlXRc.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/61/61DYE6KWkT0kZHOqhoDyZVE-tFnswqDzUluEf04Z9qI.cache" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/61/61DYE6KWkT0kZHOqhoDyZVE-tFnswqDzUluEf04Z9qI.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/8J/8JOedZF9m0P656fHle8DWmmJffxhiciEo-B9Ta6NyG8.cache" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/8J/8JOedZF9m0P656fHle8DWmmJffxhiciEo-B9Ta6NyG8.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/99/99m8UCKl4j8IpsVOK8ltLHyNh8Ae0nHw3GBkC34V_co.cache" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/99/99m8UCKl4j8IpsVOK8ltLHyNh8Ae0nHw3GBkC34V_co.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/B4/B43LeT9Wba4fLvXw-C_kKq-x9HwYZxnBBiltbIufzzQ.cache" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/B4/B43LeT9Wba4fLvXw-C_kKq-x9HwYZxnBBiltbIufzzQ.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/HI/HIGH3z9SZ_cKuCxcc3SG-dLT10GjWw2SPYt-PJkskAk.cache" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/HI/HIGH3z9SZ_cKuCxcc3SG-dLT10GjWw2SPYt-PJkskAk.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/c9/a7d2c36b193c90" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/c9/a7d2c36b193c90" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/14/a715cb10d46709" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/14/a715cb10d46709" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/19/d09b2b8442b523" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/19/d09b2b8442b523" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/28/ab546708ecb3c4" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/28/ab546708ecb3c4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/4e/ced302502ddaa8" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/4e/ced302502ddaa8" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/4f/3d3bb2e8429758" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/4f/3d3bb2e8429758" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/62/83a72e440861b7" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/62/83a72e440861b7" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/7a/31fadbdaffea3a" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/7a/31fadbdaffea3a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/94/d9c29594d46c20" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/94/d9c29594d46c20" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/95/55b9b121e812fe" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/95/55b9b121e812fe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/9e/f4c7ce78b9a609" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/9e/f4c7ce78b9a609" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/d5/58c532a00303f5" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/d5/58c532a00303f5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/eb/2445d12f0b86c7" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap-compile-cache/eb/2445d12f0b86c7" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap-load-path-cache" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap-load-path-cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/webpacker/last-compilation-digest-development" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/webpacker/last-compilation-digest-development" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +46,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Grupo-3" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LogFilters">
@@ -109,7 +75,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.ruby.settings.RubyActiveModuleSdkConfigurable" />
   </component>
   <component name="RunManager" selected="Rails.Development: atenas">
     <configuration name="Development: atenas" type="RailsRunConfigurationType" factoryName="Rails">
@@ -210,7 +176,7 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" RAKE_SPRING_PRE_LOADER_OPTION="true" RAILS_SPRING_PRE_LOADER_OPTION="true" />
   <component name="SvnConfiguration">
     <configuration />
@@ -229,24 +195,24 @@
       <workItem from="1603051266972" duration="116000" />
       <workItem from="1603051633080" duration="262000" />
       <workItem from="1603052782887" duration="1161000" />
+      <workItem from="1603927617843" duration="1060000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -284,9 +250,10 @@
       <screen x="0" y="0" width="1920" height="951" />
     </state>
     <state width="1864" height="232" key="GridCell.Tab.1.right/0.0.1920.951@0.0.1920.951" timestamp="1603054065731" />
-    <state x="525" y="44" width="1269" height="907" key="SettingsEditor" timestamp="1603053791535">
-      <screen x="0" y="0" width="1920" height="951" />
+    <state x="490" y="51" width="1269" height="907" key="SettingsEditor" timestamp="1603925938449">
+      <screen x="0" y="0" width="1792" height="1120" />
     </state>
+    <state x="490" y="51" key="SettingsEditor/-65.-1080.1920.1080/0.0.1792.1120@0.0.1792.1120" timestamp="1603925938449" />
     <state x="525" y="44" width="1269" height="907" key="SettingsEditor/0.0.1920.951@0.0.1920.951" timestamp="1603053791535" />
     <state x="490" y="176" key="SettingsEditor/0.23.1792.1021@0.23.1792.1021" timestamp="1601328234962" />
   </component>
