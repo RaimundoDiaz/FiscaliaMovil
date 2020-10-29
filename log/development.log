@@ -11687,3 +11687,157 @@ ActionView::Template::Error (undefined method `role' for #<User:0x00007f92a3c64b
     8: <p>
   
 app/views/users/show.html.erb:5
+Started GET "/" for ::1 at 2020-10-29 17:17:00 -0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#index as HTML
+  Rendering procedures/index.html.erb within layouts/application
+  [1m[36mProcedure Load (4.9ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures"[0m
+  ↳ app/views/procedures/index.html.erb:20
+  Rendered procedures/index.html.erb within layouts/application (Duration: 28.8ms | Allocations: 10678)
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 12.0ms | Allocations: 15816)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"procedures", :id=>"1", :user_id=>nil}, missing required keys: [:user_id]):
+    26:         <td><%= procedure.story %></td>
+    27:         <td><%= procedure.address %></td>
+    28:         <td><%= procedure.state %></td>
+    29:         <td><%= link_to 'Show', user_procedure_path(params['user_id'], procedure) %></td>
+    30:         <td><%= link_to 'Edit', edit_user_procedure_path(params['user_id'], procedure) %></td>
+    31:         <td><%= link_to 'Destroy', user_procedure_path(params['user_id'], procedure), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    32:       </tr>
+  
+app/views/procedures/index.html.erb:29
+app/views/procedures/index.html.erb:20
+Started GET "/users/1/procedures" for ::1 at 2020-10-29 17:17:02 -0300
+Processing by ProceduresController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering procedures/index.html.erb within layouts/application
+  [1m[36mProcedure Load (0.2ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures"[0m
+  ↳ app/views/procedures/index.html.erb:20
+  Rendered procedures/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 879)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 22.2ms | ActiveRecord: 0.2ms | Allocations: 7810)
+
+
+Started GET "/users/1/procedures/1" for ::1 at 2020-10-29 17:17:06 -0300
+Processing by ProceduresController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mProcedure Load (0.2ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures" WHERE "procedures"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/procedures_controller.rb:67:in `set_procedure'
+  Rendering procedures/show.html.erb within layouts/application
+  Rendered procedures/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 354)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 7.2ms | ActiveRecord: 0.4ms | Allocations: 5813)
+
+
+Started GET "/users/1/procedures/1" for ::1 at 2020-10-29 17:21:08 -0300
+Processing by ProceduresController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mProcedure Load (0.2ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures" WHERE "procedures"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/procedures_controller.rb:67:in `set_procedure'
+  Rendering procedures/show.html.erb within layouts/application
+  Rendered procedures/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 442)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.1ms | ActiveRecord: 0.2ms | Allocations: 6245)
+
+
+Started GET "/users/1/procedures/1" for ::1 at 2020-10-29 17:21:22 -0300
+Processing by ProceduresController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mProcedure Load (0.2ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures" WHERE "procedures"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/procedures_controller.rb:67:in `set_procedure'
+  Rendering procedures/show.html.erb within layouts/application
+  Rendered procedures/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 429)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 7.9ms | ActiveRecord: 0.2ms | Allocations: 6217)
+
+
+Started GET "/users/1/procedures" for ::1 at 2020-10-29 17:21:37 -0300
+Processing by ProceduresController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering procedures/index.html.erb within layouts/application
+  [1m[36mProcedure Load (0.3ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures"[0m
+  ↳ app/views/procedures/index.html.erb:20
+  Rendered procedures/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1164)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.3ms | Allocations: 5594)
+
+
+Started GET "/users/1/procedures/1" for ::1 at 2020-10-29 17:24:42 -0300
+Processing by ProceduresController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mProcedure Load (0.3ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures" WHERE "procedures"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/procedures_controller.rb:67:in `set_procedure'
+  Rendering procedures/show.html.erb within layouts/application
+  Rendered procedures/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 102)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 6.7ms | ActiveRecord: 0.3ms | Allocations: 4997)
+
+
+Started GET "/users/1/procedures/1" for ::1 at 2020-10-29 17:35:55 -0300
+Processing by ProceduresController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mProcedure Load (0.5ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures" WHERE "procedures"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/procedures_controller.rb:67:in `set_procedure'
+  Rendering procedures/show.html.erb within layouts/application
+  Rendered procedures/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 466)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 11.2ms | ActiveRecord: 0.5ms | Allocations: 6429)
+
+
+Started GET "/users/1/procedures/1" for ::1 at 2020-10-29 17:36:25 -0300
+Processing by ProceduresController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mProcedure Load (0.2ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures" WHERE "procedures"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/procedures_controller.rb:67:in `set_procedure'
+  Rendering procedures/show.html.erb within layouts/application
+  Rendered procedures/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 462)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.2ms | Allocations: 6253)
+
+
+Started GET "/users/1/procedures/1" for ::1 at 2020-10-29 17:37:59 -0300
+Processing by ProceduresController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mProcedure Load (16.0ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures" WHERE "procedures"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/procedures_controller.rb:67:in `set_procedure'
+  Rendering procedures/show.html.erb within layouts/application
+  Rendered procedures/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 471)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 8.7ms | ActiveRecord: 16.0ms | Allocations: 6296)
+
+
+Started GET "/users/1/procedures/1" for ::1 at 2020-10-29 17:38:18 -0300
+Processing by ProceduresController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mProcedure Load (0.3ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures" WHERE "procedures"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/procedures_controller.rb:67:in `set_procedure'
+  Rendering procedures/show.html.erb within layouts/application
+  Rendered procedures/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 462)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.1ms | ActiveRecord: 0.3ms | Allocations: 6293)
+
+
+Started GET "/users/1/procedures/1" for ::1 at 2020-10-29 17:38:48 -0300
+Processing by ProceduresController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mProcedure Load (0.2ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures" WHERE "procedures"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/procedures_controller.rb:67:in `set_procedure'
+  Rendering procedures/show.html.erb within layouts/application
+  Rendered procedures/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 466)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 13.7ms | ActiveRecord: 0.2ms | Allocations: 6268)
+
+
+Started GET "/users/1/procedures/1" for ::1 at 2020-10-29 17:39:42 -0300
+Processing by ProceduresController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mProcedure Load (0.3ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures" WHERE "procedures"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/procedures_controller.rb:67:in `set_procedure'
+  Rendering procedures/show.html.erb within layouts/application
+  Rendered procedures/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 466)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.0ms | ActiveRecord: 0.3ms | Allocations: 6243)
+
+

@@ -1,38 +1,70 @@
 <p id="notice"><%= notice %></p>
+<h2>Procedimiento "folio"</h2>
+
+<h3>Datos del procedimiento:</h3>
 
 <p>
-  <strong>Classification:</strong>
-  <%= @procedure.classification %>
+  <strong>Estado:</strong>
+  <%= @procedure.state %>
 </p>
 
 <p>
-  <strong>Categories:</strong>
-  <%= @procedure.marks %>
+  <strong>Fecha:</strong>
+  <%= @procedure.created_at %>
 </p>
 
 <p>
-  <strong>Police in charge:</strong>
+  <strong>Unidad policial:</strong>
+  <%= @procedure.police_unit_in_charge_id %>
+</p>
+
+<p>
+  <strong>Carabinero a cargo:</strong>
   <%= @procedure.police_in_charge_id %>
 </p>
 
 <p>
-  <strong>Local prosecution:</strong>
+  <strong>Fiscalia Local:</strong>
   <%= @procedure.local_prosecution_in_charge_id %>
 </p>
 
 <p>
-  <strong>Story:</strong>
-  <%= @procedure.story %>
+  <strong>Fiscal a cargo:</strong>
+  <%= @procedure.prosecutor_in_charge_id %>
 </p>
 
 <p>
-  <strong>Address:</strong>
+  <strong>Región:</strong>
+  <%= @procedure.region %>
+</p>
+
+<p>
+  <strong>Comuna:</strong>
+  <%= @procedure.sector %>
+</p>
+
+<p>
+  <strong>Dirección:</strong>
   <%= @procedure.address %>
 </p>
 
+<h3>Datos delictuales:</h3>
 <p>
-  <strong>State:</strong>
-  <%= @procedure.state %>
+  <strong>Clasificación:</strong>
+  <%= @procedure.classification %>
 </p>
+
+<p>
+  <strong>Marcas:</strong>
+  <%= @procedure.marks %>
+</p>
+
+<p>
+  <strong>Relato:</strong>
+  <%= @procedure.story %>
+</p>
+
+<h3>Datos de involucrados:</h3>
+
 
 <%= link_to 'Back', user_procedures_path() %>
