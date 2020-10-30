@@ -3,7 +3,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
     create_table :users do |t|
       t.references :police_unit, null: true, foreign_key: true
       t.references :local_prosecution, null: true, foreign_key: true
-      t.string :username
+      t.string :email
 
       t.timestamps
     end
