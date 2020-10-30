@@ -12037,3 +12037,33 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 58ms (Views: 56.7ms | ActiveRecord: 0.0ms | Allocations: 29035)
 
 
+Started GET "/users/password/new" for 127.0.0.1 at 2020-10-30 16:39:07 -0300
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::PasswordsController#new as HTML
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.6ms | Allocations: 200)
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 464)
+  Rendered devise/passwords/new.html.erb within layouts/application (Duration: 9.4ms | Allocations: 4736)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 75ms (Views: 51.2ms | ActiveRecord: 7.1ms | Allocations: 33505)
+
+
+Started GET "/" for 127.0.0.1 at 2020-10-30 16:39:11 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 115)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.0ms | Allocations: 3460)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 0.0ms | Allocations: 8265)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2020-10-30 16:40:05 -0300
+Processing by Devise::PasswordsController#new as HTML
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 73)
+  Rendered devise/passwords/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 666)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 4550)
+
+
