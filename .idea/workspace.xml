@@ -20,7 +20,61 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e78bd00-05eb-47f1-83a9-96a5096b2ba1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/procedures_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/procedures_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/procedures.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/procedures.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/procedures/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/procedures/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/development.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/development.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.yarn-integrity" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.yarn-integrity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bindings/LICENSE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bindings/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bindings/bindings.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bindings/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/History.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/test/test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/file-uri-to-path/test/tests.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/ISSUE_TEMPLATE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/Readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/binding.gyp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/build/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/build/config.gypi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/build/fse.target.mk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/build/gyp-mac-tool" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/fsevents.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/fsevents.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/install.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/src/async.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/src/constants.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/src/methods.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/src/storage.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fsevents/src/thread.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/watchpack/node_modules/fsevents/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/watchpack/node_modules/fsevents/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/watchpack/node_modules/fsevents/fsevents.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/watchpack/node_modules/fsevents/fsevents.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/watchpack/node_modules/fsevents/fsevents.node" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/watchpack/node_modules/fsevents/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/packs/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/packs/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/0T/0T-RpMdZybS0XXJjFhs3b7J4jZ4oxp7yXNwjtfKdgOs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/0T/0T-RpMdZybS0XXJjFhs3b7J4jZ4oxp7yXNwjtfKdgOs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/1H/1HyneLliGLAocm4KVeWzj5tKGWdomYfz7rWloxQlXRc.cache" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/1H/1HyneLliGLAocm4KVeWzj5tKGWdomYfz7rWloxQlXRc.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/5W/5WD4xo5WSyuzGSYL-ed9UreA_VxiPQKnpVEGHFgEeBs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/5W/5WD4xo5WSyuzGSYL-ed9UreA_VxiPQKnpVEGHFgEeBs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/8J/8JOedZF9m0P656fHle8DWmmJffxhiciEo-B9Ta6NyG8.cache" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/8J/8JOedZF9m0P656fHle8DWmmJffxhiciEo-B9Ta6NyG8.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/8a/8aLS6H85SQtWFmEHUUaIrIXx7tML9qTgRuDEo-ELONA.cache" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/8a/8aLS6H85SQtWFmEHUUaIrIXx7tML9qTgRuDEo-ELONA.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/Z8/Z8kTqjei5zZX7smarn9rNY9ZfEmN64HGUzYv0KCo6io.cache" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/Z8/Z8kTqjei5zZX7smarn9rNY9ZfEmN64HGUzYv0KCo6io.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/ml/ml9mQBeEAqTzUCvKl74DGvUziRX8sXG_YhbQXBcWg3A.cache" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/ml/ml9mQBeEAqTzUCvKl74DGvUziRX8sXG_YhbQXBcWg3A.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/ql/qlSNvTzitVtZ7MUeBECJIgxhbmeQ5p09WCljggR6bbA.cache" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/ql/qlSNvTzitVtZ7MUeBECJIgxhbmeQ5p09WCljggR6bbA.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/v4/v44pJeqyFFxlEHuadci4saw_xhBcqkOqSMBJt-GM_GQ.cache" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/assets/sprockets/v4.0.0/v4/v44pJeqyFFxlEHuadci4saw_xhBcqkOqSMBJt-GM_GQ.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/webpacker/last-compilation-digest-development" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/webpacker/last-compilation-digest-development" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

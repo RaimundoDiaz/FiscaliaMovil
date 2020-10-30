@@ -5,42 +5,46 @@
     <%= form_with model: @procedure do |form| %>
 
     <section class="form-group">
-      <%= form.label :fecha, 'Fecha:' %>
-      <%= form.datetime_local_field :fecha %>
+      <%= form.label :date, 'Fecha:' %>
+      <%= form.datetime_local_field :date %>
     </section>
 
     <section class="form-group">
-      <%= form.label :direccion, 'Direccion:' %>
-      <%= form.text_field :direccion %>
+      <%= form.label :address, 'Direccion:' %>
+      <%= form.text_field :address %>
 
       <section class="form-group">
         <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
         <%= form.label :region, 'Region:' %>
-        <%= form.select( :region, options_for_select(cities_array), {}, {}) %>
+        <%= form.select :region, options_for_select(cities_array) %>
 
-        <%= form.label :comuna, 'Comuna:' %>
-        <%= form.select(:comuna, [], {}, {})  %>
+        <%= form.label :comune, 'Comuna:' %>
+        <%= form.select :comune, []  %>
       </section>
 
-      <section id="delitos">
+      <section id="crimes">
 
-        <% delitos = [nil,
+        <% crimes = [nil,
                       "acoso",
                       "homicidio",
                       "conduccion en estado de ebriedad",
                       "Robo a mano armada",
                       "femicidio",
                       "violacion",
-                      "pisar las lineas de la vereda"].map{|delito| [delito]} %>
-        <%= form.label :delito_preponderante, 'Delito prepopnderante:' %>
-        <%= form.select( :delito_preponderante, options_for_select(delitos), {}) %>
-        <div id="new_delito">
-          <%= form.label :delito %>
-          <%= form.select( :delito , options_for_select(delitos), {}) %>
-        </div>
+                      "pisar las lineas de la vereda"].map{|crime| [crime]} %>
+        <%= form.label :preponderant_crime, 'Delito prepopnderante:' %>
+        <%= form.select( :preponderant_crime, options_for_select(crimes)) %>
+
+
+        <%= fields_for "procedure[crimes]" do |crimes_fields| %>
+          <div id="new_crime">
+            <%= crimes_fields.label "", 'Delito:' %>
+            <%= crimes_fields.select "" , options_for_select(crimes), name: "procedure[crimes][]" %>
+          </div>
+        <% end %>
       </section>
 
-      <button id="add_delito_btn" class="btn btn-primary"> Agregar delito </button>
+      <button id="add_crime_btn" class="btn btn-primary"> Agregar delito </button>
     </section>
 
     <section>

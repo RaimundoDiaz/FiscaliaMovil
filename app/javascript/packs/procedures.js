@@ -429,7 +429,7 @@ $(document).ready(function(){
 
     //agregar al select de comunas los datos del json
     $.each(comunas, function (i, item) {
-        $('#procedure_comuna').append($('<option>', {
+        $('#procedure_comune').append($('<option>', {
             value: item.codigo,
             text : item.nombre
         }));
@@ -446,19 +446,19 @@ $(document).ready(function(){
         console.log(nuevas_comunas);
 
         //borrar las opciones actuales
-        $('#procedure_comuna').children().remove();
+        $('#procedure_comune').children().remove();
 
         //agregar al select de comunas los datos del json
         $.each(nuevas_comunas, function (i, item) {
-            $('#procedure_comuna').append($('<option>', {
+            $('#procedure_comune').append($('<option>', {
                 value: item.codigo,
                 text : item.nombre
             }));
         });
     });
 
-    $('#add_delito_btn').click(function () {
-        $('#delitos').append($('#new_delito').clone())
+    $('#add_crime_btn').click(function () {
+        $('#crimes').append($('#new_crime').clone())
     })
 
 });
