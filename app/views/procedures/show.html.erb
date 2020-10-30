@@ -1,16 +1,22 @@
 <p id="notice"><%= notice %></p>
-<h2>Procedimiento "folio"</h2>
+<h2>Procedimiento XX</h2>
 
 <h3>Datos del procedimiento:</h3>
 
 <p>
   <strong>Estado:</strong>
-  <%= @procedure.state %>
+  <% if @procedure.pending? %>
+  Pendiente
+  <% elsif @procedure.acd?%>
+  Audiencia control de detención
+<% elsif @procedure.noticed? %>
+  Apercibido
+    <% end %>
 </p>
 
 <p>
   <strong>Fecha:</strong>
-  <%= @procedure.created_at %>
+  <%= @procedure.created_at_str %>
 </p>
 
 <p>
@@ -51,12 +57,20 @@
 <h3>Datos delictuales:</h3>
 <p>
   <strong>Clasificación:</strong>
-  <%= @procedure.classification %>
+  <% if @procedure.flagrancy? %>
+    Flagrancia
+  <% elsif @procedure.pending_arrest_warrant? %>
+    Orden de detención pendiente
+  <% elsif @procedure.both? %>
+    Flagrancia y Orden de detención pendiente
+  <% end %>
 </p>
 
 <p>
   <strong>Marcas:</strong>
-  <%= @procedure.marks %>
+  <% @procedure.marks.each do |mark| %>
+    <span class="badge badge-pill badge-primary"><%= mark %></span>
+  <% end %>
 </p>
 
 <p>
@@ -65,6 +79,25 @@
 </p>
 
 <h3>Datos de involucrados:</h3>
+<h4>Imputados</h4>
+<% @accuseds.each do |accused| %>
+  <p><%= accused.name %></p>
+  <p><%= accused.last_name %></p>
+  <p><%= accused.rut %></p>
+<% end %>
 
+<h4>Victimas</h4>
+<% @victims.each do |victim| %>
+  <p><%= victim.name %></p>
+  <p><%= victim.last_name %></p>
+  <p><%= victim.rut %></p>
+<% end %>
+
+<h4>Testigos</h4>
+<% @witnesses.each do |witness| %>
+  <p><%= witness.name %></p>
+  <p><%= witness.last_name %></p>
+  <p><%= witness.rut %></p>
+<% end %>
 
 <%= link_to 'Back', user_procedures_path() %>

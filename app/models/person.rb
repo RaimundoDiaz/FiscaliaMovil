@@ -5,5 +5,5 @@ class Person < ApplicationRecord
   has_many :crimes, through: :crime_in_accuseds
   has_many :person_in_procedures
   has_many :procedures, :through => :person_in_procedures
-  validates :rut, presence: true, rut: true
+  validates :rut, presence: true
 end
