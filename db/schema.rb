@@ -50,13 +50,13 @@ ActiveRecord::Schema.define(version: 2020_10_27_214157) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "procedure_id"
+    t.bigint "sender_user_id", null: false
+    t.bigint "receiver_user_id", null: false
     t.string "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["procedure_id"], name: "index_messages_on_procedure_id"
-    t.index ["user_id"], name: "index_messages_on_user_id"
+    t.index ["receiver_user_id"], name: "index_messages_on_receiver_user_id"
+    t.index ["sender_user_id"], name: "index_messages_on_sender_user_id"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -123,7 +123,7 @@ ActiveRecord::Schema.define(version: 2020_10_27_214157) do
 
   create_table "procedures", force: :cascade do |t|
     t.integer "classification"
-    t.text "marks", array: true
+    t.text "categories", array: true
     t.bigint "police_in_charge_id", null: false
     t.bigint "police_unit_in_charge_id", null: false
     t.bigint "prosecutor_in_charge_id", null: false
@@ -133,7 +133,6 @@ ActiveRecord::Schema.define(version: 2020_10_27_214157) do
     t.string "sector"
     t.string "region"
     t.integer "state"
-    t.datetime "date_of_arrest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["local_prosecution_in_charge_id"], name: "index_procedures_on_local_prosecution_in_charge_id"
@@ -179,6 +178,8 @@ ActiveRecord::Schema.define(version: 2020_10_27_214157) do
   add_foreign_key "crime_in_accuseds", "people"
   add_foreign_key "crime_in_accuseds", "procedures"
   add_foreign_key "local_prosecutions", "regional_prosecutions"
+  add_foreign_key "messages", "users", column: "receiver_user_id"
+  add_foreign_key "messages", "users", column: "sender_user_id"
   add_foreign_key "notifications", "users"
   add_foreign_key "person_in_procedures", "people"
   add_foreign_key "person_in_procedures", "procedures"
