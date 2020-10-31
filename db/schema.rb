@@ -145,10 +145,10 @@ ActiveRecord::Schema.define(version: 2020_10_27_214157) do
   create_table "prosecutors", force: :cascade do |t|
     t.string "name"
     t.string "rut"
-    t.bigint "local_prosecutions_id"
+    t.bigint "local_prosecution_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["local_prosecutions_id"], name: "index_prosecutors_on_local_prosecutions_id"
+    t.index ["local_prosecution_id"], name: "index_prosecutors_on_local_prosecution_id"
   end
 
   create_table "regional_prosecutions", force: :cascade do |t|
@@ -189,7 +189,7 @@ ActiveRecord::Schema.define(version: 2020_10_27_214157) do
   add_foreign_key "procedures", "police_men", column: "police_in_charge_id"
   add_foreign_key "procedures", "police_units", column: "police_unit_in_charge_id"
   add_foreign_key "procedures", "prosecutors", column: "prosecutor_in_charge_id"
-  add_foreign_key "prosecutors", "local_prosecutions", column: "local_prosecutions_id"
+  add_foreign_key "prosecutors", "local_prosecutions"
   add_foreign_key "users", "local_prosecutions"
   add_foreign_key "users", "police_units"
 end
