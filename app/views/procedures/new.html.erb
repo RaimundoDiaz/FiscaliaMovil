@@ -1,6 +1,6 @@
 
 <span>
-  <div id="content_box_center">
+  <div id="content_box">
     <h1>Ingreso de procedimiento</h1>
     <div class="pr-5 pl-5" id="form">
       <%= form_with model: @procedure do |form|%>
@@ -69,15 +69,22 @@
             <%= form.label :preponderant_crime, 'Delito prepopnderante:', class: "col-form-label" %>
             <%= form.select :preponderant_crime, options_for_select(crimes),{},{class: "form-control"} %>
           </div>
-          <div id="new_crime" class="form-inline">
+          <div id = "new_crime" class="form-inline">
             <%= fields_for "procedure[crimes]" do |crimes_fields| %>
               <%= crimes_fields.label "", 'Delito:', class: "col-form-label" %>
               <%= crimes_fields.select "" , options_for_select(crimes), {name: "procedure[crimes][]"},{class: "form-control"}  %>
             <% end %>
+            <button type="button" class="btn btn-danger delete_crime"> Eliminar delito </button>
           </div>
         </div>
-        <div id="crime_btn_div" class="form-inline"><button id="add_crime_btn" class="btn btn-primary"> Agregar delito </button></div>
+        <div id="crime_btn_div" class="form-inline"><button type="button" id="add_crime_btn" class="btn btn-primary"> Agregar delito </button></div>
 
+        <div id="deceased">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch1">
+            <label class="custom-control-label" for="customSwitch1">Involucra fallecidos</label>
+          </div>
+        </div>
         <div id="marks">
 
         </div>

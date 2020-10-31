@@ -459,6 +459,17 @@ $(document).ready(function(){
 
     $('#add_crime_btn').click(function () {
         $('#crimes').append($('#new_crime').clone())
+        $('.delete_crime').last().click(function () {
+            var division = $('.delete_crime').last().closest('#new_crime')
+            division.remove()
+        })
     })
+
+    $('#delete_crime_btn').click(function () {
+        var division = $('.delete_crime_btn').closest('#new_crime')
+        division.remove()
+    })
+
+
 
 });

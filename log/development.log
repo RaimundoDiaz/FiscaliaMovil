@@ -21187,3 +21187,1691 @@ Processing by PagesController#search as HTML
 Completed 200 OK in 26ms (Views: 9.8ms | ActiveRecord: 5.2ms | Allocations: 17251)
 
 
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:05:08 -0300
+  [1m[35m (36.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+Completed 401 Unauthorized in 25ms (ActiveRecord: 0.0ms | Allocations: 1165)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-10-31 19:05:08 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 5.7ms | Allocations: 468)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 765.9ms | Allocations: 43682)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: 0f54010521a0477e651b
+Version: webpack 4.44.2
+Time: 4544ms
+Built at: 10/31/2020 7:05:17 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-60ec18ecfb5eb1958949.js    865 KiB  application  [emitted] [immutable]  application
+js/application-60ec18ecfb5eb1958949.js.map    926 KiB  application  [emitted] [dev]        application
+     js/procedures-061fd5e2f362fa35d168.js    745 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-061fd5e2f362fa35d168.js.map    791 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-60ec18ecfb5eb1958949.js js/application-60ec18ecfb5eb1958949.js.map
+Entrypoint procedures = js/procedures-061fd5e2f362fa35d168.js js/procedures-061fd5e2f362fa35d168.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 859 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 8924ms (Views: 8873.4ms | ActiveRecord: 6.7ms | Allocations: 74118)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:05:27 -0300
+Processing by ProceduresController#new as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 299)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-10-31 19:05:27 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 75)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 10.0ms | Allocations: 2614)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 28.8ms | ActiveRecord: 0.0ms | Allocations: 9417)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPrefecture Create (42.9ms)[0m  [1m[32mINSERT INTO "prefectures" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "prefectura"], ["created_at", "2020-10-31 22:06:12.582774"], ["updated_at", "2020-10-31 22:06:12.582774"]]
+  [1m[35m (71.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPoliceStation Create (90.8ms)[0m  [1m[32mINSERT INTO "police_stations" ("prefecture_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["prefecture_id", 1], ["created_at", "2020-10-31 22:06:12.732842"], ["updated_at", "2020-10-31 22:06:12.732842"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPoliceUnit Create (1.8ms)[0m  [1m[32mINSERT INTO "police_units" ("police_station_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["police_station_id", 1], ["created_at", "2020-10-31 22:06:12.851114"], ["updated_at", "2020-10-31 22:06:12.851114"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRegionalProsecution Create (1.2ms)[0m  [1m[32mINSERT INTO "regional_prosecutions" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "fiscalia regional"], ["created_at", "2020-10-31 22:06:12.915799"], ["updated_at", "2020-10-31 22:06:12.915799"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLocalProsecution Create (1.8ms)[0m  [1m[32mINSERT INTO "local_prosecutions" ("name", "regional_prosecution_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "fiscalia 1"], ["regional_prosecution_id", 1], ["created_at", "2020-10-31 22:06:12.935833"], ["updated_at", "2020-10-31 22:06:12.935833"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (35.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "andresvialcorrea99@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("police_unit_id", "created_at", "updated_at", "email", "encrypted_password") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["police_unit_id", 1], ["created_at", "2020-10-31 22:06:13.305231"], ["updated_at", "2020-10-31 22:06:13.305231"], ["email", "andresvialcorrea99@gmail.com"], ["encrypted_password", "$2a$12$KaNIcG.xn8P4UPmI8LpgYOYWhL6KmALgI/b528c0T1oYjL/7LCIFS"]]
+  [1m[35m (5.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (7.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPoliceMan Create (34.3ms)[0m  [1m[32mINSERT INTO "police_men" ("name", "rut", "badge", "police_unit_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "dijweid"], ["rut", "19638546-k"], ["badge", 1], ["police_unit_id", 1], ["created_at", "2020-10-31 22:06:13.328748"], ["updated_at", "2020-10-31 22:06:13.328748"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (1005.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "atenas_development"[0m
+  [1m[35m (155.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "atenas_test"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "atenas_development"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "atenas_test"[0m
+  [1m[35m (1742.8ms)[0m  [1m[35mCREATE DATABASE "atenas_development" ENCODING = 'unicode'[0m
+  [1m[35m (401.7ms)[0m  [1m[35mCREATE DATABASE "atenas_test" ENCODING = 'unicode'[0m
+  [1m[35m (43.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (52.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3556230671141507205)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateRegionalProsecutions (20200925000000)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (12.8ms)[0m  [1m[35mCREATE TABLE "regional_prosecutions" ("id" bigserial primary key, "name" character varying, "region" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200925000000"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateLocalProsecutions (20200926000000)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (17.5ms)[0m  [1m[35mCREATE TABLE "local_prosecutions" ("id" bigserial primary key, "name" character varying, "regional_prosecution_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_052e4cb340"
+FOREIGN KEY ("regional_prosecution_id")
+  REFERENCES "regional_prosecutions" ("id")
+)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_local_prosecutions_on_regional_prosecution_id" ON "local_prosecutions"  ("regional_prosecution_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926000000"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePrefectures (20200926000004)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (14.9ms)[0m  [1m[35mCREATE TABLE "prefectures" ("id" bigserial primary key, "name" character varying, "region" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926000004"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePoliceStations (20200926000005)
+  [1m[35m (3.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (38.5ms)[0m  [1m[35mCREATE TABLE "police_stations" ("id" bigserial primary key, "name" character varying, "police_type" integer, "prefecture_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_00b2d2edda"
+FOREIGN KEY ("prefecture_id")
+  REFERENCES "prefectures" ("id")
+)[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE  INDEX  "index_police_stations_on_prefecture_id" ON "police_stations"  ("prefecture_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926000005"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePoliceUnits (20200926000006)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (47.7ms)[0m  [1m[35mCREATE TABLE "police_units" ("id" bigserial primary key, "name" character varying, "police_station_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_88b607ecbc"
+FOREIGN KEY ("police_station_id")
+  REFERENCES "police_stations" ("id")
+)[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE  INDEX  "index_police_units_on_police_station_id" ON "police_units"  ("police_station_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926000006"]]
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsers (20200926215954)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (12.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "police_unit_id" bigint, "local_prosecution_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_4459d5b4e8"
+FOREIGN KEY ("police_unit_id")
+  REFERENCES "police_units" ("id")
+, CONSTRAINT "fk_rails_a0c816d758"
+FOREIGN KEY ("local_prosecution_id")
+  REFERENCES "local_prosecutions" ("id")
+)[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_police_unit_id" ON "users"  ("police_unit_id")[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_local_prosecution_id" ON "users"  ("local_prosecution_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926215954"]]
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateNotifications (20200926220239)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.4ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" bigserial primary key, "notification_type" integer, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_b080fb4855"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE  INDEX  "index_notifications_on_user_id" ON "notifications"  ("user_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926220239"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMessages (20200926220258)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "user_id" bigint, "procedure_id" bigint, "content" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_user_id" ON "messages"  ("user_id")[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_procedure_id" ON "messages"  ("procedure_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926220258"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProsecutors (20200926221323)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.8ms)[0m  [1m[35mCREATE TABLE "prosecutors" ("id" bigserial primary key, "name" character varying, "rut" character varying, "local_prosecution_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_e17ba360d9"
+FOREIGN KEY ("local_prosecution_id")
+  REFERENCES "local_prosecutions" ("id")
+)[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE  INDEX  "index_prosecutors_on_local_prosecution_id" ON "prosecutors"  ("local_prosecution_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926221323"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePoliceMen (20200926221324)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (26.4ms)[0m  [1m[35mCREATE TABLE "police_men" ("id" bigserial primary key, "name" character varying, "rut" character varying, "badge" integer, "police_unit_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_ade1fabd96"
+FOREIGN KEY ("police_unit_id")
+  REFERENCES "police_units" ("id")
+)[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE  INDEX  "index_police_men_on_police_unit_id" ON "police_men"  ("police_unit_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926221324"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProcedures (20200926221325)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (53.1ms)[0m  [1m[35mCREATE TABLE "procedures" ("id" bigserial primary key, "classification" integer, "marks" text[], "police_in_charge_id" bigint NOT NULL, "police_unit_in_charge_id" bigint NOT NULL, "prosecutor_in_charge_id" bigint NOT NULL, "local_prosecution_in_charge_id" bigint NOT NULL, "story" character varying, "address" character varying, "sector" character varying, "region" character varying, "state" integer, "date_of_arrest" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_01ebe2587f"
+FOREIGN KEY ("police_in_charge_id")
+  REFERENCES "police_men" ("id")
+, CONSTRAINT "fk_rails_97971b8cb0"
+FOREIGN KEY ("police_unit_in_charge_id")
+  REFERENCES "police_units" ("id")
+, CONSTRAINT "fk_rails_8c74c14b3c"
+FOREIGN KEY ("prosecutor_in_charge_id")
+  REFERENCES "prosecutors" ("id")
+, CONSTRAINT "fk_rails_9ce32a8a19"
+FOREIGN KEY ("local_prosecution_in_charge_id")
+  REFERENCES "local_prosecutions" ("id")
+)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_police_in_charge_id" ON "procedures"  ("police_in_charge_id")[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_police_unit_in_charge_id" ON "procedures"  ("police_unit_in_charge_id")[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_prosecutor_in_charge_id" ON "procedures"  ("prosecutor_in_charge_id")[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_procedures_on_local_prosecution_in_charge_id" ON "procedures"  ("local_prosecution_in_charge_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926221325"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePeople (20200926225000)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (15.4ms)[0m  [1m[35mCREATE TABLE "people" ("id" bigserial primary key, "name" character varying, "last_name" character varying, "birthday" date, "rut" character varying, "deceased" boolean, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926225000"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAliasAccuseds (20200926230432)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (19.5ms)[0m  [1m[35mCREATE TABLE "alias_accuseds" ("id" bigserial primary key, "alias" character varying, "person_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_cea260112a"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX  "index_alias_accuseds_on_person_id" ON "alias_accuseds"  ("person_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926230432"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCrimes (20200926230841)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (15.8ms)[0m  [1m[35mCREATE TABLE "crimes" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926230841"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCrimeInAccuseds (20200926230928)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (44.8ms)[0m  [1m[35mCREATE TABLE "crime_in_accuseds" ("id" bigserial primary key, "preponderant" boolean, "crime_id" bigint NOT NULL, "person_id" bigint NOT NULL, "procedure_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_e9f93f7522"
+FOREIGN KEY ("crime_id")
+  REFERENCES "crimes" ("id")
+, CONSTRAINT "fk_rails_b5a506532a"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+, CONSTRAINT "fk_rails_39897d71a6"
+FOREIGN KEY ("procedure_id")
+  REFERENCES "procedures" ("id")
+)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_crime_id" ON "crime_in_accuseds"  ("crime_id")[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_person_id" ON "crime_in_accuseds"  ("person_id")[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX  "index_crime_in_accuseds_on_procedure_id" ON "crime_in_accuseds"  ("procedure_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200926230928"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePersonInProcedures (20200927001751)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.3ms)[0m  [1m[35mCREATE TABLE "person_in_procedures" ("id" bigserial primary key, "person_id" bigint NOT NULL, "procedure_id" bigint NOT NULL, "role" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_ef243c3ec5"
+FOREIGN KEY ("person_id")
+  REFERENCES "people" ("id")
+, CONSTRAINT "fk_rails_7206b5a771"
+FOREIGN KEY ("procedure_id")
+  REFERENCES "procedures" ("id")
+)[0m
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE  INDEX  "index_person_in_procedures_on_person_id" ON "person_in_procedures"  ("person_id")[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE  INDEX  "index_person_in_procedures_on_procedure_id" ON "person_in_procedures"  ("procedure_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200927001751"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddDeviseToUsers (20201027214157)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (15.1ms)[0m  [1m[35mALTER TABLE "users" ADD "email" character varying DEFAULT '' NOT NULL[0m
+  [1m[35m (9.2ms)[0m  [1m[35mALTER TABLE "users" ADD "encrypted_password" character varying DEFAULT '' NOT NULL[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_sent_at" timestamp[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_created_at" timestamp[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201027214157"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-10-31 22:07:53.077844"], ["updated_at", "2020-10-31 22:07:53.077844"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3556230671141507205)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPrefecture Create (0.6ms)[0m  [1m[32mINSERT INTO "prefectures" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "prefectura"], ["created_at", "2020-10-31 22:08:00.909423"], ["updated_at", "2020-10-31 22:08:00.909423"]]
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPoliceStation Create (0.8ms)[0m  [1m[32mINSERT INTO "police_stations" ("prefecture_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["prefecture_id", 1], ["created_at", "2020-10-31 22:08:00.943446"], ["updated_at", "2020-10-31 22:08:00.943446"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPoliceUnit Create (0.6ms)[0m  [1m[32mINSERT INTO "police_units" ("police_station_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["police_station_id", 1], ["created_at", "2020-10-31 22:08:00.983877"], ["updated_at", "2020-10-31 22:08:00.983877"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRegionalProsecution Create (0.5ms)[0m  [1m[32mINSERT INTO "regional_prosecutions" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "fiscalia regional"], ["created_at", "2020-10-31 22:08:01.001312"], ["updated_at", "2020-10-31 22:08:01.001312"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLocalProsecution Create (0.7ms)[0m  [1m[32mINSERT INTO "local_prosecutions" ("name", "regional_prosecution_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "fiscalia 1"], ["regional_prosecution_id", 1], ["created_at", "2020-10-31 22:08:01.020046"], ["updated_at", "2020-10-31 22:08:01.020046"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (5.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "andresvialcorrea99@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("police_unit_id", "created_at", "updated_at", "email", "encrypted_password") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["police_unit_id", 1], ["created_at", "2020-10-31 22:08:01.271891"], ["updated_at", "2020-10-31 22:08:01.271891"], ["email", "andresvialcorrea99@gmail.com"], ["encrypted_password", "$2a$12$zx7bBIhIZ1BxVPIzbmBuKefLyb7BJ8P21Lt9dP58lG2wSOxmDTQ.K"]]
+  [1m[35m (4.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPoliceMan Create (0.6ms)[0m  [1m[32mINSERT INTO "police_men" ("name", "rut", "badge", "police_unit_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "dijweid"], ["rut", "19638546-k"], ["badge", 1], ["police_unit_id", 1], ["created_at", "2020-10-31 22:08:01.296521"], ["updated_at", "2020-10-31 22:08:01.296521"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProsecutor Create (0.6ms)[0m  [1m[32mINSERT INTO "prosecutors" ("name", "rut", "local_prosecution_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "afsfa"], ["rut", "19638846-k"], ["local_prosecution_id", 1], ["created_at", "2020-10-31 22:08:01.315225"], ["updated_at", "2020-10-31 22:08:01.315225"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProcedure Create (1.1ms)[0m  [1m[32mINSERT INTO "procedures" ("classification", "marks", "police_in_charge_id", "police_unit_in_charge_id", "prosecutor_in_charge_id", "local_prosecution_in_charge_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["classification", 0], ["marks", "{\"Categoria 1\",\"Categoria 2\"}"], ["police_in_charge_id", 1], ["police_unit_in_charge_id", 1], ["prosecutor_in_charge_id", 1], ["local_prosecution_in_charge_id", 1], ["created_at", "2020-10-31 22:08:01.353608"], ["updated_at", "2020-10-31 22:08:01.353608"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPerson Create (0.4ms)[0m  [1m[32mINSERT INTO "people" ("name", "last_name", "rut", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Juan"], ["last_name", "Perez"], ["rut", "19838173-k"], ["created_at", "2020-10-31 22:08:01.402695"], ["updated_at", "2020-10-31 22:08:01.402695"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPersonInProcedure Create (0.9ms)[0m  [1m[32mINSERT INTO "person_in_procedures" ("person_id", "procedure_id", "role", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["person_id", 1], ["procedure_id", 1], ["role", 1], ["created_at", "2020-10-31 22:08:01.421483"], ["updated_at", "2020-10-31 22:08:01.421483"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCrime Create (0.3ms)[0m  [1m[32mINSERT INTO "crimes" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2020-10-31 22:08:01.464261"], ["updated_at", "2020-10-31 22:08:01.464261"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCrime Create (0.2ms)[0m  [1m[32mINSERT INTO "crimes" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2020-10-31 22:08:01.469888"], ["updated_at", "2020-10-31 22:08:01.469888"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-10-31 19:08:18 -0300
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 8.8ms | Allocations: 468)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 55.9ms | Allocations: 10967)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 157ms (Views: 103.1ms | ActiveRecord: 5.4ms | Allocations: 26422)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2020-10-31 19:09:03 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"nHwDnU45Vy3J0iBOXJwpt44cyzYG0Nf4ZPFLNwG1aN8GhuoKrzMhXRXfZoqgAEr2+lpI5/JwQhkMl3J+BCVwMQ==", "user"=>{"email"=>"andresvialcorrea99@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Ingresar"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "andresvialcorrea99@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 517ms (ActiveRecord: 0.6ms | Allocations: 3094)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"nHwDnU45Vy3J0iBOXJwpt44cyzYG0Nf4ZPFLNwG1aN8GhuoKrzMhXRXfZoqgAEr2+lpI5/JwQhkMl3J+BCVwMQ==", "user"=>{"email"=>"andresvialcorrea99@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Ingresar"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 75)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 14.1ms | Allocations: 2605)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 515ms (Views: 35.3ms | ActiveRecord: 0.0ms | Allocations: 9318)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2020-10-31 19:09:22 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"tz2/Ns9hIP/z4pqGPrdYXlwx6/MYPzBd9kWHkXafMRotx1ahLmtWjy/v3ELCKzsfKHdoIuyfpbyeI77Ycw8p9A==", "user"=>{"email"=>"andresvialcorrea99@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Ingresar"}
+  [1m[36mUser Load (5.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "andresvialcorrea99@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/procedures
+Completed 302 Found in 598ms (ActiveRecord: 5.6ms | Allocations: 4041)
+
+
+Started GET "/procedures" for 127.0.0.1 at 2020-10-31 19:09:23 -0300
+Processing by ProceduresController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/index.html.erb within layouts/application
+  [1m[36mProcedure Load (1.6ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures"[0m
+  ↳ app/views/procedures/index.html.erb:20
+  Rendered procedures/index.html.erb within layouts/application (Duration: 132.5ms | Allocations: 13273)
+Completed 500 Internal Server Error in 161ms (ActiveRecord: 6.8ms | Allocations: 18899)
+
+
+  
+ActionView::Template::Error (undefined method `categories' for #<Procedure:0x00007fce907ab5c8>):
+    20:     <% @procedures.each do |procedure| %>
+    21:       <tr>
+    22:         <td><%= procedure.classification %></td>
+    23:         <td><%= procedure.categories %></td>
+    24:         <td><%= procedure.police_in_charge_id %></td>
+    25:         <td><%= procedure.local_prosecution_id %></td>
+    26:         <td><%= procedure.story %></td>
+  
+app/views/procedures/index.html.erb:23
+app/views/procedures/index.html.erb:20
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:09:32 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 52.3ms | Allocations: 3858)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 109ms (Views: 78.9ms | ActiveRecord: 0.5ms | Allocations: 13312)
+
+
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 19:09:45 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"+xtaMieie8pXsp66ot/jqyDfEaCYwl6K3vCl0miwWHGMnFYAHCDj/Qu0B/eZSyhOH29yQ50VrN6YG2Wl/qpVtA==", "procedure"=>{"date"=>"", "time"=>"", "region"=>"15", "address"=>"", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["", ""]}}
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.1ms | Allocations: 1900)
+Completed 500 Internal Server Error in 120ms (ActiveRecord: 6.0ms | Allocations: 16135)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    39: 
+    40: 
+    41:           <div class="d-flex justify-content-between">
+    42:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    43:             <div class="form-inline">
+    44:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    45:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:42
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 19:09:46 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"+xtaMieie8pXsp66ot/jqyDfEaCYwl6K3vCl0miwWHGMnFYAHCDj/Qu0B/eZSyhOH29yQ50VrN6YG2Wl/qpVtA==", "procedure"=>{"date"=>"", "time"=>"", "region"=>"15", "address"=>"", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["", "", ""]}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1890)
+Completed 500 Internal Server Error in 142ms (ActiveRecord: 0.6ms | Allocations: 76779)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    39: 
+    40: 
+    41:           <div class="d-flex justify-content-between">
+    42:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    43:             <div class="form-inline">
+    44:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    45:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:42
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 19:09:47 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"+xtaMieie8pXsp66ot/jqyDfEaCYwl6K3vCl0miwWHGMnFYAHCDj/Qu0B/eZSyhOH29yQ50VrN6YG2Wl/qpVtA==", "procedure"=>{"date"=>"", "time"=>"", "region"=>"15", "address"=>"", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["", "", "", ""]}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1889)
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 19:09:48 -0300
+Completed 500 Internal Server Error in 330ms (ActiveRecord: 105.7ms | Allocations: 69695)
+
+
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"+xtaMieie8pXsp66ot/jqyDfEaCYwl6K3vCl0miwWHGMnFYAHCDj/Qu0B/eZSyhOH29yQ50VrN6YG2Wl/qpVtA==", "procedure"=>{"date"=>"", "time"=>"", "region"=>"15", "address"=>"", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["", "", "", "", ""]}}
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    39: 
+    40: 
+    41:           <div class="d-flex justify-content-between">
+    42:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    43:             <div class="form-inline">
+    44:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    45:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:42
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+  [1m[36mUser Load (209.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1889)
+Completed 500 Internal Server Error in 647ms (ActiveRecord: 209.5ms | Allocations: 260601)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    39: 
+    40: 
+    41:           <div class="d-flex justify-content-between">
+    42:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    43:             <div class="form-inline">
+    44:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    45:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:42
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:11:52 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 28.4ms | Allocations: 3293)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 85ms (Views: 63.3ms | ActiveRecord: 2.7ms | Allocations: 13736)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:12:30 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 21.2ms | Allocations: 3288)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 59ms (Views: 54.7ms | ActiveRecord: 0.8ms | Allocations: 13658)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:12:53 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (6.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 29.6ms | Allocations: 3288)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 161ms (Views: 132.6ms | ActiveRecord: 6.4ms | Allocations: 13672)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:13:04 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 19.0ms | Allocations: 3287)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 88ms (Views: 63.9ms | ActiveRecord: 2.5ms | Allocations: 13711)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:13:28 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 22.2ms | Allocations: 3293)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 63ms (Views: 54.4ms | ActiveRecord: 4.5ms | Allocations: 13718)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:13:30 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 2625)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 49ms (Views: 42.4ms | ActiveRecord: 0.7ms | Allocations: 11795)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:13:54 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 10.2ms | Allocations: 3289)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 77ms (Views: 68.4ms | ActiveRecord: 0.2ms | Allocations: 13668)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:14:02 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.1ms | Allocations: 3288)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 68ms (Views: 50.9ms | ActiveRecord: 1.6ms | Allocations: 13687)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:14:10 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.4ms | Allocations: 3287)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 52ms (Views: 36.9ms | ActiveRecord: 4.1ms | Allocations: 13710)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:14:37 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 15.9ms | Allocations: 3288)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 65ms (Views: 51.8ms | ActiveRecord: 4.7ms | Allocations: 13668)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:15:09 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 17.6ms | Allocations: 3288)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 67ms (Views: 61.4ms | ActiveRecord: 1.1ms | Allocations: 13687)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:15:28 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.9ms | Allocations: 3292)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 66ms (Views: 48.6ms | ActiveRecord: 4.9ms | Allocations: 13712)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:21:45 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 11.9ms | Allocations: 3292)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 72ms (Views: 51.5ms | ActiveRecord: 13.3ms | Allocations: 13790)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:25:01 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.2ms | Allocations: 3293)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: 91b88c34ce8a9cfa1866
+Version: webpack 4.44.2
+Time: 5689ms
+Built at: 10/31/2020 7:25:11 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-319af683f643ed5473aa.js    865 KiB  application  [emitted] [immutable]  application
+js/application-319af683f643ed5473aa.js.map    926 KiB  application  [emitted] [dev]        application
+     js/procedures-7a88970d6984aa9bf100.js    745 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-7a88970d6984aa9bf100.js.map    791 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-319af683f643ed5473aa.js js/application-319af683f643ed5473aa.js.map
+Entrypoint procedures = js/procedures-7a88970d6984aa9bf100.js js/procedures-7a88970d6984aa9bf100.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 859 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22.1 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 9822ms (Views: 9798.9ms | ActiveRecord: 2.1ms | Allocations: 15008)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:26:10 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.3ms | Allocations: 3293)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: 91b88c34ce8a9cfa1866
+Version: webpack 4.44.2
+Time: 7357ms
+Built at: 10/31/2020 7:26:22 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-319af683f643ed5473aa.js    865 KiB  application  [emitted] [immutable]  application
+js/application-319af683f643ed5473aa.js.map    926 KiB  application  [emitted] [dev]        application
+     js/procedures-7a88970d6984aa9bf100.js    745 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-7a88970d6984aa9bf100.js.map    791 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-319af683f643ed5473aa.js js/application-319af683f643ed5473aa.js.map
+Entrypoint procedures = js/procedures-7a88970d6984aa9bf100.js js/procedures-7a88970d6984aa9bf100.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 859 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22.1 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 11426ms (Views: 11411.0ms | ActiveRecord: 4.4ms | Allocations: 15016)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:29:47 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.3ms | Allocations: 2625)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: 24669027a212fc16d0a1
+Version: webpack 4.44.2
+Time: 7153ms
+Built at: 10/31/2020 7:30:00 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-d2a60c5a27da360072bf.js    865 KiB  application  [emitted] [immutable]  application
+js/application-d2a60c5a27da360072bf.js.map    926 KiB  application  [emitted] [dev]        application
+     js/procedures-3c011270a71598e4907b.js    745 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-3c011270a71598e4907b.js.map    791 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-d2a60c5a27da360072bf.js js/application-d2a60c5a27da360072bf.js.map
+Entrypoint procedures = js/procedures-3c011270a71598e4907b.js js/procedures-3c011270a71598e4907b.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 859 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22.2 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 13083ms (Views: 13057.5ms | ActiveRecord: 0.5ms | Allocations: 13942)
+
+
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 19:30:08 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"liCqpKOKcY7q0imMnrutSAduT7IVDMsg44bGhzNYDOrhp6aWmAjpubbUsMGlL2atON4sURDbOXSlbQbwpUIBLw==", "procedure"=>{"date"=>"", "time"=>"", "region"=>"15", "address"=>"", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["acoso"]}}
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 9.7ms | Allocations: 1890)
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 6.2ms | Allocations: 5796)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    39: 
+    40: 
+    41:           <div class="d-flex justify-content-between">
+    42:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    43:             <div class="form-inline">
+    44:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    45:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:42
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 19:31:33 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"liCqpKOKcY7q0imMnrutSAduT7IVDMsg44bGhzNYDOrhp6aWmAjpubbUsMGlL2atON4sURDbOXSlbQbwpUIBLw==", "procedure"=>{"date"=>"", "time"=>"", "region"=>"15", "address"=>"", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["acoso", ""]}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.9ms | Allocations: 1890)
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 1.3ms | Allocations: 5805)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    39: 
+    40: 
+    41:           <div class="d-flex justify-content-between">
+    42:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    43:             <div class="form-inline">
+    44:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    45:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:42
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 19:31:34 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"liCqpKOKcY7q0imMnrutSAduT7IVDMsg44bGhzNYDOrhp6aWmAjpubbUsMGlL2atON4sURDbOXSlbQbwpUIBLw==", "procedure"=>{"date"=>"", "time"=>"", "region"=>"15", "address"=>"", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["acoso", "", ""]}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1890)
+Completed 500 Internal Server Error in 209ms (ActiveRecord: 108.5ms | Allocations: 43057)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    39: 
+    40: 
+    41:           <div class="d-flex justify-content-between">
+    42:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    43:             <div class="form-inline">
+    44:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    45:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:42
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 19:31:35 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"liCqpKOKcY7q0imMnrutSAduT7IVDMsg44bGhzNYDOrhp6aWmAjpubbUsMGlL2atON4sURDbOXSlbQbwpUIBLw==", "procedure"=>{"date"=>"", "time"=>"", "region"=>"15", "address"=>"", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["acoso", "", "", ""]}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1889)
+Completed 500 Internal Server Error in 238ms (ActiveRecord: 1.9ms | Allocations: 47507)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    39: 
+    40: 
+    41:           <div class="d-flex justify-content-between">
+    42:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    43:             <div class="form-inline">
+    44:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    45:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:42
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 19:31:46 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"liCqpKOKcY7q0imMnrutSAduT7IVDMsg44bGhzNYDOrhp6aWmAjpubbUsMGlL2atON4sURDbOXSlbQbwpUIBLw==", "procedure"=>{"date"=>"", "time"=>"", "region"=>"15", "address"=>"", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["acoso", "", "", ""]}}
+  [1m[36mUser Load (7.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1889)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 7.2ms | Allocations: 5799)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    39: 
+    40: 
+    41:           <div class="d-flex justify-content-between">
+    42:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    43:             <div class="form-inline">
+    44:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    45:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:42
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 19:31:48 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"liCqpKOKcY7q0imMnrutSAduT7IVDMsg44bGhzNYDOrhp6aWmAjpubbUsMGlL2atON4sURDbOXSlbQbwpUIBLw==", "procedure"=>{"date"=>"", "time"=>"", "region"=>"15", "address"=>"", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["acoso", "", "", ""]}}
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.9ms | Allocations: 1889)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 3.3ms | Allocations: 5799)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    39: 
+    40: 
+    41:           <div class="d-flex justify-content-between">
+    42:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    43:             <div class="form-inline">
+    44:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    45:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:42
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 19:32:43 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"liCqpKOKcY7q0imMnrutSAduT7IVDMsg44bGhzNYDOrhp6aWmAjpubbUsMGlL2atON4sURDbOXSlbQbwpUIBLw==", "procedure"=>{"date"=>"", "time"=>"", "region"=>"15", "address"=>"", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["acoso", "", "", ""]}}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 22.9ms | Allocations: 1889)
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 1.9ms | Allocations: 5799)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    39: 
+    40: 
+    41:           <div class="d-flex justify-content-between">
+    42:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    43:             <div class="form-inline">
+    44:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    45:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:42
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 19:33:25 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"liCqpKOKcY7q0imMnrutSAduT7IVDMsg44bGhzNYDOrhp6aWmAjpubbUsMGlL2atON4sURDbOXSlbQbwpUIBLw==", "procedure"=>{"date"=>"", "time"=>"", "region"=>"15", "address"=>"", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["acoso", "", "", "", ""]}}
+  [1m[36mUser Load (6.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1889)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 6.9ms | Allocations: 5799)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    39: 
+    40: 
+    41:           <div class="d-flex justify-content-between">
+    42:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    43:             <div class="form-inline">
+    44:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    45:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:42
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:33:32 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 9.7ms | Allocations: 2623)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 28.3ms | ActiveRecord: 0.3ms | Allocations: 11842)
+
+
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 19:33:37 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"lSM8IUax2JioVVsw7oFHzDsKtQuMlp3g4oC68IwYiqzipDATfTNAr/RTwn3VFYwpBLrW6IlBb7Ska3qHGgKHaQ==", "procedure"=>{"date"=>"", "time"=>"", "region"=>"15", "address"=>"", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>[""]}}
+  [1m[36mUser Load (5.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.8ms | Allocations: 1889)
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 5.7ms | Allocations: 5789)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    39: 
+    40: 
+    41:           <div class="d-flex justify-content-between">
+    42:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    43:             <div class="form-inline">
+    44:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    45:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:42
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 19:33:40 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"lSM8IUax2JioVVsw7oFHzDsKtQuMlp3g4oC68IwYiqzipDATfTNAr/RTwn3VFYwpBLrW6IlBb7Ska3qHGgKHaQ==", "procedure"=>{"date"=>"", "time"=>"", "region"=>"15", "address"=>"", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>[""]}}
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.2ms | Allocations: 1889)
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 2.6ms | Allocations: 5791)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    39: 
+    40: 
+    41:           <div class="d-flex justify-content-between">
+    42:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    43:             <div class="form-inline">
+    44:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    45:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:42
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 19:33:42 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"lSM8IUax2JioVVsw7oFHzDsKtQuMlp3g4oC68IwYiqzipDATfTNAr/RTwn3VFYwpBLrW6IlBb7Ska3qHGgKHaQ==", "procedure"=>{"date"=>"", "time"=>"", "region"=>"15", "address"=>"", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>[""]}}
+  [1m[36mUser Load (7.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.0ms | Allocations: 1889)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 7.1ms | Allocations: 5791)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    39: 
+    40: 
+    41:           <div class="d-flex justify-content-between">
+    42:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    43:             <div class="form-inline">
+    44:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    45:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:42
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 19:33:43 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"lSM8IUax2JioVVsw7oFHzDsKtQuMlp3g4oC68IwYiqzipDATfTNAr/RTwn3VFYwpBLrW6IlBb7Ska3qHGgKHaQ==", "procedure"=>{"date"=>"", "time"=>"", "region"=>"15", "address"=>"", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>[""]}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1889)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 1.1ms | Allocations: 5791)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    39: 
+    40: 
+    41:           <div class="d-flex justify-content-between">
+    42:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    43:             <div class="form-inline">
+    44:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    45:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:42
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 19:33:45 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"lSM8IUax2JioVVsw7oFHzDsKtQuMlp3g4oC68IwYiqzipDATfTNAr/RTwn3VFYwpBLrW6IlBb7Ska3qHGgKHaQ==", "procedure"=>{"date"=>"", "time"=>"", "region"=>"15", "address"=>"", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>[""]}, "commit"=>"Enviar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1889)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 0.2ms | Allocations: 5793)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    39: 
+    40: 
+    41:           <div class="d-flex justify-content-between">
+    42:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    43:             <div class="form-inline">
+    44:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    45:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:42
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:34:27 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 9.6ms | Allocations: 3294)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 63ms (Views: 53.3ms | ActiveRecord: 4.9ms | Allocations: 13716)
+
+
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 19:34:30 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"vmI7kgZBAV45lUM5cIrEGHEoAvmcUHSLoOjwyTriVgfJ5TegPcOZaWWT2nRLHg/9TphhGpmHht/mAzC+rPhbwg==", "procedure"=>{"date"=>"", "time"=>"", "region"=>"15", "address"=>"", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>[""]}}
+  [1m[36mUser Load (14.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1893)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 14.5ms | Allocations: 5787)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    39: 
+    40: 
+    41:           <div class="d-flex justify-content-between">
+    42:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    43:             <div class="form-inline">
+    44:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    45:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:42
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 19:34:32 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"vmI7kgZBAV45lUM5cIrEGHEoAvmcUHSLoOjwyTriVgfJ5TegPcOZaWWT2nRLHg/9TphhGpmHht/mAzC+rPhbwg==", "procedure"=>{"date"=>"", "time"=>"", "region"=>"15", "address"=>"", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>[""]}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 9.1ms | Allocations: 1889)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.2ms | Allocations: 5785)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    39: 
+    40: 
+    41:           <div class="d-flex justify-content-between">
+    42:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    43:             <div class="form-inline">
+    44:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    45:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:42
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 19:34:58 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"vmI7kgZBAV45lUM5cIrEGHEoAvmcUHSLoOjwyTriVgfJ5TegPcOZaWWT2nRLHg/9TphhGpmHht/mAzC+rPhbwg==", "procedure"=>{"date"=>"", "time"=>"", "region"=>"15", "address"=>"", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["", ""]}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 17.1ms | Allocations: 1889)
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 0.6ms | Allocations: 5785)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    39: 
+    40: 
+    41:           <div class="d-flex justify-content-between">
+    42:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    43:             <div class="form-inline">
+    44:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    45:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:42
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 19:34:59 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"vmI7kgZBAV45lUM5cIrEGHEoAvmcUHSLoOjwyTriVgfJ5TegPcOZaWWT2nRLHg/9TphhGpmHht/mAzC+rPhbwg==", "procedure"=>{"date"=>"", "time"=>"", "region"=>"15", "address"=>"", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["", "", ""]}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1889)
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 1.0ms | Allocations: 5785)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    39: 
+    40: 
+    41:           <div class="d-flex justify-content-between">
+    42:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    43:             <div class="form-inline">
+    44:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    45:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:42
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:35:35 -0300
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 14.5ms | Allocations: 4268)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 222ms (Views: 60.9ms | ActiveRecord: 14.9ms | Allocations: 38543)
+
+
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 19:35:41 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"kSZqiXUJKYJ38uGGmrBEhVabLurbWt3WBz4uQ41pPmrmoWa7TouxtSv0eMuhJI9gaStNCd6NL4JB1e40G3Mzrw==", "procedure"=>{"date"=>"", "time"=>"", "region"=>"15", "address"=>"", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>[""]}}
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 13.0ms | Allocations: 2187)
+Completed 500 Internal Server Error in 85ms (ActiveRecord: 3.7ms | Allocations: 15800)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    39: 
+    40: 
+    41:           <div class="d-flex justify-content-between">
+    42:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    43:             <div class="form-inline">
+    44:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    45:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:42
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:36:57 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 9.5ms | Allocations: 2630)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: 0a2704cd8291d5d084ae
+Version: webpack 4.44.2
+Time: 6876ms
+Built at: 10/31/2020 7:37:09 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-5909e206c5cb55d1cce6.js    865 KiB  application  [emitted] [immutable]  application
+js/application-5909e206c5cb55d1cce6.js.map    926 KiB  application  [emitted] [dev]        application
+     js/procedures-64d9bf2b86646e8e5d48.js    745 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-64d9bf2b86646e8e5d48.js.map    791 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-5909e206c5cb55d1cce6.js js/application-5909e206c5cb55d1cce6.js.map
+Entrypoint procedures = js/procedures-64d9bf2b86646e8e5d48.js js/procedures-64d9bf2b86646e8e5d48.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 859 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22.1 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 11443ms (Views: 11426.0ms | ActiveRecord: 0.6ms | Allocations: 13269)
+
+
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 19:37:14 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"S/esOs2Fp4wsCLPa9eLHb88glRzrItRVbNQUZSxlMlM8cKAI9gc/u3AOKpfOdgyK8JD2/+71JgEqP9QSun8/lg==", "procedure"=>{"date"=>"", "time"=>"", "region"=>"15", "address"=>"", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["", ""]}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1891)
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 0.3ms | Allocations: 5820)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    39: 
+    40: 
+    41:           <div class="d-flex justify-content-between">
+    42:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    43:             <div class="form-inline">
+    44:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    45:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:42
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 19:37:15 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"S/esOs2Fp4wsCLPa9eLHb88glRzrItRVbNQUZSxlMlM8cKAI9gc/u3AOKpfOdgyK8JD2/+71JgEqP9QSun8/lg==", "procedure"=>{"date"=>"", "time"=>"", "region"=>"15", "address"=>"", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["", ""]}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1891)
+Completed 500 Internal Server Error in 76ms (ActiveRecord: 49.3ms | Allocations: 23910)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    39: 
+    40: 
+    41:           <div class="d-flex justify-content-between">
+    42:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    43:             <div class="form-inline">
+    44:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    45:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:42
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 19:37:17 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"S/esOs2Fp4wsCLPa9eLHb88glRzrItRVbNQUZSxlMlM8cKAI9gc/u3AOKpfOdgyK8JD2/+71JgEqP9QSun8/lg==", "procedure"=>{"date"=>"", "time"=>"", "region"=>"15", "address"=>"", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["", ""]}}
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1891)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 4.0ms | Allocations: 5824)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    39: 
+    40: 
+    41:           <div class="d-flex justify-content-between">
+    42:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    43:             <div class="form-inline">
+    44:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    45:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:42
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:37:32 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.8ms | Allocations: 2624)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 50ms (Views: 37.9ms | ActiveRecord: 1.6ms | Allocations: 11863)
+
+
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 19:37:40 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"exLLDl27qPiHLNvwh/VKiRIpKkTesCib4Rml5qwNeqUMlcc8Zjkwz9sqQr28YYFsLZlJp9tn2s+n8mWROhd3YA==", "procedure"=>{"date"=>"", "time"=>"", "region"=>"15", "address"=>"", "comune"=>"15101", "preponderant_crime"=>""}}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1889)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 1.5ms | Allocations: 5786)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    39: 
+    40: 
+    41:           <div class="d-flex justify-content-between">
+    42:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    43:             <div class="form-inline">
+    44:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    45:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:42
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:37:43 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 2623)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 45ms (Views: 24.3ms | ActiveRecord: 1.4ms | Allocations: 11838)
+
+
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 19:37:48 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"yLSm8fBzNSYydXdQ77h0VljmidpLinPgStqo2jWmviW/M6rDy/GtEW5z7h3ULL+zZ1bqOU5dgbQMMWito7yz4A==", "procedure"=>{"date"=>"", "time"=>"", "region"=>"15", "address"=>"", "comune"=>"15101", "preponderant_crime"=>""}}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1890)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 2.4ms | Allocations: 5794)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    39: 
+    40: 
+    41:           <div class="d-flex justify-content-between">
+    42:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    43:             <div class="form-inline">
+    44:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    45:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:42
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:37:50 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 2623)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 49ms (Views: 36.3ms | ActiveRecord: 1.3ms | Allocations: 11846)
+
+
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 19:37:53 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"tGJYB6ULIqIF3MIiu0JpmzWI2avOA3NKU3790pwTUIvD5VQ1nom6lVnaW2+A1qJ+Cji6SMvUgR4VlT2lCgldTg==", "procedure"=>{"date"=>"", "time"=>"", "region"=>"15", "address"=>"", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["", ""]}}
+  [1m[36mUser Load (8.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 14.0ms | Allocations: 1889)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 8.5ms | Allocations: 5813)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    39: 
+    40: 
+    41:           <div class="d-flex justify-content-between">
+    42:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    43:             <div class="form-inline">
+    44:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    45:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:42
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 19:37:55 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"tGJYB6ULIqIF3MIiu0JpmzWI2avOA3NKU3790pwTUIvD5VQ1nom6lVnaW2+A1qJ+Cji6SMvUgR4VlT2lCgldTg==", "procedure"=>{"date"=>"", "time"=>"", "region"=>"15", "address"=>"", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["", "", ""]}}
+  [1m[36mUser Load (10.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1889)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 10.0ms | Allocations: 5815)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    39: 
+    40: 
+    41:           <div class="d-flex justify-content-between">
+    42:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    43:             <div class="form-inline">
+    44:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    45:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:42
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:41:02 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 12.3ms | Allocations: 3294)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 135ms (Views: 123.2ms | ActiveRecord: 2.7ms | Allocations: 13747)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:41:11 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.4ms | Allocations: 2625)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 48ms (Views: 38.0ms | ActiveRecord: 3.7ms | Allocations: 11798)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:43:19 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.0ms | Allocations: 2622)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: faeb7d28d1c1593a9ceb
+Version: webpack 4.44.2
+Time: 6599ms
+Built at: 10/31/2020 7:43:31 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-fbb1e6a5875322e0f868.js    865 KiB  application  [emitted] [immutable]  application
+js/application-fbb1e6a5875322e0f868.js.map    926 KiB  application  [emitted] [dev]        application
+     js/procedures-8a0bc81bce5c599c82db.js    745 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-8a0bc81bce5c599c82db.js.map    791 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-fbb1e6a5875322e0f868.js js/application-fbb1e6a5875322e0f868.js.map
+Entrypoint procedures = js/procedures-8a0bc81bce5c599c82db.js js/procedures-8a0bc81bce5c599c82db.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 859 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22.2 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 11847ms (Views: 11834.4ms | ActiveRecord: 3.2ms | Allocations: 13112)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:44:27 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 2622)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: 6bcb0a2cd8e435b9faea
+Version: webpack 4.44.2
+Time: 6988ms
+Built at: 10/31/2020 7:44:38 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-7da51298600e7f386844.js    865 KiB  application  [emitted] [immutable]  application
+js/application-7da51298600e7f386844.js.map    927 KiB  application  [emitted] [dev]        application
+     js/procedures-eea0a346a9f335096c83.js    746 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-eea0a346a9f335096c83.js.map    792 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-7da51298600e7f386844.js js/application-7da51298600e7f386844.js.map
+Entrypoint procedures = js/procedures-eea0a346a9f335096c83.js js/procedures-eea0a346a9f335096c83.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 859 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22.3 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 11223ms (Views: 11218.5ms | ActiveRecord: 0.2ms | Allocations: 13118)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:45:54 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 18.7ms | Allocations: 2623)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: 2d40130f07e616dbce8c
+Version: webpack 4.44.2
+Time: 6930ms
+Built at: 10/31/2020 7:46:05 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-cbd8cd57e21a1d33edb5.js    865 KiB  application  [emitted] [immutable]  application
+js/application-cbd8cd57e21a1d33edb5.js.map    926 KiB  application  [emitted] [dev]        application
+     js/procedures-ba652fe9f12e2d7a604e.js    745 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-ba652fe9f12e2d7a604e.js.map    792 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-cbd8cd57e21a1d33edb5.js js/application-cbd8cd57e21a1d33edb5.js.map
+Entrypoint procedures = js/procedures-ba652fe9f12e2d7a604e.js js/procedures-ba652fe9f12e2d7a604e.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 859 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22.2 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 11532ms (Views: 11518.4ms | ActiveRecord: 0.4ms | Allocations: 13151)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:47:26 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 10.1ms | Allocations: 2622)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 84ms (Views: 76.3ms | ActiveRecord: 2.4ms | Allocations: 11803)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:47:36 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 2622)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 45ms (Views: 35.2ms | ActiveRecord: 0.7ms | Allocations: 11791)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:50:12 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 20.6ms | Allocations: 3293)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: 3a5c63da8f8504701a51
+Version: webpack 4.44.2
+Time: 6391ms
+Built at: 10/31/2020 7:50:22 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-244cf0b2a55d90cac51c.js    865 KiB  application  [emitted] [immutable]  application
+js/application-244cf0b2a55d90cac51c.js.map    926 KiB  application  [emitted] [dev]        application
+     js/procedures-fbb82f78c8ac039fa70d.js    745 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-fbb82f78c8ac039fa70d.js.map    792 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-244cf0b2a55d90cac51c.js js/application-244cf0b2a55d90cac51c.js.map
+Entrypoint procedures = js/procedures-fbb82f78c8ac039fa70d.js js/procedures-fbb82f78c8ac039fa70d.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 859 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22.2 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 10435ms (Views: 10421.2ms | ActiveRecord: 1.6ms | Allocations: 15001)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:51:10 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 2625)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 45ms (Views: 29.1ms | ActiveRecord: 6.2ms | Allocations: 11844)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:51:49 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 2622)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: f08b5c8b5dd47ea10c65
+Version: webpack 4.44.2
+Time: 6747ms
+Built at: 10/31/2020 7:52:00 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-522527d3179b95e1a833.js    865 KiB  application  [emitted] [immutable]  application
+js/application-522527d3179b95e1a833.js.map    926 KiB  application  [emitted] [dev]        application
+     js/procedures-c75b4028795554a2169a.js    745 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-c75b4028795554a2169a.js.map    792 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-522527d3179b95e1a833.js js/application-522527d3179b95e1a833.js.map
+Entrypoint procedures = js/procedures-c75b4028795554a2169a.js js/procedures-c75b4028795554a2169a.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 859 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22.2 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 10571ms (Views: 10565.9ms | ActiveRecord: 1.4ms | Allocations: 13127)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:52:53 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.2ms | Allocations: 2622)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 32.8ms | ActiveRecord: 1.1ms | Allocations: 11795)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:55:26 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 9.5ms | Allocations: 3293)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: a2adcec89534ee14d67c
+Version: webpack 4.44.2
+Time: 6759ms
+Built at: 10/31/2020 7:55:37 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-1c446c3b52a8367cef13.js    865 KiB  application  [emitted] [immutable]  application
+js/application-1c446c3b52a8367cef13.js.map    926 KiB  application  [emitted] [dev]        application
+     js/procedures-5a8c49dc7ce9f56467bd.js    745 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-5a8c49dc7ce9f56467bd.js.map    791 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-1c446c3b52a8367cef13.js js/application-1c446c3b52a8367cef13.js.map
+Entrypoint procedures = js/procedures-5a8c49dc7ce9f56467bd.js js/procedures-5a8c49dc7ce9f56467bd.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 859 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22.2 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 10665ms (Views: 10644.4ms | ActiveRecord: 2.0ms | Allocations: 15045)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:56:25 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 2625)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: 9637d89a3578430dd483
+Version: webpack 4.44.2
+Time: 6339ms
+Built at: 10/31/2020 7:56:35 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-e395bd183705919e0109.js    865 KiB  application  [emitted] [immutable]  application
+js/application-e395bd183705919e0109.js.map    926 KiB  application  [emitted] [dev]        application
+     js/procedures-c9e9ba3d2613ee330c73.js    745 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-c9e9ba3d2613ee330c73.js.map    792 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-e395bd183705919e0109.js js/application-e395bd183705919e0109.js.map
+Entrypoint procedures = js/procedures-c9e9ba3d2613ee330c73.js js/procedures-c9e9ba3d2613ee330c73.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 859 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22.2 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 10457ms (Views: 10452.2ms | ActiveRecord: 0.3ms | Allocations: 13126)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:57:11 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 9.7ms | Allocations: 2622)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: 95ba8c8f7c8aa7f376b5
+Version: webpack 4.44.2
+Time: 6776ms
+Built at: 10/31/2020 7:57:22 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-ddea75de6aa8c96da361.js    865 KiB  application  [emitted] [immutable]  application
+js/application-ddea75de6aa8c96da361.js.map    927 KiB  application  [emitted] [dev]        application
+     js/procedures-b54aa6ecb8b884798679.js    746 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-b54aa6ecb8b884798679.js.map    792 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-ddea75de6aa8c96da361.js js/application-ddea75de6aa8c96da361.js.map
+Entrypoint procedures = js/procedures-b54aa6ecb8b884798679.js js/procedures-b54aa6ecb8b884798679.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 859 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22.3 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 10871ms (Views: 10843.4ms | ActiveRecord: 1.8ms | Allocations: 13106)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 19:58:32 -0300
+Processing by ProceduresController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 2622)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: 638ce47df03c72cbad4f
+Version: webpack 4.44.2
+Time: 6925ms
+Built at: 10/31/2020 7:58:43 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-6bb9a7f7352601b34583.js    865 KiB  application  [emitted] [immutable]  application
+js/application-6bb9a7f7352601b34583.js.map    927 KiB  application  [emitted] [dev]        application
+     js/procedures-7c1609b070e7806b94c5.js    746 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-7c1609b070e7806b94c5.js.map    792 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-6bb9a7f7352601b34583.js js/application-6bb9a7f7352601b34583.js.map
+Entrypoint procedures = js/procedures-7c1609b070e7806b94c5.js js/procedures-7c1609b070e7806b94c5.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 859 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22.3 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 11028ms (Views: 11008.5ms | ActiveRecord: 0.2ms | Allocations: 13110)
+
+
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 20:00:16 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"cxIXpBx5SbEoAcNKa9Qf0bQ7r3rW55aUaMVQlSNUWIgElRuWJ/vRhnQHWgdQQNQ0i4vMmdMwZMAuLpDitU5VTQ==", "procedure"=>{"date"=>"", "time"=>"", "region"=>"15", "address"=>"", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["homicidio", "conduccion en estado de ebriedad", "Robo a mano armada", "femicidio", "pisar las lineas de la vereda", "conduccion en estado de ebriedad"]}, "commit"=>"Enviar"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1890)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 0.8ms | Allocations: 5797)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    39: 
+    40: 
+    41:           <div class="d-flex justify-content-between">
+    42:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    43:             <div class="form-inline">
+    44:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    45:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:42
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
