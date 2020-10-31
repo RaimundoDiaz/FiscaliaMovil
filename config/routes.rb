@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    resources :procedures
+    resources :procedures do
+      resources :messages
+    end
   end
 
   resources :procedures

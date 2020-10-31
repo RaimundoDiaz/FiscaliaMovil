@@ -161,7 +161,6 @@ ActiveRecord::Schema.define(version: 2020_10_27_214157) do
   create_table "users", force: :cascade do |t|
     t.bigint "police_unit_id"
     t.bigint "local_prosecution_id"
-    t.string "username"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "email", default: "", null: false
