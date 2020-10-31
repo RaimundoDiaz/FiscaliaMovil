@@ -13,10 +13,10 @@ reg_prosecution = RegionalProsecution.create(name: "fiscalia regional")
 prosecution = LocalProsecution.create(name: "fiscalia 1", regional_prosecution: reg_prosecution)
 u1 = User.create(email: "fiscal1@atenas.cl", local_prosecution: prosecution)
 police = PoliceMan.create(name: "Gian", police_unit_id: pu.id)
-prosecutor = Prosecutor.create(name: "Martin", local_prosecutions_id: prosecution.id)
+prosecutor = Prosecutor.create(name: "Martin", local_prosecution_id: prosecution.id)
 
 #u2 = User.create(role: 1, rut: "111111")
-procedure = Procedure.create(classification: 0, marks: '{"Categoria 1", "Categoria 2"}', state: 1, police_in_charge_id: police.id, police_unit_in_charge_id: police.police_unit_id, prosecutor_in_charge_id: prosecutor.id, local_prosecution_in_charge_id: prosecutor.local_prosecutions_id)
+procedure = Procedure.create(classification: 0, marks: '{"Categoria 1", "Categoria 2"}', state: 1, police_in_charge_id: police.id, police_unit_in_charge_id: police.police_unit_id, prosecutor_in_charge_id: prosecutor.id, local_prosecution_in_charge_id: prosecutor.local_prosecution_id)
 
 imputado = Person.create(name: "Juan", last_name: "Perez", rut: "19838173-k")
 PersonInProcedure.create(procedure: procedure, person: imputado, role: 0)
