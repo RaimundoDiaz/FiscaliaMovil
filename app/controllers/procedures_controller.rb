@@ -1,5 +1,6 @@
 class ProceduresController < ApplicationController
   before_action :set_procedure, only: [:show, :edit, :update, :destroy]
+  include ProceduresHelper
 
   # GET /procedures
   # GET /procedures.json
@@ -15,6 +16,7 @@ class ProceduresController < ApplicationController
   # GET /procedures/new
   def new
     @procedure = Procedure.new
+    get_regiones
   end
 
   # GET /procedures/1/edit
@@ -24,6 +26,7 @@ class ProceduresController < ApplicationController
   # POST /procedures
   # POST /procedures.json
   def create
+    print(params[:crime],"\nAAAAAAAAAAAAAAAAAAAA\n")
     @procedure = Procedure.new(procedure_params)
 
     respond_to do |format|
@@ -69,6 +72,6 @@ class ProceduresController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def procedure_params
-      params.require(:procedure).permit(:classification, :categories, :police_in_charge_id, :local_prosecution_id, :story, :address, :state)
+      params.require(:procedure).permit(:classification, :categories, :police_in_charge_id, :local_prosecution_id, :story, :address, :state, :crimes)
     end
 end

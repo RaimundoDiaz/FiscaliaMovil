@@ -1,15 +1,50 @@
-<span>
-  <h1>Ingreso de procedimiento</h1>
 
-  <%= form_with model: @procedure do |form| %>
-    <section>
-      <label for="direccion"> Direccion: </label>
-      <%= form.text_field :direccion %>
+<span>
+  <div>
+    <h1>Ingreso de procedimiento</h1>
+    <%= form_with model: @procedure do |form| %>
+
+    <section class="form-group">
+      <%= form.label :date, 'Fecha:' %>
+      <%= form.datetime_local_field :date %>
     </section>
 
-    <section>
-      <label for="direccion"> Direccion: </label>
-      <%= form.text_field :direccion %>
+    <section class="form-group">
+      <%= form.label :address, 'Direccion:' %>
+      <%= form.text_field :address %>
+
+      <section class="form-group">
+        <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+        <%= form.label :region, 'Region:' %>
+        <%= form.select :region, options_for_select(cities_array) %>
+
+        <%= form.label :comune, 'Comuna:' %>
+        <%= form.select :comune, []  %>
+      </section>
+
+      <section id="crimes">
+
+        <% crimes = [nil,
+                      "acoso",
+                      "homicidio",
+                      "conduccion en estado de ebriedad",
+                      "Robo a mano armada",
+                      "femicidio",
+                      "violacion",
+                      "pisar las lineas de la vereda"].map{|crime| [crime]} %>
+        <%= form.label :preponderant_crime, 'Delito prepopnderante:' %>
+        <%= form.select( :preponderant_crime, options_for_select(crimes)) %>
+
+
+        <%= fields_for "procedure[crimes]" do |crimes_fields| %>
+          <div id="new_crime">
+            <%= crimes_fields.label "", 'Delito:' %>
+            <%= crimes_fields.select "" , options_for_select(crimes), name: "procedure[crimes][]" %>
+          </div>
+        <% end %>
+      </section>
+
+      <button id="add_crime_btn" class="btn btn-primary"> Agregar delito </button>
     </section>
 
     <section>
@@ -17,5 +52,7 @@
     </section>
 
   <% end %>
+  </div>
 
 </span>
+

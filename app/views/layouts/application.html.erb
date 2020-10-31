@@ -7,10 +7,53 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://getbootstrap.com/docs/4.0/examples/jumbotron/jumbotron.css" rel="stylesheet">
   </head>
 
   <body>
-    <%= yield %>
+  <nav class="navbar navbar-light bg-light">
+    <form class="form-inline">
+      <a class="mr-sm-4"><%= image_tag("icon_prosecution.png", width: "45em") %></a>
+      <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+      <a class="ml-sm-5"><%= image_tag("icon_inbox.png", width: "40em") %></a>
+      <button type="button" class="btn btn-warning text-white ml-sm-4">Cerrar sesión</button>
+    </form>
+
+
+
+  </nav>
+    <header>
+
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+      <div class="container text-center text-md-left mt-5">
+        <div class="row mt-3 dark-grey-text">
+          <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
+            <h6 class="text font-weight-bold">Fiscalía Nacional</h6>
+            <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p> <a class="dark-grey-text" href="http://www.fiscaliadechile.cl/Fiscalia/index.do">Ir al sitio web</a></p>
+
+          </div>
+
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+            <h6 class="text font-weight-bold">Contacto</h6>
+            <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p class=" ml-sm-0">Universidad de los Andes</p>
+            <p>atenas@olimpus.com</p>
+
+
+
+          </div>
+
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <a class="ml-sm-5"><%= image_tag("logo.jpg", width: "200em") %></a>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
