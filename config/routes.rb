@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: {
+      registrations: 'users/registrations'
+  }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root 'procedures#index'
+  devise_scope :user do
+    root :to => 'devise/sessions#new'
+  end
 
-  resources :users do
-    resources :procedures do
-      resources :messages
-    end
+  resources :procedures do
+    resources :messages
   end
 
 end

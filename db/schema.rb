@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_27_001751) do
+ActiveRecord::Schema.define(version: 2020_10_27_214157) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -133,6 +133,7 @@ ActiveRecord::Schema.define(version: 2020_09_27_001751) do
     t.string "sector"
     t.string "region"
     t.integer "state"
+    t.datetime "date_of_arrest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["local_prosecution_in_charge_id"], name: "index_procedures_on_local_prosecution_in_charge_id"
@@ -144,10 +145,10 @@ ActiveRecord::Schema.define(version: 2020_09_27_001751) do
   create_table "prosecutors", force: :cascade do |t|
     t.string "name"
     t.string "rut"
-    t.bigint "local_prosecutions_id"
+    t.bigint "local_prosecution_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["local_prosecutions_id"], name: "index_prosecutors_on_local_prosecutions_id"
+    t.index ["local_prosecution_id"], name: "index_prosecutors_on_local_prosecution_id"
   end
 
   create_table "regional_prosecutions", force: :cascade do |t|
@@ -160,11 +161,17 @@ ActiveRecord::Schema.define(version: 2020_09_27_001751) do
   create_table "users", force: :cascade do |t|
     t.bigint "police_unit_id"
     t.bigint "local_prosecution_id"
-    t.string "username"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["local_prosecution_id"], name: "index_users_on_local_prosecution_id"
     t.index ["police_unit_id"], name: "index_users_on_police_unit_id"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "alias_accuseds", "people"
@@ -182,7 +189,7 @@ ActiveRecord::Schema.define(version: 2020_09_27_001751) do
   add_foreign_key "procedures", "police_men", column: "police_in_charge_id"
   add_foreign_key "procedures", "police_units", column: "police_unit_in_charge_id"
   add_foreign_key "procedures", "prosecutors", column: "prosecutor_in_charge_id"
-  add_foreign_key "prosecutors", "local_prosecutions", column: "local_prosecutions_id"
+  add_foreign_key "prosecutors", "local_prosecutions"
   add_foreign_key "users", "local_prosecutions"
   add_foreign_key "users", "police_units"
 end

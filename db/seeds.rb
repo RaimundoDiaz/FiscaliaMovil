@@ -11,7 +11,7 @@ ps = PoliceStation.create(prefecture: p)
 pu = PoliceUnit.create(police_station: ps)
 reg_prosecution = RegionalProsecution.create(name: "fiscalia regional")
 prosecution = LocalProsecution.create(name: "fiscalia 1", regional_prosecution: reg_prosecution)
-u1 = User.create(username: "fiscal1", local_prosecution: prosecution)
+u1 = User.create(email: "fiscal1@atenas.cl", local_prosecution: prosecution)
 police = PoliceMan.create(name: "Gian", police_unit_id: pu.id)
 prosecutor = Prosecutor.create(name: "Martin", local_prosecutions_id: prosecution.id)
 
