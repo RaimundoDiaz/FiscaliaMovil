@@ -19,16 +19,6 @@
   <tbody>
   <% @procedures.each do |procedure| %>
     <tr>
-      <td><%= procedure.classification %></td>
-      <td><%= procedure.categories %></td>
-      <td><%= procedure.police_in_charge_id %></td>
-      <td><%= procedure.local_prosecution_id %></td>
-      <td><%= procedure.story %></td>
-      <td><%= procedure.address %></td>
-      <td><%= procedure.state %></td>
-      <td><%= link_to 'Show', user_procedure_path(params['user_id'], procedure) %></td>
-      <td><%= link_to 'Edit', edit_user_procedure_path(params['user_id'], procedure) %></td>
-      <td><%= link_to 'Destroy', user_procedure_path(params['user_id'], procedure), method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
   </tbody>
