@@ -13956,3 +13956,35 @@ Processing by ProceduresController#new as HTML
 Completed 200 OK in 43ms (Views: 36.1ms | ActiveRecord: 0.0ms | Allocations: 11185)
 
 
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 05:05:41 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.1ms | Allocations: 3009)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 40ms (Views: 34.1ms | ActiveRecord: 0.0ms | Allocations: 11199)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 05:05:54 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 19.4ms | Allocations: 3010)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 40ms (Views: 38.6ms | ActiveRecord: 0.0ms | Allocations: 11194)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 05:06:19 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 13.3ms | Allocations: 3009)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 51ms (Views: 49.6ms | ActiveRecord: 0.0ms | Allocations: 11204)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 05:06:37 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 21.0ms | Allocations: 3013)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 50ms (Views: 48.9ms | ActiveRecord: 0.0ms | Allocations: 11225)
+
+
