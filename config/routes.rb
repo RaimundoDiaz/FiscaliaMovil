@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     root :to => 'devise/sessions#new'
   end
 
+  get "/search", to: "pages#search", as: "search"
 
   resources :procedures do
     resources :messages
