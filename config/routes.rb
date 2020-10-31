@@ -7,12 +7,8 @@ Rails.application.routes.draw do
     root :to => 'devise/sessions#new'
   end
 
-  resources :users do
-    resources :procedures do
-      resources :messages
-    end
+  resources :procedures do
+    resources :messages
   end
-
-  resources :procedures
 
 end
