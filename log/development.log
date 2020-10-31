@@ -13988,3 +13988,871 @@ Processing by ProceduresController#new as HTML
 Completed 200 OK in 50ms (Views: 48.9ms | ActiveRecord: 0.0ms | Allocations: 11225)
 
 
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 17:23:36 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 12.8ms | Allocations: 3009)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 268ms (Views: 265.5ms | ActiveRecord: 0.0ms | Allocations: 11186)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 17:25:55 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 25.7ms | Allocations: 3013)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 134ms (Views: 132.8ms | ActiveRecord: 0.0ms | Allocations: 11197)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 17:27:40 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 12.8ms | Allocations: 3012)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 72ms (Views: 71.0ms | ActiveRecord: 0.0ms | Allocations: 11194)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 17:30:13 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 49.9ms | Allocations: 3014)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 102ms (Views: 100.5ms | ActiveRecord: 0.0ms | Allocations: 11190)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 17:32:19 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 15.2ms | Allocations: 3017)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 85ms (Views: 79.6ms | ActiveRecord: 0.0ms | Allocations: 11195)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 17:32:57 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.6ms | Allocations: 3011)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 51ms (Views: 50.0ms | ActiveRecord: 0.0ms | Allocations: 11188)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 17:33:31 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.0ms | Allocations: 3010)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 70ms (Views: 69.1ms | ActiveRecord: 0.0ms | Allocations: 11212)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 17:33:39 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 9.5ms | Allocations: 3016)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 71ms (Views: 69.7ms | ActiveRecord: 0.0ms | Allocations: 11232)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 17:33:57 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.9ms | Allocations: 3010)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 59ms (Views: 57.8ms | ActiveRecord: 0.0ms | Allocations: 11192)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 17:34:19 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.7ms | Allocations: 3010)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 40ms (Views: 38.9ms | ActiveRecord: 0.0ms | Allocations: 11189)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 17:34:37 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 12.9ms | Allocations: 3010)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 62ms (Views: 60.9ms | ActiveRecord: 0.0ms | Allocations: 11192)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 17:34:39 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 2439)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 78ms (Views: 65.7ms | ActiveRecord: 0.0ms | Allocations: 9525)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 17:49:30 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 14.7ms | Allocations: 3001)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 77ms (Views: 69.5ms | ActiveRecord: 0.0ms | Allocations: 11181)
+
+
+Started GET "/" for 127.0.0.1 at 2020-10-31 17:50:49 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 320.3ms | Allocations: 18449)
+Completed 500 Internal Server Error in 431ms (ActiveRecord: 22.9ms | Allocations: 26460)
+
+
+  
+ActionView::Template::Error (The asset "logo.png" is not present in the asset pipeline.
+):
+    1: <%= stylesheet_link_tag "new_session" %>
+    2: 
+    3: <div id="rcorners1">
+    4:   <%= image_tag "logo.png" %>
+    5:   <h2 id="Ingresar">Ingresar</h2>
+    6:   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    7:     <div class="field">
+  
+app/views/devise/sessions/new.html.erb:4
+Started GET "/" for 127.0.0.1 at 2020-10-31 17:53:34 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 39.5ms | Allocations: 466)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1610.3ms | Allocations: 30344)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 2027ms (Views: 2014.0ms | ActiveRecord: 0.0ms | Allocations: 48580)
+
+
+Started GET "/" for 127.0.0.1 at 2020-10-31 17:54:31 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 76)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 19.0ms | Allocations: 2598)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 223ms (Views: 222.2ms | ActiveRecord: 0.0ms | Allocations: 26904)
+
+
+Started GET "/" for 127.0.0.1 at 2020-10-31 17:55:04 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 75)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 14.5ms | Allocations: 2591)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 156ms (Views: 155.0ms | ActiveRecord: 0.0ms | Allocations: 26437)
+
+
+Started GET "/" for 127.0.0.1 at 2020-10-31 17:55:06 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 75)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 16.4ms | Allocations: 2596)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 36.9ms | ActiveRecord: 0.0ms | Allocations: 8734)
+
+
+Started GET "/" for 127.0.0.1 at 2020-10-31 17:55:20 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 75)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 9.6ms | Allocations: 2591)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 192ms (Views: 185.6ms | ActiveRecord: 0.0ms | Allocations: 28835)
+
+
+Started GET "/" for 127.0.0.1 at 2020-10-31 17:55:47 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 75)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 9.4ms | Allocations: 2591)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 171ms (Views: 169.8ms | ActiveRecord: 0.0ms | Allocations: 26877)
+
+
+Started GET "/" for 127.0.0.1 at 2020-10-31 17:55:56 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 75)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 17.8ms | Allocations: 2591)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 204ms (Views: 196.0ms | ActiveRecord: 0.0ms | Allocations: 25959)
+
+
+Started GET "/" for 127.0.0.1 at 2020-10-31 17:56:08 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.2ms | Allocations: 75)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 20.2ms | Allocations: 2596)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 248ms (Views: 246.0ms | ActiveRecord: 0.0ms | Allocations: 28099)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 17:56:23 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.4ms | Allocations: 3005)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 61ms (Views: 54.6ms | ActiveRecord: 0.0ms | Allocations: 10783)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 17:56:59 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.3ms | Allocations: 3001)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 56ms (Views: 52.6ms | ActiveRecord: 0.0ms | Allocations: 11207)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 17:57:26 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 11.1ms | Allocations: 3001)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 56ms (Views: 54.5ms | ActiveRecord: 0.0ms | Allocations: 11206)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 17:57:44 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 12.7ms | Allocations: 3001)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 86ms (Views: 84.7ms | ActiveRecord: 0.0ms | Allocations: 11210)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 17:57:58 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 19.3ms | Allocations: 3001)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 50ms (Views: 48.9ms | ActiveRecord: 0.0ms | Allocations: 11209)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 17:59:28 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.8ms | Allocations: 3010)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 50ms (Views: 36.1ms | ActiveRecord: 0.0ms | Allocations: 11228)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 18:00:04 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.9ms | Allocations: 3018)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 57ms (Views: 43.3ms | ActiveRecord: 0.0ms | Allocations: 11225)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 18:00:22 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.3ms | Allocations: 3020)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 48ms (Views: 45.8ms | ActiveRecord: 0.0ms | Allocations: 11245)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 18:01:10 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.1ms | Allocations: 3022)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 56ms (Views: 45.4ms | ActiveRecord: 0.0ms | Allocations: 11224)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 18:02:26 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 20.3ms | Allocations: 3038)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 59ms (Views: 53.9ms | ActiveRecord: 0.0ms | Allocations: 11245)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 18:03:29 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.2ms | Allocations: 3039)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 35.6ms | ActiveRecord: 0.0ms | Allocations: 11307)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 18:05:42 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.4ms | Allocations: 3046)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 62ms (Views: 52.1ms | ActiveRecord: 0.0ms | Allocations: 11309)
+
+
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 18:05:47 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"iRDlDHCdRFAoKMaT4OQuGPlEt3rnaTJ7ShJuUcQ+v0UT6gybkZcyIPQlgFcceE1ZjQI0qxPJp5oidFcYwa6nqw==", "procedure"=>{"date"=>"", "time"=>"", "address"=>"", "region"=>"15", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["", ""]}}
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1737)
+Completed 500 Internal Server Error in 195ms (ActiveRecord: 0.0ms | Allocations: 7777)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    30: 
+    31: 
+    32:           <div class="d-flex justify-content-between">
+    33:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    34:             <div class="form-inline">
+    35:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    36:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:33
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 18:05:49 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"iRDlDHCdRFAoKMaT4OQuGPlEt3rnaTJ7ShJuUcQ+v0UT6gybkZcyIPQlgFcceE1ZjQI0qxPJp5oidFcYwa6nqw==", "procedure"=>{"date"=>"", "time"=>"", "address"=>"", "region"=>"15", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["", "", ""]}}
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 9.0ms | Allocations: 1718)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 0.0ms | Allocations: 3542)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    30: 
+    31: 
+    32:           <div class="d-flex justify-content-between">
+    33:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    34:             <div class="form-inline">
+    35:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    36:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:33
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 18:05:50 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"iRDlDHCdRFAoKMaT4OQuGPlEt3rnaTJ7ShJuUcQ+v0UT6gybkZcyIPQlgFcceE1ZjQI0qxPJp5oidFcYwa6nqw==", "procedure"=>{"date"=>"", "time"=>"", "address"=>"", "region"=>"15", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["", "", "", ""]}}
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1718)
+Completed 500 Internal Server Error in 110ms (ActiveRecord: 0.0ms | Allocations: 22261)
+
+
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 18:05:50 -0300
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    30: 
+    31: 
+    32:           <div class="d-flex justify-content-between">
+    33:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    34:             <div class="form-inline">
+    35:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    36:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:33
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 18:05:51 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"iRDlDHCdRFAoKMaT4OQuGPlEt3rnaTJ7ShJuUcQ+v0UT6gybkZcyIPQlgFcceE1ZjQI0qxPJp5oidFcYwa6nqw==", "procedure"=>{"date"=>"", "time"=>"", "address"=>"", "region"=>"15", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["", "", "", "", ""]}}
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"iRDlDHCdRFAoKMaT4OQuGPlEt3rnaTJ7ShJuUcQ+v0UT6gybkZcyIPQlgFcceE1ZjQI0qxPJp5oidFcYwa6nqw==", "procedure"=>{"date"=>"", "time"=>"", "address"=>"", "region"=>"15", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["", "", "", "", "", ""]}}
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1718)
+Completed 500 Internal Server Error in 114ms (ActiveRecord: 0.0ms | Allocations: 29910)
+
+
+  Rendered procedures/new.html.erb within layouts/application (Duration: 108.9ms | Allocations: 24433)
+Completed 500 Internal Server Error in 337ms (ActiveRecord: 0.0ms | Allocations: 142528)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    30: 
+    31: 
+    32:           <div class="d-flex justify-content-between">
+    33:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    34:             <div class="form-inline">
+    35:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    36:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:33
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    30: 
+    31: 
+    32:           <div class="d-flex justify-content-between">
+    33:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    34:             <div class="form-inline">
+    35:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    36:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:33
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 18:09:29 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.6ms | Allocations: 3042)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: 234df6b28087c492b2b2
+Version: webpack 4.44.2
+Time: 10494ms
+Built at: 10/31/2020 6:09:50 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9165f6dd61b3e22f9108.js    865 KiB  application  [emitted] [immutable]  application
+js/application-9165f6dd61b3e22f9108.js.map    926 KiB  application  [emitted] [dev]        application
+     js/procedures-a00517bad70a7825a095.js    745 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-a00517bad70a7825a095.js.map    791 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-9165f6dd61b3e22f9108.js js/application-9165f6dd61b3e22f9108.js.map
+Entrypoint procedures = js/procedures-a00517bad70a7825a095.js js/procedures-a00517bad70a7825a095.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 859 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 21153ms (Views: 21151.6ms | ActiveRecord: 0.0ms | Allocations: 12661)
+
+
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 18:09:53 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"tj0nTlpws+OfbZr8zd0CD0AtR9maLMvmc4PQ3FrsPsMsx87Zu3rFk0Ng3DgxQWFONGvECG6MXgcb5emVX3wmLQ==", "procedure"=>{"date"=>"", "time"=>"", "address"=>"", "region"=>"15", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["", ""]}}
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1721)
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 0.0ms | Allocations: 3523)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    30: 
+    31: 
+    32:           <div class="d-flex justify-content-between">
+    33:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    34:             <div class="form-inline">
+    35:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    36:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:33
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 18:09:54 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"tj0nTlpws+OfbZr8zd0CD0AtR9maLMvmc4PQ3FrsPsMsx87Zu3rFk0Ng3DgxQWFONGvECG6MXgcb5emVX3wmLQ==", "procedure"=>{"date"=>"", "time"=>"", "address"=>"", "region"=>"15", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["", "", "", ""]}}
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1717)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.0ms | Allocations: 3520)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    30: 
+    31: 
+    32:           <div class="d-flex justify-content-between">
+    33:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    34:             <div class="form-inline">
+    35:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    36:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:33
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 18:09:55 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"tj0nTlpws+OfbZr8zd0CD0AtR9maLMvmc4PQ3FrsPsMsx87Zu3rFk0Ng3DgxQWFONGvECG6MXgcb5emVX3wmLQ==", "procedure"=>{"date"=>"", "time"=>"", "address"=>"", "region"=>"15", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["", "", "", "", "", "", "", ""]}}
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1717)
+Completed 500 Internal Server Error in 219ms (ActiveRecord: 0.0ms | Allocations: 59630)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    30: 
+    31: 
+    32:           <div class="d-flex justify-content-between">
+    33:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    34:             <div class="form-inline">
+    35:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    36:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:33
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 18:09:56 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"tj0nTlpws+OfbZr8zd0CD0AtR9maLMvmc4PQ3FrsPsMsx87Zu3rFk0Ng3DgxQWFONGvECG6MXgcb5emVX3wmLQ==", "procedure"=>{"date"=>"", "time"=>"", "address"=>"", "region"=>"15", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]}}
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1717)
+Completed 500 Internal Server Error in 122ms (ActiveRecord: 0.0ms | Allocations: 31634)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    30: 
+    31: 
+    32:           <div class="d-flex justify-content-between">
+    33:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    34:             <div class="form-inline">
+    35:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    36:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:33
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 18:10:31 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.5ms | Allocations: 3041)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: 0f54010521a0477e651b
+Version: webpack 4.44.2
+Time: 5375ms
+Built at: 10/31/2020 6:10:40 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-60ec18ecfb5eb1958949.js    865 KiB  application  [emitted] [immutable]  application
+js/application-60ec18ecfb5eb1958949.js.map    926 KiB  application  [emitted] [dev]        application
+     js/procedures-061fd5e2f362fa35d168.js    745 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-061fd5e2f362fa35d168.js.map    791 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-60ec18ecfb5eb1958949.js js/application-60ec18ecfb5eb1958949.js.map
+Entrypoint procedures = js/procedures-061fd5e2f362fa35d168.js js/procedures-061fd5e2f362fa35d168.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 859 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 9500ms (Views: 9479.7ms | ActiveRecord: 0.0ms | Allocations: 12609)
+
+
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 18:10:43 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"9+CxIuXsRUj07g8p/h2DyJyMJPQsItv8wdvSyn/KZAVtGli1BOYzOCjjSe0CgeCJ6MqnJdiCTh2pveuDelp86w==", "procedure"=>{"date"=>"", "time"=>"", "address"=>"", "region"=>"15", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["", ""]}}
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1721)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 0.0ms | Allocations: 3543)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    30: 
+    31: 
+    32:           <div class="d-flex justify-content-between">
+    33:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    34:             <div class="form-inline">
+    35:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    36:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:33
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 18:10:43 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"9+CxIuXsRUj07g8p/h2DyJyMJPQsItv8wdvSyn/KZAVtGli1BOYzOCjjSe0CgeCJ6MqnJdiCTh2pveuDelp86w==", "procedure"=>{"date"=>"", "time"=>"", "address"=>"", "region"=>"15", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["", "", ""]}}
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1717)
+Completed 500 Internal Server Error in 105ms (ActiveRecord: 0.0ms | Allocations: 39861)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    30: 
+    31: 
+    32:           <div class="d-flex justify-content-between">
+    33:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    34:             <div class="form-inline">
+    35:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    36:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:33
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 18:10:44 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"9+CxIuXsRUj07g8p/h2DyJyMJPQsItv8wdvSyn/KZAVtGli1BOYzOCjjSe0CgeCJ6MqnJdiCTh2pveuDelp86w==", "procedure"=>{"date"=>"", "time"=>"", "address"=>"", "region"=>"15", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["", "", "", ""]}}
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1717)
+Completed 500 Internal Server Error in 334ms (ActiveRecord: 0.0ms | Allocations: 103432)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    30: 
+    31: 
+    32:           <div class="d-flex justify-content-between">
+    33:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    34:             <div class="form-inline">
+    35:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    36:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:33
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 18:10:47 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"9+CxIuXsRUj07g8p/h2DyJyMJPQsItv8wdvSyn/KZAVtGli1BOYzOCjjSe0CgeCJ6MqnJdiCTh2pveuDelp86w==", "procedure"=>{"date"=>"", "time"=>"", "address"=>"", "region"=>"15", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["", "", "", "", ""]}}
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 15.8ms | Allocations: 1717)
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 0.0ms | Allocations: 3540)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    30: 
+    31: 
+    32:           <div class="d-flex justify-content-between">
+    33:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    34:             <div class="form-inline">
+    35:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    36:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:33
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 18:10:49 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"9+CxIuXsRUj07g8p/h2DyJyMJPQsItv8wdvSyn/KZAVtGli1BOYzOCjjSe0CgeCJ6MqnJdiCTh2pveuDelp86w==", "procedure"=>{"date"=>"", "time"=>"", "address"=>"", "region"=>"15", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["", "", "", "", "", ""]}}
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 9.8ms | Allocations: 1717)
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 0.0ms | Allocations: 3540)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    30: 
+    31: 
+    32:           <div class="d-flex justify-content-between">
+    33:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    34:             <div class="form-inline">
+    35:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    36:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:33
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 18:10:49 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"9+CxIuXsRUj07g8p/h2DyJyMJPQsItv8wdvSyn/KZAVtGli1BOYzOCjjSe0CgeCJ6MqnJdiCTh2pveuDelp86w==", "procedure"=>{"date"=>"", "time"=>"", "address"=>"", "region"=>"15", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["", "", "", "", "", "", ""]}}
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1717)
+Completed 500 Internal Server Error in 231ms (ActiveRecord: 0.0ms | Allocations: 69430)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    30: 
+    31: 
+    32:           <div class="d-flex justify-content-between">
+    33:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    34:             <div class="form-inline">
+    35:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    36:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:33
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 18:12:27 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"9+CxIuXsRUj07g8p/h2DyJyMJPQsItv8wdvSyn/KZAVtGli1BOYzOCjjSe0CgeCJ6MqnJdiCTh2pveuDelp86w==", "procedure"=>{"date"=>"", "time"=>"", "address"=>"", "region"=>"15", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["homicidio", "homicidio", "Robo a mano armada", "femicidio", "pisar las lineas de la vereda", "femicidio", "acoso"]}, "commit"=>"Enviar"}
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 10.1ms | Allocations: 1717)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.0ms | Allocations: 3541)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    30: 
+    31: 
+    32:           <div class="d-flex justify-content-between">
+    33:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    34:             <div class="form-inline">
+    35:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    36:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:33
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 18:12:49 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"9+CxIuXsRUj07g8p/h2DyJyMJPQsItv8wdvSyn/KZAVtGli1BOYzOCjjSe0CgeCJ6MqnJdiCTh2pveuDelp86w==", "procedure"=>{"date"=>"", "time"=>"", "address"=>"", "region"=>"15", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["", "homicidio", "Robo a mano armada", "femicidio", "pisar las lineas de la vereda", "femicidio", "acoso"]}, "commit"=>"Enviar"}
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1717)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.0ms | Allocations: 3541)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    30: 
+    31: 
+    32:           <div class="d-flex justify-content-between">
+    33:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    34:             <div class="form-inline">
+    35:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    36:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:33
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 18:13:06 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 2455)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 33.2ms | ActiveRecord: 0.0ms | Allocations: 9609)
+
+
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 18:13:09 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"Kf01Pv6wKOmy7PuB80Zu4Ade1aSZi+7E5z/AbiQEEt6zB9ypH7pemW7hvUUP2g2hcxhWdW0reyWPWfknIZQKMA==", "procedure"=>{"date"=>"", "time"=>"", "address"=>"", "region"=>"15", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["", ""]}}
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.2ms | Allocations: 1717)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms | Allocations: 3532)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    30: 
+    31: 
+    32:           <div class="d-flex justify-content-between">
+    33:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    34:             <div class="form-inline">
+    35:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    36:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:33
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started POST "/procedures" for 127.0.0.1 at 2020-10-31 18:13:15 -0300
+Processing by ProceduresController#create as JS
+  Parameters: {"authenticity_token"=>"Kf01Pv6wKOmy7PuB80Zu4Ade1aSZi+7E5z/AbiQEEt6zB9ypH7pemW7hvUUP2g2hcxhWdW0reyWPWfknIZQKMA==", "procedure"=>{"date"=>"", "time"=>"", "address"=>"", "region"=>"15", "comune"=>"15101", "preponderant_crime"=>"", "crimes"=>["acoso", "homicidio"]}, "commit"=>"Enviar"}
+[31mUnpermitted parameters: :date, :time, :region, :comune, :preponderant_crime, :crimes[0m
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 18.8ms | Allocations: 1717)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.0ms | Allocations: 3533)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    30: 
+    31: 
+    32:           <div class="d-flex justify-content-between">
+    33:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    34:             <div class="form-inline">
+    35:               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
+    36:               <div class="col-lg-10">
+  
+app/views/procedures/new.html.erb:33
+app/views/procedures/new.html.erb:6
+app/controllers/procedures_controller.rb:37:in `block (2 levels) in create'
+app/controllers/procedures_controller.rb:32:in `create'
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 18:13:42 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 21.2ms | Allocations: 2456)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 53ms (Views: 51.3ms | ActiveRecord: 0.0ms | Allocations: 9602)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 18:17:41 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 20.3ms | Allocations: 3297)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 93ms (Views: 92.1ms | ActiveRecord: 0.0ms | Allocations: 11572)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 18:17:53 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.4ms | Allocations: 3284)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 60ms (Views: 54.9ms | ActiveRecord: 0.0ms | Allocations: 11539)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 18:18:22 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 9.1ms | Allocations: 3284)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 49ms (Views: 46.1ms | ActiveRecord: 0.0ms | Allocations: 11553)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 18:18:23 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 2625)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 46ms (Views: 44.4ms | ActiveRecord: 0.0ms | Allocations: 9766)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 18:19:19 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 14.0ms | Allocations: 3281)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 62ms (Views: 60.9ms | ActiveRecord: 0.0ms | Allocations: 11528)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 18:21:46 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 2625)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 41ms (Views: 37.7ms | ActiveRecord: 0.0ms | Allocations: 9766)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 18:44:08 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 9.2ms | Allocations: 3282)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 500 Internal Server Error in 1430ms (ActiveRecord: 0.0ms | Allocations: 183238)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `search_path' for #<#<Class:0x000055d78620c098>:0x000055d7861ddc48>
+Did you mean?  search_field_tag):
+    16:           <a class="mr-sm-4"><%= image_tag("FiscaliaLogo.png", width: "70em") %></a>
+    17:           <a class="mr-sm-4"><%= image_tag("FiscaliaNombre.png", width: "180em") %></a>
+    18:         </div>
+    19:         <%= form_with url: search_path, method: :get, local: true do |form| %>
+    20:           <div class="form-inline row">
+    21:             <%= form.text_field :query, :placeholder => "Search", class: "form-control" %>
+    22:             <%= form.submit "Search", class: ["btn", "btn-primary"] %>
+  
+app/views/layouts/application.html.erb:19

@@ -16,11 +16,13 @@
           <a class="mr-sm-4"><%= image_tag("FiscaliaLogo.png", width: "70em") %></a>
           <a class="mr-sm-4"><%= image_tag("FiscaliaNombre.png", width: "180em") %></a>
         </div>
-        <form class="form-inline">
-          <input class="form-control mr-sm-2" type="search" placeholder="Buscar procedimientos" aria-label="search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-        </form>
-          <button type="button" class="btn btn-warning text-white ml-sm-4">Cerrar sesión</button>
+        <%= form_with url: search_path, method: :get, local: true do |form| %>
+          <div class="form-inline row">
+            <%= form.text_field :query, :placeholder => "Search", class: "form-control" %>
+            <%= form.submit "Search", class: ["btn", "btn-primary"] %>
+          </div>
+        <% end %>
+        <button type="button" class="btn btn-warning text-white ml-sm-4"><%= link_to "Cerrar sesión", destroy_user_session_path, :method => :delete %></button>
       </nav>
     </header>
     <main>

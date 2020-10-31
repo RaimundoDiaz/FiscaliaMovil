@@ -26,7 +26,8 @@ footer{
 }
 
 main{
-    min-height: 100vh;
+    padding-top: 10vh;
+    min-height: 85vh;
 }
 
 #content_box_center {

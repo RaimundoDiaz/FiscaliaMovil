@@ -3,16 +3,17 @@
   <div id="content_box_center">
     <h1>Ingreso de procedimiento</h1>
     <div class="pr-5 pl-5" id="form">
-      <%= form_with model: @procedure, class: "form-horizontal" do |form|%>
-        <div class="d-flex justify-content-between">
-          <div class="form-group row">
-            <%= form.label :date, 'Fecha: ', class: "col-sm-2 col-form-label"%>
-            <div class="col-sm-10">
+      <%= form_with model: @procedure do |form|%>
+
+        <div id="datetime" class="d-flex justify-content-between">
+          <div class="form-inline">
+            <%= form.label :date, 'Fecha: ', class: "col-form-label"%>
+            <div class="">
               <%= form.date_field :date , class: "form-control"%>
             </div>
           </div>
 
-          <div class="form-group row">
+          <div class="form-inline">
             <%= form.label :time, 'Hora: ', class: "col-sm-2 col-form-label"%>
             <div class="col-sm-10">
               <%= form.time_field :time, class: "form-control" %>
@@ -20,53 +21,65 @@
           </div>
         </div>
 
-        <div>
-          <div class="form-group row">
+        <div id="classification" >
+          <% classifications = ["Flagrancia", "ODP", "Ambas"].map { |classification| [classification] } %>
+          <div class="form-inline">
+            <%= form.label :classification, 'Clasificacion:' , class: "col-lg-2 col-form-label"%>
+            <%= form.select :region, options_for_select(classifications),{},{class: "form-control"} %>
+          </div>
+        </div>
+
+        <div id="address">
+          <div class="form-inline ">
             <%= form.label :address, 'Direccion:' , class: "col-sm-2 col-form-label"%>
             <div class="col-sm-10">
-              <%= form.text_field :address,  class: "form-control"  %>
+              <%= form.text_field :address,  class: "form-control flex-grow-1"  %>
             </div>
           </div>
 
 
           <div class="d-flex justify-content-between">
             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
-            <div class="form-group">
+            <div class="form-inline">
               <%= form.label :region, 'Region:', class: "col-lg-2 control-label" %>
               <div class="col-lg-10">
                <%= form.select :region, options_for_select(cities_array),{},{class: "form-control"} %>
               </div>
             </div>
 
-            <div class="form-group">
-              <%= form.label :comune, 'Comuna:', class: "col-form-label" %>
-              <%= form.select :comune, [],{},{class: "form-control"} %>
+            <div class="form-inline">
+              <%= form.label :comune, 'Comuna:', class: "col-lg-2 col-form-label" %>
+              <div class="col-lg-10">
+                <%= form.select :comune, [],{},{class: "form-control"} %>
+              </div>
             </div>
           </div>
+        </div>
 
-          <div id="crimes">
-
-            <% crimes = [nil,
-                         "acoso",
-                         "homicidio",
-                         "conduccion en estado de ebriedad",
-                         "Robo a mano armada",
-                         "femicidio",
-                         "violacion",
-                         "pisar las lineas de la vereda"].map{|crime| [crime]} %>
-            <%= form.label :preponderant_crime, 'Delito prepopnderante:' %>
-            <%= form.select( :preponderant_crime, options_for_select(crimes)) %>
-
-
+        <div id="crimes">
+          <% crimes = [nil,
+                       "acoso",
+                       "homicidio",
+                       "conduccion en estado de ebriedad",
+                       "Robo a mano armada",
+                       "femicidio",
+                       "violacion",
+                       "pisar las lineas de la vereda"].map{|crime| [crime]} %>
+          <div class="form-inline">
+            <%= form.label :preponderant_crime, 'Delito prepopnderante:', class: "col-form-label" %>
+            <%= form.select :preponderant_crime, options_for_select(crimes),{},{class: "form-control"} %>
+          </div>
+          <div id="new_crime" class="form-inline">
             <%= fields_for "procedure[crimes]" do |crimes_fields| %>
-              <div id="new_crime">
-                <%= crimes_fields.label "", 'Delito:' %>
-                <%= crimes_fields.select "" , options_for_select(crimes), name: "procedure[crimes][]" %>
-              </div>
+              <%= crimes_fields.label "", 'Delito:', class: "col-form-label" %>
+              <%= crimes_fields.select "" , options_for_select(crimes), {name: "procedure[crimes][]"},{class: "form-control"}  %>
             <% end %>
           </div>
+        </div>
+        <div id="crime_btn_div" class="form-inline"><button id="add_crime_btn" class="btn btn-primary"> Agregar delito </button></div>
 
-          <button id="add_crime_btn" class="btn btn-primary"> Agregar delito </button>
+        <div id="marks">
+
         </div>
 
         <div>
