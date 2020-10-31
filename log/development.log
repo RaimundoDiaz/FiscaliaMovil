@@ -20748,3 +20748,162 @@ Processing by ProceduresController#index as HTML
 Completed 200 OK in 16ms (Views: 10.2ms | ActiveRecord: 0.9ms | Allocations: 7440)
 
 
+Started GET "/procedures" for 127.0.0.1 at 2020-10-31 17:56:55 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/index.html.erb within layouts/application
+  [1m[36mProcedure Load (0.7ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures"[0m
+  ↳ app/views/procedures/index.html.erb:20
+  Rendered procedures/index.html.erb within layouts/application (Duration: 24.5ms | Allocations: 13735)
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 11.4ms | Allocations: 27194)
+
+
+  
+ActionView::Template::Error (undefined method `categories' for #<Procedure:0x0000557443fec538>):
+    20:   <% @procedures.each do |procedure| %>
+    21:     <tr>
+    22:       <td><%= procedure.classification %></td>
+    23:       <td><%= procedure.categories %></td>
+    24:       <td><%= procedure.police_in_charge_id %></td>
+    25:       <td><%= procedure.local_prosecution_id %></td>
+    26:       <td><%= procedure.story %></td>
+  
+app/views/procedures/index.html.erb:23
+app/views/procedures/index.html.erb:20
+Started GET "/procedures" for 127.0.0.1 at 2020-10-31 17:57:30 -0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/index.html.erb within layouts/application
+  [1m[36mProcedure Load (0.9ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures"[0m
+  ↳ app/views/procedures/index.html.erb:20
+  Rendered procedures/index.html.erb within layouts/application (Duration: 42.5ms | Allocations: 14080)
+Completed 500 Internal Server Error in 79ms (ActiveRecord: 12.6ms | Allocations: 27539)
+
+
+  
+ActionView::Template::Error (undefined method `local_prosecution_id' for #<Procedure:0x00005559a0cd6050>
+Did you mean?  local_prosecution_in_charge_id):
+    21:     <tr>
+    22:       <td><%= procedure.classification %></td>
+    23:       <td><%= procedure.police_in_charge_id %></td>
+    24:       <td><%= procedure.local_prosecution_id %></td>
+    25:       <td><%= procedure.story %></td>
+    26:       <td><%= procedure.address %></td>
+    27:       <td><%= procedure.state %></td>
+  
+app/views/procedures/index.html.erb:24
+app/views/procedures/index.html.erb:20
+Started GET "/procedures" for 127.0.0.1 at 2020-10-31 17:57:37 -0300
+Processing by ProceduresController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/index.html.erb within layouts/application
+  [1m[36mProcedure Load (0.4ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures"[0m
+  ↳ app/views/procedures/index.html.erb:20
+  Rendered procedures/index.html.erb within layouts/application (Duration: 7.6ms | Allocations: 897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 28.9ms | ActiveRecord: 0.6ms | Allocations: 12616)
+
+
+Started GET "/procedures" for 127.0.0.1 at 2020-10-31 18:01:18 -0300
+Processing by ProceduresController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/index.html.erb within layouts/application
+  [1m[36mProcedure Load (0.6ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures"[0m
+  ↳ app/views/procedures/index.html.erb:20
+  Rendered procedures/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 967)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 9.7ms | ActiveRecord: 1.4ms | Allocations: 9061)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2020-10-31 18:01:20 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"MK/szeV7Y35fSXp1Bo1H3e0LK46ZXCGzWeVL9/NdhH8wmKltgEBzL8beW6X7bSGnfwy3wp4A9FZCvPRbFOQrsQ=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 9ms (ActiveRecord: 0.6ms | Allocations: 4908)
+
+
+Started GET "/" for 127.0.0.1 at 2020-10-31 18:01:20 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 464)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.8ms | Allocations: 4684)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 14.8ms | ActiveRecord: 0.0ms | Allocations: 11270)
+
+
+Started GET "/procedures" for 127.0.0.1 at 2020-10-31 18:01:32 -0300
+Processing by ProceduresController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 298)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-10-31 18:01:32 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 75)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 10.0ms | Allocations: 2595)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 0.0ms | Allocations: 8056)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-10-31 18:01:56 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 411)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.7ms | Allocations: 3423)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 16.8ms | ActiveRecord: 0.0ms | Allocations: 10347)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-10-31 18:04:37 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 411)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.3ms | Allocations: 3414)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 13.5ms | ActiveRecord: 0.0ms | Allocations: 10300)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2020-10-31 18:04:53 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"nJ+A0wMtG6CiCT6l/deIe3yPa4wHl62InagTjvsmSsBZ6XurzRgkOVSH2ZyWPVcsDI04uwdkNXu9LIwi7O0qhw==", "user"=>{"email"=>"andresvialcorrea99@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Ingresar"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "andresvialcorrea99@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/procedures
+Completed 302 Found in 207ms (ActiveRecord: 0.3ms | Allocations: 6417)
+
+
+Started GET "/procedures" for 127.0.0.1 at 2020-10-31 18:04:53 -0300
+Processing by ProceduresController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/index.html.erb within layouts/application
+  [1m[36mProcedure Load (0.3ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures"[0m
+  ↳ app/views/procedures/index.html.erb:20
+  Rendered procedures/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 895)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 0.6ms | Allocations: 8377)
+
+
+Started GET "/procedures" for 127.0.0.1 at 2020-10-31 18:05:05 -0300
+Processing by ProceduresController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/index.html.erb within layouts/application
+  [1m[36mProcedure Load (0.3ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures"[0m
+  ↳ app/views/procedures/index.html.erb:20
+  Rendered procedures/index.html.erb within layouts/application (Duration: 6.8ms | Allocations: 673)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 14.5ms | ActiveRecord: 0.5ms | Allocations: 7552)
+
+
+Started GET "/procedures" for 127.0.0.1 at 2020-10-31 18:05:07 -0300
+Processing by ProceduresController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering procedures/index.html.erb within layouts/application
+  [1m[36mProcedure Load (0.3ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures"[0m
+  ↳ app/views/procedures/index.html.erb:20
+  Rendered procedures/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 673)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 8.0ms | ActiveRecord: 0.6ms | Allocations: 7543)
+
+
