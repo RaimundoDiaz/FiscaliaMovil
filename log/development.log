@@ -12067,3 +12067,1892 @@ Processing by Devise::PasswordsController#new as HTML
 Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 4550)
 
 
+Started GET "/procedures/new" for ::1 at 2020-10-31 01:58:56 -0300
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (6.0.3.3) lib/active_record/migration.rb:586:in `check_pending!'
+activerecord (6.0.3.3) lib/active_record/migration.rb:564:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3556230671141507205)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddDeviseToUsers (20201027214157)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (617.7ms)[0m  [1m[35mALTER TABLE "users" ADD "email" character varying DEFAULT '' NOT NULL[0m
+  [1m[35m (57.0ms)[0m  [1m[35mALTER TABLE "users" ADD "encrypted_password" character varying DEFAULT '' NOT NULL[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token" character varying[0m
+  [1m[35m (5.6ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_sent_at" timestamp[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_created_at" timestamp[0m
+  [1m[35m (36.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[36mprimary::SchemaMigration Create (6.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201027214157"]]
+  [1m[35m (77.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(3556230671141507205)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/procedures/new" for ::1 at 2020-10-31 02:00:44 -0300
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 24.2ms | Allocations: 3661)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 546ms (Views: 405.5ms | ActiveRecord: 10.1ms | Allocations: 61788)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-31 02:04:13 -0300
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 25.9ms | Allocations: 3646)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 541ms (Views: 390.8ms | ActiveRecord: 10.6ms | Allocations: 54121)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-31 02:07:44 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.9ms | Allocations: 2283)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 185ms (Views: 183.3ms | ActiveRecord: 0.0ms | Allocations: 23167)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-31 02:08:05 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.0ms | Allocations: 2275)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 204ms (Views: 202.8ms | ActiveRecord: 0.0ms | Allocations: 24160)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-31 02:08:33 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.8ms | Allocations: 2278)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 174ms (Views: 172.3ms | ActiveRecord: 0.0ms | Allocations: 23655)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-31 02:08:54 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.6ms | Allocations: 2277)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 182ms (Views: 180.3ms | ActiveRecord: 0.0ms | Allocations: 25209)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-31 02:09:11 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 10.9ms | Allocations: 2275)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 205ms (Views: 203.9ms | ActiveRecord: 0.0ms | Allocations: 22766)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-31 02:11:18 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 14.0ms | Allocations: 2776)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 55ms (Views: 52.3ms | ActiveRecord: 0.0ms | Allocations: 10665)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-31 02:20:24 -0300
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 16.6ms | Allocations: 3646)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 542ms (Views: 396.9ms | ActiveRecord: 13.2ms | Allocations: 58374)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-31 02:20:26 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.2ms | Allocations: 2283)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 43ms (Views: 40.9ms | ActiveRecord: 0.0ms | Allocations: 9083)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-31 02:20:38 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 10.0ms | Allocations: 2770)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 50ms (Views: 47.6ms | ActiveRecord: 0.0ms | Allocations: 10629)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-31 02:21:06 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 2770)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 500 Internal Server Error in 74ms (ActiveRecord: 0.0ms | Allocations: 15367)
+
+
+  
+ActionView::Template::Error (The asset "FiscaliaLogo.png" is not present in the asset pipeline.
+):
+    13:     <header>
+    14:       <nav class="navbar navbar-light bg-light">
+    15:         <form class="form-inline">
+    16:           <a class="mr-sm-4"><%= image_tag("FiscaliaLogo.png", width: "70em") %></a>
+    17:           <a class="mr-sm-4"><%= image_tag("FiscaliaNombre.png", width: "70em") %></a>
+    18:           <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="search">
+    19:           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+  
+app/views/layouts/application.html.erb:16
+Started GET "/procedures/new" for ::1 at 2020-10-31 02:21:42 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.9ms | Allocations: 2288)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 158ms (Views: 156.7ms | ActiveRecord: 0.0ms | Allocations: 36326)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-31 02:21:56 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.9ms | Allocations: 2772)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 36.5ms | ActiveRecord: 0.0ms | Allocations: 11135)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-31 02:22:06 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 2768)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 34.0ms | ActiveRecord: 0.0ms | Allocations: 11072)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-31 02:26:18 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.6ms | Allocations: 2769)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 41ms (Views: 39.8ms | ActiveRecord: 0.0ms | Allocations: 11063)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-31 02:27:01 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 2774)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 35.7ms | ActiveRecord: 0.0ms | Allocations: 11110)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-31 02:27:29 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.0ms | Allocations: 2768)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 31.7ms | ActiveRecord: 0.0ms | Allocations: 10624)
+
+
+Started GET "/procedures/new" for ::1 at 2020-10-31 02:32:09 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.5ms | Allocations: 2768)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 36.3ms | ActiveRecord: 0.0ms | Allocations: 10626)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 02:38:56 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.4ms | Allocations: 3633)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 178ms (Views: 98.9ms | ActiveRecord: 4.2ms | Allocations: 26645)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 02:41:18 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 14.1ms | Allocations: 2774)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 41ms (Views: 35.8ms | ActiveRecord: 0.0ms | Allocations: 10664)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 02:41:43 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 15.4ms | Allocations: 2768)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 53ms (Views: 51.8ms | ActiveRecord: 0.0ms | Allocations: 10631)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 02:49:01 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2771)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 259ms (Views: 252.7ms | ActiveRecord: 0.0ms | Allocations: 35087)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 02:50:19 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.3ms | Allocations: 2282)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 192ms (Views: 191.0ms | ActiveRecord: 0.0ms | Allocations: 23321)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 02:50:39 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 30.0ms | Allocations: 2774)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 161ms (Views: 153.8ms | ActiveRecord: 0.0ms | Allocations: 10646)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 02:55:13 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 15.7ms | Allocations: 2786)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 46ms (Views: 43.8ms | ActiveRecord: 0.0ms | Allocations: 10651)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 02:55:26 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 9.5ms | Allocations: 2770)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 36.7ms | ActiveRecord: 0.0ms | Allocations: 10635)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 02:55:33 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.7ms | Allocations: 2771)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 36.1ms | ActiveRecord: 0.0ms | Allocations: 10633)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 02:56:42 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 2779)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 39ms (Views: 36.5ms | ActiveRecord: 0.0ms | Allocations: 10643)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 02:58:07 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.3ms | Allocations: 2769)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 35.2ms | ActiveRecord: 0.0ms | Allocations: 10630)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:05:09 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 2779)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: db830cc1c28f671b3002
+Version: webpack 4.44.2
+Time: 10240ms
+Built at: 10/31/2020 3:05:23 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-85ba1a0f5c6bf0cba70e.js   1010 KiB  application  [emitted] [immutable]  application
+js/application-85ba1a0f5c6bf0cba70e.js.map   1.06 MiB  application  [emitted] [dev]        application
+     js/procedures-061fd5e2f362fa35d168.js    745 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-061fd5e2f362fa35d168.js.map    791 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-85ba1a0f5c6bf0cba70e.js js/application-85ba1a0f5c6bf0cba70e.js.map
+Entrypoint procedures = js/procedures-061fd5e2f362fa35d168.js js/procedures-061fd5e2f362fa35d168.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 969 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 116 hidden modules
+
+Completed 200 OK in 13982ms (Views: 13980.4ms | ActiveRecord: 0.0ms | Allocations: 28975)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:05:59 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.3ms | Allocations: 2861)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 41ms (Views: 39.3ms | ActiveRecord: 0.0ms | Allocations: 10750)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:09:08 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 18.9ms | Allocations: 2715)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 41ms (Views: 40.0ms | ActiveRecord: 0.0ms | Allocations: 10576)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:09:58 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 30.6ms | Allocations: 2713)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 89ms (Views: 86.4ms | ActiveRecord: 0.0ms | Allocations: 10594)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:10:57 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2713)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 30.4ms | ActiveRecord: 0.0ms | Allocations: 10586)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:12:05 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 9.2ms | Allocations: 3411)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 277ms (Views: 199.5ms | ActiveRecord: 11.9ms | Allocations: 40946)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:12:42 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 10.4ms | Allocations: 2718)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 35.1ms | ActiveRecord: 0.0ms | Allocations: 10599)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:13:05 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 2714)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 41ms (Views: 40.2ms | ActiveRecord: 0.0ms | Allocations: 10585)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:13:32 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 2714)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 74ms (Views: 71.2ms | ActiveRecord: 0.0ms | Allocations: 10592)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:15:06 -0300
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 10.1ms | Allocations: 3411)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 132ms (Views: 54.6ms | ActiveRecord: 10.2ms | Allocations: 26404)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:15:23 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.8ms | Allocations: 2718)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 51ms (Views: 49.5ms | ActiveRecord: 0.0ms | Allocations: 10608)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:17:58 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.4ms | Allocations: 2713)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: f7e8367de4e06cab7e12
+Version: webpack 4.44.2
+Time: 6396ms
+Built at: 10/31/2020 3:18:08 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-fd4a297b24a495dbb061.js   1010 KiB  application  [emitted] [immutable]  application
+js/application-fd4a297b24a495dbb061.js.map   1.06 MiB  application  [emitted] [dev]        application
+     js/procedures-061fd5e2f362fa35d168.js    745 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-061fd5e2f362fa35d168.js.map    791 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-fd4a297b24a495dbb061.js js/application-fd4a297b24a495dbb061.js.map
+Entrypoint procedures = js/procedures-061fd5e2f362fa35d168.js js/procedures-061fd5e2f362fa35d168.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 992 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 116 hidden modules
+
+Completed 200 OK in 10630ms (Views: 10628.5ms | ActiveRecord: 0.0ms | Allocations: 11937)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:19:16 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 23.8ms | Allocations: 3411)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: 8f600ab1c56913dab310
+Version: webpack 4.44.2
+Time: 6461ms
+Built at: 10/31/2020 3:19:26 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-c2427d4a664e89c1e8ee.js   1010 KiB  application  [emitted] [immutable]  application
+js/application-c2427d4a664e89c1e8ee.js.map   1.06 MiB  application  [emitted] [dev]        application
+     js/procedures-061fd5e2f362fa35d168.js    745 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-061fd5e2f362fa35d168.js.map    791 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-c2427d4a664e89c1e8ee.js js/application-c2427d4a664e89c1e8ee.js.map
+Entrypoint procedures = js/procedures-061fd5e2f362fa35d168.js js/procedures-061fd5e2f362fa35d168.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 1010 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 116 hidden modules
+
+Completed 200 OK in 9859ms (Views: 9758.3ms | ActiveRecord: 10.3ms | Allocations: 27746)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:21:10 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 2240)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: 4a050fc823863d3be9f8
+Version: webpack 4.44.2
+Time: 4791ms
+Built at: 10/31/2020 3:21:18 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-61207c72f09028f08c53.js    963 KiB  application  [emitted] [immutable]  application
+js/application-61207c72f09028f08c53.js.map   1.02 MiB  application  [emitted] [dev]        application
+     js/procedures-061fd5e2f362fa35d168.js    745 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-061fd5e2f362fa35d168.js.map    791 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-61207c72f09028f08c53.js js/application-61207c72f09028f08c53.js.map
+Entrypoint procedures = js/procedures-061fd5e2f362fa35d168.js js/procedures-061fd5e2f362fa35d168.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 902 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 112 hidden modules
+
+Completed 200 OK in 7951ms (Views: 7950.5ms | ActiveRecord: 0.0ms | Allocations: 10327)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:21:47 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.2ms | Allocations: 2717)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 40.7ms | ActiveRecord: 0.0ms | Allocations: 10592)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:22:06 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 2714)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 59ms (Views: 57.4ms | ActiveRecord: 0.0ms | Allocations: 10581)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:25:03 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 15.2ms | Allocations: 3411)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: 0f54010521a0477e651b
+Version: webpack 4.44.2
+Time: 5097ms
+Built at: 10/31/2020 3:25:12 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-60ec18ecfb5eb1958949.js    865 KiB  application  [emitted] [immutable]  application
+js/application-60ec18ecfb5eb1958949.js.map    926 KiB  application  [emitted] [dev]        application
+     js/procedures-061fd5e2f362fa35d168.js    745 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-061fd5e2f362fa35d168.js.map    791 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-60ec18ecfb5eb1958949.js js/application-60ec18ecfb5eb1958949.js.map
+Entrypoint procedures = js/procedures-061fd5e2f362fa35d168.js js/procedures-061fd5e2f362fa35d168.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 859 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 9573ms (Views: 9446.6ms | ActiveRecord: 41.9ms | Allocations: 81204)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:26:27 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.1ms | Allocations: 2240)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: fa238d4443028e9f5277
+Version: webpack 4.44.2
+Time: 5109ms
+Built at: 10/31/2020 3:26:36 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-3938bdbf565e8f81e972.js    865 KiB  application  [emitted] [immutable]  application
+js/application-3938bdbf565e8f81e972.js.map    926 KiB  application  [emitted] [dev]        application
+     js/procedures-061fd5e2f362fa35d168.js    745 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-061fd5e2f362fa35d168.js.map    791 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-3938bdbf565e8f81e972.js js/application-3938bdbf565e8f81e972.js.map
+Entrypoint procedures = js/procedures-061fd5e2f362fa35d168.js js/procedures-061fd5e2f362fa35d168.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 903 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 8808ms (Views: 8807.3ms | ActiveRecord: 0.0ms | Allocations: 10630)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:27:15 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.6ms | Allocations: 2716)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: 0755892337edac690ed6
+Version: webpack 4.44.2
+Time: 4798ms
+Built at: 10/31/2020 3:27:24 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-a8c30a71408a55e54495.js    865 KiB  application  [emitted] [immutable]  application
+js/application-a8c30a71408a55e54495.js.map    926 KiB  application  [emitted] [dev]        application
+     js/procedures-061fd5e2f362fa35d168.js    745 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-061fd5e2f362fa35d168.js.map    791 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-a8c30a71408a55e54495.js js/application-a8c30a71408a55e54495.js.map
+Entrypoint procedures = js/procedures-061fd5e2f362fa35d168.js js/procedures-061fd5e2f362fa35d168.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 881 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 8749ms (Views: 8747.9ms | ActiveRecord: 0.0ms | Allocations: 12209)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:28:37 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.2ms | Allocations: 2712)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 36.1ms | ActiveRecord: 0.0ms | Allocations: 10898)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:29:26 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.5ms | Allocations: 2712)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: 967a30556358609f5350
+Version: webpack 4.44.2
+Time: 4779ms
+Built at: 10/31/2020 3:29:34 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-ce6d1b0cc58545a9e533.js    865 KiB  application  [emitted] [immutable]  application
+js/application-ce6d1b0cc58545a9e533.js.map    926 KiB  application  [emitted] [dev]        application
+     js/procedures-061fd5e2f362fa35d168.js    745 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-061fd5e2f362fa35d168.js.map    791 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-ce6d1b0cc58545a9e533.js js/application-ce6d1b0cc58545a9e533.js.map
+Entrypoint procedures = js/procedures-061fd5e2f362fa35d168.js js/procedures-061fd5e2f362fa35d168.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 979 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 8211ms (Views: 8209.5ms | ActiveRecord: 0.0ms | Allocations: 12208)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:30:24 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.1ms | Allocations: 3411)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 162ms (Views: 91.3ms | ActiveRecord: 4.0ms | Allocations: 27249)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:32:10 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 2240)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: 2cd71eb5523d8dbcfad3
+Version: webpack 4.44.2
+Time: 5416ms
+Built at: 10/31/2020 3:32:19 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-b9747254bac88b11c9c0.js    865 KiB  application  [emitted] [immutable]  application
+js/application-b9747254bac88b11c9c0.js.map    926 KiB  application  [emitted] [dev]        application
+     js/procedures-061fd5e2f362fa35d168.js    745 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-061fd5e2f362fa35d168.js.map    791 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-b9747254bac88b11c9c0.js js/application-b9747254bac88b11c9c0.js.map
+Entrypoint procedures = js/procedures-061fd5e2f362fa35d168.js js/procedures-061fd5e2f362fa35d168.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 997 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 8818ms (Views: 8817.1ms | ActiveRecord: 0.0ms | Allocations: 10681)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:32:26 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 2231)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: 38dc23b1348002eda3c3
+Version: webpack 4.44.2
+Time: 5851ms
+Built at: 10/31/2020 3:32:35 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-fd538046dc740dda97bf.js    865 KiB  application  [emitted] [immutable]  application
+js/application-fd538046dc740dda97bf.js.map    926 KiB  application  [emitted] [dev]        application
+     js/procedures-061fd5e2f362fa35d168.js    745 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-061fd5e2f362fa35d168.js.map    791 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-fd538046dc740dda97bf.js js/application-fd538046dc740dda97bf.js.map
+Entrypoint procedures = js/procedures-061fd5e2f362fa35d168.js js/procedures-061fd5e2f362fa35d168.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 1000 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 9254ms (Views: 9252.7ms | ActiveRecord: 0.0ms | Allocations: 10611)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:34:51 -0300
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 15.6ms | Allocations: 3411)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: 85d7f68ca16f2875955f
+Version: webpack 4.44.2
+Time: 4543ms
+Built at: 10/31/2020 3:34:59 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-03cdd3fa84f07cbd642e.js    865 KiB  application  [emitted] [immutable]  application
+js/application-03cdd3fa84f07cbd642e.js.map    926 KiB  application  [emitted] [dev]        application
+     js/procedures-061fd5e2f362fa35d168.js    745 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-061fd5e2f362fa35d168.js.map    791 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-03cdd3fa84f07cbd642e.js js/application-03cdd3fa84f07cbd642e.js.map
+Entrypoint procedures = js/procedures-061fd5e2f362fa35d168.js js/procedures-061fd5e2f362fa35d168.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 1000 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 7983ms (Views: 7903.3ms | ActiveRecord: 7.4ms | Allocations: 28589)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:35:37 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 2240)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: c5ecec6fff648b61b86d
+Version: webpack 4.44.2
+Time: 5039ms
+Built at: 10/31/2020 3:35:46 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-85e54d04f37e8e725314.js    963 KiB  application  [emitted] [immutable]  application
+js/application-85e54d04f37e8e725314.js.map   1.02 MiB  application  [emitted] [dev]        application
+     js/procedures-061fd5e2f362fa35d168.js    745 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-061fd5e2f362fa35d168.js.map    791 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-85e54d04f37e8e725314.js js/application-85e54d04f37e8e725314.js.map
+Entrypoint procedures = js/procedures-061fd5e2f362fa35d168.js js/procedures-061fd5e2f362fa35d168.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 1010 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 112 hidden modules
+
+Completed 200 OK in 8565ms (Views: 8563.4ms | ActiveRecord: 0.0ms | Allocations: 10657)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:36:01 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.5ms | Allocations: 2232)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: a12178f8153a5178c631
+Version: webpack 4.44.2
+Time: 5002ms
+Built at: 10/31/2020 3:36:09 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-fb213aef641fb3e0230c.js    963 KiB  application  [emitted] [immutable]  application
+js/application-fb213aef641fb3e0230c.js.map   1.02 MiB  application  [emitted] [dev]        application
+     js/procedures-061fd5e2f362fa35d168.js    745 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-061fd5e2f362fa35d168.js.map    791 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-fb213aef641fb3e0230c.js js/application-fb213aef641fb3e0230c.js.map
+Entrypoint procedures = js/procedures-061fd5e2f362fa35d168.js js/procedures-061fd5e2f362fa35d168.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 1020 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 112 hidden modules
+
+Completed 200 OK in 8387ms (Views: 8385.7ms | ActiveRecord: 0.0ms | Allocations: 10625)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:37:22 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 2231)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: bb0c585c69a4024da28f
+Version: webpack 4.44.2
+Time: 4779ms
+Built at: 10/31/2020 3:37:30 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-4ca1c2c8fe80e07515fb.js    963 KiB  application  [emitted] [immutable]  application
+js/application-4ca1c2c8fe80e07515fb.js.map   1.02 MiB  application  [emitted] [dev]        application
+     js/procedures-061fd5e2f362fa35d168.js    745 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-061fd5e2f362fa35d168.js.map    791 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-4ca1c2c8fe80e07515fb.js js/application-4ca1c2c8fe80e07515fb.js.map
+Entrypoint procedures = js/procedures-061fd5e2f362fa35d168.js js/procedures-061fd5e2f362fa35d168.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 1 KiB {application} [built]
+[./app/javascript/packs/procedures.js] 22 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 112 hidden modules
+
+Completed 200 OK in 7943ms (Views: 7942.4ms | ActiveRecord: 0.0ms | Allocations: 10608)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:40:01 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.3ms | Allocations: 2904)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/toor/Desktop/Atenas/public/packs
+[Webpacker] Hash: 0f54010521a0477e651b
+Version: webpack 4.44.2
+Time: 4475ms
+Built at: 10/31/2020 3:40:08 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-60ec18ecfb5eb1958949.js    865 KiB  application  [emitted] [immutable]  application
+js/application-60ec18ecfb5eb1958949.js.map    926 KiB  application  [emitted] [dev]        application
+     js/procedures-061fd5e2f362fa35d168.js    745 KiB   procedures  [emitted] [immutable]  procedures
+ js/procedures-061fd5e2f362fa35d168.js.map    791 KiB   procedures  [emitted] [dev]        procedures
+                             manifest.json  696 bytes               [emitted]              
+Entrypoint application = js/application-60ec18ecfb5eb1958949.js js/application-60ec18ecfb5eb1958949.js.map
+Entrypoint procedures = js/procedures-061fd5e2f362fa35d168.js js/procedures-061fd5e2f362fa35d168.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 859 bytes {application} [built]
+[./app/javascript/packs/procedures.js] 22 KiB {procedures} {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {procedures} [built]
+    + 111 hidden modules
+
+Completed 200 OK in 7774ms (Views: 7772.5ms | ActiveRecord: 0.0ms | Allocations: 12447)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:41:33 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 70.7ms | Allocations: 5265)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 105ms (Views: 99.9ms | ActiveRecord: 0.0ms | Allocations: 13493)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:42:03 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 2778)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 41.1ms | ActiveRecord: 0.0ms | Allocations: 10948)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:42:12 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 2769)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 50ms (Views: 49.1ms | ActiveRecord: 0.0ms | Allocations: 10949)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:42:52 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 42.0ms | Allocations: 5329)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 108ms (Views: 87.6ms | ActiveRecord: 0.0ms | Allocations: 13557)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:43:14 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 9.2ms | Allocations: 2886)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 59ms (Views: 50.1ms | ActiveRecord: 0.0ms | Allocations: 11084)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:43:26 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 2884)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 40.4ms | ActiveRecord: 0.0ms | Allocations: 11070)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:43:58 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.5ms | Allocations: 2884)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 41ms (Views: 36.2ms | ActiveRecord: 0.0ms | Allocations: 11056)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:47:51 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 2890)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 41ms (Views: 35.7ms | ActiveRecord: 0.0ms | Allocations: 11118)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:48:29 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 21.6ms | Allocations: 2903)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 98ms (Views: 90.8ms | ActiveRecord: 0.0ms | Allocations: 11116)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:49:01 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 26.9ms | Allocations: 2919)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 91ms (Views: 88.7ms | ActiveRecord: 0.0ms | Allocations: 11107)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:52:41 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 55.9ms | Allocations: 4015)
+Completed 500 Internal Server Error in 79ms (ActiveRecord: 0.0ms | Allocations: 6382)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check 
+<span>
+  <div id="content_box_center">
+    <h1>Ingreso de procedimiento</h1>
+    <div id="form">
+      <%= form_with model: @procedure do |form| class: "form-inline" %>
+        <section>
+          <%= form.label :date, 'Fecha:', class: "form"%>
+          <%= form.date_field :date %>
+
+          <%= form.label :time, 'hora:'%>
+          <%= form.time_field :time %>
+        </section>
+
+        <section>
+          <%= form.label :address, 'Direccion:' %>
+          <%= form.text_field :address %>
+
+          <section>
+            <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+            <%= form.label :region, 'Region:' %>
+            <%= form.select :region, options_for_select(cities_array) %>
+
+            <%= form.label :comune, 'Comuna:' %>
+            <%= form.select :comune, []  %>
+          </section>
+
+          <section id="crimes">
+
+            <% crimes = [nil,
+                         "acoso",
+                         "homicidio",
+                         "conduccion en estado de ebriedad",
+                         "Robo a mano armada",
+                         "femicidio",
+                         "violacion",
+                         "pisar las lineas de la vereda"].map{|crime| [crime]} %>
+            <%= form.label :preponderant_crime, 'Delito prepopnderante:' %>
+            <%= form.select( :preponderant_crime, options_for_select(crimes)) %>
+
+
+            <%= fields_for "procedure[crimes]" do |crimes_fields| %>
+              <div id="new_crime">
+                <%= crimes_fields.label "", 'Delito:' %>
+                <%= crimes_fields.select "" , options_for_select(crimes), name: "procedure[crimes][]" %>
+              </div>
+            <% end %>
+          </section>
+
+          <button id="add_crime_btn" class="btn btn-primary"> Agregar delito </button>
+        </section>
+
+        <section>
+          <%= form.submit "Enviar", class: "btn btn-primary" %>
+        </section>
+      </div>
+    <% end %>
+  </div>
+
+</span>
+
+
+):
+1:    
+2:    <span>
+3:      <div id="content_box_center">
+4:        <h1>Ingreso de procedimiento</h1>
+5:        <div id="form">
+6:          <%= form_with model: @procedure do |form| class: "form-inline" %>
+7:            <section>
+8:              <%= form.label :date, 'Fecha:', class: "form"%>
+9:              <%= form.date_field :date %>
+10:    
+11:              <%= form.label :time, 'hora:'%>
+12:              <%= form.time_field :time %>
+13:            </section>
+14:    
+15:            <section>
+16:              <%= form.label :address, 'Direccion:' %>
+17:              <%= form.text_field :address %>
+18:    
+19:              <section>
+20:                <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+21:                <%= form.label :region, 'Region:' %>
+22:                <%= form.select :region, options_for_select(cities_array) %>
+23:    
+24:                <%= form.label :comune, 'Comuna:' %>
+25:                <%= form.select :comune, []  %>
+26:              </section>
+27:    
+28:              <section id="crimes">
+29:    
+30:                <% crimes = [nil,
+31:                             "acoso",
+32:                             "homicidio",
+33:                             "conduccion en estado de ebriedad",
+34:                             "Robo a mano armada",
+35:                             "femicidio",
+36:                             "violacion",
+37:                             "pisar las lineas de la vereda"].map{|crime| [crime]} %>
+38:                <%= form.label :preponderant_crime, 'Delito prepopnderante:' %>
+39:                <%= form.select( :preponderant_crime, options_for_select(crimes)) %>
+40:    
+41:    
+42:                <%= fields_for "procedure[crimes]" do |crimes_fields| %>
+43:                  <div id="new_crime">
+44:                    <%= crimes_fields.label "", 'Delito:' %>
+45:                    <%= crimes_fields.select "" , options_for_select(crimes), name: "procedure[crimes][]" %>
+46:                  </div>
+47:                <% end %>
+48:              </section>
+49:    
+50:              <button id="add_crime_btn" class="btn btn-primary"> Agregar delito </button>
+51:            </section>
+52:    
+53:            <section>
+54:              <%= form.submit "Enviar", class: "btn btn-primary" %>
+55:            </section>
+56:          </div>
+57:        <% end %>
+58:      </div>
+59:    
+60:    </span>
+  
+app/views/procedures/new.html.erb:6: syntax error, unexpected ':'
+app/views/procedures/new.html.erb:6: syntax error, unexpected ')', expecting `end'
+app/views/procedures/new.html.erb:57: syntax error, unexpected `end', expecting ')'
+app/views/procedures/new.html.erb:64: syntax error, unexpected `end', expecting ')'
+app/views/procedures/new.html.erb:6: syntax error, unexpected ':'
+app/views/procedures/new.html.erb:6: syntax error, unexpected ')', expecting `end'
+app/views/procedures/new.html.erb:57: syntax error, unexpected `end', expecting ')'
+app/views/procedures/new.html.erb:64: syntax error, unexpected `end', expecting ')'
+app/views/procedures/new.html.erb:6: syntax error, unexpected ':'
+app/views/procedures/new.html.erb:6: syntax error, unexpected ')', expecting `end'
+app/views/procedures/new.html.erb:57: syntax error, unexpected `end', expecting ')'
+app/views/procedures/new.html.erb:64: syntax error, unexpected `end', expecting ')'
+app/views/procedures/new.html.erb:6: syntax error, unexpected ':'
+app/views/procedures/new.html.erb:6: syntax error, unexpected ')', expecting `end'
+app/views/procedures/new.html.erb:57: syntax error, unexpected `end', expecting ')'
+app/views/procedures/new.html.erb:64: syntax error, unexpected `end', expecting ')'
+app/views/procedures/new.html.erb:6: syntax error, unexpected ':'
+app/views/procedures/new.html.erb:6: syntax error, unexpected ')', expecting `end'
+app/views/procedures/new.html.erb:57: syntax error, unexpected `end', expecting ')'
+app/views/procedures/new.html.erb:64: syntax error, unexpected `end', expecting ')'
+app/views/procedures/new.html.erb:6: syntax error, unexpected ':'
+app/views/procedures/new.html.erb:6: syntax error, unexpected ')', expecting `end'
+app/views/procedures/new.html.erb:57: syntax error, unexpected `end', expecting ')'
+app/views/procedures/new.html.erb:64: syntax error, unexpected `end', expecting ')'
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:53:10 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 2908)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 36.5ms | ActiveRecord: 0.0ms | Allocations: 11179)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:53:47 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 2897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 28.3ms | ActiveRecord: 0.0ms | Allocations: 11113)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:54:31 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2902)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 39ms (Views: 31.8ms | ActiveRecord: 0.0ms | Allocations: 11097)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:56:05 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.8ms | Allocations: 2907)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 41ms (Views: 39.8ms | ActiveRecord: 0.0ms | Allocations: 11087)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:56:42 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.4ms | Allocations: 2902)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 43ms (Views: 41.5ms | ActiveRecord: 0.0ms | Allocations: 11070)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:56:44 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 11.0ms | Allocations: 2376)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 41ms (Views: 35.3ms | ActiveRecord: 0.0ms | Allocations: 9454)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:57:33 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.7ms | Allocations: 2902)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 45ms (Views: 43.5ms | ActiveRecord: 0.0ms | Allocations: 11080)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:58:24 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.6ms | Allocations: 2909)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 47ms (Views: 45.9ms | ActiveRecord: 0.0ms | Allocations: 11087)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:58:46 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 17.6ms | Allocations: 2907)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 73ms (Views: 66.5ms | ActiveRecord: 0.0ms | Allocations: 11083)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:59:10 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 2908)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 40ms (Views: 37.6ms | ActiveRecord: 0.0ms | Allocations: 11082)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 03:59:25 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 2909)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 41ms (Views: 39.7ms | ActiveRecord: 0.0ms | Allocations: 11095)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:01:31 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 10.2ms | Allocations: 2917)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 51ms (Views: 40.5ms | ActiveRecord: 0.0ms | Allocations: 11131)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:01:54 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.1ms | Allocations: 2910)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 44ms (Views: 42.3ms | ActiveRecord: 0.0ms | Allocations: 11133)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:02:30 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.9ms | Allocations: 2910)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 38.8ms | ActiveRecord: 0.0ms | Allocations: 11090)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:02:53 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.7ms | Allocations: 2918)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 45ms (Views: 43.4ms | ActiveRecord: 0.0ms | Allocations: 11098)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:03:25 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 12.0ms | Allocations: 2919)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 57ms (Views: 56.2ms | ActiveRecord: 0.0ms | Allocations: 11091)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:03:54 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 12.1ms | Allocations: 2918)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 34.1ms | ActiveRecord: 0.0ms | Allocations: 11112)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:04:33 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 11.3ms | Allocations: 2922)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 54ms (Views: 48.3ms | ActiveRecord: 0.0ms | Allocations: 11100)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:05:22 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.6ms | Allocations: 2922)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 43ms (Views: 41.4ms | ActiveRecord: 0.0ms | Allocations: 11102)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:06:22 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 2930)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 104ms (Views: 96.4ms | ActiveRecord: 0.0ms | Allocations: 11108)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:07:17 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.2ms | Allocations: 2922)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 46ms (Views: 39.9ms | ActiveRecord: 0.0ms | Allocations: 11106)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:08:05 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.7ms | Allocations: 2927)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 70ms (Views: 66.7ms | ActiveRecord: 0.0ms | Allocations: 11135)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:08:34 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 2930)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 44ms (Views: 42.0ms | ActiveRecord: 0.0ms | Allocations: 11143)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:09:04 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.0ms | Allocations: 2921)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 39ms (Views: 37.8ms | ActiveRecord: 0.0ms | Allocations: 11109)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:09:26 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.9ms | Allocations: 2921)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 37.0ms | ActiveRecord: 0.0ms | Allocations: 11113)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:09:48 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.9ms | Allocations: 2921)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 43ms (Views: 38.1ms | ActiveRecord: 0.0ms | Allocations: 11109)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:09:50 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 2383)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 34.5ms | ActiveRecord: 0.0ms | Allocations: 9483)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:11:07 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 13.5ms | Allocations: 2921)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 47ms (Views: 45.5ms | ActiveRecord: 0.0ms | Allocations: 11109)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:12:10 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 9.4ms | Allocations: 2930)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 44ms (Views: 38.3ms | ActiveRecord: 0.0ms | Allocations: 11118)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:13:35 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 15.3ms | Allocations: 2930)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 50ms (Views: 46.6ms | ActiveRecord: 0.0ms | Allocations: 11116)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:13:36 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.6ms | Allocations: 2390)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 35.3ms | ActiveRecord: 0.0ms | Allocations: 9474)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:14:16 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.2ms | Allocations: 2935)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 44ms (Views: 42.4ms | ActiveRecord: 0.0ms | Allocations: 11166)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:16:50 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.0ms | Allocations: 2935)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 29.7ms | ActiveRecord: 0.0ms | Allocations: 11159)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:17:21 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 10.3ms | Allocations: 2932)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 54ms (Views: 49.5ms | ActiveRecord: 0.0ms | Allocations: 11133)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:18:03 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 2931)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 44ms (Views: 42.1ms | ActiveRecord: 0.0ms | Allocations: 11128)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:18:22 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.8ms | Allocations: 2930)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 41ms (Views: 37.3ms | ActiveRecord: 0.0ms | Allocations: 11112)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:20:38 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 10.1ms | Allocations: 2931)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 45ms (Views: 40.2ms | ActiveRecord: 0.0ms | Allocations: 11117)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:20:49 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.7ms | Allocations: 2930)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 31.9ms | ActiveRecord: 0.0ms | Allocations: 11112)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:22:49 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.4ms | Allocations: 2931)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 30.5ms | ActiveRecord: 0.0ms | Allocations: 11118)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:23:24 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 12.1ms | Allocations: 2931)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 62ms (Views: 55.5ms | ActiveRecord: 0.0ms | Allocations: 11117)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:23:33 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 13.4ms | Allocations: 2931)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 48ms (Views: 43.9ms | ActiveRecord: 0.0ms | Allocations: 11148)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:24:00 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.4ms | Allocations: 2933)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 41ms (Views: 39.5ms | ActiveRecord: 0.0ms | Allocations: 11147)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:24:31 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.2ms | Allocations: 2933)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 34.2ms | ActiveRecord: 0.0ms | Allocations: 11133)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:25:21 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 9.2ms | Allocations: 2934)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 43ms (Views: 40.3ms | ActiveRecord: 0.0ms | Allocations: 11149)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:25:22 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 2391)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 22.6ms | ActiveRecord: 0.0ms | Allocations: 9471)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:28:03 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.3ms | Allocations: 2935)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 46ms (Views: 43.8ms | ActiveRecord: 0.0ms | Allocations: 11109)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:28:23 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.7ms | Allocations: 2934)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 53ms (Views: 50.8ms | ActiveRecord: 0.0ms | Allocations: 11116)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:28:37 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 2933)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 39ms (Views: 37.4ms | ActiveRecord: 0.0ms | Allocations: 11121)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:28:38 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 2391)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 28.6ms | ActiveRecord: 0.0ms | Allocations: 9475)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:28:58 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.9ms | Allocations: 2951)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 46ms (Views: 45.2ms | ActiveRecord: 0.0ms | Allocations: 11131)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:29:13 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 2960)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 49ms (Views: 30.0ms | ActiveRecord: 0.0ms | Allocations: 11184)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:30:11 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.3ms | Allocations: 2965)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 39ms (Views: 37.8ms | ActiveRecord: 0.0ms | Allocations: 11179)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:30:29 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.7ms | Allocations: 2961)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 45ms (Views: 43.7ms | ActiveRecord: 0.0ms | Allocations: 11169)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:30:59 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 10.9ms | Allocations: 2961)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 44ms (Views: 42.3ms | ActiveRecord: 0.0ms | Allocations: 11170)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:31:35 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.7ms | Allocations: 2963)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 40.4ms | ActiveRecord: 0.0ms | Allocations: 11141)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:32:08 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 15.9ms | Allocations: 2962)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 58ms (Views: 54.0ms | ActiveRecord: 0.0ms | Allocations: 11150)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:34:55 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 14.2ms | Allocations: 2975)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 49ms (Views: 44.3ms | ActiveRecord: 0.0ms | Allocations: 11153)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:35:39 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.4ms | Allocations: 2986)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 43ms (Views: 39.5ms | ActiveRecord: 0.0ms | Allocations: 11164)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:36:25 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 14.4ms | Allocations: 2986)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 66ms (Views: 65.0ms | ActiveRecord: 0.0ms | Allocations: 11172)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:36:42 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 13.3ms | Allocations: 2986)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 46ms (Views: 44.8ms | ActiveRecord: 0.0ms | Allocations: 11203)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:36:56 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 9.5ms | Allocations: 2987)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 43ms (Views: 41.6ms | ActiveRecord: 0.0ms | Allocations: 11206)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:38:58 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.3ms | Allocations: 2975)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 47ms (Views: 46.0ms | ActiveRecord: 0.0ms | Allocations: 11183)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:39:44 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 17.9ms | Allocations: 2986)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 73ms (Views: 71.7ms | ActiveRecord: 0.0ms | Allocations: 11194)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:40:10 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 2984)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 45ms (Views: 35.9ms | ActiveRecord: 0.0ms | Allocations: 11203)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:40:31 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.1ms | Allocations: 2985)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 39.7ms | ActiveRecord: 0.0ms | Allocations: 11165)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:40:53 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 11.4ms | Allocations: 2985)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 33.5ms | ActiveRecord: 0.0ms | Allocations: 11157)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:41:06 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 13.9ms | Allocations: 2984)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 46ms (Views: 43.0ms | ActiveRecord: 0.0ms | Allocations: 11168)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:41:44 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 17.7ms | Allocations: 2986)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 56ms (Views: 52.1ms | ActiveRecord: 0.0ms | Allocations: 11168)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:42:05 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.7ms | Allocations: 2992)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 54ms (Views: 50.4ms | ActiveRecord: 0.0ms | Allocations: 11214)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:42:18 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.1ms | Allocations: 2987)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 38.2ms | ActiveRecord: 0.0ms | Allocations: 11207)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:42:46 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.6ms | Allocations: 2986)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 41.0ms | ActiveRecord: 0.0ms | Allocations: 11200)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:43:15 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.1ms | Allocations: 2985)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 58ms (Views: 53.1ms | ActiveRecord: 0.0ms | Allocations: 11199)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:44:58 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 19.0ms | Allocations: 2994)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 61ms (Views: 59.1ms | ActiveRecord: 0.0ms | Allocations: 11191)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:45:15 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 13.4ms | Allocations: 2990)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 47ms (Views: 45.7ms | ActiveRecord: 0.0ms | Allocations: 11176)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:45:42 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.7ms | Allocations: 2991)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 27.0ms | ActiveRecord: 0.0ms | Allocations: 11161)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:45:59 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.1ms | Allocations: 2990)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 46ms (Views: 44.7ms | ActiveRecord: 0.0ms | Allocations: 11176)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:46:18 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.7ms | Allocations: 2990)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 34.3ms | ActiveRecord: 0.0ms | Allocations: 11178)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:46:34 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.4ms | Allocations: 2998)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 35.5ms | ActiveRecord: 0.0ms | Allocations: 11212)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:46:54 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.5ms | Allocations: 2987)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 40ms (Views: 38.5ms | ActiveRecord: 0.0ms | Allocations: 11203)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:47:16 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 9.4ms | Allocations: 2986)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 33.1ms | ActiveRecord: 0.0ms | Allocations: 11198)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:47:31 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 5.7ms | Allocations: 2984)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 37.0ms | ActiveRecord: 0.0ms | Allocations: 11208)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:47:57 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 10.3ms | Allocations: 2984)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 53ms (Views: 50.7ms | ActiveRecord: 0.0ms | Allocations: 11195)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:49:27 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 13.4ms | Allocations: 2984)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 78ms (Views: 77.0ms | ActiveRecord: 0.0ms | Allocations: 11166)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:51:19 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 2196)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 4556)
+
+
+  
+ActionView::Template::Error (unknown keyword: :class):
+    33:             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
+    34:             <div class="form-inline">
+    35:               <%= form.label :region, 'Region:', class: "col-form-label" %>
+    36:               <%= form.select :region, options_for_select(cities_array), {}, {}, class: "form-control" %>
+    37:             </div>
+    38: 
+    39:             <div class="form-inline">
+  
+app/views/procedures/new.html.erb:36
+app/views/procedures/new.html.erb:6
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:52:29 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 12.6ms | Allocations: 2997)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 28.9ms | ActiveRecord: 0.0ms | Allocations: 11209)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:52:56 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 16.4ms | Allocations: 2998)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 56ms (Views: 47.6ms | ActiveRecord: 0.0ms | Allocations: 11211)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:53:13 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 2996)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 28.9ms | ActiveRecord: 0.0ms | Allocations: 11186)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:53:41 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 9.4ms | Allocations: 2997)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 41ms (Views: 39.4ms | ActiveRecord: 0.0ms | Allocations: 11171)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:54:20 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.8ms | Allocations: 2996)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 43ms (Views: 41.7ms | ActiveRecord: 0.0ms | Allocations: 11168)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:55:28 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 9.5ms | Allocations: 3003)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 56ms (Views: 55.0ms | ActiveRecord: 0.0ms | Allocations: 11185)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:56:32 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 11.9ms | Allocations: 2996)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 66ms (Views: 64.4ms | ActiveRecord: 0.0ms | Allocations: 11188)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:56:49 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 6.5ms | Allocations: 2997)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 45ms (Views: 43.8ms | ActiveRecord: 0.0ms | Allocations: 11171)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:57:26 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 10.0ms | Allocations: 2996)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 39.6ms | ActiveRecord: 0.0ms | Allocations: 11182)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:58:23 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 11.9ms | Allocations: 2998)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 56ms (Views: 47.4ms | ActiveRecord: 0.0ms | Allocations: 11223)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 04:59:35 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 8.9ms | Allocations: 3006)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 35.1ms | ActiveRecord: 0.0ms | Allocations: 11198)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 05:00:01 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 7.2ms | Allocations: 3007)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 41ms (Views: 39.7ms | ActiveRecord: 0.0ms | Allocations: 11193)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 05:00:45 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 17.6ms | Allocations: 3006)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 54ms (Views: 52.8ms | ActiveRecord: 0.0ms | Allocations: 11196)
+
+
+Started GET "/procedures/new" for 127.0.0.1 at 2020-10-31 05:01:36 -0300
+Processing by ProceduresController#new as HTML
+  Rendering procedures/new.html.erb within layouts/application
+  Rendered procedures/new.html.erb within layouts/application (Duration: 15.4ms | Allocations: 3010)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 43ms (Views: 36.1ms | ActiveRecord: 0.0ms | Allocations: 11185)
+
+
