@@ -11,24 +11,23 @@
 
   <body>
   <nav class="navbar navbar-light bg-light">
-    <a class="mr-sm-4"><%= image_tag("icon_prosecution.png", width: "45em") %></a>
-    <%= form_with url: search_path, method: :get, local: true do |form| %>
-      <div class="form-inline row">
-        <%= form.text_field :query, :placeholder => "Search", class: "form-control" %>
-        <%= form.submit "Search", class: ["btn", "btn-primary"] %>
-      </div>
-    <% end %>
-    <a class="ml-sm-5"><%= image_tag("icon_inbox.png", width: "40em") %></a>
-    <button type="button" class="btn btn-warning text-white ml-sm-4">Cerrar sesión</button>
+    <form class="form-inline">
+      <a class="mr-sm-4"><%= image_tag("icon_prosecution.png", width: "45em") %></a>
+      <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+      <a class="ml-sm-5"><%= image_tag("icon_inbox.png", width: "40em") %></a>
+      <button type="button" class="btn btn-warning text-white ml-sm-4">Cerrar sesión</button>
+    </form>
+
+
+
   </nav>
+    <header>
 
-  <header>
-
-  </header>
-
-  <main>
-    <%= yield %>
-  </main>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
     <footer>
       <div class="container text-center text-md-left mt-5">
         <div class="row mt-3 dark-grey-text">
