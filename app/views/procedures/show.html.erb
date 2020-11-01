@@ -1,105 +1,124 @@
-<p id="notice"><%= notice %></p>
-<h2>Procedimiento XX</h2>
+<div id="content_box" >
 
-<h3>Datos del procedimiento:</h3>
 
-<p>
-  <strong>Estado:</strong>
-  <% if @procedure.pending? %>
-  Pendiente
-  <% elsif @procedure.acd?%>
-  Audiencia control de detención
-<% elsif @procedure.noticed? %>
-  Apercibido
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+  </div>
+
+  <h2>Procedimiento XX</h2>
+
+  <h3>Datos del procedimiento:</h3>
+
+  <p>
+    <strong>Estado:</strong>
+    <% if @procedure.pending? %>
+    Pendiente
+    <% elsif @procedure.acd?%>
+    Audiencia control de detención
+  <% elsif @procedure.noticed? %>
+    Apercibido
+      <% end %>
+  </p>
+
+  <p>
+    <strong>Fecha:</strong>
+    <%= @procedure.created_at_str %>
+  </p>
+
+  <p>
+    <strong>Unidad policial:</strong>
+    <%= @procedure.police_unit_in_charge_id %>
+  </p>
+
+  <p>
+    <strong>Carabinero a cargo:</strong>
+    <%= @procedure.police_in_charge_id %>
+  </p>
+
+  <p>
+    <strong>Fiscalia Local:</strong>
+    <%= @procedure.local_prosecution_in_charge_id %>
+  </p>
+
+  <p>
+    <strong>Fiscal a cargo:</strong>
+    <%= @procedure.prosecutor_in_charge_id %>
+  </p>
+
+  <p>
+    <strong>Región:</strong>
+    <%= @procedure.region %>
+  </p>
+
+  <p>
+    <strong>Comuna:</strong>
+    <%= @procedure.sector %>
+  </p>
+
+  <p>
+    <strong>Dirección:</strong>
+    <%= @procedure.address %>
+  </p>
+
+  <h3>Datos delictuales:</h3>
+  <p>
+    <strong>Clasificación:</strong>
+    <% if @procedure.flagrancy? %>
+      Flagrancia
+    <% elsif @procedure.pending_arrest_warrant? %>
+      Orden de detención pendiente
+    <% elsif @procedure.both? %>
+      Flagrancia y Orden de detención pendiente
     <% end %>
-</p>
+  </p>
 
-<p>
-  <strong>Fecha:</strong>
-  <%= @procedure.created_at_str %>
-</p>
+  <p>
+    <strong>Marcas:</strong>
+    <% @procedure.tags.each do |tag| %>
+      <span class="badge badge-pill badge-primary"><%= tag.name %></span>
+    <% end %>
+  </p>
 
-<p>
-  <strong>Unidad policial:</strong>
-  <%= @procedure.police_unit_in_charge_id %>
-  <strong>Tags:</strong>
-  <%= @procedure.tags.distinct.map { |x| x.name } %>
-</p>
+  <p>
+    <strong>Relato:</strong>
+    <%= @procedure.story %>
+  </p>
 
-<p>
-  <strong>Carabinero a cargo:</strong>
-  <%= @procedure.police_in_charge_id %>
-</p>
-
-<p>
-  <strong>Fiscalia Local:</strong>
-  <%= @procedure.local_prosecution_in_charge_id %>
-</p>
-
-<p>
-  <strong>Fiscal a cargo:</strong>
-  <%= @procedure.prosecutor_in_charge_id %>
-</p>
-
-<p>
-  <strong>Región:</strong>
-  <%= @procedure.region %>
-</p>
-
-<p>
-  <strong>Comuna:</strong>
-  <%= @procedure.sector %>
-</p>
-
-<p>
-  <strong>Dirección:</strong>
-  <%= @procedure.address %>
-</p>
-
-<h3>Datos delictuales:</h3>
-<p>
-  <strong>Clasificación:</strong>
-  <% if @procedure.flagrancy? %>
-    Flagrancia
-  <% elsif @procedure.pending_arrest_warrant? %>
-    Orden de detención pendiente
-  <% elsif @procedure.both? %>
-    Flagrancia y Orden de detención pendiente
+  <h3>Datos de involucrados:</h3>
+  <h4>Imputados</h4>
+  <% @accuseds.each do |accused| %>
+    <p><%= accused.name %></p>
+    <p><%= accused.last_name %></p>
+    <p><%= accused.rut %></p>
   <% end %>
-</p>
 
-<p>
-  <strong>Marcas:</strong>
-  <% @procedure.marks.each do |mark| %>
-    <span class="badge badge-pill badge-primary"><%= mark %></span>
+  <h4>Victimas</h4>
+  <% @victims.each do |victim| %>
+    <p><%= victim.name %></p>
+    <p><%= victim.last_name %></p>
+    <p><%= victim.rut %></p>
   <% end %>
-</p>
 
-<p>
-  <strong>Relato:</strong>
-  <%= @procedure.story %>
-</p>
+  <h4>Testigos</h4>
+  <% @witnesses.each do |witness| %>
+    <p><%= witness.name %></p>
+    <p><%= witness.last_name %></p>
+    <p><%= witness.rut %></p>
+  <% end %>
 
-<h3>Datos de involucrados:</h3>
-<h4>Imputados</h4>
-<% @accuseds.each do |accused| %>
-  <p><%= accused.name %></p>
-  <p><%= accused.last_name %></p>
-  <p><%= accused.rut %></p>
-<% end %>
+  <%= link_to 'Back', procedures_path() %>
 
-<h4>Victimas</h4>
-<% @victims.each do |victim| %>
-  <p><%= victim.name %></p>
-  <p><%= victim.last_name %></p>
-  <p><%= victim.rut %></p>
-<% end %>
-
-<h4>Testigos</h4>
-<% @witnesses.each do |witness| %>
-  <p><%= witness.name %></p>
-  <p><%= witness.last_name %></p>
-  <p><%= witness.rut %></p>
-<% end %>
-
-<%= link_to 'Back', user_procedures_path() %>
+</div>
