@@ -1,24 +1,6 @@
-<div id="content_box" >
+<div id="content_box_center" >
 
-
-  <ul class="nav nav-tabs" id="myTab" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
-    </li>
-  </ul>
-  <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
-    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
-  </div>
-
-  <h2>Procedimiento XX</h2>
+  <h2 class="pl-10 pr-10">Procedimiento XX</h2>
 
   <h3>Datos del procedimiento:</h3>
 
@@ -100,23 +82,35 @@
   <h3>Datos de involucrados:</h3>
   <h4>Imputados</h4>
   <% @accuseds.each do |accused| %>
-    <p><%= accused.name %></p>
-    <p><%= accused.last_name %></p>
-    <p><%= accused.rut %></p>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= accused.name %> <%= accused.last_name %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= accused.rut %></h6>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
   <% end %>
 
   <h4>Victimas</h4>
   <% @victims.each do |victim| %>
-    <p><%= victim.name %></p>
-    <p><%= victim.last_name %></p>
-    <p><%= victim.rut %></p>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= victim.name %> <%= victim.last_name %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= victim.rut %></h6>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
   <% end %>
 
   <h4>Testigos</h4>
   <% @witnesses.each do |witness| %>
-    <p><%= witness.name %></p>
-    <p><%= witness.last_name %></p>
-    <p><%= witness.rut %></p>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= witness.name %> <%= witness.last_name %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= witness.rut %></h6>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
   <% end %>
 
   <%= link_to 'Back', procedures_path() %>
