@@ -19,10 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7e78bd00-05eb-47f1-83a9-96a5096b2ba1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.generators" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.generators" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.yarn-integrity" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.yarn-integrity" afterDir="false" />
-    </list>
+    <list default="true" id="7e78bd00-05eb-47f1-83a9-96a5096b2ba1" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,13 +70,16 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../course-project-jcastro-rlemay" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.jscs" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.jscs" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.jscs" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.ruby.settings.RubyActiveModuleSdkConfigurable" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.jscs" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -209,6 +209,7 @@
       <workItem from="1604086722266" duration="1744000" />
       <workItem from="1604188940090" duration="5145000" />
       <workItem from="1604267555345" duration="204000" />
+      <workItem from="1604270984408" duration="660000" />
     </task>
     <servers />
   </component>
@@ -272,20 +273,28 @@
       <screen x="0" y="0" width="1920" height="951" />
     </state>
     <state width="1864" height="232" key="GridCell.Tab.1.right/0.0.1920.951@0.0.1920.951" timestamp="1603889273123" />
-    <state x="394" y="41" width="1269" height="907" key="SettingsEditor" timestamp="1604265969503">
+    <state x="394" y="41" width="1269" height="907" key="SettingsEditor" timestamp="1604271005228">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="394" y="41" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1604265969503" />
+    <state x="394" y="41" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1604271005228" />
     <state x="525" y="44" width="1269" height="907" key="SettingsEditor/0.0.1920.951@0.0.1920.951" timestamp="1603053791535" />
     <state x="490" y="176" key="SettingsEditor/0.23.1792.1021@0.23.1792.1021" timestamp="1601328234962" />
     <state x="686" y="379" width="540" height="197" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603889865499">
       <screen x="0" y="0" width="1920" height="951" />
     </state>
     <state x="686" y="379" width="540" height="197" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.951@0.0.1920.951" timestamp="1603889865499" />
+    <state x="422" y="196" width="596" height="508" key="find.popup" timestamp="1604271046130">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="422" y="196" width="596" height="508" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1604271046130" />
     <state x="539" y="211" key="run.anything.popup" timestamp="1603914404328">
       <screen x="0" y="0" width="1920" height="951" />
     </state>
     <state x="539" y="211" key="run.anything.popup/0.0.1920.951@0.0.1920.951" timestamp="1603914404328" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1604271001424">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1604271001424" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Atenas@Development__atenas.rcov" NAME="Development: atenas Coverage Results" MODIFIED="1603054039949" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="atenas" />
