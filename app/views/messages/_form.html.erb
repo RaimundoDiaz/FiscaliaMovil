@@ -1,13 +1,11 @@
 <%= form_with(model: message, local: true) do |form| %>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+    <%= form.hidden_field :user_id, value: current_user.id %>
   </div>
 
   <div class="field">
-    <%= form.label :procedure_id %>
-    <%= form.text_field :procedure_id %>
+    <%= form.hidden_field :procedure_id %>
   </div>
 
   <div class="field">

@@ -23576,3 +23576,296 @@ Processing by MessagesController#index as HTML
 Completed 200 OK in 76ms (Views: 62.0ms | ActiveRecord: 5.9ms | Allocations: 20045)
 
 
+Started GET "/procedures/1/messages" for 127.0.0.1 at 2020-10-31 21:02:05 -0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MessagesController#index as HTML
+  Parameters: {"procedure_id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" ORDER BY "messages"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:3
+  [1m[36mProcedure Load (0.7ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures" WHERE "procedures"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:3
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  ↳ app/views/messages/index.html.erb:16
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mPoliceUnit Load (0.6ms)[0m  [1m[34mSELECT "police_units".* FROM "police_units" WHERE "police_units"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mCACHE PoliceUnit Load (0.0ms)[0m  [1m[34mSELECT "police_units".* FROM "police_units" WHERE "police_units"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mLocalProsecution Load (0.5ms)[0m  [1m[34mSELECT "local_prosecutions".* FROM "local_prosecutions" WHERE "local_prosecutions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:20
+  Rendered messages/_form.html.erb (Duration: 37.9ms | Allocations: 8843)
+  Rendered messages/index.html.erb within layouts/application (Duration: 173.6ms | Allocations: 45090)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 427ms (Views: 354.0ms | ActiveRecord: 31.5ms | Allocations: 129295)
+
+
+Started GET "/procedures/1/messages" for 127.0.0.1 at 2020-10-31 21:02:58 -0300
+Processing by MessagesController#index as HTML
+  Parameters: {"procedure_id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" ORDER BY "messages"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:3
+  [1m[36mProcedure Load (0.8ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures" WHERE "procedures"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:3
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  ↳ app/views/messages/index.html.erb:16
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mPoliceUnit Load (0.6ms)[0m  [1m[34mSELECT "police_units".* FROM "police_units" WHERE "police_units"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mCACHE PoliceUnit Load (0.0ms)[0m  [1m[34mSELECT "police_units".* FROM "police_units" WHERE "police_units"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mLocalProsecution Load (0.4ms)[0m  [1m[34mSELECT "local_prosecutions".* FROM "local_prosecutions" WHERE "local_prosecutions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:20
+  Rendered messages/_form.html.erb (Duration: 3.2ms | Allocations: 2534)
+  Rendered messages/index.html.erb within layouts/application (Duration: 30.9ms | Allocations: 9637)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 53ms (Views: 41.0ms | ActiveRecord: 4.9ms | Allocations: 18591)
+
+
+Started GET "/procedures/1/messages" for 127.0.0.1 at 2020-10-31 21:03:53 -0300
+Processing by MessagesController#index as HTML
+  Parameters: {"procedure_id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mMessage Load (1.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages" ORDER BY "messages"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:3
+  [1m[36mProcedure Load (0.8ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures" WHERE "procedures"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:3
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  ↳ app/views/messages/index.html.erb:16
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mPoliceUnit Load (0.5ms)[0m  [1m[34mSELECT "police_units".* FROM "police_units" WHERE "police_units"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mCACHE PoliceUnit Load (0.0ms)[0m  [1m[34mSELECT "police_units".* FROM "police_units" WHERE "police_units"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mLocalProsecution Load (0.4ms)[0m  [1m[34mSELECT "local_prosecutions".* FROM "local_prosecutions" WHERE "local_prosecutions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:20
+  Rendered messages/_form.html.erb (Duration: 2.9ms | Allocations: 2332)
+  Rendered messages/index.html.erb within layouts/application (Duration: 29.9ms | Allocations: 9008)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 50ms (Views: 40.0ms | ActiveRecord: 5.5ms | Allocations: 16720)
+
+
+Started POST "/procedures/1/messages" for 127.0.0.1 at 2020-10-31 21:04:20 -0300
+Processing by MessagesController#create as HTML
+  Parameters: {"authenticity_token"=>"h3kc/DJ/+WaKutZ9nJnyt6QmaTbNXedyfhAIR/Z2MFiiGpsK+goxxAo1tx52kL5chFXeXkqebf9fNLP9IgqjdQ==", "user_id"=>"", "procedure_id"=>"1", "content"=>"535435", "commit"=>"Save "}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 400 Bad Request in 4ms (ActiveRecord: 0.3ms | Allocations: 2087)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: message):
+  
+app/controllers/messages_controller.rb:72:in `message_params'
+app/controllers/messages_controller.rb:27:in `create'
+Started GET "/procedures/1/messages" for 127.0.0.1 at 2020-10-31 21:07:26 -0300
+Processing by MessagesController#index as HTML
+  Parameters: {"procedure_id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" ORDER BY "messages"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:3
+  [1m[36mProcedure Load (0.7ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures" WHERE "procedures"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:3
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  ↳ app/views/messages/index.html.erb:16
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mPoliceUnit Load (0.6ms)[0m  [1m[34mSELECT "police_units".* FROM "police_units" WHERE "police_units"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mCACHE PoliceUnit Load (0.0ms)[0m  [1m[34mSELECT "police_units".* FROM "police_units" WHERE "police_units"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mLocalProsecution Load (0.5ms)[0m  [1m[34mSELECT "local_prosecutions".* FROM "local_prosecutions" WHERE "local_prosecutions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:20
+  Rendered messages/_form.html.erb (Duration: 17.6ms | Allocations: 2743)
+  Rendered messages/index.html.erb within layouts/application (Duration: 216.6ms | Allocations: 34643)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 318ms (Views: 229.6ms | ActiveRecord: 47.8ms | Allocations: 49244)
+
+
+Started POST "/procedures/1/messages" for 127.0.0.1 at 2020-10-31 21:07:29 -0300
+Processing by MessagesController#create as HTML
+  Parameters: {"authenticity_token"=>"NAJZwLcTfxdBPDf8EhC5wmUygb6qXrDy0cb5ar6mHD0RYd42f2a3tcGzVp/4GfUpRUE21i2dOn/w4kLQatqPEA==", "user_id"=>"", "procedure_id"=>"1", "content"=>"refreferfesrfref", "commit"=>"Save "}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 400 Bad Request in 16ms (ActiveRecord: 0.6ms | Allocations: 2112)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: message):
+  
+app/controllers/messages_controller.rb:72:in `message_params'
+app/controllers/messages_controller.rb:27:in `create'
+Started GET "/procedures/1/messages" for 127.0.0.1 at 2020-10-31 21:07:34 -0300
+Processing by MessagesController#index as HTML
+  Parameters: {"procedure_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" ORDER BY "messages"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:3
+  [1m[36mProcedure Load (1.1ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures" WHERE "procedures"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:3
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  ↳ app/views/messages/index.html.erb:16
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mPoliceUnit Load (0.5ms)[0m  [1m[34mSELECT "police_units".* FROM "police_units" WHERE "police_units"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mCACHE PoliceUnit Load (0.0ms)[0m  [1m[34mSELECT "police_units".* FROM "police_units" WHERE "police_units"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mLocalProsecution Load (0.4ms)[0m  [1m[34mSELECT "local_prosecutions".* FROM "local_prosecutions" WHERE "local_prosecutions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:20
+  Rendered messages/_form.html.erb (Duration: 3.4ms | Allocations: 2329)
+  Rendered messages/index.html.erb within layouts/application (Duration: 41.0ms | Allocations: 8967)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 70ms (Views: 59.2ms | ActiveRecord: 5.2ms | Allocations: 16566)
+
+
+Started GET "/procedures/1/messages" for 127.0.0.1 at 2020-10-31 21:07:46 -0300
+Processing by MessagesController#index as HTML
+  Parameters: {"procedure_id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" ORDER BY "messages"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:3
+  [1m[36mProcedure Load (0.7ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures" WHERE "procedures"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:3
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  ↳ app/views/messages/index.html.erb:16
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mPoliceUnit Load (0.6ms)[0m  [1m[34mSELECT "police_units".* FROM "police_units" WHERE "police_units"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mCACHE PoliceUnit Load (0.0ms)[0m  [1m[34mSELECT "police_units".* FROM "police_units" WHERE "police_units"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mLocalProsecution Load (0.5ms)[0m  [1m[34mSELECT "local_prosecutions".* FROM "local_prosecutions" WHERE "local_prosecutions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:20
+  Rendered messages/_form.html.erb (Duration: 4.3ms | Allocations: 2729)
+  Rendered messages/index.html.erb within layouts/application (Duration: 175.2ms | Allocations: 34639)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 238ms (Views: 157.2ms | ActiveRecord: 44.5ms | Allocations: 48980)
+
+
+Started POST "/procedures/1/messages" for 127.0.0.1 at 2020-10-31 21:07:48 -0300
+Processing by MessagesController#create as HTML
+  Parameters: {"authenticity_token"=>"Vm+wvza3U/D9yfXYlvYSc+9HY/hI5vpTdDpj4jciEL5zDDdJ/sKbUn1GlLt8/16YzzTUkM8lcN5VHthY416Dkw==", "user_id"=>"", "procedure_id"=>"1", "content"=>"refreferfesrfref", "commit"=>"Save "}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 400 Bad Request in 10ms (ActiveRecord: 0.7ms | Allocations: 2094)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: message):
+  
+app/controllers/messages_controller.rb:72:in `message_params'
+app/controllers/messages_controller.rb:27:in `create'
+Started GET "/procedures/1/messages" for 127.0.0.1 at 2020-10-31 21:15:18 -0300
+Processing by MessagesController#index as HTML
+  Parameters: {"procedure_id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mMessage Load (1.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" ORDER BY "messages"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:3
+  [1m[36mProcedure Load (1.4ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures" WHERE "procedures"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:3
+  [1m[36mMessage Load (2.0ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  ↳ app/views/messages/index.html.erb:16
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mPoliceUnit Load (0.7ms)[0m  [1m[34mSELECT "police_units".* FROM "police_units" WHERE "police_units"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mCACHE PoliceUnit Load (0.0ms)[0m  [1m[34mSELECT "police_units".* FROM "police_units" WHERE "police_units"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mLocalProsecution Load (0.9ms)[0m  [1m[34mSELECT "local_prosecutions".* FROM "local_prosecutions" WHERE "local_prosecutions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:20
+  Rendered messages/_form.html.erb (Duration: 5.0ms | Allocations: 2462)
+  Rendered messages/index.html.erb within layouts/application (Duration: 48.7ms | Allocations: 9561)
+Completed 500 Internal Server Error in 67ms (ActiveRecord: 13.6ms | Allocations: 12409)
+
+
+  
+ActionView::Template::Error (undefined method `id' for :current_user:Symbol):
+    2: 
+    3:   <div class="field">
+    4:     <%= form.label :user_id %>
+    5:     <%= form.hidden_field :current_user.id %>
+    6:   </div>
+    7: 
+    8:   <div class="field">
+  
+app/views/messages/_form.html.erb:5
+app/views/messages/_form.html.erb:1
+app/views/messages/index.html.erb:31
+Started GET "/procedures/1/messages" for 127.0.0.1 at 2020-10-31 21:16:03 -0300
+Processing by MessagesController#index as HTML
+  Parameters: {"procedure_id"=>"1"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" ORDER BY "messages"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:3
+  [1m[36mProcedure Load (1.1ms)[0m  [1m[34mSELECT "procedures".* FROM "procedures" WHERE "procedures"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:3
+  [1m[36mMessage Load (0.7ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  ↳ app/views/messages/index.html.erb:16
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mPoliceUnit Load (0.4ms)[0m  [1m[34mSELECT "police_units".* FROM "police_units" WHERE "police_units"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mCACHE PoliceUnit Load (0.0ms)[0m  [1m[34mSELECT "police_units".* FROM "police_units" WHERE "police_units"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:18
+  [1m[36mLocalProsecution Load (0.7ms)[0m  [1m[34mSELECT "local_prosecutions".* FROM "local_prosecutions" WHERE "local_prosecutions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/index.html.erb:20
+  Rendered messages/_form.html.erb (Duration: 5.7ms | Allocations: 2554)
+  Rendered messages/index.html.erb within layouts/application (Duration: 39.7ms | Allocations: 9618)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 76ms (Views: 62.6ms | ActiveRecord: 6.7ms | Allocations: 18432)
+
+
+Started POST "/procedures/1/messages" for 127.0.0.1 at 2020-10-31 21:16:05 -0300
+Processing by MessagesController#create as HTML
+  Parameters: {"authenticity_token"=>"sLn5yvREVpDbQ0GiGalZLY3oPUjCJddXyHcCMjxX7giV2n48PDGeMlvMIMHzoBXGrZuKIEXmXdrpU7mI6Ct9JQ==", "user_id"=>"1", "procedure_id"=>"1", "content"=>"refreferfesrfref", "commit"=>"Save "}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 400 Bad Request in 10ms (ActiveRecord: 1.7ms | Allocations: 2220)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: message):
+  
+app/controllers/messages_controller.rb:72:in `message_params'
+app/controllers/messages_controller.rb:27:in `create'
