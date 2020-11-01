@@ -1,31 +1,27 @@
 <p id="notice"><%= notice %></p>
 
+<div id="content_box">
+
 <h1>Mensajes del Procedimiento <%= @messages.first.procedure.id %></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Institution</th>
-      <th>Sender</th>
-      <th>Message</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% @messages.each do |message| %>
+  <div class="messageBox">
+    <div class="leftMessageBox">
+      <%if (message.user.police_unit != nil)%>
+        <%= message.user.police_unit.name %>
+      <%elsif (message.user.local_prosecution!= nil) %>
+        <%= message.user.local_prosecution.name %>
+      <%end %>
+      <%= message.user.email %>
+    </div>
 
-  <tbody>
-    <% @messages.each do |message| %>
-      <tr>
-        <%if (message.user.police_unit != nil)%>
-          <td><%= message.user.police_unit.name %></td>
-        <%elsif (message.user.local_prosecution!= nil) %>
-          <td><%= message.user.local_prosecution.name %></td>
-        <%end %>
-        <td><%= message.user.email %></td>
-        <td><%= message.content %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class="rightMessageBox">
+      <%= message.content %>
+    </div>
+  </div>
+<% end %>
+
 
 <%= render 'form', message: @new_message %>
 
+</div>

@@ -1,0 +1,25 @@
+.messageBox {
+    display: inline-block;
+    border-radius: 5px;
+    background: #E7E7E7;
+    border-color: #2E2F30;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+
+.leftMessageBox
+{
+    width: 20%;
+    float: left;
+}
+
+.rightMessageBox
+{
+    width: 80%;
+    float: right;
+}
