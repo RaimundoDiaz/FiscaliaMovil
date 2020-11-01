@@ -1,3 +1,9 @@
+<script>
+    function fun(){
+        document.getElementById('text').value='';
+    }
+</script>
+
 <%= form_with model: @new_message, url: {controller: "messages", action: "create"} do |form| %>
 
   <div class="field">
@@ -8,12 +14,11 @@
     <%= form.hidden_field :procedure_id, value: @procedure.id %>
   </div>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
+  <div class="field" id="text">
+    <%= form.text_area :content, size: 90,placeholder: "Escribe un mensaje ..."  ,class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions" onclick="fun()" >
+    <%= form.submit "Enviar" , class: "btn btn-primary"%>
   </div>
 <% end %>
