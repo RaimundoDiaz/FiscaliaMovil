@@ -457,19 +457,17 @@ $(document).ready(function(){
         });
     });
 
+    var crimeField = $('#new_crime').clone()
+    $('.delete_crime').last().remove()
+
     $('#add_crime_btn').click(function () {
-        $('#crimes').append($('#new_crime').clone())
+        console.log("add!")
+        console.log(crimeField)
+        $('#crimes').append(crimeField.clone())
         $('.delete_crime').last().click(function () {
             var division = $('.delete_crime').last().closest('#new_crime')
             division.remove()
         })
     })
-
-    $('#delete_crime_btn').click(function () {
-        var division = $('.delete_crime_btn').closest('#new_crime')
-        division.remove()
-    })
-
-
 
 });

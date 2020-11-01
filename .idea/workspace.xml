@@ -21,6 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="7e78bd00-05eb-47f1-83a9-96a5096b2ba1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/procedures.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/procedures.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/procedures/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/procedures/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/packs/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/packs/manifest.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +208,7 @@
       <workItem from="1603912580324" duration="6553000" />
       <workItem from="1604082651689" duration="621000" />
       <workItem from="1604086722266" duration="1744000" />
-      <workItem from="1604181870862" duration="4517000" />
+      <workItem from="1604181870862" duration="7307000" />
     </task>
     <servers />
   </component>
@@ -234,38 +237,38 @@
     </state>
     <state x="693" y="199" key="FileChooserDialogImpl/0.0.1920.1053@0.0.1920.1053" timestamp="1604175453556" />
     <state x="693" y="180" width="526" height="596" key="FileChooserDialogImpl/0.0.1920.951@0.0.1920.951" timestamp="1603911905342" />
-    <state width="1864" height="511" key="GridCell.Tab.0.bottom" timestamp="1604185242542">
+    <state width="1864" height="266" key="GridCell.Tab.0.bottom" timestamp="1604257888514">
       <screen x="0" y="0" width="1920" height="951" />
     </state>
-    <state width="1864" height="511" key="GridCell.Tab.0.bottom/0.0.1920.951@0.0.1920.951" timestamp="1604185242542" />
-    <state width="1864" height="511" key="GridCell.Tab.0.center" timestamp="1604185242541">
+    <state width="1864" height="266" key="GridCell.Tab.0.bottom/0.0.1920.951@0.0.1920.951" timestamp="1604257888514" />
+    <state width="1864" height="266" key="GridCell.Tab.0.center" timestamp="1604257888513">
       <screen x="0" y="0" width="1920" height="951" />
     </state>
-    <state width="1864" height="511" key="GridCell.Tab.0.center/0.0.1920.951@0.0.1920.951" timestamp="1604185242541" />
-    <state width="1864" height="511" key="GridCell.Tab.0.left" timestamp="1604185242541">
+    <state width="1864" height="266" key="GridCell.Tab.0.center/0.0.1920.951@0.0.1920.951" timestamp="1604257888513" />
+    <state width="1864" height="266" key="GridCell.Tab.0.left" timestamp="1604257888513">
       <screen x="0" y="0" width="1920" height="951" />
     </state>
-    <state width="1864" height="511" key="GridCell.Tab.0.left/0.0.1920.951@0.0.1920.951" timestamp="1604185242541" />
-    <state width="1864" height="511" key="GridCell.Tab.0.right" timestamp="1604185242542">
+    <state width="1864" height="266" key="GridCell.Tab.0.left/0.0.1920.951@0.0.1920.951" timestamp="1604257888513" />
+    <state width="1864" height="266" key="GridCell.Tab.0.right" timestamp="1604257888513">
       <screen x="0" y="0" width="1920" height="951" />
     </state>
-    <state width="1864" height="511" key="GridCell.Tab.0.right/0.0.1920.951@0.0.1920.951" timestamp="1604185242542" />
-    <state width="1864" height="511" key="GridCell.Tab.1.bottom" timestamp="1604185242543">
+    <state width="1864" height="266" key="GridCell.Tab.0.right/0.0.1920.951@0.0.1920.951" timestamp="1604257888513" />
+    <state width="1864" height="266" key="GridCell.Tab.1.bottom" timestamp="1604257888516">
       <screen x="0" y="0" width="1920" height="951" />
     </state>
-    <state width="1864" height="511" key="GridCell.Tab.1.bottom/0.0.1920.951@0.0.1920.951" timestamp="1604185242543" />
-    <state width="1864" height="511" key="GridCell.Tab.1.center" timestamp="1604185242542">
+    <state width="1864" height="266" key="GridCell.Tab.1.bottom/0.0.1920.951@0.0.1920.951" timestamp="1604257888516" />
+    <state width="1864" height="266" key="GridCell.Tab.1.center" timestamp="1604257888515">
       <screen x="0" y="0" width="1920" height="951" />
     </state>
-    <state width="1864" height="511" key="GridCell.Tab.1.center/0.0.1920.951@0.0.1920.951" timestamp="1604185242542" />
-    <state width="1864" height="511" key="GridCell.Tab.1.left" timestamp="1604185242542">
+    <state width="1864" height="266" key="GridCell.Tab.1.center/0.0.1920.951@0.0.1920.951" timestamp="1604257888515" />
+    <state width="1864" height="266" key="GridCell.Tab.1.left" timestamp="1604257888514">
       <screen x="0" y="0" width="1920" height="951" />
     </state>
-    <state width="1864" height="511" key="GridCell.Tab.1.left/0.0.1920.951@0.0.1920.951" timestamp="1604185242542" />
-    <state width="1864" height="511" key="GridCell.Tab.1.right" timestamp="1604185242543">
+    <state width="1864" height="266" key="GridCell.Tab.1.left/0.0.1920.951@0.0.1920.951" timestamp="1604257888514" />
+    <state width="1864" height="266" key="GridCell.Tab.1.right" timestamp="1604257888515">
       <screen x="0" y="0" width="1920" height="951" />
     </state>
-    <state width="1864" height="511" key="GridCell.Tab.1.right/0.0.1920.951@0.0.1920.951" timestamp="1604185242543" />
+    <state width="1864" height="266" key="GridCell.Tab.1.right/0.0.1920.951@0.0.1920.951" timestamp="1604257888515" />
     <state x="525" y="44" width="1269" height="907" key="SettingsEditor" timestamp="1603053791535">
       <screen x="0" y="0" width="1920" height="951" />
     </state>
@@ -281,6 +284,6 @@
     <state x="539" y="211" key="run.anything.popup/0.0.1920.951@0.0.1920.951" timestamp="1603914404328" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Atenas@Development__atenas.rcov" NAME="Development: atenas Coverage Results" MODIFIED="1604183728664" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="atenas" />
+    <SUITE FILE_PATH="coverage/Atenas@Development__atenas.rcov" NAME="Development: atenas Coverage Results" MODIFIED="1604257878016" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="atenas" />
   </component>
 </project>
