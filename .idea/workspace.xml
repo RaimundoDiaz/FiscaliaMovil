@@ -20,13 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e78bd00-05eb-47f1-83a9-96a5096b2ba1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.generators" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.generators" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.rakeTasks" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/atenas.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/atenas.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/procedures/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/procedures/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/procedures/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/procedures/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20200926221325_create_procedures.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20200926221325_create_procedures.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/messages/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/messages/_form.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/.yarn-integrity" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.yarn-integrity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,6 +71,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="jsx.switch.disabled" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../course-project-jcastro-rlemay" />
@@ -84,7 +83,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.ruby.settings.RubyActiveModuleSdkConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -224,13 +223,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -241,21 +239,25 @@
     </state>
     <state x="693" y="199" key="FileChooserDialogImpl/0.0.1920.1053@0.0.1920.1053" timestamp="1604175453556" />
     <state x="693" y="180" width="526" height="596" key="FileChooserDialogImpl/0.0.1920.951@0.0.1920.951" timestamp="1603911905342" />
-    <state width="1864" height="232" key="GridCell.Tab.0.bottom" timestamp="1603889273122">
-      <screen x="0" y="0" width="1920" height="951" />
+    <state width="1398" height="240" key="GridCell.Tab.0.bottom" timestamp="1604266014783">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="240" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1604266014783" />
     <state width="1864" height="232" key="GridCell.Tab.0.bottom/0.0.1920.951@0.0.1920.951" timestamp="1603889273122" />
-    <state width="1864" height="232" key="GridCell.Tab.0.center" timestamp="1603889273122">
-      <screen x="0" y="0" width="1920" height="951" />
+    <state width="1398" height="240" key="GridCell.Tab.0.center" timestamp="1604266014782">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="240" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1604266014782" />
     <state width="1864" height="232" key="GridCell.Tab.0.center/0.0.1920.951@0.0.1920.951" timestamp="1603889273122" />
-    <state width="1864" height="232" key="GridCell.Tab.0.left" timestamp="1603889273121">
-      <screen x="0" y="0" width="1920" height="951" />
+    <state width="1398" height="240" key="GridCell.Tab.0.left" timestamp="1604266014781">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="240" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1604266014781" />
     <state width="1864" height="232" key="GridCell.Tab.0.left/0.0.1920.951@0.0.1920.951" timestamp="1603889273121" />
-    <state width="1864" height="232" key="GridCell.Tab.0.right" timestamp="1603889273122">
-      <screen x="0" y="0" width="1920" height="951" />
+    <state width="1398" height="240" key="GridCell.Tab.0.right" timestamp="1604266014782">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="240" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1604266014782" />
     <state width="1864" height="232" key="GridCell.Tab.0.right/0.0.1920.951@0.0.1920.951" timestamp="1603889273122" />
     <state width="1864" height="232" key="GridCell.Tab.1.bottom" timestamp="1603889273123">
       <screen x="0" y="0" width="1920" height="951" />
@@ -273,9 +275,10 @@
       <screen x="0" y="0" width="1920" height="951" />
     </state>
     <state width="1864" height="232" key="GridCell.Tab.1.right/0.0.1920.951@0.0.1920.951" timestamp="1603889273123" />
-    <state x="525" y="44" width="1269" height="907" key="SettingsEditor" timestamp="1603053791535">
-      <screen x="0" y="0" width="1920" height="951" />
+    <state x="394" y="41" width="1269" height="907" key="SettingsEditor" timestamp="1604265969503">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="394" y="41" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1604265969503" />
     <state x="525" y="44" width="1269" height="907" key="SettingsEditor/0.0.1920.951@0.0.1920.951" timestamp="1603053791535" />
     <state x="490" y="176" key="SettingsEditor/0.23.1792.1021@0.23.1792.1021" timestamp="1601328234962" />
     <state x="686" y="379" width="540" height="197" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603889865499">
