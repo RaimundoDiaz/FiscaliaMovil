@@ -133,6 +133,7 @@ ActiveRecord::Schema.define(version: 2020_10_31_214424) do
     t.string "region"
     t.integer "state"
     t.datetime "date_of_arrest"
+    t.boolean "involves_deceased"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["local_prosecution_in_charge_id"], name: "index_procedures_on_local_prosecution_in_charge_id"

@@ -12,6 +12,7 @@ class CreateProcedures < ActiveRecord::Migration[6.0]
       t.string :region
       t.integer :state
       t.datetime :date_of_arrest
+      t.boolean :involves_deceased
 
       t.timestamps
     end
