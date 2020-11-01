@@ -6,8 +6,8 @@
 </p>
 
 <p>
-  <strong>Categories:</strong>
-  <%= @procedure.categories %>
+  <strong>Tags:</strong>
+  <%= @procedure.tags.distinct.map { |x| x.name } %>
 </p>
 
 <p>
@@ -17,7 +17,7 @@
 
 <p>
   <strong>Local prosecution:</strong>
-  <%= @procedure.local_prosecution_id %>
+  <%= @procedure.local_prosecution_in_charge_id %>
 </p>
 
 <p>

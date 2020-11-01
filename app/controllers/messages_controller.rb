@@ -4,7 +4,9 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.all
+    @messages = Message.where(:procedure_id => params[:procedure_id])
+    @procedure = @messages.first.procedure
+    @new_message = Message.new
   end
 
   # GET /messages/1
@@ -25,14 +27,9 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @message = Message.new(message_params)
-
     respond_to do |format|
       if @message.save
-        format.html { redirect_to @message, notice: 'Message was successfully created.' }
-        format.json { render :show, status: :created, location: @message }
-      else
-        format.html { render :new }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
+        format.js {render inline: "location.reload();" }
       end
     end
   end
@@ -69,6 +66,6 @@ class MessagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def message_params
-      params.require(:message).permit(:sender_user_id, :receiver_user_id, :content)
+      params.require(:message).permit(:user_id, :procedure_id, :content)
     end
 end
