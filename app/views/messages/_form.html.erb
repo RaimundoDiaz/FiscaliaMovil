@@ -1,11 +1,11 @@
-<%= form_with(model: message, local: true) do |form| %>
+<%= form_with model: @new_message, url: {controller: "messages", action: "create"} do |form| %>
 
   <div class="field">
     <%= form.hidden_field :user_id, value: current_user.id %>
   </div>
 
   <div class="field">
-    <%= form.hidden_field :procedure_id %>
+    <%= form.hidden_field :procedure_id, value: @procedure.id %>
   </div>
 
   <div class="field">
