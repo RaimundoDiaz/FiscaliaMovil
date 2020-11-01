@@ -13,8 +13,40 @@
  *= require bootstrap
  *= require_tree .
  *= require_self
+ *= require flatpickr
  */
+
 body{
     background-color: #2274A5;
     font-family: Verdana, Geneva, sans-serif;
+}
+
+footer{
+    background-color: #ffffff;
+}
+
+main{
+    padding-top: 10vh;
+    min-height: 85vh;
+}
+
+#content_box_center {
+    border-radius: 25px;
+    background: #FFFBFF;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 50%;
+    height: 50%;
+}
+
+#content_box {
+    border-radius: 25px;
+    background: #FFFBFF;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    height: 50%;
 }

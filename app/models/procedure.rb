@@ -23,4 +23,6 @@ class Procedure < ApplicationRecord
   def created_at_str
     I18n.l(self.created_at, format: '%A, %d de %B de %Y a las %H:%M')
   end
+  has_many :taggings
+  has_many :tags, through: :taggings
 end

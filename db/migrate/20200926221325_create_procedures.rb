@@ -2,7 +2,6 @@ class CreateProcedures < ActiveRecord::Migration[6.0]
   def change
     create_table :procedures do |t|
       t.integer :classification
-      t.text :marks, array: true
       t.references :police_in_charge, null: false, foreign_key: { to_table: :police_men }
       t.references :police_unit_in_charge, null: false, foreign_key: { to_table: :police_units }
       t.references :prosecutor_in_charge, null: false, foreign_key: { to_table: :prosecutors }
@@ -13,6 +12,7 @@ class CreateProcedures < ActiveRecord::Migration[6.0]
       t.string :region
       t.integer :state
       t.datetime :date_of_arrest
+      t.boolean :involves_deceased
 
       t.timestamps
     end

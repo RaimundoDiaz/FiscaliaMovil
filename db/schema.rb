@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_27_214157) do
+ActiveRecord::Schema.define(version: 2020_10_31_214424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -123,7 +123,6 @@ ActiveRecord::Schema.define(version: 2020_10_27_214157) do
 
   create_table "procedures", force: :cascade do |t|
     t.integer "classification"
-    t.text "marks", array: true
     t.bigint "police_in_charge_id", null: false
     t.bigint "police_unit_in_charge_id", null: false
     t.bigint "prosecutor_in_charge_id", null: false
@@ -134,6 +133,7 @@ ActiveRecord::Schema.define(version: 2020_10_27_214157) do
     t.string "region"
     t.integer "state"
     t.datetime "date_of_arrest"
+    t.boolean "involves_deceased"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["local_prosecution_in_charge_id"], name: "index_procedures_on_local_prosecution_in_charge_id"
@@ -154,6 +154,21 @@ ActiveRecord::Schema.define(version: 2020_10_27_214157) do
   create_table "regional_prosecutions", force: :cascade do |t|
     t.string "name"
     t.integer "region"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "taggings", force: :cascade do |t|
+    t.bigint "tag_id"
+    t.bigint "procedure_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["procedure_id"], name: "index_taggings_on_procedure_id"
+    t.index ["tag_id"], name: "index_taggings_on_tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -190,6 +205,8 @@ ActiveRecord::Schema.define(version: 2020_10_27_214157) do
   add_foreign_key "procedures", "police_units", column: "police_unit_in_charge_id"
   add_foreign_key "procedures", "prosecutors", column: "prosecutor_in_charge_id"
   add_foreign_key "prosecutors", "local_prosecutions"
+  add_foreign_key "taggings", "procedures"
+  add_foreign_key "taggings", "tags"
   add_foreign_key "users", "local_prosecutions"
   add_foreign_key "users", "police_units"
 end

@@ -20,15 +20,15 @@
     <% @procedures.each do |procedure| %>
       <tr>
         <td><%= procedure.classification %></td>
-        <td><%= procedure.marks %></td>
+        <td><%= procedure.tags.distinct.map { |x| x.name } %></td>
         <td><%= procedure.police_in_charge_id %></td>
-        <td><%= procedure.local_prosecution_in_charge_id %></td>
+        <td><%= procedure.local_prosecution_in_charge.name %></td>
         <td><%= procedure.story %></td>
         <td><%= procedure.address %></td>
         <td><%= procedure.state %></td>
-        <td><%= link_to 'Show', user_procedure_path(params['user_id'], procedure) %></td>
-        <td><%= link_to 'Edit', edit_user_procedure_path(params['user_id'], procedure) %></td>
-        <td><%= link_to 'Destroy', user_procedure_path(params['user_id'], procedure), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', procedure_path(procedure) %></td>
+        <td><%= link_to 'Edit', edit_procedure_path(procedure) %></td>
+        <td><%= link_to 'Destroy', procedure_path(procedure), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -22,6 +22,8 @@
 <p>
   <strong>Unidad policial:</strong>
   <%= @procedure.police_unit_in_charge_id %>
+  <strong>Tags:</strong>
+  <%= @procedure.tags.distinct.map { |x| x.name } %>
 </p>
 
 <p>
