@@ -7,6 +7,7 @@
     width: 100%;
     height: auto;
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .topMessageBox
@@ -15,8 +16,14 @@
     font-weight: bold;
     font-size: large;
     width: available;
-    text-align: start;
+    text-align: left;
     margin-bottom: 1em;
+}
+
+.dateSide{
+    font-weight: normal;
+    font-size: small;
+    float:right;
 }
 
 .bottomMessageBox

@@ -12,6 +12,8 @@
       <%elsif (message.user.local_prosecution!= nil) %>
         <%= message.user.local_prosecution.name %>
       <%end %>
+
+      <span class="dateSide"><%=message.created_at %></span>
     </div>
 
     <div class="botoomMessageBox">
