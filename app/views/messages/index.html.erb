@@ -6,7 +6,7 @@
 
 <% @messages.each do |message| %>
   <div class="messageBox">
-    <div class="leftMessageBox">
+    <div class="topMessageBox">
       <%if (message.user.police_unit != nil)%>
         <%= message.user.police_unit.name %>
       <%elsif (message.user.local_prosecution!= nil) %>
@@ -14,7 +14,7 @@
       <%end %>
     </div>
 
-    <div class="rightMessageBox">
+    <div class="botoomMessageBox">
       <%= message.content %>
     </div>
   </div>
