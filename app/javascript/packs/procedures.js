@@ -470,4 +470,9 @@ $(document).ready(function(){
         })
     })
 
+    $('#procedure_tag_ids').chosen({
+        allow_single_deselect: true,
+        width: '100%'
+    })
+
 });

@@ -78,7 +78,7 @@
         </div>
 
         <div id="marks">
-
+          <%= form.select :tag_ids, options_for_select(Tag.order(:name).map { |tag| [tag[:name]] }),{},{multiple: true} %>
         </div>
 
         <div>
