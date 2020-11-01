@@ -19,9 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7e78bd00-05eb-47f1-83a9-96a5096b2ba1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/views/pages/search.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/search.html.erb" afterDir="false" />
-    </list>
+    <list default="true" id="7e78bd00-05eb-47f1-83a9-96a5096b2ba1" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -205,6 +203,7 @@
       <workItem from="1603912580324" duration="6553000" />
       <workItem from="1604082651689" duration="621000" />
       <workItem from="1604086722266" duration="1744000" />
+      <workItem from="1604256339154" duration="8202000" />
     </task>
     <servers />
   </component>
