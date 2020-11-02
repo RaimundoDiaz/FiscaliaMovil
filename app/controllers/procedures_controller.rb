@@ -11,6 +11,26 @@ class ProceduresController < ApplicationController
   # GET /procedures/1
   # GET /procedures/1.json
   def show
+    #save list with all accuseds person of the procedure
+    accuseds_in_procedure = @procedure.person_in_procedures.where(role: 0)
+    @accuseds = []
+    accuseds_in_procedure.each do |accused|
+      @accuseds.append(Person.find(accused.person_id))
+    end
+
+    #save list with all victims person of the procedure
+    victims_in_procedure = @procedure.person_in_procedures.where(role: 1)
+    @victims = []
+    victims_in_procedure.each do |victim|
+      @victims.append([Person.find(victim.person_id), victim.witness_declaration])
+    end
+
+    #save list with all witnesses person of the procedure
+    witnesses_in_procedure = @procedure.person_in_procedures.where(role: 2)
+    @witnesses = []
+    witnesses_in_procedure.each do |witness|
+      @witnesses.append([Person.find(witness.person_id), witness.witness_declaration])
+    end
   end
 
   # GET /procedures/new

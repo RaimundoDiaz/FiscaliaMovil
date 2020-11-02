@@ -1,39 +1,185 @@
-<p id="notice"><%= notice %></p>
+<div id="content_box" >
 
-<p>
-  <strong>Classification:</strong>
-  <%= @procedure.classification %>
+  <h1 style="text-align:center;">Procedimiento <%= @procedure.id %></h1>
+  <br>
+
+  <p style="text-align:center;">
+    <strong>Estado:</strong>
+    <% if @procedure.pending? %>
+      Pendiente
+    <% elsif @procedure.acd?%>
+      Audiencia control de detención
+    <% elsif @procedure.noticed? %>
+      Apercibido
+    <% end %>
+  </p>
+
+  <p style="text-align:center;">
+    <strong>Fecha:</strong>
+    <%= @procedure.created_at_str %>
+  </p>
+
+  <p style="text-align:center;">
+    <strong>Dirección:</strong>
+    <%= @procedure.address %>, <%= @procedure.sector %>, <%= @procedure.region %>
+  </p>
+
+  <h3>Datos del procedimiento:</h3>
+  <br>
+  <p>
+    <strong>Unidad policial:</strong>
+    <%= @procedure.police_unit_in_charge_id %>
+  </p>
+
+  <p>
+    <strong>Carabinero a cargo:</strong>
+    <%= @procedure.police_in_charge_id %>
+  </p>
+
+  <p>
+    <strong>Fiscalia Local:</strong>
+    <%= @procedure.local_prosecution_in_charge_id %>
+  </p>
+
+  <p>
+    <strong>Fiscal a cargo:</strong>
+    <%= @procedure.prosecutor_in_charge_id %>
+  </p>
+
+
+  <h3>Datos delictuales:</h3>
+  <br>
+  <p>
+    <strong>Clasificación:</strong>
+    <% if @procedure.flagrancy? %>
+      Flagrancia
+    <% elsif @procedure.pending_arrest_warrant? %>
+      Orden de detención pendiente
+    <% elsif @procedure.both? %>
+      Flagrancia y Orden de detención pendiente
+    <% end %>
+  </p>
+
+  <p>
+    <strong>Delitos:</strong>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+  <p class="card-text">
+
+    <% @procedure.crime_in_accuseds.each do |crime_in_accused| %>
+        <% if crime_in_accused.preponderant? %>
+          <span class="badge badge-danger"><%= crime_in_accused.crime.name %></span>
+        <% else %>
+        <span class="badge badge-primary"><%= crime_in_accused.crime.name %></span>
+        <% end %>
+    <% end %>
+  </p>
+</div>
+</div>
 </p>
 
-<p>
-  <strong>Tags:</strong>
-  <%= @procedure.tags.distinct.map { |x| x.name } %>
-</p>
+  <p>
+    <strong>Marcas:</strong>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+  <p class="card-text">
 
-<p>
-  <strong>Police in charge:</strong>
-  <%= @procedure.police_in_charge_id %>
-</p>
+    <% @procedure.tags.each do |tag| %>
+      <span class="badge badge-pill badge-primary"><%= tag.name %></span>
+    <% end %>
+  </p>
+</div>
+</div>
+  </p>
 
-<p>
-  <strong>Local prosecution:</strong>
-  <%= @procedure.local_prosecution_in_charge_id %>
-</p>
+  <p>
+    <strong>Relato:</strong><br>
+    <%= @procedure.story %>
+  </p>
 
-<p>
-  <strong>Story:</strong>
-  <%= @procedure.story %>
-</p>
+  <p>
+    <strong>Involucra fallecidos:</strong>
+    <%= @procedure.involves_deceased ? "Si" : "No" %>
+  </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @procedure.address %>
-</p>
+  <h3>Datos de involucrados:</h3>
+  <br>
+  <h4>Imputados:</h4>
+  <br>
+<div class="row row-cols-1 row-cols-md-3">
+  <% @accuseds.each do |accused| %>
+    <div class="col mb-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%= accused.name %> <%= accused.last_name %></h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+          <%= accused.rut %> <br> <%= ((Time.zone.now - accused.birthday.to_time) / 1.year.seconds).floor %> años
+        </h6>
+        <p class="card-text"><small class="text-muted">
+          <%= accused.deceased ? "Fallecido" : "" %>
+        </small></p>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
+    </div>
+  <% end %>
+</div>
+  <% if @accuseds.empty? %>
+    <div class="alert alert-info" role="alert">
+      No hay imputados en este procedimiento.
+    </div>
+  <% end %>
+  <br>
 
-<p>
-  <strong>State:</strong>
-  <%= @procedure.state %>
-</p>
+  <h4>Victimas:</h4>
+  <br>
+<div class="row row-cols-1 row-cols-md-3">
+  <% @victims.each do |victim| %>
+    <div class="col mb-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%= victim[0].name %> <%= victim[0].last_name %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= victim[0].rut %> <br> <%= ((Time.zone.now - victim[0].birthday.to_time) / 1.year.seconds).floor %> años</h6>
+        <p class="card-text"><small class="text-muted">
+          <%= victim[0].deceased ? "Fallecido" : "" %></small>
+          <%= victim[1] %>
+        </p>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
+    </div>
+  <% end %>
+</div>
+  <% if @victims.empty? %>
+    <div class="alert alert-info" role="alert">
+      No hay victimas en este procedimiento.
+    </div>
+  <% end %>
+  <br>
 
-<%= link_to 'Edit', edit_procedure_path(@procedure) %> |
-<%= link_to 'Back', procedures_path %>
+  <h4>Testigos:</h4>
+  <br>
+<div class="row row-cols-1 row-cols-md-3">
+  <% @witnesses.each do |witness| %>
+  <div class="col mb-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%= witness[0].name %> <%= witness[0].last_name %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= witness[0].rut %> <br> <%= ((Time.zone.now - witness[0].birthday.to_time) / 1.year.seconds).floor %> años</h6>
+        <p class="card-text">
+          <%= witness[1] %>
+        </p>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+  <% if @witnesses.empty? %>
+    <div class="alert alert-info" role="alert">
+      No hay testigos en este procedimiento.
+    </div>
+  <% end %>
+  <br>
+  <%= link_to 'Back', procedures_path() %>
+</div>
