@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 2020_10_31_214424) do
   create_table "person_in_procedures", force: :cascade do |t|
     t.bigint "person_id", null: false
     t.bigint "procedure_id", null: false
+    t.string "witness_declaration"
     t.integer "role"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
