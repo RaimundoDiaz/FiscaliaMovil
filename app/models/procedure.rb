@@ -7,6 +7,7 @@ class Procedure < ApplicationRecord
   has_many :person_in_procedures
   has_many :people, :through => :person_in_procedures
   has_many :crime_in_accuseds
+  has_many :crimes, :through => :crime_in_accuseds
   has_many :messages
 
   enum state: {pending: 0, acd: 1, noticed: 2}
