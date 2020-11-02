@@ -3,6 +3,7 @@ class CreatePersonInProcedures < ActiveRecord::Migration[6.0]
     create_table :person_in_procedures do |t|
       t.references :person, null: false, foreign_key: true
       t.references :procedure, null: false, foreign_key: true
+      t.string :witness_declaration, null:true
       t.integer :role
 
       t.timestamps

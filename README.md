@@ -21,4 +21,5 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
