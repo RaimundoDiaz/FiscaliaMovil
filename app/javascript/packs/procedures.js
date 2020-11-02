@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on('turbolinks:load', function() {
     //transformar la variable de ruby a un json
 
     var regiones = [
@@ -457,8 +457,22 @@ $(document).ready(function(){
         });
     });
 
+    var crimeField = $('#new_crime').clone()
+    $('.delete_crime').last().remove()
+
     $('#add_crime_btn').click(function () {
-        $('#crimes').append($('#new_crime').clone())
+        console.log("add!")
+        console.log(crimeField)
+        $('#crimes').append(crimeField.clone())
+        $('.delete_crime').last().click(function () {
+            var division = $('.delete_crime').last().closest('#new_crime')
+            division.remove()
+        })
+    })
+
+    $('#procedure_tag_ids').chosen({
+        allow_single_deselect: true,
+        width: '100%'
     })
 
 });
