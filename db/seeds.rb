@@ -11,7 +11,7 @@ procedure = Procedure.create(story: "Sed ut perspiciatis unde omnis iste natus e
 person = Person.create(name: "Juan", last_name: "Perez", rut: "19838173-k", deceased: false, birthday: Date.new(2000))
 imputado = Person.create(name: "Martin", last_name: "Moreno", rut: "19838173-k", deceased: true, birthday: Date.new(1997))
 imputado2 = Person.create(name: "Gian", last_name: "Traverso", rut: "19687033-4", deceased: false, birthday: Date.new(1997))
-PersonInProcedure.create(procedure: procedure, person: person, role: 1)
+PersonInProcedure.create(procedure: procedure, person: person, role: 1, witness_declaration: "Un niño flotó sobre mí y voló un auto con su rasho laser")
 PersonInProcedure.create(procedure: procedure, person: imputado, role: 0)
 PersonInProcedure.create(procedure: procedure, person: imputado2, role: 0)
 crime = Crime.create(name: "Robo con intimidación")

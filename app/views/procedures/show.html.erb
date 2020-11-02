@@ -138,10 +138,11 @@
     <div class="col mb-4">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title"><%= victim.name %> <%= victim.last_name %></h5>
-        <h6 class="card-subtitle mb-2 text-muted"><%= victim.rut %> <br> <%= ((Time.zone.now - victim.birthday.to_time) / 1.year.seconds).floor %> años</h6>
-        <p class="card-text">
-          <%= victim.deceased ? "Fallecido" : "" %>
+        <h5 class="card-title"><%= victim[0].name %> <%= victim[0].last_name %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= victim[0].rut %> <br> <%= ((Time.zone.now - victim[0].birthday.to_time) / 1.year.seconds).floor %> años</h6>
+        <p class="card-text"><small class="text-muted">
+          <%= victim[0].deceased ? "Fallecido" : "" %></small>
+          <%= victim[1] %>
         </p>
         <a href="#" class="card-link">Another link</a>
       </div>
@@ -163,10 +164,10 @@
   <div class="col mb-4">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title"><%= witness.name %> <%= witness.last_name %></h5>
-        <h6 class="card-subtitle mb-2 text-muted"><%= witness.rut %> <br> <%= ((Time.zone.now - witness.birthday.to_time) / 1.year.seconds).floor %> años</h6>
+        <h5 class="card-title"><%= witness[0].name %> <%= witness[0].last_name %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= witness[0].rut %> <br> <%= ((Time.zone.now - witness[0].birthday.to_time) / 1.year.seconds).floor %> años</h6>
         <p class="card-text">
-          <%= witness.deceased ? "Fallecido" : "" %>
+          <%= witness[1] %>
         </p>
         <a href="#" class="card-link">Another link</a>
       </div>
