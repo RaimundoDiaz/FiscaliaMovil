@@ -11,9 +11,9 @@
  * It is generally better to create a new file per style scope.
  *
  *= require bootstrap
+ *= require chosen
  *= require_tree .
  *= require_self
- *= require flatpickr
  */
 
 body{
