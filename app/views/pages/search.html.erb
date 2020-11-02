@@ -1,3 +1,105 @@
 <%= stylesheet_link_tag "search.css" %>
+<div id="tot_container">
+  <div id="rcorners1">
+    <%= form_with url: search_path, method: :get, local: true do |form| %>
+      <div class="form-inline">
+        <%= form.label :palabras_clave, "Palabras Clave: " %>
+        <%= form.text_field :palabras_clave, :placeholder => params[:palabras_clave], class: "form-control" %>
+      </div>
+      <br>
+      <div class="form-inline">
+        <%= form.label :desde, "Desde: " %>
+        <%= form.date_field :desde, class: "form-control" %>
+      </div>
+      <br>
+      <div class="form-inline">
+        <%= form.label :hasta, "Hasta: " %>
+        <%= form.date_field :hasta, class: "form-control" %>
+      </div>
+      <br>
+      <% classifications = ["Flagrancia", "ODP", "Ambas"].map { |classification| [classification] } %>
+      <div class="form-inline">
+        <%= form.label :classification, 'Clasificacion:' , class: "col-form-label"%>
+        <%= form.select :classification, options_for_select(classifications),{},{class: "form-control"} %>
+      </div>
+      <br>
+      <div class="custom-control custom-switch">
+        <%= form.check_box :involucra_fallecidos, class: "custom-control-input", id:"customSwitch1" %>
+        <%= form.label :involucra_fallecidos, "Involucra Fallecidos?: " , class: "custom-control-label", for:"customSwitch1" %>
+      </div>
 
-<h1 class="title">Search</h1>
+      <% crimes = [nil,
+                   "acoso",
+                   "homicidio",
+                   "conduccion en estado de ebriedad",
+                   "Robo a mano armada",
+                   "femicidio",
+                   "violacion",
+                   "pisar las lineas de la vereda"].map{|crime| [crime]} %>
+      <br>
+      <div class="form-inline">
+        <%= form.label :delito, 'Delito:', class: "col-form-label" %>
+        <%= form.select :delito, options_for_select(crimes), {name: "procedure[crimes][]"},{class: "form-control"}  %>
+      </div>
+      <br>
+      <div class="form-inline">
+        <%= form.label :marca, "Marca: " %>
+        <%= form.text_field :marca, :placeholder => params[:marca], class: "form-control" %>
+      </div>
+      <br>
+      <%= form.submit "Filtrar", class: ["btn", "btn-primary"] %>
+    <% end %>
+  </div>
+
+  <div id="divs_wrapper">
+    <%if @procedimientos_buscados != [] %>
+      <% @procedimientos_buscados.each do |procedimiento| %>
+        <div id="div_proced">
+          <div class="police_info">
+            <%= procedimiento.police_in_charge.name%>
+            <br>
+            <%= "N° Placa: " %>
+            <%= procedimiento.police_in_charge.badge %>
+          </div>
+          <div class="vl"></div>
+          <div class="procedimiento_badge">
+            <%= link_to "Procedimiento N°" + String(procedimiento.id), procedure_path(procedimiento.id) %>
+          </div>
+          <div class="state_procedure">
+            <strong>Estado:</strong>
+            <br>
+            <% if procedimiento.pending? %>
+              Pendiente
+            <% elsif procedimiento.acd?%>
+              Audiencia control de detención
+            <% elsif procedimiento.noticed? %>
+              Apercibido
+            <% end %>
+
+          </div>
+          <div class="icons">
+            <%= link_to(
+                    content_tag(
+                        :i,
+                        nil,
+                        class: 'fas fa-envelope fa-2x',
+                        style: 'color: #EC9D32'
+                    ),
+                    procedure_messages_path(procedimiento.id)
+
+                )
+            %>
+
+            <br>
+            <em>
+              <%= procedimiento.created_at %>
+            </em>
+          </div>
+
+
+        </div>
+
+      <% end %>
+    <% end %>
+  </div>
+</div>
