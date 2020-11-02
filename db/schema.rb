@@ -124,7 +124,6 @@ ActiveRecord::Schema.define(version: 2020_10_31_214424) do
 
   create_table "procedures", force: :cascade do |t|
     t.integer "classification"
-    t.text "marks", array: true
     t.bigint "police_in_charge_id", null: false
     t.bigint "police_unit_in_charge_id", null: false
     t.bigint "prosecutor_in_charge_id", null: false
@@ -135,6 +134,7 @@ ActiveRecord::Schema.define(version: 2020_10_31_214424) do
     t.string "region"
     t.integer "state"
     t.datetime "date_of_arrest"
+    t.boolean "involves_deceased"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["local_prosecution_in_charge_id"], name: "index_procedures_on_local_prosecution_in_charge_id"
