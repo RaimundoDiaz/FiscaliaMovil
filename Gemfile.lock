@@ -74,6 +74,17 @@ GEM
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
     childprocess (3.0.0)
+    chosen-rails (1.9.0)
+      coffee-rails (>= 3.2)
+      railties (>= 3.0)
+      sassc-rails (>= 2.1.2)
+    coffee-rails (5.0.0)
+      coffee-script (>= 2.2.0)
+      railties (>= 5.2.0)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.12.2)
     concurrent-ruby (1.1.7)
     crass (1.0.6)
     devise (4.7.3)
@@ -83,6 +94,7 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.9.0)
+    execjs (2.7.0)
     faraday (1.1.0)
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
@@ -246,6 +258,7 @@ DEPENDENCIES
   byebug
   cancancan (~> 3.1)
   capybara (>= 2.15)
+  chosen-rails
   devise (~> 4.7)
   jbuilder (~> 2.7)
   listen (~> 3.2)
