@@ -77,8 +77,9 @@
           </div>
         </div>
 
-        <div id="marks">
-          <%= form.select :tag_ids, options_for_select(Tag.order(:name).map { |tag| [tag[:name]] }),{},{multiple: true} %>
+        <div id="marks" class="form-inline">
+          <%= form.label :tag_ids, 'Marcas:', class: "form-label" %>
+          <%= form.select :tag_ids, options_for_select(Tag.order(:name).map { |tag| [tag[:name]] }, params[:tag_ids]),{},{class: "form-control",multiple: true} %>
         </div>
 
         <div>

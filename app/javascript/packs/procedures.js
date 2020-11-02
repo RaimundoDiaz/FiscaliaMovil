@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on('turbolinks:load', function() {
     //transformar la variable de ruby a un json
 
     var regiones = [
