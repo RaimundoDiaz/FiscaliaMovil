@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.where(:procedure_id => params[:procedure_id])
+    @messages = Message.where(:procedure_id => params[:procedure_id]).order(created_at: :asc)
     @procedure = @messages.first.procedure
     @new_message = Message.new
   end

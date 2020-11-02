@@ -15,12 +15,14 @@
     font-family: "Lucida Console", courier, monospace, bold;
     font-weight: bold;
     font-size: large;
+    color: #EC9D32;
     width: available;
     text-align: left;
     margin-bottom: 1em;
 }
 
 .dateSide{
+    color: #000000;
     font-weight: normal;
     font-size: small;
     float:right;
