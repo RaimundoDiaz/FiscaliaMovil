@@ -5,7 +5,7 @@ class ProceduresController < ApplicationController
   # GET /procedures
   # GET /procedures.json
   def index
-    @procedures = Procedure.all
+    @procedures = Procedure.all.order(created_at: :desc)
   end
 
   # GET /procedures/1

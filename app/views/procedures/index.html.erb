@@ -1,39 +1,57 @@
+<!--
 <p id="notice"><%= notice %></p>
+-->
 
 <div class="text-center">
   <%= link_to "Crear nuevo procedimiento", new_procedure_path, class: "btn btn-warning text-white ml-sm-4"%>
 </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Classification</th>
-      <th>Categories</th>
-      <th>Police in charge</th>
-      <th>Local prosecution</th>
-      <th>Story</th>
-      <th>Address</th>
-      <th>State</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%if @procedures != [] %>
+  <% @procedures.each do |procedimiento| %>
+    <div id="homeProcedureDiv">
+      <div class="police_info">
+        <%= procedimiento.police_in_charge.name%>
+        <br>
+        <%= "N° Placa: " %>
+        <%= procedimiento.police_in_charge.badge %>
+      </div>
+      <div class="vl"></div>
+      <div class="procedimiento_badge">
+        <%= link_to "Procedimiento N°" + String(procedimiento.id), procedure_path(procedimiento.id) %>
+      </div>
+      <div class="state_procedure">
+        <strong>Estado:</strong>
+        <br>
+        <% if procedimiento.pending? %>
+          Pendiente
+        <% elsif procedimiento.acd?%>
+          Audiencia control de detención
+        <% elsif procedimiento.noticed? %>
+          Apercibido
+        <% end %>
 
-  <tbody>
-    <% @procedures.each do |procedure| %>
-      <tr>
-        <td><%= procedure.classification %></td>
-        <td><%= procedure.tags.distinct.map { |x| x.name } %></td>
-        <td><%= procedure.police_in_charge_id %></td>
-        <td><%= procedure.local_prosecution_in_charge.name %></td>
-        <td><%= procedure.story %></td>
-        <td><%= procedure.address %></td>
-        <td><%= procedure.state %></td>
-        <td><%= link_to 'Show', procedure_path(procedure) %></td>
-        <td><%= link_to 'Edit', edit_procedure_path(procedure) %></td>
-        <td><%= link_to 'Destroy', procedure_path(procedure), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </div>
+      <div class="icons">
+        <%= link_to(
+                content_tag(
+                    :i,
+                    nil,
+                    class: 'fas fa-envelope fa-2x',
+                    style: 'color: #EC9D32'
+                ),
+                procedure_messages_path(procedimiento.id)
 
-<br>
+            )
+        %>
+
+        <br>
+        <em>
+          <%= procedimiento.created_at %>
+        </em>
+      </div>
+
+
+    </div>
+
+  <% end %>
+<% end %>
