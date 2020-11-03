@@ -28,23 +28,29 @@
     <main>
       <%= yield %>
     </main>
-    <footer class="light bg-light border-top p-1 mb-0">
-      <div class="container text-center text-md-left mt-2 ">
-        <div class="row">
-          <div class="col-md-6 mt-md-0 mt-3">
-            <h5 class="text"> Fiscalía Nacional</h5>
-            <hr class="teal accent-3 mb-2 mt-0 d-inline-block " style="width: 60px;">
+    <footer class="light bg-light border-top p-1">
+      <div class="container text-center text-md-left mt-5 ">
+        <div class="row mt-3 dark-grey-text">
+          <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
+            <h6 class="text font-weight-bold">Fiscalía Nacional</h6>
+            <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
             <p> <a class="dark-grey-text" href="http://www.fiscaliadechile.cl/Fiscalia/index.do">Ir al sitio web</a></p>
+
           </div>
 
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
 
-          <div class="col-md-4 mb-md-0 mb-2">
-            <h5 class="text">Contacto</h5>
-            <hr class="teal accent-3 mb-2 mt-0 d-inline-block " style="width: 60px;">
-            <p class="text">ficalia@gmail.com</p>
+            <h6 class="text font-weight-bold">Contacto</h6>
+            <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p class=" ml-sm-0">Universidad de los Andes</p>
+            <p>atenas@olimpus.com</p>
+
+
+
           </div>
-          <div class="col-md- col-lg-3 col-xl-2  mb-md-0 mb-4">
-            <a class="ml-sm-5"><%= image_tag("logo_olimpus.png", width: "180em") %></a>
+
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <a class="ml-sm-5"><%= image_tag("logo.jpg", width: "200em") %></a>
           </div>
         </div>
       </div>
