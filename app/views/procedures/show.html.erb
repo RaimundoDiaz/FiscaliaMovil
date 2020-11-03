@@ -181,7 +181,6 @@
             No hay imputados en este procedimiento.
           </div>
         <% end %>
-        <br>
       </div>
       <div class="tab-pane fade" id="nav-victim" role="tabpanel" aria-labelledby="nav-profile-tab">
         <br>
@@ -206,7 +205,6 @@
             No hay victimas en este procedimiento.
           </div>
         <% end %>
-        <br>
       </div>
       <div class="tab-pane fade" id="nav-witness" role="tabpanel" aria-labelledby="nav-contact-tab">
         <br>
@@ -232,15 +230,99 @@
         <% end %>
       </div>
     </div>
-
-
-
   </div>
 </div>
 <br>
 
+<div class="card">
+    <h5 class="card-header">Multimedia</h5>
+    <div class="card-body">
 
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-image-tab" data-toggle="tab" href="#nav-image" role="tab" aria-controls="nav-image" aria-selected="true">Imagenes</a>
+          <a class="nav-item nav-link" id="nav-document-tab" data-toggle="tab" href="#nav-document" role="tab" aria-controls="nav-document" aria-selected="false">Documentos</a>
+          <a class="nav-item nav-link" id="nav-witness-tab" data-toggle="tab" href="#nav-witness" role="tab" aria-controls="nav-contact" aria-selected="false">Testigos</a>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-image" role="tabpanel" aria-labelledby="nav-image-tab">
+          <br>
+
+
+          <% if @accuseds.empty? %>
+            <div class="alert alert-info" role="alert">
+              No hay imagenes en este procedimiento.
+            </div>
+          <% end %>
+        </div>
+        <div class="tab-pane fade" id="nav-document" role="tabpanel" aria-labelledby="nav-document-tab">
+          <br>
+
+          <% if @victims.empty? %>
+            <div class="alert alert-info" role="alert">
+              No hay documentos en este procedimiento.
+            </div>
+          <% end %>
+        </div>
+        <div class="tab-pane fade" id="nav-witness" role="tabpanel" aria-labelledby="nav-contact-tab">
+          <br>
+          <div class="row row-cols-1 row-cols-md-3">
+            <% @witnesses.each do |witness| %>
+              <div class="col mb-4">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= witness[0].name %> <%= witness[0].last_name %></h5>
+                    <h6 class="card-subtitle mb-2 text-muted"><%= witness[0].rut %> <br> <%= ((Time.zone.now - witness[0].birthday.to_time) / 1.year.seconds).floor %> años</h6>
+                    <p class="card-text">
+                      <%= witness[1] %>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <% if @witnesses.empty? %>
+            <div class="alert alert-info" role="alert">
+              No hay testigos en este procedimiento.
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+<br>
 <div align="right">
-  <%= link_to 'Back', procedures_path(), class: ["btn", "btn-outline-primary"] %>
+  <%= link_to "Pronunciarse", "#pronounceModal", :class => ["btn", "btn-outline-primary"], "data-toggle" => "modal" %>
+  <%= link_to 'Editar', edit_procedure_path(@procedure.id), class: ["btn", "btn-outline-primary"] %>
+  <%= link_to 'Atras', procedures_path(), class: ["btn", "btn-outline-primary"] %>
   <%= link_to 'Mensajes del procedimiento', procedure_messages_path(@procedure.id), class: ["btn", "btn-outline-warning"] %>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="pronounceModal" tabindex="-1" role="dialog" aria-labelledby="pronounceModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="pronounceModalLongTitle">Pronunciar en procedimiento</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <select class="custom-select">
+          <option selected>Seleccionar estado</option>
+          <option value="1">Apercibido</option>
+          <option value="2">Audencia control de detención</option>
+        </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Enviar</button>
+      </div>
+    </div>
+  </div>
 </div>
