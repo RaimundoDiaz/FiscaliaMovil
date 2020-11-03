@@ -657,7 +657,5 @@ $(document).on('turbolinks:load', function() {
             $("#witnessRut").addClass("is-invalid");
             $('#witness-invalid-rut').removeAttr('hidden');
         }
-
     });
-
 });

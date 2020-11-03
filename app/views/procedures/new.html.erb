@@ -26,13 +26,6 @@
               <%= form.select :classification, options_for_select(classifications),{},{class: "form-control flex-grow"} %>
             </div>
           </div>
-
-          <div id="deceased">
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch1">
-              <label class="custom-control-label" for="customSwitch1">Involucra fallecidos</label>
-            </div>
-          </div>
         </div>
 
         <b>Localizacion:</b>
@@ -106,7 +99,7 @@
           <%= form.text_area :story,  class: "form-control flex-grow-1"  %>
         </div>
         <div>
-          <%= form.submit "Enviar", class: "btn btn-primary" %>
+          <%= form.submit "Enviar", class: "btn btn-primary", id:"btn-send"%>
         </div>
       </div>
     <% end %>
