@@ -7,14 +7,14 @@ en:
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
     failure:
-      already_authenticated: "You are already signed in."
+      already_authenticated: "Ya estas iniciado sesión."
       inactive: "Your account is not activated yet."
-      invalid: "Invalid %{authentication_keys} or password."
-      locked: "Your account is locked."
-      last_attempt: "You have one more attempt before your account is locked."
+      invalid: "%{authentication_keys} o contraseña inválida."
+      locked: "Tu cuenta esta bloqueada."
+      last_attempt: "Tienes un intento más antes de que tu cuenta sea bloqueada."
       not_found_in_database: "Invalid %{authentication_keys} or password."
-      timeout: "Your session expired. Please sign in again to continue."
-      unauthenticated: "You need to sign in or sign up before continuing."
+      timeout: "Tu sesión ha expirado. Por favor inicia sesión nuevamente para continuar."
+      unauthenticated: "Debes iniciar sesión para continuar."
       unconfirmed: "You have to confirm your email address before continuing."
     mailer:
       confirmation_instructions:
