@@ -429,7 +429,7 @@ $(document).on('turbolinks:load', function() {
 
     //agregar al select de comunas los datos del json
     $.each(comunas, function (i, item) {
-        $('#procedure_comune').append($('<option>', {
+        $('#procedure_sector').append($('<option>', {
             value: item.codigo,
             text : item.nombre
         }));
@@ -446,11 +446,11 @@ $(document).on('turbolinks:load', function() {
         console.log(nuevas_comunas);
 
         //borrar las opciones actuales
-        $('#procedure_comune').children().remove();
+        $('#procedure_sector').children().remove();
 
         //agregar al select de comunas los datos del json
         $.each(nuevas_comunas, function (i, item) {
-            $('#procedure_comune').append($('<option>', {
+            $('#procedure_sector').append($('<option>', {
                 value: item.codigo,
                 text : item.nombre
             }));
@@ -540,6 +540,7 @@ $(document).on('turbolinks:load', function() {
     function restartVictimModal(){
         $('#victimName').val("");
         $('#victimRut').val("");
+        $('#victimContact').val("");
         $('#victimStory').val("");
 
         $("#victimRut").removeClass("has-danger");
@@ -550,8 +551,8 @@ $(document).on('turbolinks:load', function() {
     $('#victimClose').on('click',function(){restartVictimModal()});
     $('#close-victim-btn').on('click',function(){restartVictimModal()});
 
+    //logica del modal de la victima al clickear el boton guardar
     $('#modal-victim-btn').click(function() {
-
         if($.validateRut($("#victimRut").val()) || $("#victimRut").val() == "") {
             $("#victimRut").removeClass("has-danger");
             $("#victimRut").addClass("has-success");
@@ -562,6 +563,8 @@ $(document).on('turbolinks:load', function() {
             var name = $('#victimName').val();
             var rut = $('#victimRut').val();
             var story = $('#victimStory').val();
+            var contact = $('#victimContact').val();
+            var deceased = $('#deceasedVictimSwitch').is(":checked");
 
             var input = $("<input>")
                 .attr("type", "hidden")
@@ -576,11 +579,19 @@ $(document).on('turbolinks:load', function() {
                 .attr("type", "hidden")
                 .attr("name", "victims[][story]").val(story);
             $('#form_procedure').append(input);
+            input = $("<input>")
+                .attr("type", "hidden")
+                .attr("name", "victims[][contact]").val(contact);
+            $('#form_procedure').append(input);
+            input = $("<input>")
+                .attr("type", "hidden")
+                .attr("name", "victims[][deceased]").val(deceased);
+            $('#form_procedure').append(input);
 
             restartVictimModal()
 
             $('#victims').append($("<div class=\"d-flex justify-content-between\">\n" +
-                "                   <p><b>Nombre:</b> " + name + " </p> <p><b>Rut:</b> " + rut +
+                "                   <p><b>Nombre:</b> " + name+ " </p> <p><b>Rut:</b> " + rut + " </p> <p><b>Contacto:</b> " + contact + " </p>" +
                 "                   </div> <div><p><b>Detalles:</b> " + story + "</p></div>"));
             $("#victimClose").click()
         }
@@ -592,9 +603,9 @@ $(document).on('turbolinks:load', function() {
     });
 
     function restartWitnessModal(){
-        console.log("restart witness");
         $('#witnessName').val("");
         $('#witnessRut').val("");
+        $('#witnessContact').val("");
         $('#witnessStory').val("");
         $("#witnessRut").removeClass("has-danger");
         $("#witnessRut").removeClass("is-invalid");
@@ -616,6 +627,7 @@ $(document).on('turbolinks:load', function() {
             var name = $('#witnessName').val();
             var rut = $('#witnessRut').val();
             var story = $('#witnessStory').val();
+            var contact = $('#witnessContact').val();
 
             var input = $("<input>")
                 .attr("type", "hidden")
@@ -630,9 +642,13 @@ $(document).on('turbolinks:load', function() {
                 .attr("type", "hidden")
                 .attr("name", "witness[][story]").val(story);
             $('#form_procedure').append(input);
+            input = $("<input>")
+                .attr("type", "hidden")
+                .attr("name", "witness[][contact]").val(contact);
+            $('#form_procedure').append(input);
             restartWitnessModal()
             $('#witnesses').append($("<div class=\"d-flex justify-content-between\">\n" +
-                "                   <p><b>Nombre:</b> " + name + " </p> <p><b>Rut:</b> " + rut +
+                "                   <p><b>Nombre:</b> " + name + " </p> <p><b>Rut:</b> " + rut +" </p> <p><b>Contacto:</b> " + contact + " </p>" +
                 "                   </div> <div><p><b>Detalles:</b> " + story + "</p></div>"));
             $("#witnessClose").click()
         }

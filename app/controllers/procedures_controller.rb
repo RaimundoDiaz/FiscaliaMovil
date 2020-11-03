@@ -46,8 +46,8 @@ class ProceduresController < ApplicationController
   # POST /procedures
   # POST /procedures.json
   def create
-    print(params[:crime],"\nAAAAAAAAAAAAAAAAAAAA\n")
-    @procedure = Procedure.new(procedure_params)
+
+    @procedure = Procedure.new()
 
     respond_to do |format|
       if @procedure.save
