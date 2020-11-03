@@ -13,16 +13,16 @@
     <header>
       <nav class="navbar navbar-light bg-light">
         <div class="navbar-brand">
-          <a class="mr-sm-4"><%= image_tag("FiscaliaLogo.png", width: "70em") %></a>
-          <a class="mr-sm-4"><%= image_tag("FiscaliaNombre.png", width: "180em") %></a>
+          <a class="mr-sm-4"><%= link_to image_tag("FiscaliaLogo.png", width: "70em"), root_path %></a>
+          <a class="mr-sm-4"><%= link_to image_tag("FiscaliaNombre.png", width: "180em"), root_path %></a>
         </div>
         <%= form_with url: search_path, method: :get, local: true do |form| %>
           <div class="form-inline row">
-            <%= form.text_field :query, :placeholder => "Search", class: "form-control" %>
-            <%= form.submit "Search", class: ["btn", "btn-primary"] %>
+            <%= form.text_field :query, :placeholder => "Buscar...", class: "form-control" %>
+            <%= form.submit "Buscar", class: ["btn", "btn-primary"] %>
           </div>
         <% end %>
-        <button type="button" class="btn btn-warning text-white ml-sm-4"><%= link_to "Cerrar sesión", destroy_user_session_path, :method => :delete %></button>
+        <%= button_to "Cerrar sesión", destroy_user_session_path, :method => :delete, :class => "btn btn-warning text-white ml-sm-4" %>
       </nav>
     </header>
     <main>

@@ -1,15 +1,15 @@
 {
-  "application.js": "/packs/js/application-d420a0a4fdd660a388bb.js",
-  "application.js.map": "/packs/js/application-d420a0a4fdd660a388bb.js.map",
+  "application.js": "/packs/js/application-00e8b956a71a716a3bcd.js",
+  "application.js.map": "/packs/js/application-00e8b956a71a716a3bcd.js.map",
   "chosen.js": "/packs/js/chosen-dcf090f743d29f6653c4.js",
   "chosen.js.map": "/packs/js/chosen-dcf090f743d29f6653c4.js.map",
   "entrypoints": {
     "application": {
       "js": [
-        "/packs/js/application-d420a0a4fdd660a388bb.js"
+        "/packs/js/application-00e8b956a71a716a3bcd.js"
       ],
       "js.map": [
-        "/packs/js/application-d420a0a4fdd660a388bb.js.map"
+        "/packs/js/application-00e8b956a71a716a3bcd.js.map"
       ]
     },
     "chosen": {
@@ -20,25 +20,25 @@
         "/packs/js/chosen-dcf090f743d29f6653c4.js.map"
       ]
     },
-    "jquery-3": {
+    "jquery": {
       "js": [
-        "/packs/js/jquery-3-3fe2931e65dd29a89d54.js"
+        "/packs/js/jquery-84f37bd1770e07cac8ca.js"
       ],
       "js.map": [
-        "/packs/js/jquery-3-3fe2931e65dd29a89d54.js.map"
+        "/packs/js/jquery-84f37bd1770e07cac8ca.js.map"
       ]
     },
     "procedures": {
       "js": [
-        "/packs/js/procedures-155292d0c744aaefcec4.js"
+        "/packs/js/procedures-a4d466cb8b55803a9ea9.js"
       ],
       "js.map": [
-        "/packs/js/procedures-155292d0c744aaefcec4.js.map"
+        "/packs/js/procedures-a4d466cb8b55803a9ea9.js.map"
       ]
     }
   },
-  "jquery-3.js": "/packs/js/jquery-3-3fe2931e65dd29a89d54.js",
-  "jquery-3.js.map": "/packs/js/jquery-3-3fe2931e65dd29a89d54.js.map",
-  "procedures.js": "/packs/js/procedures-155292d0c744aaefcec4.js",
-  "procedures.js.map": "/packs/js/procedures-155292d0c744aaefcec4.js.map"
+  "jquery.js": "/packs/js/jquery-84f37bd1770e07cac8ca.js",
+  "jquery.js.map": "/packs/js/jquery-84f37bd1770e07cac8ca.js.map",
+  "procedures.js": "/packs/js/procedures-a4d466cb8b55803a9ea9.js",
+  "procedures.js.map": "/packs/js/procedures-a4d466cb8b55803a9ea9.js.map"
 }

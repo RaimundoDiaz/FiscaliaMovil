@@ -473,81 +473,175 @@ $(document).on('turbolinks:load', function() {
         width: '100%'
     });
 
+    $(function() {
+        $("#accusedRut").rut({formatOn: 'keyup'})
+    });
+    $(function() {
+        $("#victimRut").rut({formatOn: 'keyup'})
+    });
+    $(function() {
+        $("#witnessRut").rut({formatOn: 'keyup'})
+    });
+
+    function restartAccusedModal(){
+        $('#accusedName').val("");
+        $('#accusedAlias').val("");
+        $('#accusedRut').val("");
+
+        $("#accusedRut").removeClass("is-invalid");
+        $("#accusedRut").removeClass("has-danger");
+        $('#accused-invalid-rut').hide();
+    }
+
+    $('#accusedClose').on('click',function(){restartAccusedModal()});
+    $('#close-accused-btn').on('click',function(){restartAccusedModal()});
+
     //al apretar el boton guardar en el modal del acusado
     $('#modal-accused-btn').click(function() {
-        var name = $('#acussedName').val();
-        var alias = $('#acussedAlias').val();
-        var rut = $('#acussedRut').val();
+        if($.validateRut($("#accusedRut").val()) || $("#accusedRut").val() == "") {
+            $("#accusedRut").removeClass("has-danger");
+            $("#accusedRut").addClass("has-success");
+            $("#accusedRut").removeClass("is-invalid");
+            $("#accusedRut").addClass("form-control-success");
+            $('#accused-invalid-rut').hide();
 
-        var input = $("<input>")
-            .attr("type", "hidden")
-            .attr("name", "accuseds[][name]").val(name);
-        $('#form_procedure').append(input);
+            var name = $('#accusedName').val();
+            var alias = $('#accusedAlias').val();
+            var rut = $('#accusedRut').val();
 
-        input = $("<input>")
-            .attr("type", "hidden")
-            .attr("name", "accuseds[][alias]").val(alias);
-        $('#form_procedure').append(input);
-        input = $("<input>")
-            .attr("type", "hidden")
-            .attr("name", "accuseds[][rut]").val(rut);
-        $('#form_procedure').append(input);
+            var input = $("<input>")
+                .attr("type", "hidden")
+                .attr("name", "accuseds[][name]").val(name);
+            $('#form_procedure').append(input);
 
-        $('#accuseds').append($("<div class=\"d-flex justify-content-between\">\n" +
-            "                <p><b>Nombre:</b> " + name + " </p> <p><b>Alias:</b> \"" + alias + "\" </p>\n" +
-            "                <p><b>Rut:</b> " + rut + "</p>\n" +
-            "              </div>"));
+            input = $("<input>")
+                .attr("type", "hidden")
+                .attr("name", "accuseds[][alias]").val(alias);
+            $('#form_procedure').append(input);
+            input = $("<input>")
+                .attr("type", "hidden")
+                .attr("name", "accuseds[][rut]").val(rut);
+            $('#form_procedure').append(input);
+
+            $('#accuseds').append($("<div class=\"d-flex justify-content-between\">\n" +
+                "                <p><b>Nombre:</b> " + name + " </p> <p><b>Alias:</b> \"" + alias + "\" </p>\n" +
+                "                <p><b>Rut:</b> " + rut + "</p>\n" +
+                "              </div>"));
+            restartAccusedModal()
+            $("#accusedClose").click()
+        }
+        else{
+            $("#accusedRut").addClass("has-danger")
+            $("#accusedRut").addClass("is-invalid")
+            $('#accused-invalid-rut').removeAttr('hidden');
+        }
     });
+
+    function restartVictimModal(){
+        $('#victimName').val("");
+        $('#victimRut').val("");
+        $('#victimStory').val("");
+
+        $("#victimRut").removeClass("has-danger");
+        $("#victimRut").removeClass("is-invalid");
+        $('#victim-invalid-rut').hide();
+    }
+
+    $('#victimClose').on('click',function(){restartVictimModal()});
+    $('#close-victim-btn').on('click',function(){restartVictimModal()});
 
     $('#modal-victim-btn').click(function() {
-        var name = $('#victimName').val();
-        var rut = $('#victimRut').val();
-        var story = $('#victimStory').val();
 
-        console.log("aaaaaaa")
+        if($.validateRut($("#victimRut").val()) || $("#victimRut").val() == "") {
+            $("#victimRut").removeClass("has-danger");
+            $("#victimRut").addClass("has-success");
+            $("#victimRut").removeClass("is-invalid");
+            $("#victimRut").addClass("form-control-success");
+            $('#victim-invalid-rut').hide();
 
-        var input = $("<input>")
-            .attr("type", "hidden")
-            .attr("name", "victims[][name]").val(name);
-        $('#form_procedure').append(input);
+            var name = $('#victimName').val();
+            var rut = $('#victimRut').val();
+            var story = $('#victimStory').val();
 
-        input = $("<input>")
-            .attr("type", "hidden")
-            .attr("name", "victims[][rut]").val(rut);
-        $('#form_procedure').append(input);
-        input = $("<input>")
-            .attr("type", "hidden")
-            .attr("name", "victims[][story]").val(story);
-        $('#form_procedure').append(input);
+            var input = $("<input>")
+                .attr("type", "hidden")
+                .attr("name", "victims[][name]").val(name);
+            $('#form_procedure').append(input);
 
-        $('#victims').append($("<div class=\"d-flex justify-content-between\">\n" +
-            "                   <p><b>Nombre:</b> " + name + " </p> <p><b>Rut:</b> " + rut +
-            "                   </div> <div><p><b>Detalles:</b> " + story + "</p></div>"));
+            input = $("<input>")
+                .attr("type", "hidden")
+                .attr("name", "victims[][rut]").val(rut);
+            $('#form_procedure').append(input);
+            input = $("<input>")
+                .attr("type", "hidden")
+                .attr("name", "victims[][story]").val(story);
+            $('#form_procedure').append(input);
+
+            restartVictimModal()
+
+            $('#victims').append($("<div class=\"d-flex justify-content-between\">\n" +
+                "                   <p><b>Nombre:</b> " + name + " </p> <p><b>Rut:</b> " + rut +
+                "                   </div> <div><p><b>Detalles:</b> " + story + "</p></div>"));
+            $("#victimClose").click()
+        }
+        else{
+            $("#victimRut").addClass("has-danger")
+            $("#victimRut").addClass("is-invalid")
+            $('#victim-invalid-rut').removeAttr('hidden');
+        }
     });
 
+    function restartWitnessModal(){
+        console.log("restart witness");
+        $('#witnessName').val("");
+        $('#witnessRut').val("");
+        $('#witnessStory').val("");
+        $("#witnessRut").removeClass("has-danger");
+        $("#witnessRut").removeClass("is-invalid");
+        $('#witness-invalid-rut').hide();
+    };
+
+    $('#witnessClose').on('click',function(){restartWitnessModal()});
+    $('#close-witness-btn').on('click',function(){restartWitnessModal()});
+
     $('#modal-witness-btn').click(function() {
-        var name = $('#witnessName').val();
-        var rut = $('#witnessRut').val();
-        var story = $('#witnessStory').val();
 
+        if($.validateRut($("#witnessRut").val()) || $("#witnessRut").val() == "") {
+            $("#witnessRut").removeClass("has-danger");
+            $("#witnessRut").addClass("has-success");
+            $("#witnessRut").removeClass("is-invalid");
+            $("#witnessRut").addClass("form-control-success");
+            $('#witness-invalid-rut').hide();
 
-        var input = $("<input>")
-            .attr("type", "hidden")
-            .attr("name", "witness[][name]").val(name);
-        $('#form_procedure').append(input);
+            var name = $('#witnessName').val();
+            var rut = $('#witnessRut').val();
+            var story = $('#witnessStory').val();
 
-        input = $("<input>")
-            .attr("type", "hidden")
-            .attr("name", "witness[][rut]").val(rut);
-        $('#form_procedure').append(input);
-        input = $("<input>")
-            .attr("type", "hidden")
-            .attr("name", "witness[][story]").val(story);
-        $('#form_procedure').append(input);
+            var input = $("<input>")
+                .attr("type", "hidden")
+                .attr("name", "witness[][name]").val(name);
+            $('#form_procedure').append(input);
 
-        $('#witnesses').append($("<div class=\"d-flex justify-content-between\">\n" +
-            "                   <p><b>Nombre:</b> " + name + " </p> <p><b>Rut:</b> " + rut +
-            "                   </div> <div><p><b>Detalles:</b> " + story + "</p></div>"));
+            input = $("<input>")
+                .attr("type", "hidden")
+                .attr("name", "witness[][rut]").val(rut);
+            $('#form_procedure').append(input);
+            input = $("<input>")
+                .attr("type", "hidden")
+                .attr("name", "witness[][story]").val(story);
+            $('#form_procedure').append(input);
+            restartWitnessModal()
+            $('#witnesses').append($("<div class=\"d-flex justify-content-between\">\n" +
+                "                   <p><b>Nombre:</b> " + name + " </p> <p><b>Rut:</b> " + rut +
+                "                   </div> <div><p><b>Detalles:</b> " + story + "</p></div>"));
+            $("#witnessClose").click()
+        }
+        else{
+            $("#witnessRut").addClass("has-danger");
+            $("#witnessRut").addClass("is-invalid");
+            $('#witness-invalid-rut').removeAttr('hidden');
+        }
+
     });
 
 });
