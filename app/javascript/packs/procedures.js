@@ -511,16 +511,16 @@ $(document).on('turbolinks:load', function() {
 
             var input = $("<input>")
                 .attr("type", "hidden")
-                .attr("name", "accuseds[][name]").val(name);
+                .attr("name", "procedure[accuseds][][name]").val(name);
             $('#form_procedure').append(input);
 
             input = $("<input>")
                 .attr("type", "hidden")
-                .attr("name", "accuseds[][alias]").val(alias);
+                .attr("name", "procedure[accuseds][][alias]").val(alias);
             $('#form_procedure').append(input);
             input = $("<input>")
                 .attr("type", "hidden")
-                .attr("name", "accuseds[][rut]").val(rut);
+                .attr("name", "procedure[accuseds][][rut]").val(rut);
             $('#form_procedure').append(input);
 
             $('#accuseds').append($("<div class=\"d-flex justify-content-between\">\n" +
@@ -568,24 +568,24 @@ $(document).on('turbolinks:load', function() {
 
             var input = $("<input>")
                 .attr("type", "hidden")
-                .attr("name", "victims[][name]").val(name);
+                .attr("name", "procedure[victims][][name]").val(name);
             $('#form_procedure').append(input);
 
             input = $("<input>")
                 .attr("type", "hidden")
-                .attr("name", "victims[][rut]").val(rut);
+                .attr("name", "procedure[victims][][rut]").val(rut);
             $('#form_procedure').append(input);
             input = $("<input>")
                 .attr("type", "hidden")
-                .attr("name", "victims[][story]").val(story);
+                .attr("name", "procedure[victims][][story]").val(story);
             $('#form_procedure').append(input);
             input = $("<input>")
                 .attr("type", "hidden")
-                .attr("name", "victims[][contact]").val(contact);
+                .attr("name", "procedure[victims][][contact]").val(contact);
             $('#form_procedure').append(input);
             input = $("<input>")
                 .attr("type", "hidden")
-                .attr("name", "victims[][deceased]").val(deceased);
+                .attr("name", "procedure[victims][][deceased]").val(deceased);
             $('#form_procedure').append(input);
 
             restartVictimModal()
@@ -631,20 +631,20 @@ $(document).on('turbolinks:load', function() {
 
             var input = $("<input>")
                 .attr("type", "hidden")
-                .attr("name", "witness[][name]").val(name);
+                .attr("name", "procedure[witness][][name]").val(name);
             $('#form_procedure').append(input);
 
             input = $("<input>")
                 .attr("type", "hidden")
-                .attr("name", "witness[][rut]").val(rut);
+                .attr("name", "procedure[witness][][rut]").val(rut);
             $('#form_procedure').append(input);
             input = $("<input>")
                 .attr("type", "hidden")
-                .attr("name", "witness[][story]").val(story);
+                .attr("name", "procedure[witness][][story]").val(story);
             $('#form_procedure').append(input);
             input = $("<input>")
                 .attr("type", "hidden")
-                .attr("name", "witness[][contact]").val(contact);
+                .attr("name", "procedure[witness][][contact]").val(contact);
             $('#form_procedure').append(input);
             restartWitnessModal()
             $('#witnesses').append($("<div class=\"d-flex justify-content-between\">\n" +
