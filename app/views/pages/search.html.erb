@@ -17,15 +17,16 @@
         <%= form.date_field :hasta, class: "form-control" %>
       </div>
       <br>
-      <% classifications = ["Flagrancia", "ODP", "Ambas"].map { |classification| [classification] } %>
+      <% classifications = [nil,"Flagrancia", "ODP", "Ambas"].map { |classification| [classification] } %>
       <div class="form-inline">
         <%= form.label :classification, 'Clasificacion:' , class: "col-form-label"%>
         <%= form.select :classification, options_for_select(classifications),{},{class: "form-control"} %>
       </div>
       <br>
-      <div class="custom-control custom-switch">
-        <%= form.check_box :involucra_fallecidos, class: "custom-control-input", id:"customSwitch1" %>
-        <%= form.label :involucra_fallecidos, "Involucra Fallecidos?: " , class: "custom-control-label", for:"customSwitch1" %>
+      <% fallecidos = [nil,"Si", "No"].map { |involucra_fallecidos| [involucra_fallecidos] } %>
+      <div class="form-inline">
+        <%= form.label :involucra_fallecidos, 'Involucra Fallecidos: ' , class: "col-form-label"%>
+        <%= form.select :involucra_fallecidos, options_for_select(fallecidos),{},{class: "form-control"} %>
       </div>
 
       <% crimes = [nil,
@@ -43,16 +44,17 @@
       </div>
       <br>
       <div class="form-inline">
-        <%= form.label :marca, "Marca: " %>
-        <%= form.text_field :marca, :placeholder => params[:marca], class: "form-control" %>
+        <p>Marcas:</p>
+        <%= form.select :tag_ids, options_for_select(Tag.order(:name).map { |tag| [tag[:name]] }, params[:tag_ids]),{},{class: "form-control",multiple: true} %>
       </div>
       <br>
       <%= form.submit "Filtrar", class: ["btn", "btn-primary"] %>
+
     <% end %>
   </div>
 
   <div id="divs_wrapper">
-    <%if @procedimientos_buscados != [] %>
+    <%if @procedimientos_buscados != []  and @procedimientos_buscados != nil%>
       <% @procedimientos_buscados.each do |procedimiento| %>
         <div id="div_proced">
           <div class="police_info">
@@ -95,11 +97,16 @@
               <%= procedimiento.created_at %>
             </em>
           </div>
-
-
         </div>
 
       <% end %>
     <% end %>
   </div>
 </div>
+
+<script>
+    $('#tag_ids').chosen({
+        allow_single_deselect: true,
+        width: '100%'
+    });
+</script>

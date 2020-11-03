@@ -24,162 +24,305 @@
     <%= @procedure.address %>, <%= @procedure.sector %>, <%= @procedure.region %>
   </p>
 
-  <h3>Datos del procedimiento:</h3>
+  <div class="card">
+    <h5 class="card-header">Datos del procedimiento</h5>
+    <div class="card-body">
+
+      <div class="row">
+        <div class="col-4">
+          <div class="list-group" id="list-tab" role="tablist">
+            <a class="list-group-item list-group-item-action active" id="list-police-unit-list" data-toggle="list" href="#list-police-unit" role="tab" aria-controls="home">Unidad Policial</a>
+            <a class="list-group-item list-group-item-action" id="list-police-in-charge-list" data-toggle="list" href="#list-police-in-charge" role="tab" aria-controls="profile">Policia a cargo</a>
+            <a class="list-group-item list-group-item-action" id="list-local-prosecution-list" data-toggle="list" href="#list-local-prosecution" role="tab" aria-controls="messages">Fiscalia Local</a>
+            <a class="list-group-item list-group-item-action" id="list-prosecutor-in-charge-list" data-toggle="list" href="#list-prosecutor-in-charge" role="tab" aria-controls="settings">Fiscal a cargo</a>
+          </div>
+        </div>
+        <div class="col-8">
+          <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="list-police-unit" role="tabpanel" aria-labelledby="list-police-unit-list">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title"><%= @procedure.police_unit_in_charge.name %></h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Pertenece a <%= @procedure.police_unit_in_charge.police_station.name %></h6>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="list-police-in-charge" role="tabpanel" aria-labelledby="list-police-in-charge-list">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title"><%= @procedure.police_in_charge.name %></h5>
+                  <h6 class="card-subtitle mb-2 text-muted"><%= @procedure.police_in_charge.rut %></h6>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="list-local-prosecution" role="tabpanel" aria-labelledby="list-local-prosecution-list">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title"><%= @procedure.local_prosecution_in_charge.name %></h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Pertenece a <%= @procedure.local_prosecution_in_charge.regional_prosecution.name %></h6>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="list-prosecutor-in-charge" role="tabpanel" aria-labelledby="list-prosecutor-in-charge-list">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title"><%= @procedure.prosecutor_in_charge.name %></h5>
+                  <h6 class="card-subtitle mb-2 text-muted"><%= @procedure.prosecutor_in_charge.rut %></h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
   <br>
-  <p>
-    <strong>Unidad policial:</strong>
-    <%= @procedure.police_unit_in_charge_id %>
-  </p>
+  <div class="card">
+    <h5 class="card-header">Datos delictuales</h5>
+    <div class="card-body">
 
-  <p>
-    <strong>Carabinero a cargo:</strong>
-    <%= @procedure.police_in_charge_id %>
-  </p>
-
-  <p>
-    <strong>Fiscalia Local:</strong>
-    <%= @procedure.local_prosecution_in_charge_id %>
-  </p>
-
-  <p>
-    <strong>Fiscal a cargo:</strong>
-    <%= @procedure.prosecutor_in_charge_id %>
-  </p>
-
-
-  <h3>Datos delictuales:</h3>
-  <br>
-  <p>
-    <strong>Clasificación:</strong>
-    <% if @procedure.flagrancy? %>
-      Flagrancia
-    <% elsif @procedure.pending_arrest_warrant? %>
-      Orden de detención pendiente
-    <% elsif @procedure.both? %>
-      Flagrancia y Orden de detención pendiente
-    <% end %>
-  </p>
-
-  <p>
-    <strong>Delitos:</strong>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-  <p class="card-text">
-
-    <% @procedure.crime_in_accuseds.each do |crime_in_accused| %>
-        <% if crime_in_accused.preponderant? %>
-          <span class="badge badge-danger"><%= crime_in_accused.crime.name %></span>
-        <% else %>
-        <span class="badge badge-primary"><%= crime_in_accused.crime.name %></span>
+      <p class="card-text">
+        <strong>Clasificación:</strong>
+        <% if @procedure.flagrancy? %>
+          Flagrancia
+        <% elsif @procedure.pending_arrest_warrant? %>
+          Orden de detención pendiente
+        <% elsif @procedure.both? %>
+          Flagrancia y Orden de detención pendiente
         <% end %>
-    <% end %>
-  </p>
-</div>
-</div>
-</p>
+      </p>
 
-  <p>
-    <strong>Marcas:</strong>
-    <div class="card" style="width: 18rem;">
+      <p lass="card-text">
+        <div class="card">
+          <div class="card-body">
+            <h6 class="card-title"><strong>Delitos</strong></h6>
+      <p class="card-text">
+        <% @procedure.crime_in_accuseds.each do |crime_in_accused| %>
+          <% if crime_in_accused.preponderant? %>
+            <span class="badge badge-danger"><%= crime_in_accused.crime.name %></span>
+          <% else %>
+            <span class="badge badge-primary"><%= crime_in_accused.crime.name %></span>
+          <% end %>
+        <% end %>
+      </p>
+
+    </div>
+
+  </div>
+  <br>
+  <p class="card-text">
+    <div class="card">
       <div class="card-body">
+        <h6 class="card-title"><strong>Marcas</strong></h6>
   <p class="card-text">
 
     <% @procedure.tags.each do |tag| %>
       <span class="badge badge-pill badge-primary"><%= tag.name %></span>
     <% end %>
   </p>
+
+</div>
+</div>
+
+
 </div>
 </div>
   </p>
 
-  <p>
-    <strong>Relato:</strong><br>
-    <%= @procedure.story %>
-  </p>
+<div class="card">
+  <h5 class="card-header">Relato</h5>
+  <div class="card-body">
+    <p class="card-text"><%= @procedure.story %></p>
 
-  <p>
-    <strong>Involucra fallecidos:</strong>
-    <%= @procedure.involves_deceased ? "Si" : "No" %>
-  </p>
+    <p class="card-text">
+      <strong>Involucra fallecidos:</strong>
+      <%= @procedure.involves_deceased ? "Si" : "No" %>
+    </p>
 
-  <h3>Datos de involucrados:</h3>
-  <br>
-  <h4>Imputados:</h4>
-  <br>
-<div class="row row-cols-1 row-cols-md-3">
-  <% @accuseds.each do |accused| %>
-    <div class="col mb-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title"><%= accused.name %> <%= accused.last_name %></h5>
-        <h6 class="card-subtitle mb-2 text-muted">
-          <%= accused.rut %> <br> <%= ((Time.zone.now - accused.birthday.to_time) / 1.year.seconds).floor %> años
-        </h6>
-        <p class="card-text"><small class="text-muted">
-          <%= accused.deceased ? "Fallecido" : "" %>
-        </small></p>
-        <a href="#" class="card-link">Another link</a>
+  </div>
+
+</div>
+<br>
+<div class="card">
+  <h5 class="card-header">Datos de involucrados</h5>
+  <div class="card-body">
+
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-accused-tab" data-toggle="tab" href="#nav-accused" role="tab" aria-controls="nav-home" aria-selected="true">Imputados</a>
+        <a class="nav-item nav-link" id="nav-victim-tab" data-toggle="tab" href="#nav-victim" role="tab" aria-controls="nav-profile" aria-selected="false">Victimas</a>
+        <a class="nav-item nav-link" id="nav-witness-tab" data-toggle="tab" href="#nav-witness" role="tab" aria-controls="nav-contact" aria-selected="false">Testigos</a>
       </div>
-    </div>
-    </div>
-  <% end %>
-</div>
-  <% if @accuseds.empty? %>
-    <div class="alert alert-info" role="alert">
-      No hay imputados en este procedimiento.
-    </div>
-  <% end %>
-  <br>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-accused" role="tabpanel" aria-labelledby="nav-home-tab">
+        <br>
+        <div class="row row-cols-1 row-cols-md-3">
+          <% @accuseds.each do |accused| %>
+            <div class="col mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title"><%= accused.name %> <%= accused.last_name %></h5>
+                  <h6 class="card-subtitle mb-2 text-muted">
+                    <%= accused.rut %> <br> <%= ((Time.zone.now - accused.birthday.to_time) / 1.year.seconds).floor %> años
+                  </h6>
+                  <p class="card-text"><small class="text-muted">
+                    <%= accused.deceased ? "Fallecido" : "" %>
+                  </small></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
 
-  <h4>Victimas:</h4>
-  <br>
-<div class="row row-cols-1 row-cols-md-3">
-  <% @victims.each do |victim| %>
-    <div class="col mb-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title"><%= victim[0].name %> <%= victim[0].last_name %></h5>
-        <h6 class="card-subtitle mb-2 text-muted"><%= victim[0].rut %> <br> <%= ((Time.zone.now - victim[0].birthday.to_time) / 1.year.seconds).floor %> años</h6>
-        <p class="card-text"><small class="text-muted">
-          <%= victim[0].deceased ? "Fallecido" : "" %></small>
-          <%= victim[1] %>
-        </p>
-        <a href="#" class="card-link">Another link</a>
+        <% if @accuseds.empty? %>
+          <div class="alert alert-info" role="alert">
+            No hay imputados en este procedimiento.
+          </div>
+        <% end %>
       </div>
-    </div>
-    </div>
-  <% end %>
-</div>
-  <% if @victims.empty? %>
-    <div class="alert alert-info" role="alert">
-      No hay victimas en este procedimiento.
-    </div>
-  <% end %>
-  <br>
-
-  <h4>Testigos:</h4>
-  <br>
-<div class="row row-cols-1 row-cols-md-3">
-  <% @witnesses.each do |witness| %>
-  <div class="col mb-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title"><%= witness[0].name %> <%= witness[0].last_name %></h5>
-        <h6 class="card-subtitle mb-2 text-muted"><%= witness[0].rut %> <br> <%= ((Time.zone.now - witness[0].birthday.to_time) / 1.year.seconds).floor %> años</h6>
-        <p class="card-text">
-          <%= witness[1] %>
-        </p>
-        <a href="#" class="card-link">Another link</a>
+      <div class="tab-pane fade" id="nav-victim" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <br>
+        <div class="row row-cols-1 row-cols-md-3">
+          <% @victims.each do |victim| %>
+            <div class="col mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title"><%= victim[0].name %> <%= victim[0].last_name %></h5>
+                  <h6 class="card-subtitle mb-2 text-muted"><%= victim[0].rut %> <br> <%= ((Time.zone.now - victim[0].birthday.to_time) / 1.year.seconds).floor %> años</h6>
+                  <p class="card-text"><small class="text-muted">
+                    <%= victim[0].deceased ? "Fallecido" : "" %></small>
+                    <%= victim[1] %>
+                  </p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <% if @victims.empty? %>
+          <div class="alert alert-info" role="alert">
+            No hay victimas en este procedimiento.
+          </div>
+        <% end %>
+      </div>
+      <div class="tab-pane fade" id="nav-witness" role="tabpanel" aria-labelledby="nav-contact-tab">
+        <br>
+        <div class="row row-cols-1 row-cols-md-3">
+          <% @witnesses.each do |witness| %>
+            <div class="col mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title"><%= witness[0].name %> <%= witness[0].last_name %></h5>
+                  <h6 class="card-subtitle mb-2 text-muted"><%= witness[0].rut %> <br> <%= ((Time.zone.now - witness[0].birthday.to_time) / 1.year.seconds).floor %> años</h6>
+                  <p class="card-text">
+                    <%= witness[1] %>
+                  </p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <% if @witnesses.empty? %>
+          <div class="alert alert-info" role="alert">
+            No hay testigos en este procedimiento.
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
-  <% end %>
 </div>
-  <% if @witnesses.empty? %>
-    <div class="alert alert-info" role="alert">
-      No hay testigos en este procedimiento.
+<br>
+
+<div class="card">
+    <h5 class="card-header">Multimedia</h5>
+    <div class="card-body">
+
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-image-tab" data-toggle="tab" href="#nav-image" role="tab" aria-controls="nav-image" aria-selected="true">Imagenes</a>
+          <a class="nav-item nav-link" id="nav-document-tab" data-toggle="tab" href="#nav-document" role="tab" aria-controls="nav-document" aria-selected="false">Documentos</a>
+          <a class="nav-item nav-link" id="nav-witness-tab" data-toggle="tab" href="#nav-witness" role="tab" aria-controls="nav-contact" aria-selected="false">Testigos</a>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-image" role="tabpanel" aria-labelledby="nav-image-tab">
+          <br>
+
+
+          <% if @accuseds.empty? %>
+            <div class="alert alert-info" role="alert">
+              No hay imagenes en este procedimiento.
+            </div>
+          <% end %>
+        </div>
+        <div class="tab-pane fade" id="nav-document" role="tabpanel" aria-labelledby="nav-document-tab">
+          <br>
+
+          <% if @victims.empty? %>
+            <div class="alert alert-info" role="alert">
+              No hay documentos en este procedimiento.
+            </div>
+          <% end %>
+        </div>
+        <div class="tab-pane fade" id="nav-witness" role="tabpanel" aria-labelledby="nav-contact-tab">
+          <br>
+          <div class="row row-cols-1 row-cols-md-3">
+            <% @witnesses.each do |witness| %>
+              <div class="col mb-4">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= witness[0].name %> <%= witness[0].last_name %></h5>
+                    <h6 class="card-subtitle mb-2 text-muted"><%= witness[0].rut %> <br> <%= ((Time.zone.now - witness[0].birthday.to_time) / 1.year.seconds).floor %> años</h6>
+                    <p class="card-text">
+                      <%= witness[1] %>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <% if @witnesses.empty? %>
+            <div class="alert alert-info" role="alert">
+              No hay testigos en este procedimiento.
+            </div>
+          <% end %>
+        </div>
+      </div>
+
     </div>
-  <% end %>
-  <br>
-  <%= link_to 'Back', procedures_path() %>
+  </div>
+
+<br>
+<div align="right">
+  <%= link_to "Pronunciarse", "#pronounceModal", :class => ["btn", "btn-outline-primary"], "data-toggle" => "modal" %>
+  <%= link_to 'Editar', edit_procedure_path(@procedure.id), class: ["btn", "btn-outline-primary"] %>
+  <%= link_to 'Atras', procedures_path(), class: ["btn", "btn-outline-primary"] %>
+  <%= link_to 'Mensajes del procedimiento', procedure_messages_path(@procedure.id), class: ["btn", "btn-outline-warning"] %>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="pronounceModal" tabindex="-1" role="dialog" aria-labelledby="pronounceModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="pronounceModalLongTitle">Pronunciar en procedimiento</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <select class="custom-select">
+          <option selected>Seleccionar estado</option>
+          <option value="1">Apercibido</option>
+          <option value="2">Audencia control de detención</option>
+        </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Enviar</button>
+      </div>
+    </div>
+  </div>
 </div>
