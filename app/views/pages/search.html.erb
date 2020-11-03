@@ -44,8 +44,8 @@
       </div>
       <br>
       <div class="form-inline">
-        <%= form.label :marca, "Marca: " %>
-        <%= form.text_field :marca, :placeholder => params[:marca], class: "form-control" %>
+        <p>Marcas:</p>
+        <%= form.select :tag_ids, options_for_select(Tag.order(:name).map { |tag| [tag[:name]] }, params[:tag_ids]),{},{class: "form-control",multiple: true} %>
       </div>
       <br>
       <%= form.submit "Filtrar", class: ["btn", "btn-primary"] %>
@@ -54,7 +54,7 @@
   </div>
 
   <div id="divs_wrapper">
-    <%if @procedimientos_buscados != [] %>
+    <%if @procedimientos_buscados != []  and @procedimientos_buscados != nil%>
       <% @procedimientos_buscados.each do |procedimiento| %>
         <div id="div_proced">
           <div class="police_info">
@@ -103,3 +103,10 @@
     <% end %>
   </div>
 </div>
+
+<script>
+    $('#tag_ids').chosen({
+        allow_single_deselect: true,
+        width: '100%'
+    });
+</script>

@@ -87,10 +87,15 @@ class PagesController < ApplicationController
       end
     end
 
-    #if params[:marca] != nil and params[:marca] != ""
-    #  @query_buscada.push(Procedure.find(CrimeInAccused.where("crime_id = ?",Crime.where(name: params[:marca]).pluck(:id)).pluck(:procedure_id)))
-    #end
-    for i in [@query, @palabras_clave, @desde, @clasificacion, @involucra_fallecidos, @delito]
+    @marcas = []
+    if params[:tag_ids] != nil and params[:tag_ids] != ""
+      for tag_name in params[:tag_ids][1..params[:tag_ids].size]
+        @marcas.push(Procedure.find(Tagging.where("tag_id = ?",Tag.where("name = ?", tag_name).pluck(:id)).pluck(:procedure_id)).pluck(:id))
+      end
+
+    end
+
+    for i in [@query, @palabras_clave, @desde, @clasificacion, @involucra_fallecidos, @delito, @marcas]
       if i != []
         if @palabras_clave == []
           @palabras_clave = i
@@ -110,13 +115,17 @@ class PagesController < ApplicationController
         if @query == []
           @query = i
         end
+        if @marcas == []
+          @marcas = i
+        end
         break
       end
     end
 
-    @fin = @palabras_clave & @desde & @clasificacion & @involucra_fallecidos & @delito & @query
-    @procedimientos_buscados = Procedure.find(@fin)
-
+    @fin = @palabras_clave & @desde & @clasificacion & @involucra_fallecidos & @delito & @query & @marcas
+    if @fin != []
+      @procedimientos_buscados = Procedure.find(@fin)
+    end
   end
 
 end
