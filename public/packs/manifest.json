@@ -1,34 +1,44 @@
 {
-  "application.js": "/packs/js/application-c391439d2b8eb6fcec9d.js",
-  "application.js.map": "/packs/js/application-c391439d2b8eb6fcec9d.js.map",
-  "chosen.js": "/packs/js/chosen-dce1926fc8f514f5ed86.js",
-  "chosen.js.map": "/packs/js/chosen-dce1926fc8f514f5ed86.js.map",
+  "application.js": "/packs/js/application-d420a0a4fdd660a388bb.js",
+  "application.js.map": "/packs/js/application-d420a0a4fdd660a388bb.js.map",
+  "chosen.js": "/packs/js/chosen-dcf090f743d29f6653c4.js",
+  "chosen.js.map": "/packs/js/chosen-dcf090f743d29f6653c4.js.map",
   "entrypoints": {
     "application": {
       "js": [
-        "/packs/js/application-c391439d2b8eb6fcec9d.js"
+        "/packs/js/application-d420a0a4fdd660a388bb.js"
       ],
       "js.map": [
-        "/packs/js/application-c391439d2b8eb6fcec9d.js.map"
+        "/packs/js/application-d420a0a4fdd660a388bb.js.map"
       ]
     },
     "chosen": {
       "js": [
-        "/packs/js/chosen-dce1926fc8f514f5ed86.js"
+        "/packs/js/chosen-dcf090f743d29f6653c4.js"
       ],
       "js.map": [
-        "/packs/js/chosen-dce1926fc8f514f5ed86.js.map"
+        "/packs/js/chosen-dcf090f743d29f6653c4.js.map"
+      ]
+    },
+    "jquery-3": {
+      "js": [
+        "/packs/js/jquery-3-3fe2931e65dd29a89d54.js"
+      ],
+      "js.map": [
+        "/packs/js/jquery-3-3fe2931e65dd29a89d54.js.map"
       ]
     },
     "procedures": {
       "js": [
-        "/packs/js/procedures-96602d706b46bf37ca2c.js"
+        "/packs/js/procedures-155292d0c744aaefcec4.js"
       ],
       "js.map": [
-        "/packs/js/procedures-96602d706b46bf37ca2c.js.map"
+        "/packs/js/procedures-155292d0c744aaefcec4.js.map"
       ]
     }
   },
-  "procedures.js": "/packs/js/procedures-96602d706b46bf37ca2c.js",
-  "procedures.js.map": "/packs/js/procedures-96602d706b46bf37ca2c.js.map"
+  "jquery-3.js": "/packs/js/jquery-3-3fe2931e65dd29a89d54.js",
+  "jquery-3.js.map": "/packs/js/jquery-3-3fe2931e65dd29a89d54.js.map",
+  "procedures.js": "/packs/js/procedures-155292d0c744aaefcec4.js",
+  "procedures.js.map": "/packs/js/procedures-155292d0c744aaefcec4.js.map"
 }
