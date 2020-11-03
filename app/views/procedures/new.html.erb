@@ -1,33 +1,44 @@
 
 <span>
   <div id="content_box">
-    <h1>Ingreso de procedimiento</h1>
-    <div class="pr-5 pl-5" id="form">
-      <%= form_with model: @procedure do |form|%>
+    <h1 class="d-flex justify-content-center"><b>Ingreso de procedimiento</b></h1>
+    <div class="pr-5 pl-5 mt-5" id="form">
+      <%= form_with model: @procedure, id: "form_procedure" do |form|%>
 
-        <div id="datetime" class="d-flex justify-content-between">
-          <div class="form-inline">
-            <%= form.label :date, 'Fecha: ', class: "form-label"%>
-            <%= form.date_field :date , class: "form-control"%>
+        <b>Infromacion general del procedimiento:</b>
+        <div id="general" class="greyContainer">
+          <div id="datetime" class="mb-3 d-flex justify-content-between">
+            <div class="form-inline">
+              <%= form.label :date, 'Fecha: ', class: "mr-2 form-label"%>
+              <%= form.date_field :date , class: "form-control"%>
+            </div>
+
+            <div class="form-inline">
+              <%= form.label :time, 'Hora: ', class: "mr-2 form-label"%>
+              <%= form.time_field :time, class: "form-control" %>
+            </div>
           </div>
 
-          <div class="form-inline">
-            <%= form.label :time, 'Hora: ', class: "form-label"%>
-            <%= form.time_field :time, class: "form-control" %>
+          <div id="classification" class="mb-3 d-flex justify-content-between">
+            <% classifications = ["Flagrancia", "ODP", "Ambas"].map { |classification| [classification] } %>
+            <div class="form-inline">
+              <%= form.label :classification, 'Clasificacion:' , class: "mr-2 form-label"%>
+              <%= form.select :classification, options_for_select(classifications),{},{class: "form-control flex-grow"} %>
+            </div>
+          </div>
+
+          <div id="deceased">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="customSwitch1">
+              <label class="custom-control-label" for="customSwitch1">Involucra fallecidos</label>
+            </div>
           </div>
         </div>
 
-        <div id="classification" class="d-flex justify-content-between">
-          <% classifications = ["Flagrancia", "ODP", "Ambas"].map { |classification| [classification] } %>
-          <div class="form-inline">
-            <%= form.label :classification, 'Clasificacion:' , class: "form-label"%>
-            <%= form.select :region, options_for_select(classifications),{},{class: "form-control flex-grow"} %>
-          </div>
-        </div>
-
-        <div id="address">
-          <div class="form-inline ">
-            <%= form.label :address, 'Direccion:' , class: "form-label"%>
+        <b>Localizacion:</b>
+        <div id="address" class="greyContainer">
+          <div class="form-inline mb-3">
+            <%= form.label :address, 'Direccion:' , class: "mr-2 form-label"%>
             <%= form.text_field :address,  class: "form-control flex-grow-1"  %>
           </div>
 
@@ -35,18 +46,19 @@
           <div class="d-flex justify-content-between">
             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
             <div class="form-inline">
-              <%= form.label :region, 'Region:', class: "form-label" %>
+              <%= form.label :region, 'Region:', class: "mr-2 form-label" %>
               <%= form.select :region, options_for_select(cities_array),{},{class: "form-control"} %>
             </div>
 
             <div class="form-inline">
-              <%= form.label :comune, 'Comuna:', class: "form-label" %>
+              <%= form.label :comune, 'Comuna:', class: "mr-2 form-label" %>
               <%= form.select :comune, [],{},{class: "form-control"} %>
             </div>
           </div>
         </div>
 
-        <div id="crimes">
+        <b>Delitos:</b>
+        <div id="crimes" class="greyContainer">
           <% crimes = [nil,
                        "acoso",
                        "homicidio",
@@ -55,31 +67,40 @@
                        "femicidio",
                        "violacion",
                        "pisar las lineas de la vereda"].map{|crime| [crime]} %>
-          <div class="form-inline">
-            <%= form.label :preponderant_crime, 'Delito prepopnderante:', class: "form-label" %>
-            <%= form.select :preponderant_crime, options_for_select(crimes),{},{class: "form-control"} %>
+          <div class="form-inline d-flex justify-content-between">
+            <%= form.label :preponderant_crime, 'Delito prepopnderante:', class: "form-label mr-2" %>
+            <%= form.select :preponderant_crime, options_for_select(crimes),{},{class: "form-control flex-grow-1"} %>
           </div>
-          <div id = "new_crime" class="form-inline">
+          <div id = "new_crime" class="mt-3 form-inline d-flex justify-content-between">
             <%= fields_for "procedure[crimes]" do |crimes_fields| %>
-              <%= crimes_fields.label "", 'Delito:', class: "form-label" %>
-              <%= crimes_fields.select "" , options_for_select(crimes), {name: "procedure[crimes][]"},{class: "form-control"}  %>
+              <%= crimes_fields.label "", 'Delito:', class: "form-label mr-2" %>
+              <%= crimes_fields.select "" , options_for_select(crimes), {name: "procedure[crimes][]"},{class: "form-control flex-grow-1"}  %>
             <% end %>
-            <button type="button" class="btn btn-danger delete_crime"> Eliminar delito </button>
+            <button type="button" class="ml-2 btn btn-danger delete_crime"> Eliminar delito </button>
           </div>
         </div>
 
-        <div id="crime_btn_div" class="form-inline"><button type="button" id="add_crime_btn" class="btn btn-primary"> Agregar delito </button></div>
+        <div id="crime_btn_div" class="mb-3"><button type="button" id="add_crime_btn" class="btn btn-primary"> Agregar delito </button></div>
 
-        <div id="deceased">
-          <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="customSwitch1">
-            <label class="custom-control-label" for="customSwitch1">Involucra fallecidos</label>
-          </div>
-        </div>
-
-        <div id="marks" class="form-inline">
-          <%= form.label :tag_ids, 'Marcas:', class: "form-label" %>
+        <b>Marcas:</b>
+        <div id="marks" class="form-group greyContainer">
           <%= form.select :tag_ids, options_for_select(Tag.order(:name).map { |tag| [tag[:name]] }, params[:tag_ids]),{},{class: "form-control",multiple: true} %>
+        </div>
+
+        <b>Imputados:</b>
+        <div id="accuseds" class="greyContainer">
+          <button type="button" id="add_accused_btn" class="mb-3 btn btn-warning text-light" data-toggle="modal" data-target="#accusedModal"> + Agregar Imputado </button>
+
+        </div>
+        <b>Victimas:</b>
+        <div id="victims" class="greyContainer">
+          <button type="button" id="add_victim_btn" class="mb-3 btn btn-warning text-light" data-toggle="modal" data-target="#victimModal"> + Agregar Victima </button>
+
+        </div>
+        <b>Testigos:</b>
+        <div id="witnesses" class="greyContainer">
+          <button type="button" id="add_witness_btn" class="mb-3 btn btn-warning text-light" data-toggle="modal" data-target="#witnessModal"> + Agregar Testigo </button>
+
         </div>
 
         <div>
@@ -91,3 +112,75 @@
 
 </span>
 
+<!-- Acussed Modal -->
+<div class="modal fade" id="accusedModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Agregar imputado</h5>
+        <button type="button" class="close" id="accusedClose" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type="email" class="mb-3 form-control" id="accusedName" aria-describedby="nameAcussed" placeholder="Nombre Completo">
+        <input type="text" class="mb-3 form-control" id="accusedAlias" aria-describedby="aliasAccused" placeholder="Alias o Sobrenombre">
+        <input type="text" class="mb-3 form-control" id="accusedRut" aria-describedby="rutAccused" placeholder="Rut">
+        <div id="accused-invalid-rut" class="invalid-feedback" hidden>Rut invalido.</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="close-accused-btn" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button id="modal-accused-btn" type="button" class="btn btn-primary" >Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Victim Modal -->
+<div class="modal fade" id="victimModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Agregar Victima</h5>
+        <button type="button" class="close" id="victimClose" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type="text" class="mb-3 form-control" id="victimName" aria-describedby="nameVictim" placeholder="Nombre Completo">
+        <input type="text" class="mb-3 form-control" id="victimRut" aria-describedby="rutVictim" placeholder="Rut">
+        <div id="victim-invalid-rut" class="invalid-feedback" hidden>Rut invalido.</div>
+        <textarea class="mb-3 form-control" id="victimStory" aria-describedby="storyVictim" placeholder="Detalles..."></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="close-victim-btn" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button id="modal-victim-btn" type="button" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Witness Modal -->
+<div class="modal fade" id="witnessModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Agregar Victima</h5>
+        <button type="button" class="close" id="witnessClose" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type="text" class="mb-3 form-control" id="witnessName" aria-describedby="nameWitness" placeholder="Nombre Completo">
+        <input type="text" class="mb-3 form-control" id="witnessRut" aria-describedby="rutWitness" placeholder="Rut">
+        <div id="witness-invalid-rut" class="invalid-feedback" hidden>Rut invalido.</div>
+        <textarea class="mb-3 form-control" id="witnessStory" aria-describedby="storyWitness" placeholder="Detalles..."></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="close-witness-btn" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button id="modal-witness-btn" type="button" class="btn btn-primary" >Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
