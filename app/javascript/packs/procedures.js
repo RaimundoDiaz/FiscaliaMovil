@@ -421,7 +421,7 @@ $(document).on('turbolinks:load', function() {
         {codigo : "13604",   nombre : "Padre Hurtado"},
         {codigo : "13605",   nombre : "Peñaflor"}]
         }
-    ]
+    ];
 
     var comunas = regiones[0];
     comunas = JSON.parse(JSON.stringify(comunas));
@@ -461,18 +461,93 @@ $(document).on('turbolinks:load', function() {
     $('.delete_crime').last().remove()
 
     $('#add_crime_btn').click(function () {
-        console.log("add!")
-        console.log(crimeField)
         $('#crimes').append(crimeField.clone())
         $('.delete_crime').last().click(function () {
             var division = $('.delete_crime').last().closest('#new_crime')
             division.remove()
         })
-    })
+    });
 
     $('#procedure_tag_ids').chosen({
         allow_single_deselect: true,
         width: '100%'
-    })
+    });
+
+    //al apretar el boton guardar en el modal del acusado
+    $('#modal-accused-btn').click(function() {
+        var name = $('#acussedName').val();
+        var alias = $('#acussedAlias').val();
+        var rut = $('#acussedRut').val();
+
+        var input = $("<input>")
+            .attr("type", "hidden")
+            .attr("name", "accuseds[][name]").val(name);
+        $('#form_procedure').append(input);
+
+        input = $("<input>")
+            .attr("type", "hidden")
+            .attr("name", "accuseds[][alias]").val(alias);
+        $('#form_procedure').append(input);
+        input = $("<input>")
+            .attr("type", "hidden")
+            .attr("name", "accuseds[][rut]").val(rut);
+        $('#form_procedure').append(input);
+
+        $('#accuseds').append($("<div class=\"d-flex justify-content-between\">\n" +
+            "                <p><b>Nombre:</b> " + name + " </p> <p><b>Alias:</b> \"" + alias + "\" </p>\n" +
+            "                <p><b>Rut:</b> " + rut + "</p>\n" +
+            "              </div>"));
+    });
+
+    $('#modal-victim-btn').click(function() {
+        var name = $('#victimName').val();
+        var rut = $('#victimRut').val();
+        var story = $('#victimStory').val();
+
+        console.log("aaaaaaa")
+
+        var input = $("<input>")
+            .attr("type", "hidden")
+            .attr("name", "victims[][name]").val(name);
+        $('#form_procedure').append(input);
+
+        input = $("<input>")
+            .attr("type", "hidden")
+            .attr("name", "victims[][rut]").val(rut);
+        $('#form_procedure').append(input);
+        input = $("<input>")
+            .attr("type", "hidden")
+            .attr("name", "victims[][story]").val(story);
+        $('#form_procedure').append(input);
+
+        $('#victims').append($("<div class=\"d-flex justify-content-between\">\n" +
+            "                   <p><b>Nombre:</b> " + name + " </p> <p><b>Rut:</b> " + rut +
+            "                   </div> <div><p><b>Detalles:</b> " + story + "</p></div>"));
+    });
+
+    $('#modal-witness-btn').click(function() {
+        var name = $('#witnessName').val();
+        var rut = $('#witnessRut').val();
+        var story = $('#witnessStory').val();
+
+
+        var input = $("<input>")
+            .attr("type", "hidden")
+            .attr("name", "witness[][name]").val(name);
+        $('#form_procedure').append(input);
+
+        input = $("<input>")
+            .attr("type", "hidden")
+            .attr("name", "witness[][rut]").val(rut);
+        $('#form_procedure').append(input);
+        input = $("<input>")
+            .attr("type", "hidden")
+            .attr("name", "witness[][story]").val(story);
+        $('#form_procedure').append(input);
+
+        $('#witnesses').append($("<div class=\"d-flex justify-content-between\">\n" +
+            "                   <p><b>Nombre:</b> " + name + " </p> <p><b>Rut:</b> " + rut +
+            "                   </div> <div><p><b>Detalles:</b> " + story + "</p></div>"));
+    });
 
 });

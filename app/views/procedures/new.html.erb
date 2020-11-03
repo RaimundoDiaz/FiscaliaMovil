@@ -1,18 +1,18 @@
 
 <span>
   <div id="content_box">
-    <h1>Ingreso de procedimiento</h1>
-    <div class="pr-5 pl-5" id="form">
-      <%= form_with model: @procedure do |form|%>
+    <h1 class="d-flex justify-content-center">Ingreso de procedimiento</h1>
+    <div class="pr-5 pl-5 mt-5" id="form">
+      <%= form_with model: @procedure, id: "form_procedure" do |form|%>
 
         <div id="datetime" class="d-flex justify-content-between">
           <div class="form-inline">
-            <%= form.label :date, 'Fecha: ', class: "form-label"%>
+            <%= form.label :date, 'Fecha: ', class: "mr-2 form-label"%>
             <%= form.date_field :date , class: "form-control"%>
           </div>
 
           <div class="form-inline">
-            <%= form.label :time, 'Hora: ', class: "form-label"%>
+            <%= form.label :time, 'Hora: ', class: "mr-2 form-label"%>
             <%= form.time_field :time, class: "form-control" %>
           </div>
         </div>
@@ -20,14 +20,14 @@
         <div id="classification" class="d-flex justify-content-between">
           <% classifications = ["Flagrancia", "ODP", "Ambas"].map { |classification| [classification] } %>
           <div class="form-inline">
-            <%= form.label :classification, 'Clasificacion:' , class: "form-label"%>
-            <%= form.select :region, options_for_select(classifications),{},{class: "form-control flex-grow"} %>
+            <%= form.label :classification, 'Clasificacion:' , class: "mr-2 form-label"%>
+            <%= form.select :classification, options_for_select(classifications),{},{class: "form-control flex-grow"} %>
           </div>
         </div>
 
         <div id="address">
           <div class="form-inline ">
-            <%= form.label :address, 'Direccion:' , class: "form-label"%>
+            <%= form.label :address, 'Direccion:' , class: "mr-2 form-label"%>
             <%= form.text_field :address,  class: "form-control flex-grow-1"  %>
           </div>
 
@@ -35,12 +35,12 @@
           <div class="d-flex justify-content-between">
             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
             <div class="form-inline">
-              <%= form.label :region, 'Region:', class: "form-label" %>
+              <%= form.label :region, 'Region:', class: "mr-2 form-label" %>
               <%= form.select :region, options_for_select(cities_array),{},{class: "form-control"} %>
             </div>
 
             <div class="form-inline">
-              <%= form.label :comune, 'Comuna:', class: "form-label" %>
+              <%= form.label :comune, 'Comuna:', class: "mr-2 form-label" %>
               <%= form.select :comune, [],{},{class: "form-control"} %>
             </div>
           </div>
@@ -55,20 +55,20 @@
                        "femicidio",
                        "violacion",
                        "pisar las lineas de la vereda"].map{|crime| [crime]} %>
-          <div class="form-inline">
+          <div class="form-inline d-flex justify-content-between">
             <%= form.label :preponderant_crime, 'Delito prepopnderante:', class: "form-label" %>
-            <%= form.select :preponderant_crime, options_for_select(crimes),{},{class: "form-control"} %>
+            <%= form.select :preponderant_crime, options_for_select(crimes),{},{class: "form-control flex-grow-1"} %>
           </div>
-          <div id = "new_crime" class="form-inline">
+          <div id = "new_crime" class="form-inline d-flex justify-content-between">
             <%= fields_for "procedure[crimes]" do |crimes_fields| %>
               <%= crimes_fields.label "", 'Delito:', class: "form-label" %>
-              <%= crimes_fields.select "" , options_for_select(crimes), {name: "procedure[crimes][]"},{class: "form-control"}  %>
+              <%= crimes_fields.select "" , options_for_select(crimes), {name: "procedure[crimes][]"},{class: "form-control flex-grow-1"}  %>
             <% end %>
             <button type="button" class="btn btn-danger delete_crime"> Eliminar delito </button>
           </div>
         </div>
 
-        <div id="crime_btn_div" class="form-inline"><button type="button" id="add_crime_btn" class="btn btn-primary"> Agregar delito </button></div>
+        <div id="crime_btn_div"><button type="button" id="add_crime_btn" class="btn btn-primary"> Agregar delito </button></div>
 
         <div id="deceased">
           <div class="custom-control custom-switch">
@@ -77,9 +77,24 @@
           </div>
         </div>
 
-        <div id="marks" class="form-inline">
+        <div id="marks" class="form-group">
           <%= form.label :tag_ids, 'Marcas:', class: "form-label" %>
           <%= form.select :tag_ids, options_for_select(Tag.order(:name).map { |tag| [tag[:name]] }, params[:tag_ids]),{},{class: "form-control",multiple: true} %>
+        </div>
+
+        <div id="accuseds">
+          <button type="button" id="add_accused_btn" class="btn btn-warning text-light" data-toggle="modal" data-target="#accusedModal"> + Agregar Imputado </button>
+
+        </div>
+
+        <div id="victims">
+          <button type="button" id="add_victim_btn" class="btn btn-warning text-light" data-toggle="modal" data-target="#victimModal"> + Agregar Victima </button>
+
+        </div>
+
+        <div id="witnesses">
+          <button type="button" id="add_witness_btn" class="btn btn-warning text-light" data-toggle="modal" data-target="#witnessModal"> + Agregar Testigo </button>
+
         </div>
 
         <div>
@@ -91,3 +106,72 @@
 
 </span>
 
+<!-- Acussed Modal -->
+<div class="modal fade" id="accusedModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Agregar imputado</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type="email" class="form-control" id="acussedName" aria-describedby="nameAcussed" placeholder="Nombre Completo">
+        <input type="text" class="form-control" id="acussedAlias" aria-describedby="aliasAcussed" placeholder="Alias o Sobrenombre">
+        <input type="text" class="form-control" id="acussedRut" aria-describedby="rutAcussed" placeholder="Rut">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button id="modal-accused-btn" type="button" class="btn btn-primary"  data-dismiss="modal">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Victim Modal -->
+<div class="modal fade" id="victimModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Agregar Victima</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type="text" class="form-control" id="victimName" aria-describedby="nameVictim" placeholder="Nombre Completo">
+        <input type="text" class="form-control" id="victimRut" aria-describedby="rutVictim" placeholder="Rut">
+        <textarea class="form-control" id="victimStory" aria-describedby="storyVictim" placeholder="Detalles..."></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button id="modal-victim-btn" type="button" class="btn btn-primary"  data-dismiss="modal">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Witness Modal -->
+<div class="modal fade" id="witnessModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Agregar Victima</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type="text" class="form-control" id="witnessName" aria-describedby="nameWitness" placeholder="Nombre Completo">
+        <input type="text" class="form-control" id="witnessRut" aria-describedby="rutWitness" placeholder="Rut">
+        <textarea class="form-control" id="witnessStory" aria-describedby="storyWitness" placeholder="Detalles..."></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button id="modal-witness-btn" type="button" class="btn btn-primary"  data-dismiss="modal">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
