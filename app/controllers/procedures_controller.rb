@@ -47,7 +47,34 @@ class ProceduresController < ApplicationController
   # POST /procedures.json
   def create
 
-    @procedure = Procedure.new()
+    if proceduce_params[:classification] == "ODP"
+      classification_procedure = 1
+
+    elsif proceduce_params[:classification] == "Flagrancia"
+      classification_procedure = 0
+    else
+      classification_procedure = 2
+    end
+
+
+
+
+    puts(proceduce_params[:date]+proceduce_params[:time])
+    @procedure = Procedure.new(classification: classification_procedure,
+                               police_in_charge: 1,
+                               police_unit_in_charge: 1,
+                               prosecutor_in_charge: 1,
+                               local_prosecution_in_charge: 1,
+                               story: proceduce_params[:story],
+                               address: proceduce_params[:address],
+                               sector: proceduce_params[:sector],
+                               region: proceduce_params[:region],
+                               state: 0,
+                               date_of_arrest: (proceduce_params[:date]+proceduce_params[:time]).to_datetime
+
+
+
+                               )
 
     respond_to do |format|
       if @procedure.save
@@ -85,13 +112,16 @@ class ProceduresController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_procedure
-      @procedure = Procedure.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_procedure
+    @procedure = Procedure.find(params[:id])
+  end
+
+  def proceduce_params
 
     # Only allow a list of trusted parameters through.
-    def procedure_params
-      params.require(:procedure).permit(:date,:time,:classification,:address,:region,:comune,:preponderant_crime,:crimes,tag_ids)
-    end
+    params.require(:procedure).permit(:date,:time,:classification,:address,:region,:sector,:preponderant_crime, :story, crimes:[],
+                                      tag_ids:[], :accuseds => [:name,:alias,:rut], :victims => [:name,:rut,:deceased,:contact,:story],
+                                      :witness => [:name,:rut,:story,:contact])
+  end
 end
