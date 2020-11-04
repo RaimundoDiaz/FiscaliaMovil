@@ -5,7 +5,7 @@ class ProceduresController < ApplicationController
   # GET /procedures
   # GET /procedures.json
   def index
-    @procedures = Procedure.all.order(created_at: :desc)
+    @procedures = Procedure.where(:state => 0).order(created_at: :desc)
   end
 
   # GET /procedures/1
@@ -46,8 +46,8 @@ class ProceduresController < ApplicationController
   # POST /procedures
   # POST /procedures.json
   def create
-    print(params[:crime],"\nAAAAAAAAAAAAAAAAAAAA\n")
-    @procedure = Procedure.new(procedure_params)
+
+    @procedure = Procedure.new()
 
     respond_to do |format|
       if @procedure.save

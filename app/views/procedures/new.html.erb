@@ -42,7 +42,6 @@
             <%= form.text_field :address,  class: "form-control flex-grow-1"  %>
           </div>
 
-
           <div class="d-flex justify-content-between">
             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
             <div class="form-inline">
@@ -51,8 +50,8 @@
             </div>
 
             <div class="form-inline">
-              <%= form.label :comune, 'Comuna:', class: "mr-2 form-label" %>
-              <%= form.select :comune, [],{},{class: "form-control"} %>
+              <%= form.label :sector, 'Comuna:', class: "mr-2 form-label" %>
+              <%= form.select :sector, [],{},{class: "form-control"} %>
             </div>
           </div>
         </div>
@@ -90,26 +89,28 @@
         <b>Imputados:</b>
         <div id="accuseds" class="greyContainer">
           <button type="button" id="add_accused_btn" class="mb-3 btn btn-warning text-light" data-toggle="modal" data-target="#accusedModal"> + Agregar Imputado </button>
-
         </div>
+
         <b>Victimas:</b>
         <div id="victims" class="greyContainer">
           <button type="button" id="add_victim_btn" class="mb-3 btn btn-warning text-light" data-toggle="modal" data-target="#victimModal"> + Agregar Victima </button>
-
         </div>
+
         <b>Testigos:</b>
         <div id="witnesses" class="greyContainer">
           <button type="button" id="add_witness_btn" class="mb-3 btn btn-warning text-light" data-toggle="modal" data-target="#witnessModal"> + Agregar Testigo </button>
-
         </div>
 
+        <b>Relato:</b>
+        <div id="witnesses" class="greyContainer">
+          <%= form.text_area :story,  class: "form-control flex-grow-1"  %>
+        </div>
         <div>
           <%= form.submit "Enviar", class: "btn btn-primary" %>
         </div>
       </div>
     <% end %>
   </div>
-
 </span>
 
 <!-- Acussed Modal -->
@@ -150,6 +151,11 @@
         <input type="text" class="mb-3 form-control" id="victimName" aria-describedby="nameVictim" placeholder="Nombre Completo">
         <input type="text" class="mb-3 form-control" id="victimRut" aria-describedby="rutVictim" placeholder="Rut">
         <div id="victim-invalid-rut" class="invalid-feedback" hidden>Rut invalido.</div>
+        <input type="text" class="mb-3 form-control" id="victimContact" aria-describedby="contactVictim" placeholder="Contacto">
+        <div class=" mb-3 d-flex justify-content-center custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" id="deceasedVictimSwitch">
+          <label class="custom-control-label" for="deceasedVictimSwitch">Fallecido?</label>
+        </div>
         <textarea class="mb-3 form-control" id="victimStory" aria-describedby="storyVictim" placeholder="Detalles..."></textarea>
       </div>
       <div class="modal-footer">
@@ -175,6 +181,7 @@
         <input type="text" class="mb-3 form-control" id="witnessName" aria-describedby="nameWitness" placeholder="Nombre Completo">
         <input type="text" class="mb-3 form-control" id="witnessRut" aria-describedby="rutWitness" placeholder="Rut">
         <div id="witness-invalid-rut" class="invalid-feedback" hidden>Rut invalido.</div>
+        <input type="text" class="mb-3 form-control" id="witnessContact" aria-describedby="witnessVictim" placeholder="Contacto">
         <textarea class="mb-3 form-control" id="witnessStory" aria-describedby="storyWitness" placeholder="Detalles..."></textarea>
       </div>
       <div class="modal-footer">
@@ -184,3 +191,5 @@
     </div>
   </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.4/js/bootstrap-switch.js" data-turbolinks-track="true"></script>
