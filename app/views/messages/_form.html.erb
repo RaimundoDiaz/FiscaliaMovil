@@ -20,5 +20,6 @@
 
   <div class="actions" onclick="fun()" >
     <%= form.submit "Enviar" , class: "btn btn-primary"%>
+    <%= link_to 'Atrás', procedure_path(@procedure.id), class: ["btn", "btn-primary"] %>
   </div>
 <% end %>
