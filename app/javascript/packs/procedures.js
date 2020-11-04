@@ -458,7 +458,7 @@ $(document).on('turbolinks:load', function() {
     });
 
     var crimeField = $('#new_crime').clone()
-    $('.delete_crime').last().remove()
+    $('#new_crime').last().remove()
 
     $('#add_crime_btn').click(function () {
         $('#crimes').append(crimeField.clone())
@@ -531,8 +531,8 @@ $(document).on('turbolinks:load', function() {
             $("#accusedClose").click()
         }
         else{
-            $("#accusedRut").addClass("has-danger")
-            $("#accusedRut").addClass("is-invalid")
+            $("#accusedRut").addClass("has-danger");
+            $("#accusedRut").addClass("is-invalid");
             $('#accused-invalid-rut').removeAttr('hidden');
         }
     });
