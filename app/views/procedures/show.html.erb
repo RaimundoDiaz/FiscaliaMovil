@@ -166,9 +166,13 @@
                   <h5 class="card-title"><%= accused.name %> <%= accused.last_name %></h5>
                   <h6 class="card-subtitle mb-2 text-muted">
                     <%= accused.rut %> <br>
-                    <% if accused.birthday.nil? %>
+                    <% if !accused.birthday.nil? %>
                       <%= ((Time.zone.now - accused.birthday.to_time) / 1.year.seconds).floor %> años
                       <%end %>
+                    <br>
+                    <% if !accused.alias_accuseds.first.nil? %>
+                        Alias: <%= accused.alias_accuseds.first %>
+                      <% end %>
                   </h6>
                   <p class="card-text"><small class="text-muted">
                     <%= accused.deceased ? "Fallecido" : "" %>
