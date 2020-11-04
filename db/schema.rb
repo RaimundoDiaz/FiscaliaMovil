@@ -73,7 +73,6 @@ ActiveRecord::Schema.define(version: 2020_10_31_214424) do
     t.date "birthday"
     t.string "rut"
     t.boolean "deceased"
-    t.string "contact"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

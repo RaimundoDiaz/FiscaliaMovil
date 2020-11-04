@@ -5,7 +5,7 @@ class ProceduresController < ApplicationController
   # GET /procedures
   # GET /procedures.json
   def index
-    @procedures = Procedure.where(:state => 0).order(created_at: :desc)
+    @procedures = Procedure.all.order(created_at: :desc)
   end
 
   # GET /procedures/1
@@ -47,10 +47,111 @@ class ProceduresController < ApplicationController
   # POST /procedures.json
   def create
 
-    @procedure = Procedure.new()
+    if procedure_params[:classification] == "ODP"
+      classification_procedure = 1
 
+    elsif procedure_params[:classification] == "Flagrancia"
+      classification_procedure = 0
+    else
+      classification_procedure = 2
+    end
+
+    selected_region = ""
+    selected_sector = ""
+    get_regiones
+    @regiones.each do |region|
+      if region[:codigo].to_s == procedure_params[:region].to_s
+        selected_region = region[:nombre]
+      end
+      region[:comunas].each do |comuna|
+        if comuna[:codigo].to_s == procedure_params[:sector].to_s
+          selected_sector = comuna[:nombre]
+        end
+      end
+    end
+
+    @procedure = Procedure.new(classification: classification_procedure,
+                               police_in_charge: PoliceMan.find(1),
+                               police_unit_in_charge: PoliceMan.find(1).police_unit,
+                               prosecutor_in_charge: Prosecutor.find(1),
+                               local_prosecution_in_charge: Prosecutor.find(1).local_prosecution,
+                               story: procedure_params[:story],
+                               address: procedure_params[:address],
+                               sector: selected_sector,
+                               region: selected_region,
+                               state: 0,
+                               date_of_arrest: (procedure_params[:date]+procedure_params[:time]).to_datetime,
+                               involves_deceased: procedure_params[:involves_deceased]
+                               )
     respond_to do |format|
       if @procedure.save
+
+        procedure_params[:tag_ids][1..procedure_params[:tag_ids].size].each do |tag|
+          @tag = Tagging.new(tag: Tag.find_by_name(tag),
+                             procedure: @procedure)
+          @tag.save
+        end
+
+        procedure_params[:accuseds].each do |accused|
+          @criminal = Person.new(name: accused[:name],
+                               rut: accused[:rut])
+          if @criminal.save!
+            @criminal_in_procedure = PersonInProcedure.new(role: 0,
+                                                           person: @criminal,
+                                                           procedure: @procedure)
+            @criminal_in_procedure.save
+            @criminal_alias = AliasAccused.new(alias: accused[:alias],
+                                           person: @criminal)
+            @criminal_alias.save
+            if procedure_params[:crimes]
+              procedure_params[:crimes].each do |crime|
+                @crime_in_accused = CrimeInAccused.new(preponderant: false,
+                                                       crime: Crime.find_by_name(crime),
+                                                       person: @criminal,
+                                                       procedure: @procedure)
+                @crime_in_accused.save
+              end
+            end
+
+            @preponderan_crime_in_accused = CrimeInAccused.new(preponderant: true,
+                                                               crime: Crime.find_by_name(procedure_params[:preponderant_crime]),
+                                                               person: @criminal,
+                                                               procedure: @procedure)
+            @preponderan_crime_in_accused.save
+          end
+        end
+
+        procedure_params[:victims].each do |victim|
+          @victim = Person.new(name: victim[:name],
+                               rut: victim[:rut],
+                               deceased: victim[:deceased],
+                               contact: victim[:contact]
+                               )
+          if @victim.save!
+            @victim_in_procedure = PersonInProcedure.new(role: 2,
+                                                         person: @victim,
+                                                         procedure: @procedure,
+                                                         witness_declaration: victim[:story])
+            @victim_in_procedure.save
+          end
+        end
+
+        procedure_params[:witness].each do |witness|
+          @witness = Person.new(name: witness[:name],
+                               rut: witness[:rut],
+                               contact: witness[:contact]
+          )
+          if @witness.save!
+            @witness_in_procedure = PersonInProcedure.new(role: 1,
+                                                         person: @witness,
+                                                         procedure: @procedure,
+                                                         witness_declaration: witness[:story])
+            @witness_in_procedure.save
+          end
+        end
+
+
+
         format.html { redirect_to @procedure, notice: 'Procedure was successfully created.' }
         format.json { render :show, status: :created, location: @procedure }
       else
@@ -85,13 +186,16 @@ class ProceduresController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_procedure
-      @procedure = Procedure.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_procedure
+    @procedure = Procedure.find(params[:id])
+  end
+
+  def procedure_params
 
     # Only allow a list of trusted parameters through.
-    def procedure_params
-      params.require(:procedure).permit(:date,:time,:classification,:address,:region,:sector,:preponderant_crime,:crimes, :state)
-    end
+    params.require(:procedure).permit(:date,:time,:classification,:involves_deceased,:address,:region,:sector,:preponderant_crime,:state, :story, crimes:[],
+                                      tag_ids:[], :accuseds => [:name,:alias,:rut], :victims => [:name,:rut,:deceased,:contact,:story],
+                                      :witness => [:name,:rut,:story,:contact])
+  end
 end

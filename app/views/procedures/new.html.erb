@@ -5,7 +5,7 @@
     <div class="pr-5 pl-5 mt-5" id="form">
       <%= form_with model: @procedure, id: "form_procedure" do |form|%>
 
-        <b>Infromacion general del procedimiento:</b>
+        <b>Infromación general del procedimiento:</b>
         <div id="general" class="greyContainer">
           <div id="datetime" class="mb-3 d-flex justify-content-between">
             <div class="form-inline">
@@ -22,30 +22,30 @@
           <div id="classification" class="mb-3 d-flex justify-content-between">
             <% classifications = ["Flagrancia", "ODP", "Ambas"].map { |classification| [classification] } %>
             <div class="form-inline">
-              <%= form.label :classification, 'Clasificacion:' , class: "mr-2 form-label"%>
+              <%= form.label :classification, 'Clasificación:' , class: "mr-2 form-label"%>
               <%= form.select :classification, options_for_select(classifications),{},{class: "form-control flex-grow"} %>
             </div>
           </div>
 
           <div id="deceased">
             <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch1">
-              <label class="custom-control-label" for="customSwitch1">Involucra fallecidos</label>
+              <%= form.check_box :involves_deceased, class: "custom-control-input", id: "procedure_involves_deceased"  %>
+              <%= form.label :involves_deceased, 'Involucra fallecidos', class: "custom-control-label", for:"procedure_involves_deceased" %>
             </div>
           </div>
         </div>
 
-        <b>Localizacion:</b>
+        <b>Localización:</b>
         <div id="address" class="greyContainer">
           <div class="form-inline mb-3">
-            <%= form.label :address, 'Direccion:' , class: "mr-2 form-label"%>
+            <%= form.label :address, 'Dirección:' , class: "mr-2 form-label"%>
             <%= form.text_field :address,  class: "form-control flex-grow-1"  %>
           </div>
 
           <div class="d-flex justify-content-between">
             <% cities_array = @regiones.map { |city| [city[:nombre], city[:codigo]] } %>
             <div class="form-inline">
-              <%= form.label :region, 'Region:', class: "mr-2 form-label" %>
+              <%= form.label :region, 'Región:', class: "mr-2 form-label" %>
               <%= form.select :region, options_for_select(cities_array),{},{class: "form-control"} %>
             </div>
 
@@ -58,21 +58,14 @@
 
         <b>Delitos:</b>
         <div id="crimes" class="greyContainer">
-          <% crimes = [nil,
-                       "acoso",
-                       "homicidio",
-                       "conduccion en estado de ebriedad",
-                       "Robo a mano armada",
-                       "femicidio",
-                       "violacion",
-                       "pisar las lineas de la vereda"].map{|crime| [crime]} %>
+          <% crimes = Crime.order(:name).map{|crime| [crime[:name]]} %>
           <div class="form-inline d-flex justify-content-between">
-            <%= form.label :preponderant_crime, 'Delito prepopnderante:', class: "form-label mr-2" %>
+            <%= form.label :preponderant_crime, 'Delito preponderante:', class: "form-label mr-2" %>
             <%= form.select :preponderant_crime, options_for_select(crimes),{},{class: "form-control flex-grow-1"} %>
           </div>
           <div id = "new_crime" class="mt-3 form-inline d-flex justify-content-between">
             <%= fields_for "procedure[crimes]" do |crimes_fields| %>
-              <%= crimes_fields.label "", 'Delito:', class: "form-label mr-2" %>
+              <%= crimes_fields.label "", 'Delito:', class: "form-label mr-2"%>
               <%= crimes_fields.select "" , options_for_select(crimes), {name: "procedure[crimes][]"},{class: "form-control flex-grow-1"}  %>
             <% end %>
             <button type="button" class="ml-2 btn btn-danger delete_crime"> Eliminar delito </button>
@@ -106,7 +99,7 @@
           <%= form.text_area :story,  class: "form-control flex-grow-1"  %>
         </div>
         <div>
-          <%= form.submit "Enviar", class: "btn btn-primary" %>
+          <%= form.submit "Enviar", class: "btn btn-primary", id:"btn-send"%>
         </div>
       </div>
     <% end %>
