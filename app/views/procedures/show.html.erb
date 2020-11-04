@@ -165,7 +165,10 @@
                 <div class="card-body">
                   <h5 class="card-title"><%= accused.name %> <%= accused.last_name %></h5>
                   <h6 class="card-subtitle mb-2 text-muted">
-                    <%= accused.rut %> <br> <%= ((Time.zone.now - accused.birthday.to_time) / 1.year.seconds).floor %> años
+                    <%= accused.rut %> <br>
+                    <% if accused.birthday.nil? %>
+                      <%= ((Time.zone.now - accused.birthday.to_time) / 1.year.seconds).floor %> años
+                      <%end %>
                   </h6>
                   <p class="card-text"><small class="text-muted">
                     <%= accused.deceased ? "Fallecido" : "" %>
@@ -234,6 +237,7 @@
 </div>
 <br>
 
+<!---
 <div class="card">
     <h5 class="card-header">Multimedia</h5>
     <div class="card-body">
@@ -292,15 +296,14 @@
 
     </div>
   </div>
+--->
 
 <br>
-<div align="right">
-  <%= link_to "Pronunciarse", "#pronounceModal", :class => ["btn", "btn-outline-primary"], "data-toggle" => "modal" %>
-  <%= link_to 'Editar', edit_procedure_path(@procedure.id), class: ["btn", "btn-outline-primary"] %>
-  <%= link_to 'Atras', procedures_path(), class: ["btn", "btn-outline-primary"] %>
-  <%= link_to 'Mensajes del procedimiento', procedure_messages_path(@procedure.id), class: ["btn", "btn-outline-warning"] %>
-</div>
-
+  <div align="right">
+    <%= link_to 'Atras', procedures_path, class: ["btn", "btn-outline-primary"] %>
+    <%= link_to "Pronunciarse", "#pronounceModal", :class => ["btn", "btn-outline-primary"], "data-toggle" => "modal" %>
+    <%= link_to 'Mensajes del procedimiento', procedure_messages_path(@procedure.id), class: ["btn", "btn-outline-warning"] %>
+  </div>
 
 <!-- Modal -->
 <div class="modal fade" id="pronounceModal" tabindex="-1" role="dialog" aria-labelledby="pronounceModalCenterTitle" aria-hidden="true">
@@ -312,17 +315,15 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      <%= form_with(model: @procedure, method: "put") do |form| %>
       <div class="modal-body">
-        <select class="custom-select">
-          <option selected>Seleccionar estado</option>
-          <option value="1">Apercibido</option>
-          <option value="2">Audencia control de detención</option>
-        </select>
+          <%= form.select :state, options_for_select([['Apercibido', "noticed"], ['Audiencia control de detención', "acd"]]),{},{class: "form-control"} %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Enviar</button>
+        <%= form.submit "Enviar", class: ["btn", "btn-primary"] %>
       </div>
+        <% end %>
     </div>
   </div>
 </div>

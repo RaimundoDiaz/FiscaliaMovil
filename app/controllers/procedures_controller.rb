@@ -92,6 +92,6 @@ class ProceduresController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def procedure_params
-      params.require(:procedure).permit(:date,:time,:classification,:address,:region,:comune,:preponderant_crime,:crimes,tag_ids)
+      params.require(:procedure).permit(:date,:time,:classification,:address,:region,:sector,:preponderant_crime,:crimes, :state)
     end
 end
