@@ -86,7 +86,11 @@ class ProceduresController < ApplicationController
     respond_to do |format|
       if @procedure.save
 
-        procedure_params[:accuseds]
+        procedure_params[:tag_ids][1..procedure_params[:tag_ids].size].each do |tag|
+          @tag = Tagging.new(tag: Tag.find_by_name(tag),
+                             procedure: @procedure)
+          @tag.save
+        end
 
         procedure_params[:accuseds].each do |accused|
           @criminal = Person.new(name: accused[:name],
