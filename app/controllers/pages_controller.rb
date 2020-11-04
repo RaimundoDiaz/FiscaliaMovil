@@ -13,7 +13,7 @@ class PagesController < ApplicationController
     @query = []
     if params[:query] != nil and params[:query] != ""
       print("QUERY")
-      x = Procedure.where("id = ?", params[:query].to_s).pluck(:id)
+      x = Procedure.where("story LIKE ?", "%"+params[:query].to_s+"%").pluck(:id)
       for i in x
         @query.push(i)
       end

@@ -5,7 +5,7 @@ class ProceduresController < ApplicationController
   # GET /procedures
   # GET /procedures.json
   def index
-    @procedures = Procedure.where(:state => 0).order(created_at: :desc)
+    @procedures = Procedure.all.order(created_at: :desc)
   end
 
   # GET /procedures/1
