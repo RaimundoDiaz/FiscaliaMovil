@@ -29,18 +29,11 @@
         <%= form.select :involucra_fallecidos, options_for_select(fallecidos),{},{class: "form-control"} %>
       </div>
 
-      <% crimes = [nil,
-                   "acoso",
-                   "homicidio",
-                   "conduccion en estado de ebriedad",
-                   "Robo a mano armada",
-                   "femicidio",
-                   "violacion",
-                   "pisar las lineas de la vereda"].map{|crime| [crime]} %>
+      <% crimes = Crime.order(:name).map{|crime| [crime[:name]]} %>
       <br>
       <div class="form-inline">
         <%= form.label :delito, 'Delito:', class: "col-form-label" %>
-        <%= form.select :delito, options_for_select(crimes), {name: "procedure[crimes][]"},{class: "form-control"}  %>
+        <%= form.select :delito, options_for_select(crimes), {name: "procedure[crimes][]"},{class: "form-control mw-10", style: "width: 100%;"} %>
       </div>
       <br>
       <div class="form-inline">
