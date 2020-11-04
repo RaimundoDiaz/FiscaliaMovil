@@ -70,6 +70,13 @@ class ProceduresController < ApplicationController
       end
     end
 
+
+
+    d = procedure_params[:date].to_date
+    t = procedure_params[:time].to_time
+
+    byebug
+
     @procedure = Procedure.new(classification: classification_procedure,
                                police_in_charge: PoliceMan.find(1),
                                police_unit_in_charge: PoliceMan.find(1).police_unit,
@@ -80,7 +87,7 @@ class ProceduresController < ApplicationController
                                sector: selected_sector,
                                region: selected_region,
                                state: 0,
-                               date_of_arrest: (procedure_params[:date]+procedure_params[:time]).to_datetime,
+                               date_of_arrest: DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec, t.zone),
                                involves_deceased: procedure_params[:involves_deceased]
                                )
     respond_to do |format|

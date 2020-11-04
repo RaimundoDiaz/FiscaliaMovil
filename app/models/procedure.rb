@@ -25,6 +25,11 @@ class Procedure < ApplicationRecord
     I18n.locale = :es
     I18n.l(self.created_at, format: '%A, %d de %B de %Y a las %H:%M')
   end
+
+  def date_str
+    I18n.locale = :es
+    I18n.l(self.date_of_arrest, format: '%A, %d de %B de %Y a las %H:%M')
+  end
   has_many :taggings
   has_many :tags, through: :taggings
 end

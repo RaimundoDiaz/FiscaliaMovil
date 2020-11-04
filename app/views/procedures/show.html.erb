@@ -15,8 +15,13 @@
   </p>
 
   <p style="text-align:center;">
-    <strong>Fecha:</strong>
+    <strong>Fecha de creación:</strong>
     <%= @procedure.created_at_str %>
+  </p>
+
+  <p style="text-align:center;">
+    <strong>Fecha de procedimiento:</strong>
+    <%= @procedure.date_str %>
   </p>
 
   <p style="text-align:center;">
@@ -31,9 +36,9 @@
       <div class="row">
         <div class="col-4">
           <div class="list-group" id="list-tab" role="tablist">
-            <a class="list-group-item list-group-item-action active" id="list-police-unit-list" data-toggle="list" href="#list-police-unit" role="tab" aria-controls="home">Unidad Policial</a>
-            <a class="list-group-item list-group-item-action" id="list-police-in-charge-list" data-toggle="list" href="#list-police-in-charge" role="tab" aria-controls="profile">Policia a cargo</a>
-            <a class="list-group-item list-group-item-action" id="list-local-prosecution-list" data-toggle="list" href="#list-local-prosecution" role="tab" aria-controls="messages">Fiscalia Local</a>
+            <a class="list-group-item list-group-item-action active" id="list-police-unit-list" data-toggle="list" href="#list-police-unit" role="tab" aria-controls="home">Unidad Policíal</a>
+            <a class="list-group-item list-group-item-action" id="list-police-in-charge-list" data-toggle="list" href="#list-police-in-charge" role="tab" aria-controls="profile">Policía a cargo</a>
+            <a class="list-group-item list-group-item-action" id="list-local-prosecution-list" data-toggle="list" href="#list-local-prosecution" role="tab" aria-controls="messages">Fiscalía Local</a>
             <a class="list-group-item list-group-item-action" id="list-prosecutor-in-charge-list" data-toggle="list" href="#list-prosecutor-in-charge" role="tab" aria-controls="settings">Fiscal a cargo</a>
           </div>
         </div>
@@ -151,7 +156,7 @@
     <nav>
       <div class="nav nav-tabs" id="nav-tab" role="tablist">
         <a class="nav-item nav-link active" id="nav-accused-tab" data-toggle="tab" href="#nav-accused" role="tab" aria-controls="nav-home" aria-selected="true">Imputados</a>
-        <a class="nav-item nav-link" id="nav-victim-tab" data-toggle="tab" href="#nav-victim" role="tab" aria-controls="nav-profile" aria-selected="false">Victimas</a>
+        <a class="nav-item nav-link" id="nav-victim-tab" data-toggle="tab" href="#nav-victim" role="tab" aria-controls="nav-profile" aria-selected="false">Víctimas</a>
         <a class="nav-item nav-link" id="nav-witness-tab" data-toggle="tab" href="#nav-witness" role="tab" aria-controls="nav-contact" aria-selected="false">Testigos</a>
       </div>
     </nav>
@@ -213,7 +218,7 @@
         </div>
         <% if @victims.empty? %>
           <div class="alert alert-info" role="alert">
-            No hay victimas en este procedimiento.
+            No hay víctimas en este procedimiento.
           </div>
         <% end %>
       </div>
@@ -250,7 +255,7 @@
 
 <br>
 <div align="right">
-  <%= link_to 'Atras', procedures_path, class: ["btn", "btn-outline-primary"] %>
+  <%= link_to 'Atrás', procedures_path, class: ["btn", "btn-outline-primary"] %>
   <%= link_to "Pronunciarse", "#pronounceModal", :class => ["btn", "btn-outline-primary"], "data-toggle" => "modal" %>
   <%= link_to 'Mensajes del procedimiento', procedure_messages_path(@procedure.id), class: ["btn", "btn-outline-warning"] %>
 </div>

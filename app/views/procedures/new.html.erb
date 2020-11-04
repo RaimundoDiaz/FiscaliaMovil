@@ -5,7 +5,7 @@
     <div class="pr-5 pl-5 mt-5" id="form">
       <%= form_with model: @procedure, id: "form_procedure" do |form|%>
 
-        <b>Infromación general del procedimiento:</b>
+        <b>Información general del procedimiento:</b>
         <div id="general" class="greyContainer">
           <div id="datetime" class="mb-3 d-flex justify-content-between">
             <div class="form-inline">
@@ -117,7 +117,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <input type="email" class="mb-3 form-control" id="accusedName" aria-describedby="nameAcussed" placeholder="Nombre Completo">
+        <input type="text" class="mb-3 form-control" id="accusedName" aria-describedby="nameAcussed" placeholder="Nombre Completo">
         <input type="text" class="mb-3 form-control" id="accusedAlias" aria-describedby="aliasAccused" placeholder="Alias o Sobrenombre">
         <input type="text" class="mb-3 form-control" id="accusedRut" aria-describedby="rutAccused" placeholder="Rut">
         <div id="accused-invalid-rut" class="invalid-feedback" hidden>Rut inválido.</div>
