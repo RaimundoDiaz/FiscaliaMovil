@@ -4,7 +4,6 @@ class CreatePoliceMen < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :rut
       t.integer :badge
-      t.references :police_unit, foreign_key: true
 
       t.timestamps
     end

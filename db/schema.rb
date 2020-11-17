@@ -93,10 +93,8 @@ ActiveRecord::Schema.define(version: 2020_10_31_214424) do
     t.string "name"
     t.string "rut"
     t.integer "badge"
-    t.bigint "police_unit_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["police_unit_id"], name: "index_police_men_on_police_unit_id"
   end
 
   create_table "police_stations", force: :cascade do |t|
@@ -199,7 +197,6 @@ ActiveRecord::Schema.define(version: 2020_10_31_214424) do
   add_foreign_key "notifications", "users"
   add_foreign_key "person_in_procedures", "people"
   add_foreign_key "person_in_procedures", "procedures"
-  add_foreign_key "police_men", "police_units"
   add_foreign_key "police_stations", "prefectures"
   add_foreign_key "police_units", "police_stations"
   add_foreign_key "procedures", "local_prosecutions", column: "local_prosecution_in_charge_id"
