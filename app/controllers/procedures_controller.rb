@@ -80,12 +80,9 @@ class ProceduresController < ApplicationController
 
     d = procedure_params[:date].to_date
     t = procedure_params[:time].to_time
-
-    byebug
-
     @procedure = Procedure.new(classification: classification_procedure,
                                police_in_charge: PoliceMan.find(1),
-                               police_unit_in_charge: PoliceMan.find(1).police_unit,
+                               police_unit_in_charge: PoliceUnit.first,
                                prosecutor_in_charge: Prosecutor.find(1),
                                local_prosecution_in_charge: Prosecutor.find(1).local_prosecution,
                                story: procedure_params[:story],
