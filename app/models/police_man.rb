@@ -1,4 +1,5 @@
 class PoliceMan < ApplicationRecord
+  validates :badge, uniqueness: true
+  validates :rut, uniqueness: true
   has_many :procedures
-  belongs_to :police_unit
 end
