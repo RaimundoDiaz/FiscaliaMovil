@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 2020_10_31_214424) do
     t.bigint "procedure_id", null: false
     t.string "witness_declaration"
     t.integer "role"
+    t.integer "state"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["person_id"], name: "index_person_in_procedures_on_person_id"

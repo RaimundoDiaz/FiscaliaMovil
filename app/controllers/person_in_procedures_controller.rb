@@ -41,11 +41,11 @@ class PersonInProceduresController < ApplicationController
   # PATCH/PUT /person_in_procedures/1.json
   def update
     respond_to do |format|
-      if @person_in_procedure.update(person_in_procedure_params)
-        format.html { redirect_to @person_in_procedure, notice: 'Person in procedure was successfully updated.' }
+      if @person_in_procedure.update(state: params[:state])
+        format.html { redirect_to request.referrer, notice: 'Person in procedure was successfully updated.' }
         format.json { render :show, status: :ok, location: @person_in_procedure }
       else
-        format.html { render :edit }
+        format.html { render request.referrer }
         format.json { render json: @person_in_procedure.errors, status: :unprocessable_entity }
       end
     end

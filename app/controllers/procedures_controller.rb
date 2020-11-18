@@ -5,11 +5,11 @@ class ProceduresController < ApplicationController
   # GET /procedures
   # GET /procedures.json
   def index
-    if (current_user.local_prosecution.present?)
+    if current_user.local_prosecution.present?
       @procedures = Procedure.where(:state => 0, :local_prosecution_in_charge_id => current_user.local_prosecution.id).order(created_at: :desc)
     end
 
-    if (current_user.police_unit.present?)
+    if current_user.police_unit.present?
       @procedures = Procedure.where(:state => 0, :police_unit_in_charge_id => current_user.police_unit.id).order(created_at: :desc)
     end
   end
@@ -21,9 +21,8 @@ class ProceduresController < ApplicationController
     accuseds_in_procedure = @procedure.person_in_procedures.where(role: 0)
     @accuseds = []
     accuseds_in_procedure.each do |accused|
-      @accuseds.append(Person.find(accused.person_id))
+      @accuseds.append([Person.find(accused.person_id), accused.state, accused.id])
     end
-
     #save list with all victims person of the procedure
     victims_in_procedure = @procedure.person_in_procedures.where(role: 2)
     @victims = []
