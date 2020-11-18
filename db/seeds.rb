@@ -124,4 +124,7 @@ Tagging.create(tag: tag5, procedure: procedure2)
 Tagging.create(tag: tag6, procedure: procedure1)
 Tagging.create(tag: tag9, procedure: procedure2)
 
+
 procedure3 = Procedure.create(story: "Asalto a mano armada", state: 0, address: "Las Flores 12152", sector: "Las Condes", region: "Metropolitana", date_of_arrest: Date.yesterday, classification: 1, police_unit_in_charge_id: 10101, police_in_charge: police, local_prosecution_in_charge_id: 1607, prosecutor_in_charge: prosecutor, involves_deceased: true)
+Tagging.create(tag: tag10, procedure: procedure3)
+Tagging.create(tag: tag9, procedure: procedure3)
