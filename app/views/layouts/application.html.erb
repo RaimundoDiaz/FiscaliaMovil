@@ -26,10 +26,11 @@
           <%end%>
           <%= form_with url: search_path, method: :get, local: true do |form| %>
             <div class="form-inline row">
-              <%= form.text_field :query, :placeholder => "Buscar...", class: "form-control" %>
+              <%= form.text_field :query, :placeholder => "Buscar por Folio...", class: "form-control" %>
               <%= form.submit "Buscar", class: ["btn", "btn-primary"] %>
             </div>
           <% end %>
+          <%= button_to "Búsqueda Avanzada", search_path, :method => :get, :class => "btn btn-primary text-white ml-sm-4" %>
           <%= button_to "Cerrar sesión", destroy_user_session_path, :method => :delete, :class => "btn btn-warning text-white ml-sm-4" %>
         </nav>
       <% end %>

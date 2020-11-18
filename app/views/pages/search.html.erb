@@ -7,6 +7,7 @@
         <%= form.text_field :palabras_clave, :placeholder => params[:palabras_clave], class: "form-control" %>
       </div>
       <br>
+      <p>Fecha de Procedimiento</p>
       <div class="form-inline">
         <%= form.label :desde, "Desde: " %>
         <%= form.date_field :desde, class: "form-control" %>
@@ -30,6 +31,7 @@
       </div>
 
       <% crimes = Crime.order(:name).map{|crime| [crime[:name]]} %>
+      <% crimes.insert(0,[nil]) %>
       <br>
       <div class="form-inline">
         <%= form.label :delito, 'Delito:', class: "col-form-label" %>
@@ -93,6 +95,8 @@
         </div>
 
       <% end %>
+    <%elsif @vieneDeHeader %>
+      <div id="alert" class="alert alert-danger mx-auto my-0" style="width: auto; text-align: center;"><p style="margin-bottom: 0"> No se ha encontrado ningún Procedimiento </p></div>
     <% end %>
   </div>
 </div>
