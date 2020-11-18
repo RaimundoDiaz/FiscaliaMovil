@@ -510,13 +510,20 @@ $(document).on('turbolinks:load', function() {
             var alias = $('#accusedAlias').val();
             var rut = $('#accusedRut').val();
 
-            var accussedHTML = `<div id="accussed" class="whiteContainer">
+            var accussedHTML = `<div id="accussed" class="whiteContainer mb-2">
                                     <div class="d-flex justify-content-between p-0 m-0">
                                         <span><b>Nombre:</b> ${name} </span>
                                         <span><b>Alias:</b> "${alias}"</span>
                                         <span><b>Rut:</b> ${rut}</span>
                                     </div>
                                </div> `;
+
+            let button = `<button type="button" class="close" aria-label="Close ml-2 mb-2"><span aria-hidden="true">&times;</span></button>`;
+            button = $(button).click(function () {
+                let division = button.closest('#accussed')
+                division.remove()
+            });
+            accussedHTML = $(accussedHTML).prepend(button);
 
             var input = $("<input>")
                 .attr("type", "hidden")
@@ -573,7 +580,7 @@ $(document).on('turbolinks:load', function() {
             var deceased = $('#deceasedVictimSwitch').is(":checked");
 
 
-            var victimHTML = `<div id="victim" class="whiteContainer">
+            var victimHTML = `<div id="victim" class="whiteContainer mb-2">
                                     <div class="d-flex justify-content-between">
                                         <span><b>Nombre:</b> ${name}</span> 
                                         <span><b>Rut:</b> ${rut}</span>  
@@ -583,6 +590,13 @@ $(document).on('turbolinks:load', function() {
                                         <span><b>Detalles:</b> ${story}</span>
                                     </div>
                                </div> `;
+
+            let button = `<button type="button" class="close" aria-label="Close ml-2 mb-2"><span aria-hidden="true">&times;</span></button>`;
+            button = $(button).click(function () {
+                let division = button.closest('#victim')
+                division.remove()
+            });
+            victimHTML = $(victimHTML).prepend(button);
 
             var input = $("<input>")
                 .attr("type", "hidden")
