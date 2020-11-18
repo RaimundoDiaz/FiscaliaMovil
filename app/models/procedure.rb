@@ -10,7 +10,7 @@ class Procedure < ApplicationRecord
   has_many :crimes, :through => :crime_in_accuseds
   has_many :messages
 
-  enum state: {pending: 0, acd: 1, noticed: 2}
+  enum state: {open: 0, close: 1, draft: 2}
   enum classification: {flagrancy: 0, pending_arrest_warrant: 1, both: 2}
 
   def state

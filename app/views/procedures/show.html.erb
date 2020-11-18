@@ -5,12 +5,12 @@
 
   <p style="text-align:center;">
     <strong>Estado:</strong>
-    <% if @procedure.pending? %>
-      Pendiente
-    <% elsif @procedure.acd?%>
-      Audiencia control de detención
-    <% elsif @procedure.noticed? %>
-      Apercibido
+    <% if @procedure.open? %>
+      Abierto
+    <% elsif @procedure.close?%>
+      Cerrado
+    <% elsif @procedure.draft? %>
+      Borrador
     <% end %>
   </p>
 
