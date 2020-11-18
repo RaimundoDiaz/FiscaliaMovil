@@ -5,7 +5,13 @@ class ProceduresController < ApplicationController
   # GET /procedures
   # GET /procedures.json
   def index
-    @procedures = Procedure.all.order(created_at: :desc)
+    if (current_user.local_prosecution.present?)
+      @procedures = Procedure.where(:state => 0, :local_prosecution_in_charge_id => current_user.local_prosecution.id).order(created_at: :desc)
+    end
+
+    if (current_user.police_unit.present?)
+      @procedures = Procedure.where(:state => 0, :police_unit_in_charge_id => current_user.police_unit.id).order(created_at: :desc)
+    end
   end
 
   # GET /procedures/1
@@ -70,6 +76,12 @@ class ProceduresController < ApplicationController
       end
     end
 
+
+
+    d = procedure_params[:date].to_date
+    t = procedure_params[:time].to_time
+
+
     @procedure = Procedure.new(classification: classification_procedure,
                                police_in_charge: PoliceMan.find(1),
                                police_unit_in_charge: PoliceMan.find(1).police_unit,
@@ -80,7 +92,7 @@ class ProceduresController < ApplicationController
                                sector: selected_sector,
                                region: selected_region,
                                state: 0,
-                               date_of_arrest: (procedure_params[:date]+procedure_params[:time]).to_datetime,
+                               date_of_arrest: DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec, t.zone),
                                involves_deceased: procedure_params[:involves_deceased]
                                )
     respond_to do |format|

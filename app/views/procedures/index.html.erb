@@ -22,12 +22,12 @@
       <div class="state_procedure">
         <strong>Estado:</strong>
         <br>
-        <% if procedimiento.pending? %>
-          Pendiente
-        <% elsif procedimiento.acd?%>
-          Audiencia control de detención
-        <% elsif procedimiento.noticed? %>
-          Apercibido
+        <% if procedimiento.open? %>
+          Abierto
+        <% elsif procedimiento.close?%>
+          Cerrado
+        <% elsif procedimiento.draft? %>
+          Borrador
         <% end %>
 
       </div>

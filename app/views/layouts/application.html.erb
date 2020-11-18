@@ -11,45 +11,57 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-light bg-light">
-        <div class="navbar-brand">
-          <a class="mr-sm-4"><%= link_to image_tag("FiscaliaLogo.png", width: "70em"), root_path %></a>
-          <a class="mr-sm-4"><%= link_to image_tag("FiscaliaNombre.png", width: "180em"), root_path %></a>
-        </div>
-        <%= form_with url: search_path, method: :get, local: true do |form| %>
-          <div class="form-inline row">
-            <%= form.text_field :query, :placeholder => "Buscar...", class: "form-control" %>
-            <%= form.submit "Buscar", class: ["btn", "btn-primary"] %>
+      <% if user_signed_in? %>
+        <nav class="navbar navbar-light bg-light">
+          <div class="navbar-brand">
+            <a class="mr-sm-4"><%= link_to image_tag("FiscaliaLogo.png", width: "70em"), root_path %></a>
+            <a class="mr-sm-4"><%= link_to image_tag("FiscaliaNombre.png", width: "180em"), root_path %></a>
           </div>
-        <% end %>
-        <%= button_to "Cerrar sesión", destroy_user_session_path, :method => :delete, :class => "btn btn-warning text-white ml-sm-4" %>
-      </nav>
+          <%if (current_user.local_prosecution.present?)%>
+            <p style="color: #EC9D32; font-weight: bold; margin: 0px; font-size: small; width: 30%; margin-left: -30px;">Fiscalia: <%=current_user.local_prosecution.name%></p>
+          <%end%>
+
+          <%if (current_user.police_unit.present?)%>
+            <p style="color: #EC9D32; font-weight: bold; margin: 0px; font-size: small; width: 30%; margin-left: -30px;">Unidad Policial: <%=current_user.police_unit.name%></p>
+          <%end%>
+          <%= form_with url: search_path, method: :get, local: true do |form| %>
+            <div class="form-inline row">
+              <%= form.text_field :query, :placeholder => "Buscar por Folio...", class: "form-control" %>
+              <%= form.submit "Buscar", class: ["btn", "btn-primary"] %>
+            </div>
+          <% end %>
+          <%= button_to "Búsqueda Avanzada", search_path, :method => :get, :class => "btn btn-primary text-white ml-sm-4" %>
+          <%= button_to "Cerrar sesión", destroy_user_session_path, :method => :delete, :class => "btn btn-warning text-white ml-sm-4" %>
+        </nav>
+      <% end %>
     </header>
     <main>
       <%= yield %>
     </main>
-    <footer class="light bg-light border-top p-1 mb-0">
-      <div class="container text-center text-md-left mt-2">
-        <div class="d-flex justify-content-between">
-          <div>
-            <h6 class="text font-weight-bold">Fiscalía Nacional</h6>
-            <hr class="teal accent-3 mb-2 mt-0 d-inline-block mx-auto" style="width: 60px;">
-            <p> <a class="dark-grey-text" href="http://www.fiscaliadechile.cl/Fiscalia/index.do">Ir al sitio web</a></p>
-          </div>
+    <% if user_signed_in? %>
+      <footer class="light bg-light border-top p-1 mb-0">
+        <div class="container text-center text-md-left mt-2">
+          <div class="d-flex justify-content-between">
+            <div>
+              <h6 class="text font-weight-bold">Fiscalía Nacional</h6>
+              <hr class="teal accent-3 mb-2 mt-0 d-inline-block mx-auto" style="width: 60px;">
+              <p> <a class="dark-grey-text" href="http://www.fiscaliadechile.cl/Fiscalia/index.do">Ir al sitio web</a></p>
+            </div>
 
-          <div>
+            <div>
 
-            <h6 class="text font-weight-bold">Contacto</h6>
-            <hr class="teal accent-3 mb-2 mt-0 d-inline-block mx-auto" style="width: 60px;">
-            <p>Fiscalia@gmail.com</p>
+              <h6 class="text font-weight-bold">Contacto</h6>
+              <hr class="teal accent-3 mb-2 mt-0 d-inline-block mx-auto" style="width: 60px;">
+              <p>Fiscalia@gmail.com</p>
 
-          </div>
+            </div>
 
-          <div>
-            <a class="ml-sm-5"><%= image_tag("logo_olimpus.png", width: "200em") %></a>
+            <div>
+              <a class="ml-sm-5"><%= image_tag("logo_olimpus.png", width: "200em") %></a>
+            </div>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    <% end %>
   </body>
 </html>

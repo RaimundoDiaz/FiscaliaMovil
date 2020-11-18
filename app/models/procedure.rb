@@ -10,7 +10,7 @@ class Procedure < ApplicationRecord
   has_many :crimes, :through => :crime_in_accuseds
   has_many :messages
 
-  enum state: {pending: 0, acd: 1, noticed: 2}
+  enum state: {open: 0, close: 1, draft: 2}
   enum classification: {flagrancy: 0, pending_arrest_warrant: 1, both: 2}
 
   def state
@@ -22,7 +22,13 @@ class Procedure < ApplicationRecord
   end
 
   def created_at_str
+    I18n.locale = :es
     I18n.l(self.created_at, format: '%A, %d de %B de %Y a las %H:%M')
+  end
+
+  def date_str
+    I18n.locale = :es
+    I18n.l(self.date_of_arrest, format: '%A, %d de %B de %Y a las %H:%M')
   end
   has_many :taggings
   has_many :tags, through: :taggings
