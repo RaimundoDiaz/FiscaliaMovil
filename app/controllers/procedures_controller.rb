@@ -81,7 +81,6 @@ class ProceduresController < ApplicationController
     d = procedure_params[:date].to_date
     t = procedure_params[:time].to_time
 
-    byebug
 
     @procedure = Procedure.new(classification: classification_procedure,
                                police_in_charge: PoliceMan.find(1),
