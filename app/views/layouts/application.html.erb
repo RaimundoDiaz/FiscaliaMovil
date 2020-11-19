@@ -16,12 +16,12 @@
           <div class="navbar-brand">
             <a class="mr-sm-4"><%= link_to image_tag("FiscaliaLogo.png", width: "70em"), root_path %></a>
             <a class="mr-sm-4"><%= link_to image_tag("FiscaliaNombre.png", width: "180em"), root_path %></a>
-            <% if current_user.notifications.count > 0 %>
+            <% if current_user.notifications.where(seen: false).count > 0 %>
               <!a style="margin-right: -0.4em"><!%= current_user.notifications.count %></a>
-              <a><%= link_to image_tag("notification.png", width: "30em"), notifications_path %></a>
-              <a style="margin-left: -0.4em"><%= current_user.notifications.count %></a>
+              <a><%= link_to image_tag("Notification_1.png", width: "30em"), notifications_path %></a>
+              <a style="margin-left: -0.4em"><%= current_user.notifications.where(seen: false).count %></a>
             <% else %>
-              <a><%= link_to image_tag("bell.png", width: "30em"), notifications_path %></a>
+              <a><%= link_to image_tag("Notification_0.png", width: "30em"), notifications_path %></a>
             <% end %>
           </div>
           <%if (current_user.local_prosecution.present?)%>
