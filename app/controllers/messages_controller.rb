@@ -29,6 +29,11 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     respond_to do |format|
       if @message.save
+        if current_user.local_prosecution.present?
+          nil
+        elsif current_user.police_unit.present?
+          nil
+        end
         format.js {render inline: "location.reload();" }
       end
     end

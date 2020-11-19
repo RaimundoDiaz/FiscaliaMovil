@@ -5,9 +5,9 @@
         <% if notification.new_procedure? %>
           <%= link_to "Nuevo Procedimiento recibido", procedure_path(notification.reference_id) %>
         <% elsif notification.procedure_closed?%>
-          <%= link_to "Procedimiento N° " + String(notification.reference_id) + " cerrado", procedure_path(notification.reference_id) %>
+          <%= link_to "Procedimiento N° " + String(notification.reference_id) + " se ha cerrado", procedure_path(notification.reference_id) %>
         <% elsif notification.procedure_requiring_info? %>
-          <%= link_to "Procedimiento N° " + String(notification.reference_id) + " requiere más informacion", procedure_path(notification.reference_id) %>
+          <%= link_to "Procedimiento N° " + String(notification.reference_id) + " requiere revision", procedure_path(notification.reference_id) %>
         <% elsif notification.procedure_info_updated? %>
           <%= link_to "Procedimiento N° " + String(notification.reference_id) + " se ha actualizado", procedure_path(notification.reference_id) %>
         <% elsif notification.new_message? %>
