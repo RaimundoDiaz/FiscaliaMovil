@@ -25,11 +25,11 @@
             <% end %>
           </div>
           <%if (current_user.local_prosecution.present?)%>
-            <p style="color: #EC9D32; font-weight: bold; margin: 0px; font-size: small; width: 30%; margin-left: -10px;">Fiscalia: <%=current_user.local_prosecution.name%></p>
+            <p style="color: #EC9D32; font-weight: bold; margin: 0px; font-size: small; width: 30%; margin-left: -1em;">Fiscalia: <%=current_user.local_prosecution.name%></p>
           <%end%>
 
           <%if (current_user.police_unit.present?)%>
-            <p style="color: #EC9D32; font-weight: bold; margin: 0px; font-size: small; width: 30%; margin-left: -10px;">Unidad Policial: <%=current_user.police_unit.name%></p>
+            <p style="color: #EC9D32; font-weight: bold; margin: 0px; font-size: small; width: 30%; margin-left: -1em;">Unidad Policial: <%=current_user.police_unit.name%></p>
           <%end%>
           <%= form_with url: search_path, method: :get, local: true do |form| %>
             <div class="form-inline row">
