@@ -17,6 +17,7 @@
             <a class="mr-sm-4"><%= link_to image_tag("FiscaliaLogo.png", width: "70em"), root_path %></a>
             <a class="mr-sm-4"><%= link_to image_tag("FiscaliaNombre.png", width: "180em"), root_path %></a>
           </div>
+          <a><%= link_to image_tag("bell.png", width: "30em"), root_path %></a>
           <%if (current_user.local_prosecution.present?)%>
             <p style="color: #EC9D32; font-weight: bold; margin: 0px; font-size: small; width: 30%; margin-left: -30px;">Fiscalia: <%=current_user.local_prosecution.name%></p>
           <%end%>
@@ -31,6 +32,7 @@
             </div>
           <% end %>
           <%= button_to "Búsqueda Avanzada", search_path, :method => :get, :class => "btn btn-primary text-white ml-sm-4" %>
+
           <%= button_to "Cerrar sesión", destroy_user_session_path, :method => :delete, :class => "btn btn-warning text-white ml-sm-4" %>
         </nav>
       <% end %>
