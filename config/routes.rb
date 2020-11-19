@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get "/search", to: "pages#search", as: "search"
 
   resource :person_in_procedures, only: [:update]
+  resources :notifications
 
   resources :procedures do
     resources :messages

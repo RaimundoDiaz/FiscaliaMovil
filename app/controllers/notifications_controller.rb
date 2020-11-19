@@ -4,7 +4,7 @@ class NotificationsController < ApplicationController
   # GET /notifications
   # GET /notifications.json
   def index
-    @notifications = Notification.all
+    @notifications = Notification.where(:user_id => current_user.id).order(created_at: :desc)
   end
 
   # GET /notifications/1
@@ -69,6 +69,6 @@ class NotificationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def notification_params
-      params.fetch(:notification, {})
+      params.require(:notification).permit(:user, :notification_type)
     end
 end

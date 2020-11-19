@@ -1,25 +1,24 @@
-<p id="notice"><%= notice %></p>
+<%if @notifications != [] %>
+  <% @notifications.each do |notification| %>
+    <div id="homeNotificationDiv">
+      <div class="procedimiento_badge", style="font-size: x-large">
+        <% if notification.new_procedure? %>
+          <%= link_to "Nuevo Procedimiento recibido", procedure_path(notification.reference_id) %>
+        <% elsif notification.procedure_closed?%>
+          <%= link_to "Procedimiento N° " + String(notification.reference_id) + " cerrado", procedure_path(notification.reference_id) %>
+        <% elsif notification.procedure_requiring_info? %>
+          <%= link_to "Procedimiento N° " + String(notification.reference_id) + " requiere más informacion", procedure_path(notification.reference_id) %>
+        <% elsif notification.procedure_info_updated? %>
+          <%= link_to "Procedimiento N° " + String(notification.reference_id) + " se ha actualizado", procedure_path(notification.reference_id) %>
+        <% elsif notification.new_message? %>
+          <%= link_to "Nuevo mensaje en Procedimiento N° " + String(notification.reference_id), procedure_messages_path(notification.reference_id) %>
+        <% end %>
+      </div>
+        <br>
+        <em>
+          <%= notification.created_at %>
+        </em>
+    </div>
 
-<h1>Notifications</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @notifications.each do |notification| %>
-      <tr>
-        <td><%= link_to 'Show', notification %></td>
-        <td><%= link_to 'Edit', edit_notification_path(notification) %></td>
-        <td><%= link_to 'Destroy', notification, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Notification', new_notification_path %>
+  <% end %>
+<% end %>
