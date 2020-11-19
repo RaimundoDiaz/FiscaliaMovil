@@ -9,8 +9,13 @@ class Procedure < ApplicationRecord
   has_many :crime_in_accuseds
   has_many :crimes, :through => :crime_in_accuseds
   has_many :messages
+  has_one_attached :videos
+  has_many_attached :photos
 
   validate :past_date
+  validates :videos, blob: { content_type: :image, size_range: 1..4.gigabytes}
+  validates :photos, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'], size_range: 1..5.megabytes }
+
 
   enum state: {pending: 0, acd: 1, noticed: 2}
   enum classification: {flagrancy: 0, pending_arrest_warrant: 1, both: 2}

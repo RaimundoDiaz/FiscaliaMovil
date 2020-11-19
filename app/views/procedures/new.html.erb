@@ -124,12 +124,27 @@
         <div id="story" class="greyContainer">
           <%= form.text_area :story,  class: "form-control flex-grow-1"  %>
         </div>
+        <b>Archivos:</b>
+        <div id="address" class="greyContainer">
+          <div class="form-group">
+            <%= form.label :photos, 'Fotos:' , class: "mr-2 form-label"%>
+            <%= form.file_field :photos, class: "form-control-file" %>
+        </div>
+        <div class="form-group">
+          <%= form.label :photos, 'Videos:' , class: "mr-2 form-label"%>
+          <%= form.file_field :videos, class: "form-control-file" %>
+        </div>
+        </div>
         <div>
           <%= form.submit "Enviar", class: "btn btn-primary", id:"btn-send"%>
         </div>
       </div>
+
+
     <% end %>
   </div>
+
+
 </span>
 
 <!-- Acussed Modal -->
