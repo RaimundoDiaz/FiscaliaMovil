@@ -10,6 +10,8 @@ class Procedure < ApplicationRecord
   has_many :crimes, :through => :crime_in_accuseds
   has_many :messages
 
+  validate :past_date
+
   enum state: {pending: 0, acd: 1, noticed: 2}
   enum classification: {flagrancy: 0, pending_arrest_warrant: 1, both: 2}
 
@@ -30,6 +32,13 @@ class Procedure < ApplicationRecord
     I18n.locale = :es
     I18n.l(self.date_of_arrest, format: '%A, %d de %B de %Y a las %H:%M')
   end
+
+  def past_date
+    if date_of_arrest > Date.today
+      errors.add(:date_of_arrest, "la fecha no puede ser en el futuro")
+    end
+  end
+
   has_many :taggings
   has_many :tags, through: :taggings
 end

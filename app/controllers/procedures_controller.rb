@@ -64,7 +64,9 @@ class ProceduresController < ApplicationController
 
     selected_region = ""
     selected_sector = ""
+
     get_regiones
+
     @regiones.each do |region|
       if region[:codigo].to_s == procedure_params[:region].to_s
         selected_region = region[:nombre]
@@ -80,6 +82,9 @@ class ProceduresController < ApplicationController
 
     d = procedure_params[:date].to_date
     t = procedure_params[:time].to_time
+
+    dateOfArrest = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec, t.zone)
+
     @procedure = Procedure.new(classification: classification_procedure,
                                police_in_charge: PoliceMan.find(procedure_params[:police_in_charge]),
                                police_unit_in_charge: PoliceUnit.find(procedure_params[:police_unit_in_charge]),
@@ -90,7 +95,7 @@ class ProceduresController < ApplicationController
                                sector: selected_sector,
                                region: selected_region,
                                state: 0,
-                               date_of_arrest: DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec, t.zone),
+                               date_of_arrest: dateOfArrest,
                                involves_deceased: procedure_params[:involves_deceased]
                                )
     respond_to do |format|
@@ -159,8 +164,6 @@ class ProceduresController < ApplicationController
             @witness_in_procedure.save
           end
         end
-
-
 
         format.html { redirect_to @procedure, notice: 'Procedure was successfully created.' }
         format.json { render :show, status: :created, location: @procedure }
