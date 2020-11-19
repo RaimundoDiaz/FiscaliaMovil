@@ -7,10 +7,10 @@ class ProceduresController < ApplicationController
   def index
     if current_user.local_prosecution.present?
       @procedures = Procedure.where(:state => 0, :local_prosecution_in_charge_id => current_user.local_prosecution.id).order(created_at: :desc)
-    end
-
-    if current_user.police_unit.present?
+    elsif current_user.police_unit.present?
       @procedures = Procedure.where(:state => 0, :police_unit_in_charge_id => current_user.police_unit.id).order(created_at: :desc)
+    elsif current_user.admin?
+      @procedures = []
     end
   end
 
@@ -175,7 +175,6 @@ class ProceduresController < ApplicationController
   # PATCH/PUT /procedures/1
   # PATCH/PUT /procedures/1.json
   def update
-    byebug
     respond_to do |format|
       if @procedure.update(state: params[:state])
         format.html { redirect_to @procedure, notice: 'Procedure was successfully updated.' }

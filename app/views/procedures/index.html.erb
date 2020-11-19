@@ -2,9 +2,11 @@
 <p id="notice"><%= notice %></p>
 -->
 
-<div class="text-center">
-  <%= link_to "Crear nuevo procedimiento", new_procedure_path, class: "btn btn-warning text-white ml-sm-4"%>
-</div>
+<% if !current_user.admin? %>
+  <div class="text-center">
+    <%= link_to "Crear nuevo procedimiento", new_procedure_path, class: "btn btn-warning text-white ml-sm-4"%>
+  </div>
+<% end %>
 
 <%if @procedures != [] %>
   <% @procedures.each do |procedimiento| %>

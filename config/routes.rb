@@ -16,4 +16,9 @@ Rails.application.routes.draw do
     resources :messages
   end
 
+  namespace :admin do
+      resources :crimes
+  end
+
+
 end

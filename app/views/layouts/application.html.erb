@@ -12,27 +12,76 @@
   <body>
     <header>
       <% if user_signed_in? %>
-        <nav class="navbar navbar-light bg-light">
-          <div class="navbar-brand">
-            <a class="mr-sm-4"><%= link_to image_tag("FiscaliaLogo.png", width: "70em"), root_path %></a>
-            <a class="mr-sm-4"><%= link_to image_tag("FiscaliaNombre.png", width: "180em"), root_path %></a>
-          </div>
-          <%if (current_user.local_prosecution.present?)%>
-            <p style="color: #EC9D32; font-weight: bold; margin: 0px; font-size: small; width: 30%; margin-left: -30px;">Fiscalia: <%=current_user.local_prosecution.name%></p>
-          <%end%>
-
-          <%if (current_user.police_unit.present?)%>
-            <p style="color: #EC9D32; font-weight: bold; margin: 0px; font-size: small; width: 30%; margin-left: -30px;">Unidad Policial: <%=current_user.police_unit.name%></p>
-          <%end%>
-          <%= form_with url: search_path, method: :get, local: true do |form| %>
-            <div class="form-inline row">
-              <%= form.text_field :query, :placeholder => "Buscar por Folio...", class: "form-control" %>
-              <%= form.submit "Buscar", class: ["btn", "btn-primary"] %>
+        <% if current_user.admin? %>
+          <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
+                    Usuarios
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                    Policias
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    Fiscales
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="<%= admin_crimes_path %>">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                    Delitos
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                    Marcas
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                    Unidades policiales
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                    Fiscalias
+                  </a>
+                </li>
+              </ul>
             </div>
-          <% end %>
-          <%= button_to "Búsqueda Avanzada", search_path, :method => :get, :class => "btn btn-primary text-white ml-sm-4" %>
-          <%= button_to "Cerrar sesión", destroy_user_session_path, :method => :delete, :class => "btn btn-warning text-white ml-sm-4" %>
-        </nav>
+          </nav>
+        <% else %>
+          <nav class="navbar navbar-light bg-light">
+            <div class="navbar-brand">
+              <a class="mr-sm-4"><%= link_to image_tag("FiscaliaLogo.png", width: "70em"), root_path %></a>
+              <a class="mr-sm-4"><%= link_to image_tag("FiscaliaNombre.png", width: "180em"), root_path %></a>
+            </div>
+            <%if (current_user.local_prosecution.present?)%>
+              <p style="color: #EC9D32; font-weight: bold; margin: 0px; font-size: small; width: 30%; margin-left: -30px;">Fiscalia: <%=current_user.local_prosecution.name%></p>
+            <%elsif (current_user.police_unit.present?)%>
+              <p style="color: #EC9D32; font-weight: bold; margin: 0px; font-size: small; width: 30%; margin-left: -30px;">Unidad Policial: <%=current_user.police_unit.name%></p>
+            <%end%>
+            <%= form_with url: search_path, method: :get, local: true do |form| %>
+              <div class="form-inline row">
+                <%= form.text_field :query, :placeholder => "Buscar por Folio...", class: "form-control" %>
+                <%= form.submit "Buscar", class: ["btn", "btn-primary"] %>
+              </div>
+            <% end %>
+            <%= button_to "Búsqueda Avanzada", search_path, :method => :get, :class => "btn btn-primary text-white ml-sm-4" %>
+            <%= button_to "Cerrar sesión", destroy_user_session_path, :method => :delete, :class => "btn btn-warning text-white ml-sm-4" %>
+          </nav>
+        <% end %>
       <% end %>
     </header>
     <main>

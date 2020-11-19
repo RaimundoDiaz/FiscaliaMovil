@@ -9,4 +9,11 @@ class ApplicationController < ActionController::Base
     #current_user.is_a?(Admin) ? admin_tests_path : (stored_location_for(resource) || root_path)
     procedures_path
   end
+
+  def authenticate_admin!
+    authenticate_user!
+    unless current_user.admin?
+      redirect_to root_path, alert: "You don't have admin permissions."
+    end
+  end
 end

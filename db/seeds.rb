@@ -88,6 +88,7 @@ while i < 100  do
 end
 
 ######################################
+admin = User.create(email: "admin@gmail.com", password: "123456789", admin: true)
 u1 = User.create(police_unit_id: 10101, email: "unidadpolicia1@gmail.com", password: "123456789")
 u2 = User.create(local_prosecution_id: 1607, email: "fiscalia1@gmail.com", password: "123456789")
 police = PoliceMan.find(1)
