@@ -683,7 +683,6 @@ $(document).on('turbolinks:load', function() {
                 .attr("type", "hidden")
                 .attr("name", "procedure[witness][][name]").val(name);
             witnessHTML = $(witnessHTML).append(input);
-
             input = $("<input>")
                 .attr("type", "hidden")
                 .attr("name", "procedure[witness][][rut]").val(rut);

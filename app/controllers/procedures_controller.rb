@@ -81,10 +81,10 @@ class ProceduresController < ApplicationController
     d = procedure_params[:date].to_date
     t = procedure_params[:time].to_time
     @procedure = Procedure.new(classification: classification_procedure,
-                               police_in_charge: PoliceMan.find(1),
-                               police_unit_in_charge: PoliceUnit.first,
-                               prosecutor_in_charge: Prosecutor.find(1),
-                               local_prosecution_in_charge: Prosecutor.find(1).local_prosecution,
+                               police_in_charge: PoliceMan.find(procedure_params[:police_in_charge]),
+                               police_unit_in_charge: PoliceUnit.find(procedure_params[:police_unit_in_charge]),
+                               prosecutor_in_charge: Prosecutor.find(procedure_params[:prosecutor_in_charge]),
+                               local_prosecution_in_charge: LocalProsecution.find(procedure_params[:prosecution_in_charge]),
                                story: procedure_params[:story],
                                address: procedure_params[:address],
                                sector: selected_sector,
@@ -204,7 +204,7 @@ class ProceduresController < ApplicationController
   def procedure_params
 
     # Only allow a list of trusted parameters through.
-    params.require(:procedure).permit(:date,:time,:classification,:involves_deceased,:address,:region,:sector,:preponderant_crime,:state, :story, crimes:[],
+    params.require(:procedure).permit(:date,:time,:classification,:involves_deceased,:prosecutor_in_charge, :prosecution_in_charge,:police_unit_in_charge,:police_in_charge,:address,:region,:sector,:preponderant_crime,:state, :story, crimes:[],
                                       tag_ids:[], :accuseds => [:name,:alias,:rut], :victims => [:name,:rut,:deceased,:contact,:story],
                                       :witness => [:name,:rut,:story,:contact])
   end
