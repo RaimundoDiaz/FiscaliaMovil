@@ -190,6 +190,7 @@
                     </small>
                     </p>
                   </h6>
+                  <% if @procedure.open? %>
                   <%= link_to "Pronunciarse", "#pronounceModal-" + accused[0].id.to_s , :class => ["btn", "btn-outline-primary"], "data-toggle" => "modal" %>
 
                   <!-- Modal -->
@@ -215,7 +216,7 @@
                       </div>
                     </div>
                   </div>
-
+                <%end %>
                 </div>
               </div>
             </div>
@@ -292,17 +293,17 @@
 <div align="right">
   <%= link_to 'Atrás', procedures_path, class: ["btn", "btn-outline-primary"] %>
 
+  <% if @procedure.open? %>
 
-  <% @disable = false %>
-  <% @accuseds.each do |element| %>
-    <% if element[2] == "pending" %>
-      <% @disable = true %>
-      <% break %>
-    <%end %>
-  <% end %>
+    <% disableButton = false %>
+    <% @accuseds.each do |element| %>
+      <% if element[1] == "pending" %>
+        <% disableButton = true %>
+        <% break %>
+      <%end %>
+    <% end %>
 
-  <% unless @disable %>
-    <%= link_to "Cerrar procedimiento", "#closeProcedureModal", :class => ["btn", "btn-outline-danger"], "data-toggle" => "modal"%>
+    <%= link_to "Cerrar procedimiento", "#closeProcedureModal", :class => ["btn", "btn-outline-danger" + (disableButton ? " disabled" : "")], "data-toggle" => "modal"%>
   <% end %>
 
   <%= link_to 'Mensajes del procedimiento', procedure_messages_path(@procedure.id), class: ["btn", "btn-outline-warning"] %>

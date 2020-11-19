@@ -175,8 +175,9 @@ class ProceduresController < ApplicationController
   # PATCH/PUT /procedures/1
   # PATCH/PUT /procedures/1.json
   def update
+    byebug
     respond_to do |format|
-      if @procedure.update(procedure_params)
+      if @procedure.update(state: params[:state])
         format.html { redirect_to @procedure, notice: 'Procedure was successfully updated.' }
         format.json { render :show, status: :ok, location: @procedure }
       else
