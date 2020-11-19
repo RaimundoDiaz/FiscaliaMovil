@@ -4,15 +4,15 @@
       <div id="homeNotificationDiv">
         <div class="procedimiento_badge" , style="font-size: x-large">
           <% if notification.new_procedure? %>
-            <%= link_to "Nuevo Procedimiento recibido", procedure_path(notification.reference_id) %>
+            <%= link_to "Nuevo Procedimiento recibido", see_notification_path(notification), method: :put%>
           <% elsif notification.procedure_closed? %>
-            <%= link_to "Procedimiento N° " + String(notification.reference_id) + " se ha cerrado", procedure_path(notification.reference_id) %>
+            <%= link_to "Procedimiento N° " + String(notification.reference_id) + " se ha cerrado", see_notification_path(notification), method: :put%>
           <% elsif notification.procedure_requiring_info? %>
-            <%= link_to "Procedimiento N° " + String(notification.reference_id) + " requiere revision", procedure_path(notification.reference_id) %>
+            <%= link_to "Procedimiento N° " + String(notification.reference_id) + " requiere revision", see_notification_path(notification), method: :put%>
           <% elsif notification.procedure_info_updated? %>
-            <%= link_to "Procedimiento N° " + String(notification.reference_id) + " se ha actualizado", procedure_path(notification.reference_id) %>
+            <%= link_to "Procedimiento N° " + String(notification.reference_id) + " se ha actualizado", see_notification_path(notification), method: :put%>
           <% elsif notification.new_message? %>
-            <%= link_to "Nuevo mensaje en Procedimiento N° " + String(notification.reference_id), procedure_messages_path(notification.reference_id) %>
+            <%= link_to "Nuevo mensaje en Procedimiento N° " + String(notification.reference_id), see_notification_path(notification), method: :put%>
           <% end %>
         </div>
         <br>
