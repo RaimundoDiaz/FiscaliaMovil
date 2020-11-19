@@ -462,8 +462,9 @@ $(document).on('turbolinks:load', function() {
 
     $('#add_crime_btn').click(function () {
         $('#crimes').append(crimeField.clone())
-        $('.delete_crime').last().click(function () {
-            var division = $('.delete_crime').last().closest('#new_crime')
+        let delBtn = $('.delete_crime').last()
+        $(delBtn).click(function () {
+            let division = $(delBtn).closest('#new_crime')
             division.remove()
         })
     });
@@ -509,24 +510,36 @@ $(document).on('turbolinks:load', function() {
             var alias = $('#accusedAlias').val();
             var rut = $('#accusedRut').val();
 
+            var accussedHTML = `<div id="accussed" class="whiteContainer mb-2">
+                                    <div class="d-flex justify-content-between p-0 m-0">
+                                        <span><b>Nombre:</b> ${name} </span>
+                                        <span><b>Alias:</b> "${alias}"</span>
+                                        <span><b>Rut:</b> ${rut}</span>
+                                    </div>
+                               </div> `;
+
+            let button = `<button type="button" class="close" aria-label="Close ml-2 mb-2"><span aria-hidden="true">&times;</span></button>`;
+            button = $(button).click(function () {
+                let division = button.closest('#accussed')
+                division.remove()
+            });
+            accussedHTML = $(accussedHTML).prepend(button);
+
             var input = $("<input>")
                 .attr("type", "hidden")
                 .attr("name", "procedure[accuseds][][name]").val(name);
-            $('#form_procedure').append(input);
+            accussedHTML = $(accussedHTML).append(input);
 
             input = $("<input>")
                 .attr("type", "hidden")
                 .attr("name", "procedure[accuseds][][alias]").val(alias);
-            $('#form_procedure').append(input);
+            accussedHTML = $(accussedHTML).append(input);
             input = $("<input>")
                 .attr("type", "hidden")
                 .attr("name", "procedure[accuseds][][rut]").val(rut);
-            $('#form_procedure').append(input);
+            accussedHTML = $(accussedHTML).append(input);
 
-            $('#accuseds').append($("<div class=\"d-flex justify-content-between\">\n" +
-                "                <p><b>Nombre:</b> " + name + " </p> <p><b>Alias:</b> \"" + alias + "\" </p>\n" +
-                "                <p><b>Rut:</b> " + rut + "</p>\n" +
-                "              </div>"));
+            $('#accuseds').append(accussedHTML);
             restartAccusedModal()
             $("#accusedClose").click()
         }
@@ -566,33 +579,50 @@ $(document).on('turbolinks:load', function() {
             var contact = $('#victimContact').val();
             var deceased = $('#deceasedVictimSwitch').is(":checked");
 
+
+            var victimHTML = `<div id="victim" class="whiteContainer mb-2">
+                                    <div class="d-flex justify-content-between">
+                                        <span><b>Nombre:</b> ${name}</span> 
+                                        <span><b>Rut:</b> ${rut}</span>  
+                                        <span><b>Contacto:</b> ${contact}</span>
+                                    </div>
+                                    <div>
+                                        <span><b>Detalles:</b> ${story}</span>
+                                    </div>
+                               </div> `;
+
+            let button = `<button type="button" class="close" aria-label="Close ml-2 mb-2"><span aria-hidden="true">&times;</span></button>`;
+            button = $(button).click(function () {
+                let division = button.closest('#victim')
+                division.remove()
+            });
+            victimHTML = $(victimHTML).prepend(button);
+
             var input = $("<input>")
                 .attr("type", "hidden")
                 .attr("name", "procedure[victims][][name]").val(name);
-            $('#form_procedure').append(input);
+            victimHTML = $(victimHTML).append(input);
 
             input = $("<input>")
                 .attr("type", "hidden")
                 .attr("name", "procedure[victims][][rut]").val(rut);
-            $('#form_procedure').append(input);
+            victimHTML = $(victimHTML).append(input);
             input = $("<input>")
                 .attr("type", "hidden")
                 .attr("name", "procedure[victims][][story]").val(story);
-            $('#form_procedure').append(input);
+            victimHTML = $(victimHTML).append(input);
             input = $("<input>")
                 .attr("type", "hidden")
                 .attr("name", "procedure[victims][][contact]").val(contact);
-            $('#form_procedure').append(input);
+            victimHTML = $(victimHTML).append(input);
             input = $("<input>")
                 .attr("type", "hidden")
                 .attr("name", "procedure[victims][][deceased]").val(deceased);
-            $('#form_procedure').append(input);
+            victimHTML = $(victimHTML).append(input);
 
             restartVictimModal()
 
-            $('#victims').append($("<div class=\"d-flex justify-content-between\">\n" +
-                "                   <p><b>Nombre:</b> " + name+ " </p> <p><b>Rut:</b> " + rut + " </p> <p><b>Contacto:</b> " + contact + " </p>" +
-                "                   </div> <div><p><b>Detalles:</b> " + story + "</p></div>"));
+            $('#victims').append(victimHTML);
             $("#victimClose").click()
         }
         else{
@@ -629,27 +659,46 @@ $(document).on('turbolinks:load', function() {
             var story = $('#witnessStory').val();
             var contact = $('#witnessContact').val();
 
+            var witnessHTML = `<div id="witness" class="whiteContainer mb-2">
+                                    <div>
+                                        <div class="d-flex justify-content-between">
+                                            <span><b>Nombre:</b> ${name}</span> 
+                                            <span><b>Rut:</b> ${rut}</span> 
+                                            <span><b>Contacto:</b> ${contact}</span>
+                                        </div>
+                                        <div>
+                                            <span><b>Detalles:</b> ${story}</span>
+                                        </div>
+                                    </div>
+                               </div> `;
+
+            let button = `<button type="button" class="close" aria-label="Close ml-2 mb-2"><span aria-hidden="true">&times;</span></button>`;
+            button = $(button).click(function () {
+                let division = button.closest('#witness')
+                division.remove()
+            });
+            witnessHTML = $(witnessHTML).prepend(button);
+
             var input = $("<input>")
                 .attr("type", "hidden")
                 .attr("name", "procedure[witness][][name]").val(name);
-            $('#form_procedure').append(input);
-
+            witnessHTML = $(witnessHTML).append(input);
             input = $("<input>")
                 .attr("type", "hidden")
                 .attr("name", "procedure[witness][][rut]").val(rut);
-            $('#form_procedure').append(input);
+            witnessHTML = $(witnessHTML).append(input);
             input = $("<input>")
                 .attr("type", "hidden")
                 .attr("name", "procedure[witness][][story]").val(story);
-            $('#form_procedure').append(input);
+            witnessHTML = $(witnessHTML).append(input);
             input = $("<input>")
                 .attr("type", "hidden")
                 .attr("name", "procedure[witness][][contact]").val(contact);
-            $('#form_procedure').append(input);
+            witnessHTML = $(witnessHTML).append(input);
             restartWitnessModal()
-            $('#witnesses').append($("<div class=\"d-flex justify-content-between\">\n" +
-                "                   <p><b>Nombre:</b> " + name + " </p> <p><b>Rut:</b> " + rut +" </p> <p><b>Contacto:</b> " + contact + " </p>" +
-                "                   </div> <div><p><b>Detalles:</b> " + story + "</p></div>"));
+
+            $('#witnesses').append(witnessHTML);
+
             $("#witnessClose").click()
         }
         else{

@@ -63,7 +63,9 @@ class ProceduresController < ApplicationController
 
     selected_region = ""
     selected_sector = ""
+
     get_regiones
+
     @regiones.each do |region|
       if region[:codigo].to_s == procedure_params[:region].to_s
         selected_region = region[:nombre]
@@ -81,17 +83,20 @@ class ProceduresController < ApplicationController
     t = procedure_params[:time].to_time
 
 
+    dateOfArrest = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec, t.zone)
+
+
     @procedure = Procedure.new(classification: classification_procedure,
-                               police_in_charge: PoliceMan.find(1),
-                               police_unit_in_charge: PoliceMan.find(1).police_unit,
-                               prosecutor_in_charge: Prosecutor.find(1),
-                               local_prosecution_in_charge: Prosecutor.find(1).local_prosecution,
+                               police_in_charge: PoliceMan.find(procedure_params[:police_in_charge]),
+                               police_unit_in_charge: PoliceUnit.find(procedure_params[:police_unit_in_charge]),
+                               prosecutor_in_charge: Prosecutor.find(procedure_params[:prosecutor_in_charge]),
+                               local_prosecution_in_charge: LocalProsecution.find(procedure_params[:prosecution_in_charge]),
                                story: procedure_params[:story],
                                address: procedure_params[:address],
                                sector: selected_sector,
                                region: selected_region,
                                state: 0,
-                               date_of_arrest: DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec, t.zone),
+                               date_of_arrest: dateOfArrest,
                                involves_deceased: procedure_params[:involves_deceased]
                                )
     respond_to do |format|
@@ -161,8 +166,6 @@ class ProceduresController < ApplicationController
           end
         end
 
-
-
         format.html { redirect_to @procedure, notice: 'Procedure was successfully created.' }
         format.json { render :show, status: :created, location: @procedure }
       else
@@ -205,7 +208,7 @@ class ProceduresController < ApplicationController
   def procedure_params
 
     # Only allow a list of trusted parameters through.
-    params.require(:procedure).permit(:date,:time,:classification,:involves_deceased,:address,:region,:sector,:preponderant_crime,:state, :story, crimes:[],
+    params.require(:procedure).permit(:date,:time,:classification,:involves_deceased,:prosecutor_in_charge, :prosecution_in_charge,:police_unit_in_charge,:police_in_charge,:address,:region,:sector,:preponderant_crime,:state, :story, crimes:[],
                                       tag_ids:[], :accuseds => [:name,:alias,:rut], :victims => [:name,:rut,:deceased,:contact,:story],
                                       :witness => [:name,:rut,:story,:contact])
   end

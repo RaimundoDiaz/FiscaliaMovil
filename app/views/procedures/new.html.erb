@@ -35,6 +35,32 @@
           </div>
         </div>
 
+        <div id="involved" class="greyContainer">
+          <div class="form-inline">
+            <% if !current_user.local_prosecution %>
+              <%= form.label :prosecution_in_charge, 'Fiscalia a cargo:', class: "mr-2 form-label" %>
+              <%= form.select :prosecution_in_charge, options_for_select(LocalProsecution.order(:name).map { |prosecution| [prosecution[:name], prosecution[:id]] }),{},{class: "form-control flex-grow-1"} %>
+            <% else %>
+              <%= form.hidden_field :prosecution_in_charge, :value => current_user.local_prosecution.id %>
+            <% end %>
+
+          </div>
+
+          <div class="form-inline">
+            <%= form.label :prosecutor_in_charge, 'Fiscal a cargo:', class: "mr-2 form-label" %>
+            <%= form.select :prosecutor_in_charge, options_for_select(Prosecutor.order(:name).map { |prosecutor| [prosecutor[:name], prosecutor[:id]] }),{},{class: "form-control flex-grow-1"} %>
+          </div>
+
+          <div class="form-inline">
+            <%= form.label :police_unit_in_charge, 'unidad policial a cargo:', class: "mr-2 form-label" %>
+            <%= form.select :police_unit_in_charge, options_for_select(PoliceUnit.order(:name).map { |policeUnit| [policeUnit[:name],policeUnit[:id]] }),{},{class: "form-control flex-grow-1"} %>
+            <%= form.label :police_in_charge, 'policia a cargo:', class: "mr-2 form-label" %>
+            <%= form.select :police_in_charge, options_for_select(PoliceMan.order(:name).map { |police| ["%s - %s"%[police[:name].to_s,police[:badge].to_s],police[:id]] }),{},{class: "form-control flex-grow-1"} %>
+          </div>
+
+        </div>
+
+
         <b>Localización:</b>
         <div id="address" class="greyContainer">
           <div class="form-inline mb-3">
@@ -95,15 +121,30 @@
         </div>
 
         <b>Relato:</b>
-        <div id="witnesses" class="greyContainer">
+        <div id="story" class="greyContainer">
           <%= form.text_area :story,  class: "form-control flex-grow-1"  %>
+        </div>
+        <b>Archivos:</b>
+        <div id="address" class="greyContainer">
+          <div class="form-group">
+            <%= form.label :photos, 'Fotos:' , class: "mr-2 form-label"%>
+            <%= form.file_field :photos, class: "form-control-file" %>
+        </div>
+        <div class="form-group">
+          <%= form.label :photos, 'Videos:' , class: "mr-2 form-label"%>
+          <%= form.file_field :videos, class: "form-control-file" %>
+        </div>
         </div>
         <div>
           <%= form.submit "Enviar", class: "btn btn-primary", id:"btn-send"%>
         </div>
       </div>
+
+
     <% end %>
   </div>
+
+
 </span>
 
 <!-- Acussed Modal -->

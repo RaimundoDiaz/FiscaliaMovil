@@ -28,6 +28,7 @@ gem 'faker', '~> 2.14'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+gem 'activestorage-validator'
 
 # Add devise for user authentication, registration, etc.
 gem 'devise', '~> 4.7'
