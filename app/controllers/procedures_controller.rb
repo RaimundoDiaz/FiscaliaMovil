@@ -79,7 +79,6 @@ class ProceduresController < ApplicationController
     end
 
 
-
     d = procedure_params[:date].to_date
     t = procedure_params[:time].to_time
 
@@ -96,7 +95,7 @@ class ProceduresController < ApplicationController
                                address: procedure_params[:address],
                                sector: selected_sector,
                                region: selected_region,
-                               state: 0,
+                               state: procedure_params[:state],
                                date_of_arrest: dateOfArrest,
                                involves_deceased: procedure_params[:involves_deceased]
                                )
@@ -138,32 +137,37 @@ class ProceduresController < ApplicationController
           end
         end
 
-        procedure_params[:victims].each do |victim|
-          @victim = Person.new(name: victim[:name],
-                               rut: victim[:rut],
-                               deceased: victim[:deceased],
-                               contact: victim[:contact]
-                               )
-          if @victim.save!
-            @victim_in_procedure = PersonInProcedure.new(role: 2,
-                                                         person: @victim,
-                                                         procedure: @procedure,
-                                                         witness_declaration: victim[:story])
-            @victim_in_procedure.save
+        if procedure_params[:victims]
+          procedure_params[:victims].each do |victim|
+            @victim = Person.new(name: victim[:name],
+                                 rut: victim[:rut],
+                                 deceased: victim[:deceased],
+                                 contact: victim[:contact]
+            )
+            if @victim.save!
+              @victim_in_procedure = PersonInProcedure.new(role: 2,
+                                                           person: @victim,
+                                                           procedure: @procedure,
+                                                           witness_declaration: victim[:story])
+              @victim_in_procedure.save
+            end
           end
         end
 
-        procedure_params[:witness].each do |witness|
-          @witness = Person.new(name: witness[:name],
-                               rut: witness[:rut],
-                               contact: witness[:contact]
-          )
-          if @witness.save!
-            @witness_in_procedure = PersonInProcedure.new(role: 1,
-                                                         person: @witness,
-                                                         procedure: @procedure,
-                                                         witness_declaration: witness[:story])
-            @witness_in_procedure.save
+
+        if procedure_params[:witness]
+          procedure_params[:witness].each do |witness|
+            @witness = Person.new(name: witness[:name],
+                                  rut: witness[:rut],
+                                  contact: witness[:contact]
+            )
+            if @witness.save!
+              @witness_in_procedure = PersonInProcedure.new(role: 1,
+                                                            person: @witness,
+                                                            procedure: @procedure,
+                                                            witness_declaration: witness[:story])
+              @witness_in_procedure.save
+            end
           end
         end
 
