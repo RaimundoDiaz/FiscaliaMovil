@@ -37,7 +37,7 @@
           </div>
         </div>
 
-        <% if !current_user.local_prosecution %>
+        <% if !current_user.prosecutor %>
           <div class="card mb-3">
             <h5 class="card-header">Fiscalia a cargo</h5>
             <div id="prosecutionInCharge" class="card-body">
@@ -47,7 +47,7 @@
             </div>
           </div>
         <% else %>
-          <%= form.hidden_field :prosecution_in_charge, :value => current_user.local_prosecution.id %>
+          <%= form.hidden_field :prosecution_in_charge, :value => current_user.prosecutor.id %>
         <% end %>
 
         <div class="card mb-3">
