@@ -20,15 +20,30 @@
       <div class="form-group col-10">
         <%= form.label :Password %>
         <%= form.password_field :password, class: "form-control", autocomplete: "password", placeholder:"New Password" %>
+        <small id="emailHelp" class="form-text text-muted">Deje la contraseña en blanco si no quiere cambiarla.</small>
       </div>
+
+      <% if action_name == "edit" %>
+        <div class="form-group">
+          <% if params[:role] == "1" %>
+            <%= form.label :police_unit %>
+            <%= form.collection_select(:police_unit_id, PoliceUnit.all, :id, :name, {}, { class: "form-control" }) %>
+          <% elsif params[:role] == "2" %>
+            <%= form.label :local_prosecution %>
+            <%= form.collection_select(:local_prosecution_id, LocalProsecution.all, :id, :name, {}, { class: "form-control" }) %>
+          <%end %>
+          <%= hidden_field_tag(:role, params[:role]) %>
+        </div>
+      <% end %>
+
       <div class="form-group col-10">
         <%= form.label :admin %>
-        <%= form.check_box :system_admin %>
+        <%= form.check_box :admin %>
       </div>
     </div>
 
 
-    <%= form.submit class: ["btn", "btn-primary"] %>
-    <%= link_to "Back", :back, class: ["btn", "btn-secondary"] %>
+    <%= form.submit "Editar", class: ["btn", "btn-primary"] %>
+    <%= link_to "Atras", admin_users_path, class: ["btn", "btn-secondary"] %>
   </div>
 <% end %>

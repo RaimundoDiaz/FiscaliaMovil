@@ -1,0 +1,53 @@
+
+<div id="content_box">
+  <div class="container mt-3">
+    <h2>Filterable Table</h2>
+    <%= link_to 'Crear delito', new_admin_user_path %>
+    <p>Type something in the input field to search the table for Names, Countries or emails:</p>
+    <input class="form-control" id="myInput" type="text" placeholder="Search..">
+    <br>
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>Email</th>
+        <th>Pertenece a</th>
+        <th>Administrador</th>
+        <th>Acciones</th>
+      </tr>
+      </thead>
+      <tbody id="myTable">
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.email %></td>
+          <% unless user.police_unit.nil? %>
+          <td><%= user.police_unit.name  %></td>
+            <% role = 1 %>
+          <%  end %>
+          <% unless user.local_prosecution.nil? %>
+            <td><%= user.local_prosecution.name  %></td>
+            <% role = 2 %>
+          <%  end %>
+          <% if user.local_prosecution.nil? and user.police_unit.nil? %>
+            <td>No aplica</td>
+            <% role = 0 %>
+          <%  end %>
+          <td><%= user.admin ? 'Si' : 'No' %></td>
+          <td><%= link_to 'Editar', edit_admin_user_path(user, role: role) %> <%= link_to 'Eliminar', admin_user_path(user), method: :delete %></td>
+        </tr>
+
+      <% end %>
+      </tbody>
+    </table>
+
+  </div>
+  <script>
+      $(document).ready(function(){
+          $("#myInput").on("keyup", function() {
+              var value = $(this).val().toLowerCase();
+              $("#myTable tr").filter(function() {
+                  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+              });
+          });
+      });
+  </script>
+</div>
