@@ -151,6 +151,7 @@ ActiveRecord::Schema.define(version: 2020_11_19_214528) do
     t.bigint "police_unit_in_charge_id", null: false
     t.bigint "prosecutor_in_charge_id", null: false
     t.bigint "local_prosecution_in_charge_id", null: false
+    t.bigint "creator_id", null: false
     t.string "story"
     t.string "address"
     t.string "sector"
@@ -160,6 +161,7 @@ ActiveRecord::Schema.define(version: 2020_11_19_214528) do
     t.boolean "involves_deceased"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["creator_id"], name: "index_procedures_on_creator_id"
     t.index ["local_prosecution_in_charge_id"], name: "index_procedures_on_local_prosecution_in_charge_id"
     t.index ["police_in_charge_id"], name: "index_procedures_on_police_in_charge_id"
     t.index ["police_unit_in_charge_id"], name: "index_procedures_on_police_unit_in_charge_id"
@@ -199,7 +201,7 @@ ActiveRecord::Schema.define(version: 2020_11_19_214528) do
 
   create_table "users", force: :cascade do |t|
     t.bigint "police_unit_id"
-    t.bigint "local_prosecution_id"
+    t.bigint "prosecutor_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "email", default: "", null: false
@@ -209,8 +211,8 @@ ActiveRecord::Schema.define(version: 2020_11_19_214528) do
     t.datetime "remember_created_at"
     t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["local_prosecution_id"], name: "index_users_on_local_prosecution_id"
     t.index ["police_unit_id"], name: "index_users_on_police_unit_id"
+    t.index ["prosecutor_id"], name: "index_users_on_prosecutor_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -229,9 +231,10 @@ ActiveRecord::Schema.define(version: 2020_11_19_214528) do
   add_foreign_key "procedures", "police_men", column: "police_in_charge_id"
   add_foreign_key "procedures", "police_units", column: "police_unit_in_charge_id"
   add_foreign_key "procedures", "prosecutors", column: "prosecutor_in_charge_id"
+  add_foreign_key "procedures", "users", column: "creator_id"
   add_foreign_key "prosecutors", "local_prosecutions"
   add_foreign_key "taggings", "procedures"
   add_foreign_key "taggings", "tags"
-  add_foreign_key "users", "local_prosecutions"
   add_foreign_key "users", "police_units"
+  add_foreign_key "users", "prosecutors"
 end
