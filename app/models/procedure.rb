@@ -9,6 +9,7 @@ class Procedure < ApplicationRecord
   has_many :crime_in_accuseds
   has_many :crimes, :through => :crime_in_accuseds
   has_many :messages
+  belongs_to :creator, class_name: 'User'
   has_one_attached :videos
   has_many_attached :photos
 
