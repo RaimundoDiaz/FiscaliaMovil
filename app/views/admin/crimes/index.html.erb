@@ -14,7 +14,7 @@
   <div class="container mt-3">
     <div>
       <h2 class="float-left">Delitos</h2>
-      <%= button_to "Crear delito", new_admin_crime_path, :class => "btn btn-primary text-white mb-2 float-right" %>
+      <%= button_to "Crear delito", new_admin_crime_path, :method => :get, :class => "btn btn-primary text-white mb-2 float-right" %>
     </div>
     <input class="form-control" id="myInput" type="text" placeholder="Buscar delito..">
     <br>
@@ -22,14 +22,14 @@
       <thead>
       <tr>
         <th>Nombre</th>
-        <th>Acciones</th>
+        <th style="text-align: center">Acciones</th>
       </tr>
       </thead>
       <tbody id="myTable">
       <% @crimes.each do |crime| %>
         <tr>
           <td><%= crime.name %></td>
-          <td><%= link_to 'Editar', edit_admin_crime_path(crime) %> <%= link_to 'Eliminar', admin_crime_path(crime), method: :delete, :class => "float-right"%></td>
+          <td><%= link_to 'Editar', edit_admin_crime_path(crime) %> <%= link_to 'Eliminar', admin_crime_path(crime), data: { confirm: "¿Estás seguro que quieres borrar este delito?, ya que se borrará de los procedimientos e imputados que la contengan" }, method: :delete, :class => "float-right"%></td>
         </tr>
 
       <% end %>
