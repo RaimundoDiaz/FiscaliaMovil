@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
       resources :crimes
+      resources :police_units
   end
 
 
