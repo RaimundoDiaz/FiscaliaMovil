@@ -1,0 +1,40 @@
+
+<div id="content_box">
+  <div class="container mt-3">
+    <h2>Filterable Table</h2>
+    <%= link_to 'Crear Fiscalía Local', new_admin_local_prosecution_path %>
+    <p>Type something in the input field to search the table for Names, Countries or emails:</p>
+    <input class="form-control" id="myInput" type="text" placeholder="Search..">
+    <br>
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Fiscalía Regional</th>
+        <th>Acciones</th>
+      </tr>
+      </thead>
+      <tbody id="myTable">
+      <% @local_prosecutions.each do |local_prosecution| %>
+        <tr>
+          <td><%= local_prosecution.name %></td>
+          <td><%= local_prosecution.regional_prosecution.name %></td>
+          <td><%= link_to 'Editar', edit_admin_local_prosecution_path(local_prosecution) %> <%= link_to 'Eliminar', admin_local_prosecution_path(local_prosecution), data: { confirm: "Si borras esta fiscalía local se borrarán todos los usuarios, procedimientos y fiscales vinculados a esta" }, method: :delete %></td>
+        </tr>
+
+      <% end %>
+      </tbody>
+    </table>
+
+  </div>
+  <script>
+      $(document).ready(function(){
+          $("#myInput").on("keyup", function() {
+              var value = $(this).val().toLowerCase();
+              $("#myTable tr").filter(function() {
+                  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+              });
+          });
+      });
+  </script>
+</div>
