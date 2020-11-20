@@ -91,7 +91,7 @@ end
 admin = User.create(email: "admin@gmail.com", password: "123456789", admin: true)
 u1 = User.create(police_unit_id: 10101, email: "unidadpolicia1@gmail.com", password: "123456789")
 u2 = User.create(local_prosecution_id: 1607, email: "fiscal1@gmail.com", password: "123456789")
-u3 = User.create(police_unit_id: 10101, email: "unidadpolicia2@gmail.com", password: "123456789")
+u3 = User.create(police_unit_id: 10102, email: "unidadpolicia2@gmail.com", password: "123456789")
 police = PoliceMan.find(1)
 prosecutor = Prosecutor.create(name: "Rodrigo Ponce", rut: "19638846-k", local_prosecution_id: 1607)
 procedure1 = Procedure.create(story: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?", state: 0, address: "Monseñor Álvaro del Portillo 123456", sector: "Las Condes", region: "Metropolitana", date_of_arrest: Date.today ,classification: 0, police_unit_in_charge_id: 10101, police_in_charge: police, local_prosecution_in_charge_id: 1607, prosecutor_in_charge: prosecutor, involves_deceased: false)
@@ -131,4 +131,4 @@ procedure3 = Procedure.create(story: "Asalto a mano armada", state: 0, address: 
 Tagging.create(tag: tag10, procedure: procedure3)
 Tagging.create(tag: tag9, procedure: procedure3)
 
-Notification.create(user_id: 2, notification_type: 0, reference_id: 1, seen: false)
+#Notification.create(user_id: 2, notification_type: 0, reference_id: 1, seen: false)

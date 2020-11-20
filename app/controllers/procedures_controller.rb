@@ -1,4 +1,5 @@
 class ProceduresController < ApplicationController
+  load_and_authorize_resource
   before_action :set_procedure, only: [:show, :edit, :update, :destroy]
   include ProceduresHelper
 
@@ -8,7 +9,7 @@ class ProceduresController < ApplicationController
     if current_user.local_prosecution.present?
       @procedures = Procedure.where(:state => 0, :local_prosecution_in_charge_id => current_user.local_prosecution.id).order(created_at: :desc)
     elsif current_user.police_unit.present?
-      @procedures = Procedure.where(:state => 0, :police_unit_in_charge_id => current_user.police_unit.id).order(created_at: :desc)
+      @procedures = Procedure.where(:state => 2, :police_unit_in_charge_id => current_user.police_unit.id).order(created_at: :desc)
     elsif current_user.admin?
       @procedures = []
     end
