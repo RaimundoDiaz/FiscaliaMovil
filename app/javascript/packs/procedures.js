@@ -494,13 +494,13 @@ $(document).on('turbolinks:load', function() {
     });
 
     $(function() {
-        $("#accusedRut").rut({formatOn: 'keyup'})
+        $("#accusedRut").rut({formatOn: 'keyup', ignoreControlKeys: false})
     });
     $(function() {
-        $("#victimRut").rut({formatOn: 'keyup'})
+        $("#victimRut").rut({formatOn: 'keyup', ignoreControlKeys: false})
     });
     $(function() {
-        $("#witnessRut").rut({formatOn: 'keyup'})
+        $("#witnessRut").rut({formatOn: 'keyup', ignoreControlKeys: false})
     });
 
     function restartAccusedModal(){
@@ -565,6 +565,7 @@ $(document).on('turbolinks:load', function() {
             $("#accusedRut").addClass("has-danger");
             $("#accusedRut").addClass("is-invalid");
             $('#accused-invalid-rut').removeAttr('hidden');
+            $('#accused-invalid-rut').removeAttr('style');
         }
     });
 
@@ -644,6 +645,7 @@ $(document).on('turbolinks:load', function() {
             $("#victimRut").addClass("has-danger")
             $("#victimRut").addClass("is-invalid")
             $('#victim-invalid-rut').removeAttr('hidden');
+            $('#victim-invalid-rut').removeAttr('style');
         }
     });
 
@@ -716,6 +718,26 @@ $(document).on('turbolinks:load', function() {
             $("#witnessRut").addClass("has-danger");
             $("#witnessRut").addClass("is-invalid");
             $('#witness-invalid-rut').removeAttr('hidden');
+            $('#witness-invalid-rut').removeAttr('style');
+        }
+    });
+
+    $("#btn-save").click(function () {
+
+    });
+
+    $("#btn-send").click(function () {
+        if($("#procedure_date").val()==""){
+            console.log("falta fecha");
+        }
+        if($("#procedure_time").val()==""){
+            console.log("falta hora");
+        }
+        if(!$("#accussed").length){
+            console.log("faltan acusados");
+        }
+        if(!$("#procedure_address").val()==""){
+            console.log("falta direccion");
         }
     });
 });
