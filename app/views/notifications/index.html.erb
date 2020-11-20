@@ -1,25 +1,25 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Notifications</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @notifications.each do |notification| %>
-      <tr>
-        <td><%= link_to 'Show', notification %></td>
-        <td><%= link_to 'Edit', edit_notification_path(notification) %></td>
-        <td><%= link_to 'Destroy', notification, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<% if @notifications != [] %>
+  <% @notifications.each do |notification| %>
+    <% if notification.seen == false %>
+      <div id="homeNotificationDiv">
+        <div class="procedimiento_badge" , style="font-size: x-large">
+          <% if notification.new_procedure? %>
+            <%= link_to "Nuevo Procedimiento recibido", see_notification_path(notification), method: :put%>
+          <% elsif notification.procedure_closed? %>
+            <%= link_to "Procedimiento N° " + String(notification.reference_id) + " se ha cerrado", see_notification_path(notification), method: :put%>
+          <% elsif notification.procedure_requiring_info? %>
+            <%= link_to "Procedimiento N° " + String(notification.reference_id) + " requiere revision", see_notification_path(notification), method: :put%>
+          <% elsif notification.procedure_info_updated? %>
+            <%= link_to "Procedimiento N° " + String(notification.reference_id) + " se ha actualizado", see_notification_path(notification), method: :put%>
+          <% elsif notification.new_message? %>
+            <%= link_to "Nuevo mensaje en Procedimiento N° " + String(notification.reference_id), see_notification_path(notification), method: :put%>
+          <% end %>
+        </div>
+        <br>
+        <em>
+          <%= notification.created_at %>
+        </em>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Notification', new_notification_path %>
+  <% end %>
+<% end %>

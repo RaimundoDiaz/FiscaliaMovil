@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-
+  @unread_notifications = Notification.where(seen: false).count
   before_action :authenticate_user!
 
   protected
