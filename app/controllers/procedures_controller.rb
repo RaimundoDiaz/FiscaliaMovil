@@ -6,8 +6,8 @@ class ProceduresController < ApplicationController
   # GET /procedures
   # GET /procedures.json
   def index
-    if current_user.local_prosecution.present?
-      @procedures = Procedure.where(:state => 0, :local_prosecution_in_charge_id => current_user.local_prosecution.id).order(created_at: :desc)
+    if current_user.prosecutor.present?
+      @procedures = Procedure.where(:state => 0, :local_prosecution_in_charge_id => current_user.prosecutor.id).order(created_at: :desc)
     elsif current_user.police_unit.present?
       @procedures = Procedure.where(:state => 2, :police_unit_in_charge_id => current_user.police_unit.id).order(created_at: :desc)
     elsif current_user.admin?
