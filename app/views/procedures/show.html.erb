@@ -5,12 +5,12 @@
 
   <p style="text-align:center;">
     <strong>Estado:</strong>
-    <% if @procedure.pending? %>
-      Pendiente
-    <% elsif @procedure.acd?%>
-      Audiencia control de detención
-    <% elsif @procedure.noticed? %>
-      Apercibido
+    <% if @procedure.open? %>
+      Abierto
+    <% elsif @procedure.close?%>
+      Cerrado
+    <% elsif @procedure.draft? %>
+      Borrador
     <% end %>
   </p>
 
@@ -168,21 +168,55 @@
             <div class="col mb-4">
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title"><%= accused.name %> <%= accused.last_name %></h5>
+                  <h5 class="card-title"><%= accused[0].name %> <%= accused[0].last_name %></h5>
                   <h6 class="card-subtitle mb-2 text-muted">
-                    <%= accused.rut %>
-
-                    <% if !accused.birthday.nil? %>
-                      <%= ((Time.zone.now - accused.birthday.to_time) / 1.year.seconds).floor %> años
-                    <%end %>
+                    <%= accused[0].rut %>
                     <br>
-                    <% if !accused.alias_accuseds.first.nil? %>
-                      Alias: "<%= accused.alias_accuseds.first.alias %>"
+                    <% unless accused[0].birthday.nil? %>
+                    <%=  ((Time.zone.now - accused[0].birthday.to_time) / 1.year.seconds).floor  %> años
                     <% end %>
+                    <br>
+                    <% unless accused[0].alias_accuseds.first.nil? %>
+                    Alias: "<%=  accused[0].alias_accuseds.first.alias  %>"
+                    <%  end %>
+                    <p class="card-text"><small class="text-muted">
+                      <% if accused[1] == "pending" %>
+                        Pendiente
+                      <% elsif accused[1] == "acd" %>
+                        Audiencia control de detención
+                      <% elsif accused[1] == "noticed" %>
+                        Apercibido
+                      <% end %>
+                    </small>
+                    </p>
                   </h6>
-                  <p class="card-text"><small class="text-muted">
-                    <%= accused.deceased ? "Fallecido" : "" %>
-                  </small></p>
+                  <% if @procedure.open? %>
+                  <%= link_to "Pronunciarse", "#pronounceModal-" + accused[0].id.to_s , :class => ["btn", "btn-outline-primary"], "data-toggle" => "modal" %>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="pronounceModal-<%= accused[0].id.to_s %>" tabindex="-1" role="dialog" aria-labelledby="pronounceModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="pronounceModalLongTitle">Pronunciarse sobre <%= accused[0].name + " " + accused[0].last_name %></h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <%= form_with(url: person_in_procedures_path, method: "put") do |form| %>
+                          <div class="modal-body">
+                            <%= form.select :state, options_for_select([['Pendiente', "pending"], ['Apercibido', "noticed"], ['Audiencia control de detención', "acd"]]),{},{class: "form-control"} %>
+                            <%= form.hidden_field :id, value: accused[2] %>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <%= form.submit "Enviar", class: ["btn", "btn-primary"] %>
+                          </div>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                <%end %>
                 </div>
               </div>
             </div>
@@ -231,10 +265,12 @@
                 <div class="card-body">
                   <h5 class="card-title"><%= witness[0].name %> <%= witness[0].last_name %></h5>
                   <h6 class="card-subtitle mb-2 text-muted"><%= witness[0].rut %>
-                    <% if !witness[0].birthday.nil? %>
-                      <%= ((Time.zone.now - witness[0].birthday.to_time) / 1.year.seconds).floor %> años
-                    <%end %>
+                    <br>
+                    <% unless witness[0].birthday.nil? %>
+                    <%=  ((Time.zone.now - witness[0].birthday.to_time) / 1.year.seconds).floor  %> años
+                    <% end %>
                   <p class="card-text">
+                    <br>
                     <%= witness[1] %>
                   </p>
                 </div>
@@ -256,28 +292,41 @@
 <br>
 <div align="right">
   <%= link_to 'Atrás', procedures_path, class: ["btn", "btn-outline-primary"] %>
-  <%= link_to "Pronunciarse", "#pronounceModal", :class => ["btn", "btn-outline-primary"], "data-toggle" => "modal" %>
+
+  <% if @procedure.open? %>
+
+    <% disableButton = false %>
+    <% @accuseds.each do |element| %>
+      <% if element[1] == "pending" %>
+        <% disableButton = true %>
+        <% break %>
+      <%end %>
+    <% end %>
+
+    <%= link_to "Cerrar procedimiento", "#closeProcedureModal", :class => ["btn", "btn-outline-danger" + (disableButton ? " disabled" : "")], "data-toggle" => "modal"%>
+  <% end %>
+
   <%= link_to 'Mensajes del procedimiento', procedure_messages_path(@procedure.id), class: ["btn", "btn-outline-warning"] %>
 </div>
 
-
 <!-- Modal -->
-<div class="modal fade" id="pronounceModal" tabindex="-1" role="dialog" aria-labelledby="pronounceModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="closeProcedureModal" tabindex="-1" role="dialog" aria-labelledby="closeProcedureModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="pronounceModalLongTitle">Pronunciar en procedimiento</h5>
+        <h5 class="modal-title" id="closeProcedureModalLongTitle">Cerrar procedimiento</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <%= form_with(model: @procedure, method: "put") do |form| %>
+      <%= form_with(url: @procedure, method: "put") do |form| %>
         <div class="modal-body">
-          <%= form.select :state, options_for_select([['Apercibido', "noticed"], ['Audiencia control de detención', "acd"]]),{},{class: "form-control"} %>
+          ¿Estás seguro que quieres cerrar este procedimiento?
+          <%= form.hidden_field :state, value: "close" %>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <%= form.submit "Enviar", class: ["btn", "btn-primary"] %>
+          <%= form.submit "Cerrar procedimiento", class: ["btn", "btn-danger"] %>
         </div>
       <% end %>
     </div>

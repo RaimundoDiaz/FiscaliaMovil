@@ -5,12 +5,12 @@ class ProceduresController < ApplicationController
   # GET /procedures
   # GET /procedures.json
   def index
-    if (current_user.local_prosecution.present?)
+    if current_user.local_prosecution.present?
       @procedures = Procedure.where(:state => 0, :local_prosecution_in_charge_id => current_user.local_prosecution.id).order(created_at: :desc)
-    end
-
-    if (current_user.police_unit.present?)
+    elsif current_user.police_unit.present?
       @procedures = Procedure.where(:state => 0, :police_unit_in_charge_id => current_user.police_unit.id).order(created_at: :desc)
+    elsif current_user.admin?
+      @procedures = []
     end
   end
 
@@ -21,9 +21,8 @@ class ProceduresController < ApplicationController
     accuseds_in_procedure = @procedure.person_in_procedures.where(role: 0)
     @accuseds = []
     accuseds_in_procedure.each do |accused|
-      @accuseds.append(Person.find(accused.person_id))
+      @accuseds.append([Person.find(accused.person_id), accused.state, accused.id])
     end
-
     #save list with all victims person of the procedure
     victims_in_procedure = @procedure.person_in_procedures.where(role: 2)
     @victims = []
@@ -82,7 +81,9 @@ class ProceduresController < ApplicationController
     d = procedure_params[:date].to_date
     t = procedure_params[:time].to_time
 
+
     dateOfArrest = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec, t.zone)
+
 
     @procedure = Procedure.new(classification: classification_procedure,
                                police_in_charge: PoliceMan.find(procedure_params[:police_in_charge]),
@@ -181,8 +182,18 @@ class ProceduresController < ApplicationController
   # PATCH/PUT /procedures/1
   # PATCH/PUT /procedures/1.json
   def update
+    #byebug
     respond_to do |format|
-      if @procedure.update(procedure_params)
+      $aux = @procedure.state
+      if @procedure.update(state: params[:state])
+        #If procedure was closed, notify the police unit
+        if @procedure.state == "Close" && $aux == "Open"
+          police_unit_id =  @procedure.police_unit_in_charge.id
+          police_unit_users = User.where(police_unit_id: police_unit_id)
+          police_unit_users.each { |user|
+            Notification.create(user_id: user.id, notification_type: 1, reference_id: @procedure.id, seen: false)
+          }
+        end
         format.html { redirect_to @procedure, notice: 'Procedure was successfully updated.' }
         format.json { render :show, status: :ok, location: @procedure }
       else

@@ -17,7 +17,7 @@ class Procedure < ApplicationRecord
   validates :photos, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'], size_range: 1..5.megabytes }
 
 
-  enum state: {pending: 0, acd: 1, noticed: 2}
+  enum state: {open: 0, close: 1, draft: 2}
   enum classification: {flagrancy: 0, pending_arrest_warrant: 1, both: 2}
 
   def state

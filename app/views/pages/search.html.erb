@@ -7,6 +7,7 @@
         <%= form.text_field :palabras_clave, :placeholder => params[:palabras_clave], class: "form-control" %>
       </div>
       <br>
+      <p>Fecha de Procedimiento</p>
       <div class="form-inline">
         <%= form.label :desde, "Desde: " %>
         <%= form.date_field :desde, class: "form-control" %>
@@ -29,18 +30,12 @@
         <%= form.select :involucra_fallecidos, options_for_select(fallecidos),{},{class: "form-control"} %>
       </div>
 
-      <% crimes = [nil,
-                   "acoso",
-                   "homicidio",
-                   "conduccion en estado de ebriedad",
-                   "Robo a mano armada",
-                   "femicidio",
-                   "violacion",
-                   "pisar las lineas de la vereda"].map{|crime| [crime]} %>
+      <% crimes = Crime.order(:name).map{|crime| [crime[:name]]} %>
+      <% crimes.insert(0,[nil]) %>
       <br>
       <div class="form-inline">
         <%= form.label :delito, 'Delito:', class: "col-form-label" %>
-        <%= form.select :delito, options_for_select(crimes), {name: "procedure[crimes][]"},{class: "form-control"}  %>
+        <%= form.select :delito, options_for_select(crimes), {name: "procedure[crimes][]"},{class: "form-control mw-10", style: "width: 100%;"} %>
       </div>
       <br>
       <div class="form-inline">
@@ -70,12 +65,12 @@
           <div class="state_procedure">
             <strong>Estado:</strong>
             <br>
-            <% if procedimiento.pending? %>
-              Pendiente
-            <% elsif procedimiento.acd?%>
-              Audiencia control de detención
-            <% elsif procedimiento.noticed? %>
-              Apercibido
+            <% if procedimiento.open? %>
+              Abierto
+            <% elsif procedimiento.close?%>
+              Cerrado
+            <% elsif procedimiento.draft? %>
+              Borrador
             <% end %>
 
           </div>
@@ -100,6 +95,8 @@
         </div>
 
       <% end %>
+    <%elsif @vieneDeHeader %>
+      <div id="alert" class="alert alert-danger mx-auto my-0" style="width: auto; text-align: center;"><p style="margin-bottom: 0"> No se ha encontrado ningún Procedimiento </p></div>
     <% end %>
   </div>
 </div>
