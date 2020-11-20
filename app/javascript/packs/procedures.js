@@ -473,27 +473,25 @@ $(document).on('turbolinks:load', function() {
         allow_single_deselect: true,
         width: '100%'
     });
-    /*
+
     $('#procedure_prosecutor_in_charge').chosen({
-        allow_single_deselect: true,
         width: '100%'
     });
 
-    $('#procedure_prosecution_in_charge').chosen({
-        allow_single_deselect: true,
-        width: '100%'
-    });
+    if ($('#prosecutionInCharge').length){
+        $('#procedure_prosecution_in_charge').chosen({
+            width: '100%'
+        });
+    }
 
     $('#procedure_police_in_charge').chosen({
-        allow_single_deselect: true,
-        width: '100%'
+        width: '100%',
+        size: '1rem'
     });
 
     $('#procedure_police_unit_in_charge').chosen({
-        allow_single_deselect: true,
         width: '100%'
     });
-    */
 
     $(function() {
         $("#accusedRut").rut({formatOn: 'keyup'})

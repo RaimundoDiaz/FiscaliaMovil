@@ -6,7 +6,7 @@
       <%= form_with model: @procedure, id: "form_procedure" do |form|%>
 
         <div class="card mb-3">
-          <h5 class="card-header">Información general del procedimiento:</h5>
+          <h5 class="card-header">Información general del procedimiento</h5>
           <div id="general" class="card-body">
             <div id="datetime" class="mb-3 d-flex justify-content-between">
               <div class="form-inline">
@@ -37,40 +37,48 @@
           </div>
         </div>
 
-
-        <div class="card mb-3">
-          <div id="involved" class="card-body">
-            <% if !current_user.local_prosecution %>
-              <div class="form-inline mb-3">
-                <%= form.label :prosecution_in_charge, 'Fiscalia a cargo:', class: "mr-2 form-label" %>
+        <% if !current_user.local_prosecution %>
+          <div class="card mb-3">
+            <h5 class="card-header">Fiscalia a cargo</h5>
+            <div id="prosecutionInCharge" class="card-body">
+              <div class="form-inline">
                 <%= form.select :prosecution_in_charge, options_for_select(LocalProsecution.order(:name).map { |prosecution| [prosecution[:name], prosecution[:id]] }),{},{class: "form-control flex-grow-1"} %>
               </div>
-            <% else %>
-              <%= form.hidden_field :prosecution_in_charge, :value => current_user.local_prosecution.id %>
-            <% end %>
-
-              <div class="form-inline mb-3">
-              <%= form.label :prosecutor_in_charge, 'Fiscal a cargo:', class: "mr-2 form-label" %>
-                <%= form.select :prosecutor_in_charge, options_for_select(Prosecutor.order(:name).map { |prosecutor| [prosecutor[:name], prosecutor[:id]] }),{},{class: "form-control flex-grow-1"} %>
             </div>
-
-            <div class="form-inline mb-3">
-              <%= form.label :police_unit_in_charge, 'unidad policial a cargo:', class: "mr-2 form-label" %>
-              <%= form.select :police_unit_in_charge, options_for_select(PoliceUnit.order(:name).map { |policeUnit| [policeUnit[:name],policeUnit[:id]] }),{},{class: "form-control flex-grow-1"} %>
-            </div>
-
-            <div class="form-inline">
-              <%= form.label :police_in_charge, 'policia a cargo:', class: "mr-2 form-label" %>
-              <%= form.select :police_in_charge, options_for_select(PoliceMan.order(:name).map { |police| ["%s - %s"%[police[:name].to_s,police[:badge].to_s],police[:id]] }),{},{class: "form-control flex-grow-1"} %>
-            </div>
-
           </div>
-        </div>
-
-
+        <% else %>
+          <%= form.hidden_field :prosecution_in_charge, :value => current_user.local_prosecution.id %>
+        <% end %>
 
         <div class="card mb-3">
-          <h5 class="card-header">Localización:</h5>
+            <h5 class="card-header">Fiscal a cargo</h5>
+            <div id="prosecutor" class="card-body">
+              <div class="form-inline">
+                  <%= form.select :prosecutor_in_charge, options_for_select(Prosecutor.order(:name).map { |prosecutor| [prosecutor[:name], prosecutor[:id]] }),{},{class: "form-control flex-grow-1"} %>
+              </div>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <h5 class="card-header">Unidad policial a cargo</h5>
+            <div id="police_unit" class="card-body">
+              <div class="form-inline">
+                <%= form.select :police_unit_in_charge, options_for_select(PoliceUnit.order(:name).map { |policeUnit| [policeUnit[:name],policeUnit[:id]] }),{},{class: "form-control flex-grow-1"} %>
+              </div>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <h5 class="card-header">Policia a cargo</h5>
+            <div id="policeman" class="card-body">
+              <div class="form-inline">
+                <%= form.select :police_in_charge, options_for_select(PoliceMan.order(:name).map { |police| ["%s - %s"%[police[:name].to_s,police[:badge].to_s],police[:id]] }),{},{class: "form-control flex-grow-1"} %>
+              </div>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+          <h5 class="card-header">Localización</h5>
           <div id="address" class="card-body">
             <div class="form-inline mb-3">
               <%= form.label :address, 'Dirección:' , class: "mr-2 form-label"%>
@@ -94,7 +102,7 @@
 
 
         <div class="card mb-3">
-          <h5 class="card-header d-flex justify-content-between align-items-center">Delitos: <button type="button" id="add_crime_btn" class="btn btn-primary">+ Agregar delito </button></h5>
+          <h5 class="card-header d-flex justify-content-between align-items-center">Delitos <button type="button" id="add_crime_btn" class="btn btn-primary">+ Agregar delito </button></h5>
           <div id="crimes" class="card-body">
             <% crimes = Crime.order(:name).map{|crime| [crime[:name]]} %>
               <div class="form-inline d-flex justify-content-between">
@@ -113,7 +121,7 @@
 
 
         <div class="card mb-3">
-          <h5 class="card-header">Marcas:</h5>
+          <h5 class="card-header">Marcas</h5>
           <div id="marks" class="form-group card-body">
             <%= form.select :tag_ids, options_for_select(Tag.order(:name).map { |tag| [tag[:name]] }, params[:tag_ids]),{},{class: "form-control",multiple: true} %>
           </div>
@@ -121,31 +129,31 @@
 
 
         <div class="card mb-3">
-          <h5 class="card-header d-flex justify-content-between align-items-center">Imputados: <button type="button" id="add_accused_btn" class="btn btn-warning text-light" data-toggle="modal" data-target="#accusedModal"> + Agregar Imputado </button></h5>
+          <h5 class="card-header d-flex justify-content-between align-items-center">Imputados <button type="button" id="add_accused_btn" class="btn btn-warning text-light" data-toggle="modal" data-target="#accusedModal"> + Agregar Imputado </button></h5>
           <div id="accuseds" class="card-body">
           </div>
         </div>
 
         <div class="card mb-3">
-          <h5 class="card-header d-flex justify-content-between align-items-center">Victimas: <button type="button" id="add_victim_btn" class="btn btn-warning text-light" data-toggle="modal" data-target="#victimModal"> + Agregar Víctima </button></h5>
+          <h5 class="card-header d-flex justify-content-between align-items-center">Victimas <button type="button" id="add_victim_btn" class="btn btn-warning text-light" data-toggle="modal" data-target="#victimModal"> + Agregar Víctima </button></h5>
           <div id="victims" class="card-body">
           </div>
         </div>
 
         <div class="card mb-3">
-          <h5 class="card-header d-flex justify-content-between align-items-center">Testigos: <button type="button" id="add_witness_btn" class="btn btn-warning text-light" data-toggle="modal" data-target="#witnessModal"> + Agregar Testigo </button></h5>
+          <h5 class="card-header d-flex justify-content-between align-items-center">Testigos <button type="button" id="add_witness_btn" class="btn btn-warning text-light" data-toggle="modal" data-target="#witnessModal"> + Agregar Testigo </button></h5>
           <div id="witnesses" class="card-body">
           </div>
         </div>
 
         <div class="card mb-3">
-          <h5 class="card-header">Relato:</h5>
+          <h5 class="card-header">Relato</h5>
           <div id="story" class="card-body">
             <%= form.text_area :story,  class: "form-control flex-grow-1"  %>
           </div>
         </div>
         <div class="card mb-3">
-          <h5 class="card-header">Archivos:</h5>
+          <h5 class="card-header">Archivos</h5>
           <div id="attachments" class="card-body">
             <div class="form-group">
               <%= form.label :photos, 'Fotos:' , class: "mr-2 form-label"%>
