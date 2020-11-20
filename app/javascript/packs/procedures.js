@@ -474,9 +474,6 @@ $(document).on('turbolinks:load', function() {
         width: '100%'
     });
 
-    $('#procedure_prosecutor_in_charge').chosen({
-        width: '100%'
-    });
 
     if ($('#prosecutionInCharge').length){
         $('#procedure_prosecution_in_charge').chosen({
@@ -484,12 +481,19 @@ $(document).on('turbolinks:load', function() {
         });
     }
 
-    $('#procedure_police_in_charge').chosen({
-        width: '100%',
-        size: '1rem'
-    });
+    if ($('#prosecutorInCharge').length){
+        $('#procedure_prosecutor_in_charge').chosen({
+            width: '100%'
+        });
+    }
 
-    $('#procedure_police_unit_in_charge').chosen({
+    if ($('#policeUnitInCharge').length){
+        $('#procedure_police_unit_in_charge').chosen({
+            width: '100%'
+        });
+    }
+
+    $('#procedure_police_in_charge').chosen({
         width: '100%'
     });
 

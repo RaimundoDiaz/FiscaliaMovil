@@ -46,36 +46,41 @@
               </div>
             </div>
           </div>
-        <% else %>
-          <%= form.hidden_field :prosecution_in_charge, :value => current_user.prosecutor.id %>
-        <% end %>
 
-        <div class="card mb-3">
+          <div class="card mb-3">
             <h5 class="card-header">Fiscal a cargo</h5>
-            <div id="prosecutor" class="card-body">
+            <div id="prosecutorInCharge" class="card-body">
               <div class="form-inline">
                   <%= form.select :prosecutor_in_charge, options_for_select(Prosecutor.order(:name).map { |prosecutor| [prosecutor[:name], prosecutor[:id]] }),{},{class: "form-control flex-grow-1"} %>
               </div>
             </div>
-        </div>
+          </div>
+        <% else %>
+          <%= form.hidden_field :prosecution_in_charge, :value => current_user.prosecutor.local_prosecution.id %>
+          <%= form.hidden_field :prosecutor_in_charge, :value => current_user.prosecutor.id %>
+        <% end %>
 
         <div class="card mb-3">
+          <h5 class="card-header">Policia a cargo</h5>
+          <div id="policeman" class="card-body">
+            <div class="form-inline">
+              <%= form.select :police_in_charge, options_for_select(PoliceMan.order(:name).map { |police| ["%s - %s"%[police[:name].to_s,police[:badge].to_s],police[:id]] }),{},{class: "form-control flex-grow-1"} %>
+            </div>
+          </div>
+        </div>
+
+        <% if !current_user.police_unit %>
+          <div class="card mb-3">
             <h5 class="card-header">Unidad policial a cargo</h5>
-            <div id="police_unit" class="card-body">
+            <div id="policeUnitInCharge" class="card-body">
               <div class="form-inline">
                 <%= form.select :police_unit_in_charge, options_for_select(PoliceUnit.order(:name).map { |policeUnit| [policeUnit[:name],policeUnit[:id]] }),{},{class: "form-control flex-grow-1"} %>
               </div>
             </div>
-        </div>
-
-        <div class="card mb-3">
-            <h5 class="card-header">Policia a cargo</h5>
-            <div id="policeman" class="card-body">
-              <div class="form-inline">
-                <%= form.select :police_in_charge, options_for_select(PoliceMan.order(:name).map { |police| ["%s - %s"%[police[:name].to_s,police[:badge].to_s],police[:id]] }),{},{class: "form-control flex-grow-1"} %>
-              </div>
-            </div>
-        </div>
+          </div>
+        <% else %>
+          <%= form.hidden_field :police_unit_in_charge, :value => current_user.police_unit %>
+        <% end %>
 
         <div class="card mb-3">
           <h5 class="card-header">Localización</h5>
