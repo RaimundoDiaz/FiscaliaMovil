@@ -1,0 +1,40 @@
+
+<div id="content_box">
+  <div class="container mt-3">
+    <h2>Filterable Table</h2>
+    <%= link_to 'Crear delito', new_admin_police_unit_path %>
+    <p>Type something in the input field to search the table for Names, Countries or emails:</p>
+    <input class="form-control" id="myInput" type="text" placeholder="Search..">
+    <br>
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Unidad Policial</th>
+        <th>Acciones</th>
+      </tr>
+      </thead>
+      <tbody id="myTable">
+      <% @police_units.each do |police_unit| %>
+        <tr>
+          <td><%= police_unit.name %></td>
+          <td><%= police_unit.police_station.name %></td>
+          <td><%= link_to 'Editar', edit_admin_police_unit_path(police_unit) %> <%= link_to 'Eliminar', edit_admin_police_unit_path(police_unit), method: :delete %></td>
+        </tr>
+
+      <% end %>
+      </tbody>
+    </table>
+
+  </div>
+  <script>
+      $(document).ready(function(){
+          $("#myInput").on("keyup", function() {
+              var value = $(this).val().toLowerCase();
+              $("#myTable tr").filter(function() {
+                  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+              });
+          });
+      });
+  </script>
+</div>
