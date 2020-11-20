@@ -94,7 +94,7 @@
 
 
         <div class="card mb-3">
-          <h5 class="card-header">Delitos:</h5>
+          <h5 class="card-header d-flex justify-content-between align-items-center">Delitos: <button type="button" id="add_crime_btn" class="btn btn-primary">+ Agregar delito </button></h5>
           <div id="crimes" class="card-body">
             <% crimes = Crime.order(:name).map{|crime| [crime[:name]]} %>
               <div class="form-inline d-flex justify-content-between">
@@ -111,7 +111,6 @@
           </div>
         </div>
 
-        <div id="crime_btn_div" class="mb-3"><button type="button" id="add_crime_btn" class="btn btn-primary"> Agregar delito </button></div>
 
         <div class="card mb-3">
           <h5 class="card-header">Marcas:</h5>
@@ -122,23 +121,20 @@
 
 
         <div class="card mb-3">
-          <h5 class="card-header">Imputados:</h5>
+          <h5 class="card-header d-flex justify-content-between align-items-center">Imputados: <button type="button" id="add_accused_btn" class="btn btn-warning text-light" data-toggle="modal" data-target="#accusedModal"> + Agregar Imputado </button></h5>
           <div id="accuseds" class="card-body">
-            <button type="button" id="add_accused_btn" class="mb-3 btn btn-warning text-light" data-toggle="modal" data-target="#accusedModal"> + Agregar Imputado </button>
           </div>
         </div>
 
         <div class="card mb-3">
-          <h5 class="card-header">Victimas:</h5>
+          <h5 class="card-header d-flex justify-content-between align-items-center">Victimas: <button type="button" id="add_victim_btn" class="btn btn-warning text-light" data-toggle="modal" data-target="#victimModal"> + Agregar Víctima </button></h5>
           <div id="victims" class="card-body">
-            <button type="button" id="add_victim_btn" class="mb-3 btn btn-warning text-light" data-toggle="modal" data-target="#victimModal"> + Agregar Víctima </button>
           </div>
         </div>
 
         <div class="card mb-3">
-          <h5 class="card-header">Testigos:</h5>
+          <h5 class="card-header d-flex justify-content-between align-items-center">Testigos: <button type="button" id="add_witness_btn" class="btn btn-warning text-light" data-toggle="modal" data-target="#witnessModal"> + Agregar Testigo </button></h5>
           <div id="witnesses" class="card-body">
-            <button type="button" id="add_witness_btn" class="mb-3 btn btn-warning text-light" data-toggle="modal" data-target="#witnessModal"> + Agregar Testigo </button>
           </div>
         </div>
 
