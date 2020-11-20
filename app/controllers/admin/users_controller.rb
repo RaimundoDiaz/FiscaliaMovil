@@ -41,7 +41,7 @@ class Admin::UsersController < ApplicationController
       if @user.update(admin_user_params)
         format.html { redirect_to admin_users_path, notice: 'User was successfully updated.' }
       else
-        format.html { redirect_to edit_admin_user_path(@user, role: params[:role]) }
+        format.html { redirect_to edit_admin_user_path(@user, role: params[:role]), alert: 'Usuario no actualizado' }
       end
     end
   end
