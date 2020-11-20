@@ -510,20 +510,19 @@ $(document).on('turbolinks:load', function() {
             var alias = $('#accusedAlias').val();
             var rut = $('#accusedRut').val();
 
-            var accussedHTML = `<div id="accussed" class="whiteContainer mb-2">
-                                    <div class="d-flex justify-content-between p-0 m-0">
-                                        <span><b>Nombre:</b> ${name} </span>
-                                        <span><b>Alias:</b> "${alias}"</span>
-                                        <span><b>Rut:</b> ${rut}</span>
+            var accussedHTML = $(`<div id="accussed" class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title"> ${name} <button type="button" id="accussedDelete" class="close" aria-label="Close ml-2 mb-2"><span aria-hidden="true">&times;</span></button></h5> 
+                                        <h6 class="card-subtitle text-muted">${rut}</h6>  
+                                        <p class="card-subtitle text-muted">"${alias}"</p>
                                     </div>
-                               </div> `;
+                               </div> `);
 
-            let button = `<button type="button" class="close" aria-label="Close ml-2 mb-2"><span aria-hidden="true">&times;</span></button>`;
-            button = $(button).click(function () {
+            let button = accussedHTML.find("#accussedDelete");
+            $(button).click(function () {
                 let division = button.closest('#accussed')
                 division.remove()
             });
-            accussedHTML = $(accussedHTML).prepend(button);
 
             var input = $("<input>")
                 .attr("type", "hidden")
@@ -580,23 +579,20 @@ $(document).on('turbolinks:load', function() {
             var deceased = $('#deceasedVictimSwitch').is(":checked");
 
 
-            var victimHTML = `<div id="victim" class="whiteContainer mb-2">
-                                    <div class="d-flex justify-content-between">
-                                        <span><b>Nombre:</b> ${name}</span> 
-                                        <span><b>Rut:</b> ${rut}</span>  
-                                        <span><b>Contacto:</b> ${contact}</span>
+            var victimHTML = $(`<div id="victim" class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title"> ${name} <button type="button" id="victimDelete" class="close" aria-label="Close ml-2 mb-2"><span aria-hidden="true">&times;</span></button></h5> 
+                                        <h6 class="card-subtitle text-muted"> ${rut}</h6>  
+                                        <p class="card-subtitle text-muted"> ${contact}</p>
+                                        <p class="card-text text-muted">${story}</p>
                                     </div>
-                                    <div>
-                                        <span><b>Detalles:</b> ${story}</span>
-                                    </div>
-                               </div> `;
+                               </div> `);
 
-            let button = `<button type="button" class="close" aria-label="Close ml-2 mb-2"><span aria-hidden="true">&times;</span></button>`;
-            button = $(button).click(function () {
+            let button = victimHTML.find("#victimDelete");
+            $(button).click(function () {
                 let division = button.closest('#victim')
                 division.remove()
             });
-            victimHTML = $(victimHTML).prepend(button);
 
             var input = $("<input>")
                 .attr("type", "hidden")
@@ -659,25 +655,21 @@ $(document).on('turbolinks:load', function() {
             var story = $('#witnessStory').val();
             var contact = $('#witnessContact').val();
 
-            var witnessHTML = `<div id="witness" class="whiteContainer mb-2">
-                                    <div>
-                                        <div class="d-flex justify-content-between">
-                                            <span><b>Nombre:</b> ${name}</span> 
-                                            <span><b>Rut:</b> ${rut}</span> 
-                                            <span><b>Contacto:</b> ${contact}</span>
-                                        </div>
-                                        <div>
-                                            <span><b>Detalles:</b> ${story}</span>
-                                        </div>
+            var witnessHTML = $(`<div id="witness" class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title"> ${name} <button type="button" id="witnessDelete" class="close" aria-label="Close ml-2 mb-2"><span aria-hidden="true">&times;</span></button></h5> 
+                                        <h6 class="card-subtitle text-muted"> ${rut}</h6>  
+                                        <p class="card-subtitle text-muted"> ${contact}</p>
+                                        <p class="card-text text-muted">${story}</p>
                                     </div>
-                               </div> `;
+                               </div> `);
 
-            let button = `<button type="button" class="close" aria-label="Close ml-2 mb-2"><span aria-hidden="true">&times;</span></button>`;
-            button = $(button).click(function () {
+            let button = witnessHTML.find("#witnessDelete");
+            $(button).click(function () {
                 let division = button.closest('#witness')
                 division.remove()
             });
-            witnessHTML = $(witnessHTML).prepend(button);
+
 
             var input = $("<input>")
                 .attr("type", "hidden")
