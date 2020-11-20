@@ -79,7 +79,7 @@
             </div>
           </div>
         <% else %>
-          <%= form.hidden_field :police_unit_in_charge, :value => current_user.police_unit %>
+          <%= form.hidden_field :police_unit_in_charge, :value => current_user.police_unit.id %>
         <% end %>
 
         <div class="card mb-3">
