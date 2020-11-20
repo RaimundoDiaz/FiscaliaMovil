@@ -79,7 +79,6 @@ class ProceduresController < ApplicationController
     end
 
 
-
     d = procedure_params[:date].to_date
     t = procedure_params[:time].to_time
 
@@ -94,7 +93,7 @@ class ProceduresController < ApplicationController
                                address: procedure_params[:address],
                                sector: selected_sector,
                                region: selected_region,
-                               state: 0,
+                               state: procedure_params[:state],
                                date_of_arrest: dateOfArrest,
                                involves_deceased: procedure_params[:involves_deceased]
                                )
