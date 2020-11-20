@@ -75,7 +75,7 @@
               <a><%= link_to image_tag("Notification_0.png", width: "30em"), notifications_path %></a>
             <% end %>
             <%if (current_user.prosecutor.present?)%>
-              <p style="color: #EC9D32; font-weight: bold; margin: 0px; font-size: small; width: 30%; margin-left: 1.2em;">Fiscalia: <%=current_user.prosecutor.name%></p>
+              <p style="color: #EC9D32; font-weight: bold; margin: 0px; font-size: small; width: 30%; margin-left: 1.2em;"><%=current_user.prosecutor.name%></p>
             <%elsif (current_user.police_unit.present?)%>
               <p style="color: #EC9D32; font-weight: bold; margin: 0px; font-size: small; width: 30%; margin-left: 1.2em;">Unidad Policial: <%=current_user.police_unit.name%></p>
             <%end%>
