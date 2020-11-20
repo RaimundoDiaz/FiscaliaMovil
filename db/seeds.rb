@@ -90,7 +90,7 @@ end
 ######################################
 admin = User.create(email: "admin@gmail.com", password: "123456789", admin: true)
 u1 = User.create(police_unit_id: 10101, email: "unidadpolicia1@gmail.com", password: "123456789")
-u2 = User.create(local_prosecution_id: 1607, email: "fiscal1@gmail.com", password: "123456789")
+u2 = User.create(local_prosecution_id: 1607, email: "fiscalia1@gmail.com", password: "123456789")
 u3 = User.create(police_unit_id: 10101, email: "unidadpolicia2@gmail.com", password: "123456789")
 police = PoliceMan.find(1)
 prosecutor = Prosecutor.create(name: "Rodrigo Ponce", rut: "19638846-k", local_prosecution_id: 1607)

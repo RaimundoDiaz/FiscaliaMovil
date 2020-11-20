@@ -1,10 +1,22 @@
+<div style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;" class="chartjs-size-monitor">
+  <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+    <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0">
 
+    </div>
+  </div>
+  <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+    <div style="position:absolute;width:200%;height:200%;left:0; top:0">
+
+    </div>
+  </div>
+</div>
 <div id="content_box">
   <div class="container mt-3">
-    <h2>Filterable Table</h2>
-    <%= link_to 'Crear delito', new_admin_crime_path() %>
-    <p>Type something in the input field to search the table for Names, Countries or emails:</p>
-    <input class="form-control" id="myInput" type="text" placeholder="Search..">
+    <div>
+      <h2 class="float-left">Delitos</h2>
+      <%= button_to "Crear delito", new_admin_crime_path, :class => "btn btn-primary text-white mb-2 float-right" %>
+    </div>
+    <input class="form-control" id="myInput" type="text" placeholder="Buscar delito..">
     <br>
     <table class="table table-bordered">
       <thead>
@@ -17,7 +29,7 @@
       <% @crimes.each do |crime| %>
         <tr>
           <td><%= crime.name %></td>
-          <td><%= link_to 'Editar', edit_admin_crime_path(crime) %> <%= link_to 'Eliminar', admin_crime_path(crime), method: :delete %></td>
+          <td><%= link_to 'Editar', edit_admin_crime_path(crime) %> <%= link_to 'Eliminar', admin_crime_path(crime), method: :delete, :class => "float-right"%></td>
         </tr>
 
       <% end %>
