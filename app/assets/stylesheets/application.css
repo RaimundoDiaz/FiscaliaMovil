@@ -25,6 +25,12 @@ footer{
     background-color: #ffffff;
 }
 
+.normalMain{
+    padding-top: 10vh;
+    min-height: 85vh;
+    padding-bottom: 10vh;
+}
+
 .mainAdmin{
     margin: 0;
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
