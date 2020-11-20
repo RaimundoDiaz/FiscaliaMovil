@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       resources :tags
       resources :prosecutors
       resources :police_units
+      resources :police_men
   end
 
 
