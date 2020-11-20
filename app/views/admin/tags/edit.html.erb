@@ -1,0 +1,24 @@
+ <%= form_with(model: [:admin, @admin_tag], local: true) do |form| %>
+    <% if @admin_tag.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@admin_tag.errors.count, "error") %> prohibited this crime from being saved:</h2>
+
+        <ul>
+          <% @admin_tag.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>
