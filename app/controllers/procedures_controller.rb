@@ -175,9 +175,18 @@ class ProceduresController < ApplicationController
   # PATCH/PUT /procedures/1
   # PATCH/PUT /procedures/1.json
   def update
-    byebug
+    #byebug
     respond_to do |format|
+      $aux = @procedure.state
       if @procedure.update(state: params[:state])
+        #If procedure was closed, notify the police unit
+        if @procedure.state == "Close" && $aux == "Open"
+          police_unit_id =  @procedure.police_unit_in_charge.id
+          police_unit_users = User.where(police_unit_id: police_unit_id)
+          police_unit_users.each { |user|
+            Notification.create(user_id: user.id, notification_type: 1, reference_id: @procedure.id, seen: false)
+          }
+        end
         format.html { redirect_to @procedure, notice: 'Procedure was successfully updated.' }
         format.json { render :show, status: :ok, location: @procedure }
       else

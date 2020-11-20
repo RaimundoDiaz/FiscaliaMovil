@@ -55,8 +55,8 @@ end
 ######################################
 # Create police men
 i=0
-policemen_db_size = 148
-while i < policemen_db_size*4  do
+policemen_db_size = 80
+while i < policemen_db_size  do
   name = FFaker::Name.name
   rut = Faker::ChileRut.unique.full_rut
   badge = Faker::Number.unique.number(digits: 7)
@@ -66,8 +66,8 @@ end
 ######################################
 # Create local prosecutors
 i=0
-prosecutor_db_size = 81
-while i < prosecutor_db_size*4  do
+prosecutor_db_size = 80
+while i < prosecutor_db_size  do
   name = FFaker::Name.name
   rut = Faker::ChileRut.unique.full_rut
   prosecution = LocalProsecution.order('RANDOM()').first
@@ -77,7 +77,7 @@ end
 ######################################
 # Create persons (more alive than dead)
 i=0
-while i < 100  do
+while i < 50  do
   name = FFaker::Name.name
   last_name = FFaker::Name.last_name
   rut = Faker::ChileRut.unique.full_rut
@@ -90,6 +90,7 @@ end
 ######################################
 u1 = User.create(police_unit_id: 10101, email: "unidadpolicia1@gmail.com", password: "123456789")
 u2 = User.create(local_prosecution_id: 1607, email: "fiscal1@gmail.com", password: "123456789")
+u3 = User.create(police_unit_id: 10101, email: "unidadpolicia2@gmail.com", password: "123456789")
 police = PoliceMan.find(1)
 prosecutor = Prosecutor.create(name: "Rodrigo Ponce", rut: "19638846-k", local_prosecution_id: 1607)
 procedure1 = Procedure.create(story: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?", state: 0, address: "Monseñor Álvaro del Portillo 123456", sector: "Las Condes", region: "Metropolitana", date_of_arrest: Date.today ,classification: 0, police_unit_in_charge_id: 10101, police_in_charge: police, local_prosecution_in_charge_id: 1607, prosecutor_in_charge: prosecutor, involves_deceased: false)

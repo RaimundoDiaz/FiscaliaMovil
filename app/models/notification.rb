@@ -2,7 +2,7 @@ class Notification < ApplicationRecord
   belongs_to :user
 
   #0: Llego un nuevo procedimiento (pendiente)
-  #1: Fiscal cerró un procedimiento (pendiente)
+  #1: Fiscal cerró un procedimiento (listo)
   #2: Fiscal solicito más datos respecto a un procedimiento (pendiente)
   #3: Carabinero respondió con más datos respecto a un procedimiento (pendiente)
   #4: Has recibido un mensaje (listo)
