@@ -8,29 +8,53 @@
     </div>
   <% end %>
 
-  <% if @procedures != [] %>
-    <% @procedures.each do |procedimiento| %>
-      <div id="homeProcedureDiv">
-        <div class="police_info">
-          <%= procedimiento.police_in_charge.name %>
-          <br>
-          <%= "N° Placa: " %>
-          <%= procedimiento.police_in_charge.badge %>
-        </div>
-        <div class="vl"></div>
-        <div class="procedimiento_badge">
-          <%= link_to "Procedimiento N°" + String(procedimiento.id), procedure_path(procedimiento.id) %>
-        </div>
-        <div class="state_procedure">
-          <strong>Estado:</strong>
-          <br>
-          <% if procedimiento.open? %>
-            Abierto
-          <% elsif procedimiento.close? %>
-            Cerrado
-          <% elsif procedimiento.draft? %>
-            Borrador
-          <% end %>
+<% if !current_user.admin? %>
+  <div class="text-center">
+    <%= link_to "Crear nuevo procedimiento", new_procedure_path, class: "btn btn-warning text-white ml-sm-4"%>
+  </div>
+<% else %>
+  <div style="margin-top: 22%">
+    <h1 style="text-align: center">Bienvenido Administrador!</h1>
+  </div>
+<% end %>
+
+<%if @procedures != [] %>
+  <% @procedures.each do |procedimiento| %>
+    <div id="homeProcedureDiv">
+      <div class="police_info">
+        <%= procedimiento.police_in_charge.name%>
+        <br>
+        <%= "N° Placa: " %>
+        <%= procedimiento.police_in_charge.badge %>
+      </div>
+      <div class="vl"></div>
+      <div class="procedimiento_badge">
+        <%= link_to "Procedimiento N°" + String(procedimiento.id), procedure_path(procedimiento.id) %>
+      </div>
+      <div class="state_procedure">
+        <strong>Estado:</strong>
+        <br>
+        <% if procedimiento.open? %>
+          Abierto
+        <% elsif procedimiento.close?%>
+          Cerrado
+        <% elsif procedimiento.draft? %>
+          Borrador
+        <% end %>
+
+      </div>
+      <div class="icons">
+        <%= link_to(
+                content_tag(
+                    :i,
+                    nil,
+                    class: 'fas fa-envelope fa-2x',
+                    style: 'color: #EC9D32'
+                ),
+                procedure_messages_path(procedimiento.id)
+
+            )
+        %>
 
         </div>
         <div class="icons">

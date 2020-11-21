@@ -1,30 +1,30 @@
-<div id="content_box">
 
-  <%= form_with(model: [:admin, @local_prosecution], local: true) do |form| %>
-    <% if @local_prosecution.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@local_prosecution.errors.count, "error") %> prohibited this crime from being saved:</h2>
+<%= form_with(model: [:admin, @local_prosecution], local: true) do |form| %>
+  <% if @local_prosecution.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@local_prosecution.errors.count, "error") %> prohibited this crime from being saved:</h2>
 
-        <ul>
-          <% @local_prosecution.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class="field">
-      <%= form.label :name %>
-      <%= form.text_field :name %>
-    </div>
-
-    <div class="form-group">
-      <%= form.label :regional_prosecution %>
-      <%= form.collection_select(:regional_prosecution_id, RegionalProsecution.all, :id, :name, {}, { class: "form-control" }) %>
-    </div>
-
-    <div class="actions">
-      <%= form.submit %>
+      <ul>
+        <% @local_prosecution.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
     </div>
   <% end %>
-</div>
+  <h1>Crear Fiscalía Local</h1>
+  <div class="actions">
+    <div class="row">
+      <div class="form-group col-10">
+        <%= form.label :nombre %>
+        <%= form.text_field :name, class: "form-control" %>
+      </div>
+
+      <div class="form-group col-10">
+        <%= form.label :fiscalía_regional %>
+        <%= form.collection_select(:regional_prosecution_id, RegionalProsecution.all, :id, :name, {}, { class: "form-control" }) %>
+      </div>
+    </div>
+    <%= form.submit 'Crear Fiscalía Local', class: ["btn", "btn-primary"]  %>
+    <%= link_to "Atras", admin_local_prosecutions_path, class: ["btn", "btn-secondary"] %>
+  </div>
+<% end %>
