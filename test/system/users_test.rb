@@ -15,7 +15,7 @@ class UsersTest < ApplicationSystemTestCase
     click_on "New User"
 
     fill_in "Birthday", with: @user.birthday
-    fill_in "Local prosecution", with: @user.local_prosecution_id
+    fill_in "Local prosecution", with: @user.prosecutor_id
     fill_in "Police unit", with: @user.police_unit_id
     fill_in "Role", with: @user.role
     fill_in "Rut", with: @user.rut
@@ -30,7 +30,7 @@ class UsersTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Birthday", with: @user.birthday
-    fill_in "Local prosecution", with: @user.local_prosecution_id
+    fill_in "Local prosecution", with: @user.prosecutor_id
     fill_in "Police unit", with: @user.police_unit_id
     fill_in "Role", with: @user.role
     fill_in "Rut", with: @user.rut

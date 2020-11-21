@@ -1,14 +1,15 @@
 class ProceduresController < ApplicationController
+  load_and_authorize_resource :except => [:create]
   before_action :set_procedure, only: [:show, :edit, :update, :destroy]
   include ProceduresHelper
 
   # GET /procedures
   # GET /procedures.json
   def index
-    if current_user.local_prosecution.present?
-      @procedures = Procedure.where(:state => 0, :local_prosecution_in_charge_id => current_user.local_prosecution.id).order(created_at: :desc)
+    if current_user.prosecutor.present?
+      @procedures = Procedure.where(:state => 0, :local_prosecution_in_charge_id => current_user.prosecutor.local_prosecution.id).or(Procedure.where(:state => 2, :creator_id => current_user.id, :local_prosecution_in_charge_id => current_user.prosecutor.local_prosecution.id)).order(created_at: :desc)
     elsif current_user.police_unit.present?
-      @procedures = Procedure.where(:state => 0, :police_unit_in_charge_id => current_user.police_unit.id).order(created_at: :desc)
+      @procedures = Procedure.where(:state => 2, :creator_id => current_user.id, :police_unit_in_charge_id => current_user.police_unit.id).order(created_at: :desc)
     elsif current_user.admin?
       @procedures = []
     end
@@ -51,6 +52,7 @@ class ProceduresController < ApplicationController
   # POST /procedures
   # POST /procedures.json
   def create
+    authorize! :create, Procedure
 
     if procedure_params[:classification] == "ODP"
       classification_procedure = 1
@@ -78,7 +80,6 @@ class ProceduresController < ApplicationController
     end
 
 
-
     d = procedure_params[:date].to_date
     t = procedure_params[:time].to_time
 
@@ -87,6 +88,7 @@ class ProceduresController < ApplicationController
 
 
     @procedure = Procedure.new(classification: classification_procedure,
+                               creator: current_user,
                                police_in_charge: PoliceMan.find(procedure_params[:police_in_charge]),
                                police_unit_in_charge: PoliceUnit.find(procedure_params[:police_unit_in_charge]),
                                prosecutor_in_charge: Prosecutor.find(procedure_params[:prosecutor_in_charge]),
@@ -95,12 +97,12 @@ class ProceduresController < ApplicationController
                                address: procedure_params[:address],
                                sector: selected_sector,
                                region: selected_region,
-                               state: 0,
+                               state: procedure_params[:state].to_i,
                                date_of_arrest: dateOfArrest,
                                involves_deceased: procedure_params[:involves_deceased]
                                )
     respond_to do |format|
-      if @procedure.save
+      if @procedure.save!
 
         procedure_params[:tag_ids][1..procedure_params[:tag_ids].size].each do |tag|
           @tag = Tagging.new(tag: Tag.find_by_name(tag),
@@ -137,32 +139,37 @@ class ProceduresController < ApplicationController
           end
         end
 
-        procedure_params[:victims].each do |victim|
-          @victim = Person.new(name: victim[:name],
-                               rut: victim[:rut],
-                               deceased: victim[:deceased],
-                               contact: victim[:contact]
-                               )
-          if @victim.save!
-            @victim_in_procedure = PersonInProcedure.new(role: 2,
-                                                         person: @victim,
-                                                         procedure: @procedure,
-                                                         witness_declaration: victim[:story])
-            @victim_in_procedure.save
+        if procedure_params[:victims]
+          procedure_params[:victims].each do |victim|
+            @victim = Person.new(name: victim[:name],
+                                 rut: victim[:rut],
+                                 deceased: victim[:deceased],
+                                 contact: victim[:contact]
+            )
+            if @victim.save!
+              @victim_in_procedure = PersonInProcedure.new(role: 2,
+                                                           person: @victim,
+                                                           procedure: @procedure,
+                                                           witness_declaration: victim[:story])
+              @victim_in_procedure.save
+            end
           end
         end
 
-        procedure_params[:witness].each do |witness|
-          @witness = Person.new(name: witness[:name],
-                               rut: witness[:rut],
-                               contact: witness[:contact]
-          )
-          if @witness.save!
-            @witness_in_procedure = PersonInProcedure.new(role: 1,
-                                                         person: @witness,
-                                                         procedure: @procedure,
-                                                         witness_declaration: witness[:story])
-            @witness_in_procedure.save
+
+        if procedure_params[:witness]
+          procedure_params[:witness].each do |witness|
+            @witness = Person.new(name: witness[:name],
+                                  rut: witness[:rut],
+                                  contact: witness[:contact]
+            )
+            if @witness.save!
+              @witness_in_procedure = PersonInProcedure.new(role: 1,
+                                                            person: @witness,
+                                                            procedure: @procedure,
+                                                            witness_declaration: witness[:story])
+              @witness_in_procedure.save
+            end
           end
         end
 
@@ -216,9 +223,8 @@ class ProceduresController < ApplicationController
   end
 
   def procedure_params
-
     # Only allow a list of trusted parameters through.
-    params.require(:procedure).permit(:date,:time,:classification,:involves_deceased,:prosecutor_in_charge, :prosecution_in_charge,:police_unit_in_charge,:police_in_charge,:address,:region,:sector,:preponderant_crime,:state, :story, crimes:[],
+    params.require(:procedure).permit(:date,:time,:classification,:involves_deceased,:prosecutor_in_charge, :prosecution_in_charge,:police_unit_in_charge,:police_in_charge,:address,:region,:sector,:preponderant_crime,:state,:photos,:videos, :story, crimes:[],
                                       tag_ids:[], :accuseds => [:name,:alias,:rut], :victims => [:name,:rut,:deceased,:contact,:story],
                                       :witness => [:name,:rut,:story,:contact])
   end

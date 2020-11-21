@@ -9,10 +9,12 @@ class Procedure < ApplicationRecord
   has_many :crime_in_accuseds
   has_many :crimes, :through => :crime_in_accuseds
   has_many :messages
+  belongs_to :creator, class_name: 'User'
   has_one_attached :videos
   has_many_attached :photos
 
   validate :past_date
+  validate :empty_address
   validates :videos, blob: { content_type: :image, size_range: 1..4.gigabytes}
   validates :photos, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'], size_range: 1..5.megabytes }
 
@@ -41,6 +43,12 @@ class Procedure < ApplicationRecord
   def past_date
     if date_of_arrest > Date.today
       errors.add(:date_of_arrest, "la fecha no puede ser en el futuro")
+    end
+  end
+
+  def empty_address
+    if address.match(/^$/)
+      errors.add(:address, "la direccion no puede ser vacia")
     end
   end
 
