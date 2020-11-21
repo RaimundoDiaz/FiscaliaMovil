@@ -46,6 +46,7 @@ class ProceduresController < ApplicationController
 
   # GET /procedures/1/edit
   def edit
+    get_regiones
   end
 
   # POST /procedures

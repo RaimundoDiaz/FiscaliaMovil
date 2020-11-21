@@ -198,7 +198,7 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h5 class="modal-title" id="pronounceModalLongTitle">Pronunciarse sobre <%= accused[0].name + " " + accused[0].last_name %></h5>
+                          <h5 class="modal-title" id="pronounceModalLongTitle">Pronunciarse sobre <%= accused[0].name %></h5>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>
@@ -307,6 +307,7 @@
   <% end %>
 
   <%= link_to 'Mensajes del procedimiento', procedure_messages_path(@procedure.id), class: ["btn", "btn-outline-warning"] %>
+  <%= link_to 'Editar', edit_procedure_path, class: ["btn", "btn-outline-warning"] %>
 </div>
 
 <!-- Modal -->
