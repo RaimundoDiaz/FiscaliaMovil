@@ -168,7 +168,7 @@
             <div class="col mb-4">
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title"><%= accused[0].name %> <%= accused[0].last_name %></h5>
+                  <h5 class="card-title"><%= accused[0].name %></h5>
                   <h6 class="card-subtitle mb-2 text-muted">
                     <%= accused[0].rut %>
                     <br>
@@ -236,7 +236,7 @@
             <div class="col mb-4">
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title"><%= victim[0].name %> <%= victim[0].last_name %></h5>
+                  <h5 class="card-title"><%= victim[0].name %></h5>
                   <h6 class="card-subtitle mb-2 text-muted"><%= victim[0].rut %> <br>
                     <% if !victim[0].birthday.nil? %>
                       <%= ((Time.zone.now - victim[0].birthday.to_time) / 1.year.seconds).floor %> años
@@ -263,7 +263,7 @@
             <div class="col mb-4">
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title"><%= witness[0].name %> <%= witness[0].last_name %></h5>
+                  <h5 class="card-title"><%= witness[0].name %> </h5>
                   <h6 class="card-subtitle mb-2 text-muted"><%= witness[0].rut %>
                     <br>
                     <% unless witness[0].birthday.nil? %>

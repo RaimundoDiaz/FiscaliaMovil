@@ -1,10 +1,10 @@
 class NotificationsController < ApplicationController
-  before_action :set_notification, only: [:show, :edit, :update, :destroy]
+  before_action :set_notification, only: [:show, :edit, :update, :destroy, :see]
 
   # GET /notifications
   # GET /notifications.json
   def index
-    @notifications = Notification.all
+    @notifications = Notification.where(:user_id => current_user.id).order(created_at: :desc)
   end
 
   # GET /notifications/1
@@ -51,6 +51,15 @@ class NotificationsController < ApplicationController
     end
   end
 
+  def see
+    @notification.update(seen: true)
+    if @notification.new_message?
+      redirect_to(procedure_messages_path(@notification.reference_id))
+    else
+      redirect_to(procedure_path(@notification.reference_id))
+    end
+  end
+
   # DELETE /notifications/1
   # DELETE /notifications/1.json
   def destroy
@@ -69,6 +78,6 @@ class NotificationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def notification_params
-      params.fetch(:notification, {})
+      params.require(:notification).permit(:user, :notification_type, :reference_id, :seen)
     end
 end

@@ -11,6 +11,12 @@ Rails.application.routes.draw do
   get "/search", to: "pages#search", as: "search"
 
   resource :person_in_procedures, only: [:update]
+  resources :notifications do
+    member do
+      patch :see
+      put :see
+    end
+  end
 
   resources :procedures do
     resources :messages
@@ -18,6 +24,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
       resources :crimes
+      resources :tags
+      resources :prosecutors
+      resources :police_units
+      resources :police_men
+      resources :local_prosecutions
+      resources :users
   end
 
 

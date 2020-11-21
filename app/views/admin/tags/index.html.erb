@@ -1,0 +1,50 @@
+<div style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;" class="chartjs-size-monitor">
+  <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+    <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0">
+
+    </div>
+  </div>
+  <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+    <div style="position:absolute;width:200%;height:200%;left:0; top:0">
+
+    </div>
+  </div>
+</div>
+<div id="content_box">
+  <div class="container mt-3">
+    <div>
+      <h2 class="float-left">Marcas</h2>
+      <%= button_to "Crear marca", new_admin_tag_path, :method => :get, :class => "btn btn-primary text-white mb-2 float-right" %>
+    </div>
+    <input class="form-control" id="myInput" type="text" placeholder="Buscar Marca..">
+    <br>
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>Nombre</th>
+        <th style="text-align: center">Acciones</th>
+      </tr>
+      </thead>
+      <tbody id="myTable">
+      <% @admin_tags.each do |tag| %>
+        <tr>
+          <td><%= tag.name %></td>
+          <td><%= link_to 'Editar', edit_admin_tag_path(tag) %> <%= link_to 'Eliminar', admin_tag_path(tag), method: :delete, data: { confirm: "¿Estás seguro que quieres borrar esta marca?, ya que se borrará de los procedimientos que la contengan" }, :class => "float-right" %></td>
+        </tr>
+
+      <% end %>
+      </tbody>
+    </table>
+
+  </div>
+  <script>
+      $(document).ready(function(){
+          $("#myInput").on("keyup", function() {
+              var value = $(this).val().toLowerCase();
+              $("#myTable tr").filter(function() {
+                  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+              });
+          });
+      });
+  </script>
+</div>

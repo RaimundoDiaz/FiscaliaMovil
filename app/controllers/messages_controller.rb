@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_message, only: [:show, :edit, :update, :destroy]
 
   # GET /messages
@@ -29,6 +30,24 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     respond_to do |format|
       if @message.save
+        #Create notification
+        if current_user.prosecutor.present?
+          police_unit_id =  @message.procedure.police_unit_in_charge.id
+          police_unit_users = User.where(police_unit_id: police_unit_id)
+          police_unit_users.each { |user|
+            Notification.create(user_id: user.id, notification_type: 4, reference_id: params[:procedure_id], seen: false)
+          }
+        elsif current_user.police_unit.present?
+          local_prosecution_id =  @message.procedure.local_prosecution_in_charge.id
+          prosecutors = Prosecutor.where(local_prosecution_id: local_prosecution_id)
+
+          prosecutors.each { |pros|
+            if pros.user != nil
+              Notification.create(user_id: pros.user.id, notification_type: 4, reference_id: params[:procedure_id], seen: false)
+            end
+          }
+        end
+        #Reload page
         format.js {render inline: "location.reload();" }
       end
     end
