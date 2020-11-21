@@ -31,6 +31,9 @@ class Ability
       can [:create,:read], Message do |msg|
         Procedure.find(msg.procedure_id).police_unit_in_charge.id == user.police_unit.id
       end
+    #If neither of them the it must be an admin
+    elsif user.admin == true
+      can :manage, :all
     end
   end
 end
