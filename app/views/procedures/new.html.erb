@@ -162,11 +162,15 @@
           <div id="attachments" class="card-body">
             <div class="form-group">
               <%= form.label :photos, 'Fotos:' , class: "mr-2 form-label"%>
-              <%= form.file_field :photos, class: "form-control-file" %>
+              <%= form.file_field :photos,multiple: true, class: "form-control-file" %>
             </div>
             <div class="form-group">
               <%= form.label :photos, 'Videos:' , class: "mr-2 form-label"%>
-                  <%= form.file_field :videos, class: "form-control-file" %>
+              <%= form.file_field :videos, multiple: true, class: "form-control-file" %>
+            </div>
+             <div class="form-group">
+              <%= form.label :documents, 'Documentos:' , class: "mr-2 form-label"%>
+               <%= form.file_field :documents, multiple: true, class: "form-control-file" %>
             </div>
           </div>
         </div>
