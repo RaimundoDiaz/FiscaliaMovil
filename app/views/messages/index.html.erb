@@ -10,7 +10,7 @@
         <% if (message.user.police_unit != nil) %>
           <%= message.user.police_unit.name %>
         <% elsif (message.user.prosecutor != nil) %>
-          <%= message.user.prosecutor.name %>
+          <%= message.user.prosecutor.local_prosecution.name %>
         <% end %>
 
         <span class="dateSide"><%= message.created_at %></span>

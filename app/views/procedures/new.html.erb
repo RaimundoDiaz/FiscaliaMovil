@@ -46,36 +46,41 @@
               </div>
             </div>
           </div>
-        <% else %>
-          <%= form.hidden_field :prosecution_in_charge, :value => current_user.prosecutor.id %>
-        <% end %>
 
-        <div class="card mb-3">
+          <div class="card mb-3">
             <h5 class="card-header">Fiscal a cargo</h5>
-            <div id="prosecutor" class="card-body">
+            <div id="prosecutorInCharge" class="card-body">
               <div class="form-inline">
                   <%= form.select :prosecutor_in_charge, options_for_select(Prosecutor.order(:name).map { |prosecutor| [prosecutor[:name], prosecutor[:id]] }),{},{class: "form-control flex-grow-1"} %>
               </div>
             </div>
-        </div>
+          </div>
+        <% else %>
+          <%= form.hidden_field :prosecution_in_charge, :value => current_user.prosecutor.local_prosecution.id %>
+          <%= form.hidden_field :prosecutor_in_charge, :value => current_user.prosecutor.id %>
+        <% end %>
 
         <div class="card mb-3">
+          <h5 class="card-header">Policia a cargo</h5>
+          <div id="policeman" class="card-body">
+            <div class="form-inline">
+              <%= form.select :police_in_charge, options_for_select(PoliceMan.order(:name).map { |police| ["%s - %s"%[police[:name].to_s,police[:badge].to_s],police[:id]] }),{},{class: "form-control flex-grow-1"} %>
+            </div>
+          </div>
+        </div>
+
+        <% if !current_user.police_unit %>
+          <div class="card mb-3">
             <h5 class="card-header">Unidad policial a cargo</h5>
-            <div id="police_unit" class="card-body">
+            <div id="policeUnitInCharge" class="card-body">
               <div class="form-inline">
                 <%= form.select :police_unit_in_charge, options_for_select(PoliceUnit.order(:name).map { |policeUnit| [policeUnit[:name],policeUnit[:id]] }),{},{class: "form-control flex-grow-1"} %>
               </div>
             </div>
-        </div>
-
-        <div class="card mb-3">
-            <h5 class="card-header">Policia a cargo</h5>
-            <div id="policeman" class="card-body">
-              <div class="form-inline">
-                <%= form.select :police_in_charge, options_for_select(PoliceMan.order(:name).map { |police| ["%s - %s"%[police[:name].to_s,police[:badge].to_s],police[:id]] }),{},{class: "form-control flex-grow-1"} %>
-              </div>
-            </div>
-        </div>
+          </div>
+        <% else %>
+          <%= form.hidden_field :police_unit_in_charge, :value => current_user.police_unit.id %>
+        <% end %>
 
         <div class="card mb-3">
           <h5 class="card-header">Localización</h5>
@@ -166,7 +171,7 @@
           </div>
         </div>
         <div>
-          <%= form.button "Enviar",type:'submit', class: "btn btn-primary", id:"btn-send",name:'state',value:1%>
+          <%= form.button "Enviar",type:'submit', class: "btn btn-primary", id:"btn-send",name:'state',value:0%>
           <%= form.button "Guardar borrador", type:'submit', class: "btn btn-info", id:"btn-save", name:'state',value:2%>
         </div>
       </div>
@@ -187,7 +192,7 @@
       <div class="modal-body">
         <input type="text" class="mb-3 form-control" id="accusedName" aria-describedby="nameAcussed" placeholder="Nombre Completo">
         <input type="text" class="mb-3 form-control" id="accusedAlias" aria-describedby="aliasAccused" placeholder="Alias o Sobrenombre">
-        <input type="text" class="mb-3 form-control" id="accusedRut" aria-describedby="rutAccused" placeholder="Rut">
+        <input type="text" class="form-control" id="accusedRut" aria-describedby="rutAccused" placeholder="Rut">
         <div id="accused-invalid-rut" class="invalid-feedback" hidden>Rut inválido.</div>
       </div>
       <div class="modal-footer">
@@ -210,9 +215,9 @@
       </div>
       <div class="modal-body">
         <input type="text" class="mb-3 form-control" id="victimName" aria-describedby="nameVictim" placeholder="Nombre Completo">
-        <input type="text" class="mb-3 form-control" id="victimRut" aria-describedby="rutVictim" placeholder="Rut">
+        <input type="text" class="form-control" id="victimRut" aria-describedby="rutVictim" placeholder="Rut">
         <div id="victim-invalid-rut" class="invalid-feedback" hidden>Rut inválido.</div>
-        <input type="text" class="mb-3 form-control" id="victimContact" aria-describedby="contactVictim" placeholder="Contacto">
+        <input type="text" class="mb-3 mt-3 form-control" id="victimContact" aria-describedby="contactVictim" placeholder="Contacto">
         <div class=" mb-3 d-flex justify-content-center custom-control custom-switch">
           <input type="checkbox" class="custom-control-input" id="deceasedVictimSwitch">
           <label class="custom-control-label" for="deceasedVictimSwitch">Fallecido?</label>
@@ -240,9 +245,9 @@
       </div>
       <div class="modal-body">
         <input type="text" class="mb-3 form-control" id="witnessName" aria-describedby="nameWitness" placeholder="Nombre Completo">
-        <input type="text" class="mb-3 form-control" id="witnessRut" aria-describedby="rutWitness" placeholder="Rut">
+        <input type="text" class="form-control" id="witnessRut" aria-describedby="rutWitness" placeholder="Rut">
         <div id="witness-invalid-rut" class="invalid-feedback" hidden>Rut inválido.</div>
-        <input type="text" class="mb-3 form-control" id="witnessContact" aria-describedby="witnessVictim" placeholder="Contacto">
+        <input type="text" class="mb-3 mt-3 form-control" id="witnessContact" aria-describedby="witnessVictim" placeholder="Contacto">
         <textarea class="mb-3 form-control" id="witnessStory" aria-describedby="storyWitness" placeholder="Detalles..."></textarea>
       </div>
       <div class="modal-footer">

@@ -39,9 +39,12 @@ class MessagesController < ApplicationController
           }
         elsif current_user.police_unit.present?
           local_prosecution_id =  @message.procedure.local_prosecution_in_charge.id
-          local_prosecution_users = User.where(local_prosecution_id: local_prosecution_id)
-          local_prosecution_users.each { |user|
-            Notification.create(user_id: user.id, notification_type: 4, reference_id: params[:procedure_id], seen: false)
+          prosecutors = Prosecutor.where(local_prosecution_id: local_prosecution_id)
+
+          prosecutors.each { |pros|
+            if pros.user != nil
+              Notification.create(user_id: pros.user.id, notification_type: 4, reference_id: params[:procedure_id], seen: false)
+            end
           }
         end
         #Reload page
