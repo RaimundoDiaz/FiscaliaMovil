@@ -1,0 +1,33 @@
+<div id="content_box">
+  <%= form_with(model: [:admin, @police_man], local: true) do |form| %>
+    <% if @police_man.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@police_man.errors.count, "error") %> prohibited this crime from being saved:</h2>
+        <ul>
+          <% @police_man.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :rut %>
+      <%= form.text_field :rut %>
+    </div>
+
+    <div class="field">
+      <%= form.label :badge %>
+      <%= form.text_field :badge %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>

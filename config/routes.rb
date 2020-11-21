@@ -24,6 +24,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
       resources :crimes
+      resources :tags
+      resources :prosecutors
+      resources :police_units
+      resources :police_men
+      resources :local_prosecutions
+      resources :users
   end
 
 
