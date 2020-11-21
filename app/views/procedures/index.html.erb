@@ -4,15 +4,15 @@
 
 <% if !current_user.admin? %>
   <div class="text-center">
-    <%= link_to "Crear nuevo procedimiento", new_procedure_path, class: "btn btn-warning text-white ml-sm-4"%>
+    <%= link_to "Crear nuevo procedimiento", new_procedure_path, class: "btn btn-warning text-white ml-sm-4" %>
   </div>
 <% end %>
 
-<%if @procedures != [] %>
+<% if @procedures != [] %>
   <% @procedures.each do |procedimiento| %>
     <div id="homeProcedureDiv">
       <div class="police_info">
-        <%= procedimiento.police_in_charge.name%>
+        <%= procedimiento.police_in_charge.name %>
         <br>
         <%= "N° Placa: " %>
         <%= procedimiento.police_in_charge.badge %>
@@ -26,7 +26,7 @@
         <br>
         <% if procedimiento.open? %>
           Abierto
-        <% elsif procedimiento.close?%>
+        <% elsif procedimiento.close? %>
           Cerrado
         <% elsif procedimiento.draft? %>
           Borrador
@@ -42,18 +42,16 @@
                     style: 'color: #EC9D32'
                 ),
                 procedure_messages_path(procedimiento.id)
-
             )
         %>
-
         <br>
         <em>
           <%= procedimiento.created_at %>
         </em>
       </div>
-
-
     </div>
-
   <% end %>
 <% end %>
+<div class="d-flex justify-content-center", style="padding: 2em">
+  <%== pagy_bootstrap_nav(@pagy) %>
+</div>
