@@ -10,24 +10,26 @@
         </ul>
       </div>
     <% end %>
-
-    <div class="field">
-      <%= form.label :name %>
-      <%= form.text_field :name %>
-    </div>
-
-   <div class="field">
-     <%= form.label :rut %>
-     <%= form.text_field :rut %>
-   </div>
-
-   <div class="form-group">
-     <%= form.label :local_prosecution %>
-     <%= form.collection_select(:local_prosecution_id, LocalProsecution.all, :id, :name, {}, { class: "form-control" }) %>
-   </div>
-
+    <h1>Editar Fiscal</h1>
     <div class="actions">
-      <%= form.submit %>
-    </div>
+      <div class="row">
+        <div class="form-group col-10">
+          <%= form.label :nombre %>
+          <%= form.text_field :name, class: "form-control" %>
+        </div>
+
+        <div class="form-group col-10">
+         <%= form.label :rut %>
+         <%= form.text_field :rut, class: "form-control" %>
+        </div>
+
+        <div class="form-group col-10">
+         <%= form.label :local_prosecution %>
+         <%= form.collection_select(:local_prosecution_id, LocalProsecution.all, :id, :name, {}, { class: "form-control" }) %>
+        </div>
+      </div>
+      <%= form.submit 'Editar Fiscal', class: ["btn", "btn-primary"]  %>
+      <%= link_to "Atras", admin_prosecutors_path, class: ["btn", "btn-secondary"] %>
+   </div>
   <% end %>
 </div>
