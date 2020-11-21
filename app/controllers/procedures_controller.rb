@@ -1,5 +1,5 @@
 class ProceduresController < ApplicationController
-  authorize_resource
+  load_and_authorize_resource :except => [:create]
   before_action :set_procedure, only: [:show, :edit, :update, :destroy]
   include ProceduresHelper
 
@@ -52,6 +52,7 @@ class ProceduresController < ApplicationController
   # POST /procedures
   # POST /procedures.json
   def create
+    authorize! :create, Procedure
 
     if procedure_params[:classification] == "ODP"
       classification_procedure = 1
