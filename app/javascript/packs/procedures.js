@@ -476,28 +476,10 @@ $(document).on('turbolinks:load', function() {
 
 
     if ($('#prosecutionInCharge').length){
-
-        var option = $(this).val();
-        var fiscalesDeFIscalia = gon.fiscales.filter(function(obj){
-            if(parseInt(obj.local_prosecution_id) == parseInt(option)){
-                return true;
-            }
-            else {
-                return false;
-            }
-        })
-        $('#procedure_prosecutor_in_charge').children().remove();
-        $.each(fiscalesDeFIscalia, function (i, item) {
-            $('#procedure_prosecutor_in_charge').append($('<option>', {
-                value: item.id,
-                text : item.name
-            }));
-        });
-        $("#procedure_prosecutor_in_charge").trigger("chosen:updated");
-
-        $("#procedure_prosecution_in_charge").change(function(){
-            var option = $(this).val();
-            var fiscalesDeFIscalia = gon.fiscales.filter(function(obj){
+        function changeProsecutorsSelect(){
+            let option = $('#procedure_prosecution_in_charge').val();
+            console.log(option)
+            let fiscalesDeFIscalia = gon.fiscales.filter(function(obj){
                 if(parseInt(obj.local_prosecution_id) == parseInt(option)){
                     return true;
                 }
@@ -513,8 +495,11 @@ $(document).on('turbolinks:load', function() {
                 }));
             });
             $("#procedure_prosecutor_in_charge").trigger("chosen:updated");
+        }
+        changeProsecutorsSelect();
+        $("#procedure_prosecution_in_charge").change(function () {
+            changeProsecutorsSelect();
         });
-
         $('#procedure_prosecution_in_charge').chosen({
             width: '100%'
         });
@@ -601,7 +586,8 @@ $(document).on('turbolinks:load', function() {
             accussedHTML = $(accussedHTML).append(input);
 
             $('#accuseds').append(accussedHTML);
-            restartAccusedModal()
+            restartAccusedModal();
+            $('#form-invalid-accussed').hide();
             $("#accusedClose").click()
         }
         else{
@@ -806,4 +792,34 @@ $(document).on('turbolinks:load', function() {
             $('#form-invalid-address').html('Direccion necesaria.');
         }
     });
+
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+    if(dd<10){
+        dd='0'+dd
+    }
+    if(mm<10){
+        mm='0'+mm
+    }
+
+    today = yyyy+'-'+mm+'-'+dd;
+    $("#procedure_date").attr("max", today);
+
+    $("#procedure_date").change(function(){
+        $("#procedure_date").removeClass("is-invalid");
+        $('#form-invalid-date').attr("hidden",true);
+    });
+
+    $("#procedure_time").change(function(){
+        $("#procedure_time").removeClass("is-invalid");
+        $('#form-invalid-time').attr("hidden",true);
+    });
+
+    $("#procedure_address").change(function(){
+        $("#procedure_address").removeClass("is-invalid");
+        $('#form-invalid-address').attr("hidden",true);
+    });
+
 });
