@@ -766,7 +766,24 @@ $(document).on('turbolinks:load', function() {
     });
 
     $("#btn-save").click(function () {
-
+        if($("#procedure_date").val()==""){
+            $("#procedure_date").addClass("is-invalid");
+            $('#form-invalid-date').removeAttr('hidden');
+            $('#form-invalid-date').html('Fecha necesaria.');
+        }
+        if($("#procedure_time").val()==""){
+            $("#procedure_time").addClass("is-invalid");
+            $('#form-invalid-time').removeAttr('hidden');
+            $('#form-invalid-time').html('Hora necesaria.');
+        }
+        if(!$("#accussed").length){
+            $('#form-invalid-accussed').removeAttr('hidden');
+        }
+        if($("#procedure_address").val()==""){
+            $("#procedure_address").addClass("is-invalid");
+            $('#form-invalid-address').removeAttr('hidden');
+            $('#form-invalid-address').html('Direccion necesaria.');
+        }
     });
 
     $("#btn-send").click(function () {
