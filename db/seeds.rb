@@ -132,3 +132,5 @@ Tagging.create(tag: tag10, procedure: procedure3)
 Tagging.create(tag: tag9, procedure: procedure3)
 
 #Notification.create(user_id: 2, notification_type: 0, reference_id: 1, seen: false)
+Prosecutor.create(name: "Rodrigo Ponce", rut: "19638846-5", local_prosecution_id: 1607)
+Prosecutor.create(name: "Rodrigo Ponce", rut: "19638846-3", local_prosecution_id: 1607)
