@@ -8,8 +8,6 @@ class PoliceUnit < ApplicationRecord
     #Email
     @email = "up"+self.id.to_s+"@fiscalia.com"
 
-    puts(@email)
-
     #Password
     @password = 123456789
 

@@ -55,9 +55,11 @@
       </div>
     <% end %>
   <% else %>
-    <div id="homeProcedureDiv" , class="d-flex justify-content-center pt-3 alert-info" , style="font-size: x-large;">
-      <a>No hay procedimientos</a>
-    </div>
+    <% if current_user.admin == false %>
+      <div id="homeProcedureDiv" , class="d-flex justify-content-center pt-3 alert-info" , style="font-size: x-large;">
+        <a>No hay procedimientos</a>
+      </div>
+    <% end %>
   <% end %>
 </div>
 <% if @procedures != [] %>
