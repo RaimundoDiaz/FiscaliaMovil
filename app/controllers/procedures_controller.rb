@@ -48,6 +48,7 @@ class ProceduresController < ApplicationController
 
   # GET /procedures/1/edit
   def edit
+    @procedure = Procedure.find(params[:id])
     get_regiones
   end
 
