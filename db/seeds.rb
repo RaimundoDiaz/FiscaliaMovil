@@ -95,7 +95,6 @@ u1 = User.create(police_unit_id: 10101, email: "unidadpolicia1@gmail.com", passw
 u2 = User.create(prosecutor: prosecutor, email: "fiscal1@gmail.com", password: "123456789")
 u3 = User.create(police_unit_id: 10102, email: "unidadpolicia2@gmail.com", password: "123456789")
 procedure1 = Procedure.create(creator: u1, story: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?", state: 0, address: "Monseñor Álvaro del Portillo 123456", sector: "Las Condes", region: "Metropolitana", date_of_arrest: Date.today ,classification: 0, police_unit_in_charge_id: 10101, police_in_charge: police, local_prosecution_in_charge_id: 1607, prosecutor_in_charge: prosecutor, involves_deceased: false)
-procedure2 = Procedure.create(creator: u2, story: "Robo con intimidacion", state: 0, address: "Alicura 4339", sector: "Lo Barnechea", region: "Metropolitana", date_of_arrest: Date.yesterday, classification: 1, police_unit_in_charge_id: 10101, police_in_charge: police, local_prosecution_in_charge_id: 1607, prosecutor_in_charge: prosecutor, involves_deceased: false)
 person = Person.create(name: "Juan", last_name: "Perez", rut: "19838173-k", deceased: false, birthday: Date.new(2000))
 imputado = Person.create(name: "Martin", last_name: "Moreno", rut: "19838173-k", deceased: true, birthday: Date.new(1997))
 imputado2 = Person.create(name: "Gian", last_name: "Traverso", rut: "19687033-4", deceased: false, birthday: Date.new(1997))
@@ -104,9 +103,9 @@ PersonInProcedure.create(procedure: procedure1, person: imputado, role: 0, state
 PersonInProcedure.create(procedure: procedure1, person: imputado2, role: 0, state: 0)
 CrimeInAccused.create(person: imputado, crime_id: 101, procedure: procedure1, preponderant: true)
 CrimeInAccused.create(person: imputado, crime_id: 310, procedure: procedure1, preponderant: false)
-msg1 = Message.create(user: u1, procedure: procedure1, content: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.")
-msg2 = Message.create(user: u1, procedure: procedure1, content: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.")
-msg3 = Message.create(user: u2, procedure: procedure1, content: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.")
+Message.create(user: u1, procedure: procedure1, content: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.")
+Message.create(user: u1, procedure: procedure1, content: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.")
+Message.create(user: u2, procedure: procedure1, content: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.")
 
 
 tag1 = Tag.create(name: "Estallido Social")
@@ -122,15 +121,16 @@ tag10 = Tag.create(name: "Heridos")
 Tagging.create(tag: tag1, procedure: procedure1)
 Tagging.create(tag: tag3, procedure: procedure1)
 Tagging.create(tag: tag2, procedure: procedure1)
-Tagging.create(tag: tag5, procedure: procedure2)
 Tagging.create(tag: tag6, procedure: procedure1)
+
+procedure2 = Procedure.create(creator: u2, story: "Robo con intimidacion", state: 0, address: "Alicura 4339", sector: "Lo Barnechea", region: "Metropolitana", date_of_arrest: Date.yesterday, classification: 1, police_unit_in_charge_id: 10101, police_in_charge: police, local_prosecution_in_charge_id: 1607, prosecutor_in_charge: prosecutor, involves_deceased: false)
+PersonInProcedure.create(procedure: procedure2, person: Person.find(5), role: 0, state: 0)
+Tagging.create(tag: tag5, procedure: procedure2)
 Tagging.create(tag: tag9, procedure: procedure2)
 
-
 procedure3 = Procedure.create(creator: u1, story: "Asalto a mano armada", state: 0, address: "Las Flores 12152", sector: "Las Condes", region: "Metropolitana", date_of_arrest: Date.yesterday, classification: 1, police_unit_in_charge_id: 10101, police_in_charge: police, local_prosecution_in_charge_id: 1607, prosecutor_in_charge: prosecutor, involves_deceased: true)
+PersonInProcedure.create(procedure: procedure3, person: Person.find(10), role: 0, state: 0)
 Tagging.create(tag: tag10, procedure: procedure3)
 Tagging.create(tag: tag9, procedure: procedure3)
 
 #Notification.create(user_id: 2, notification_type: 0, reference_id: 1, seen: false)
-Prosecutor.create(name: "Rodrigo Ponce", rut: "19638846-5", local_prosecution_id: 1607)
-Prosecutor.create(name: "Rodrigo Ponce", rut: "19638846-3", local_prosecution_id: 1607)

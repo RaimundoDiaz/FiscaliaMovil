@@ -19,8 +19,6 @@ class Prosecutor < ApplicationRecord
       @email = @name.join("")+"@fiscalia.com"
     end
 
-    puts(@email)
-
     #Password
     @password = 123456789
 
