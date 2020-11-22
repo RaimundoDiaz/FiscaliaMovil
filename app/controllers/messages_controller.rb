@@ -30,10 +30,15 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     respond_to do |format|
       if @message.save
+        #Delete old notification of the same topic
+        Notification.where(reference_id: params[:procedure_id], notification_type: 4).destroy_all
+
         #Create notification
         if current_user.prosecutor.present?
           police_unit_id =  @message.procedure.police_unit_in_charge.id
           police_unit_users = User.where(police_unit_id: police_unit_id)
+
+          #Send notifiaction to the associated users
           police_unit_users.each { |user|
             Notification.create(user_id: user.id, notification_type: 4, reference_id: params[:procedure_id], seen: false)
           }
@@ -41,6 +46,9 @@ class MessagesController < ApplicationController
           local_prosecution_id =  @message.procedure.local_prosecution_in_charge.id
           prosecutors = Prosecutor.where(local_prosecution_id: local_prosecution_id)
 
+          #Delete old notification of the same topic
+
+          #Send notifiaction to the associated users
           prosecutors.each { |pros|
             if pros.user != nil
               Notification.create(user_id: pros.user.id, notification_type: 4, reference_id: params[:procedure_id], seen: false)
