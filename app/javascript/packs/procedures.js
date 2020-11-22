@@ -476,28 +476,10 @@ $(document).on('turbolinks:load', function() {
 
 
     if ($('#prosecutionInCharge').length){
-
-        var option = $(this).val();
-        var fiscalesDeFIscalia = gon.fiscales.filter(function(obj){
-            if(parseInt(obj.local_prosecution_id) == parseInt(option)){
-                return true;
-            }
-            else {
-                return false;
-            }
-        })
-        $('#procedure_prosecutor_in_charge').children().remove();
-        $.each(fiscalesDeFIscalia, function (i, item) {
-            $('#procedure_prosecutor_in_charge').append($('<option>', {
-                value: item.id,
-                text : item.name
-            }));
-        });
-        $("#procedure_prosecutor_in_charge").trigger("chosen:updated");
-
-        $("#procedure_prosecution_in_charge").change(function(){
-            var option = $(this).val();
-            var fiscalesDeFIscalia = gon.fiscales.filter(function(obj){
+        function changeProsecutorsSelect(){
+            let option = $('#procedure_prosecution_in_charge').val();
+            console.log(option)
+            let fiscalesDeFIscalia = gon.fiscales.filter(function(obj){
                 if(parseInt(obj.local_prosecution_id) == parseInt(option)){
                     return true;
                 }
@@ -513,6 +495,11 @@ $(document).on('turbolinks:load', function() {
                 }));
             });
             $("#procedure_prosecutor_in_charge").trigger("chosen:updated");
+        }
+        changeProsecutorsSelect();
+
+        $("#procedure_prosecution_in_charge").change(function () {
+            changeProsecutorsSelect();
         });
 
         $('#procedure_prosecution_in_charge').chosen({
