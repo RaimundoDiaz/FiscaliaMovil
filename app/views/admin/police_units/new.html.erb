@@ -20,7 +20,7 @@
       </div>
 
       <div class="form-group col-10">
-        <%= form.label :unidad_policial %>
+        <%= form.label :comisaría %>
         <%= form.collection_select(:police_station_id, PoliceStation.all, :id, :name, {}, { class: "form-control" }) %>
       </div>
     </div>
