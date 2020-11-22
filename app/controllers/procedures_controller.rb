@@ -43,6 +43,7 @@ class ProceduresController < ApplicationController
   def new
     @procedure = Procedure.new
     get_regiones
+    gon.fiscales = Prosecutor.all
   end
 
   # GET /procedures/1/edit
