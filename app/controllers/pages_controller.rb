@@ -5,7 +5,13 @@ class PagesController < ApplicationController
     @palabras_clave = []
     if params[:palabras_clave] != nil and params[:palabras_clave] != ""
       print("PALABRA CLAVE")
-      x = Procedure.where("story LIKE ? and local_prosecution_in_charge_id=?", "%"+params[:palabras_clave].to_s+"%", current_user.prosecutor.local_prosecution_id).pluck(:id)
+      if current_user.prosecutor.present?
+        x = Procedure.where("story LIKE ? and local_prosecution_in_charge_id=?", "%"+params[:palabras_clave].to_s+"%", current_user.prosecutor.local_prosecution_id).pluck(:id)
+      elsif current_user.police_unit.present?
+        x = Procedure.where("story LIKE ? and police_unit_in_charge_id=?", "%"+params[:palabras_clave].to_s+"%", current_user.police_unit_id).pluck(:id)
+      elsif current_user.admin?
+        x = Procedure.where("story LIKE ?", "%"+params[:palabras_clave].to_s).pluck(:id)
+      end
       for i in x
         @palabras_clave.push(i)
       end
@@ -14,7 +20,13 @@ class PagesController < ApplicationController
     if params[:query] != nil and params[:query] != ""
       print("QUERY")
       if params[:query].to_i.to_s == params[:query]
-        x = Procedure.where("id = ? and local_prosecution_in_charge_id=?", params[:query].to_s, current_user.prosecutor.local_prosecution_id).pluck(:id)
+        if current_user.prosecutor.present?
+          x = Procedure.where("id = ? and local_prosecution_in_charge_id=?", params[:query].to_s, current_user.prosecutor.local_prosecution_id).pluck(:id)
+        elsif current_user.police_unit.present?
+          x = Procedure.where("id = ? and police_unit_in_charge_id=?", params[:query].to_s, current_user.police_unit_id).pluck(:id)
+        elsif current_user.admin?
+          x = Procedure.where("id = ?", params[:query].to_s).pluck(:id)
+        end
         for i in x
           @query.push(i)
           redirect_to procedure_path(params[:query].to_s)
@@ -24,19 +36,37 @@ class PagesController < ApplicationController
     @desde = []
     if params[:desde] != nil and params[:desde] != "" and params[:hasta] != nil and params[:hasta] != ""
       print("DESDE Y HASTA")
-      x = Procedure.where("DATE(created_at) > ? AND DATE(created_at) < ? and local_prosecution_in_charge_id=?", params[:desde], params[:hasta], current_user.prosecutor.local_prosecution_id).pluck(:id)
+      if current_user.prosecutor.present?
+        x = Procedure.where("DATE(created_at) > ? AND DATE(created_at) < ? and local_prosecution_in_charge_id=?", params[:desde], params[:hasta], current_user.prosecutor.local_prosecution_id).pluck(:id)
+      elsif current_user.police_unit.present?
+        x = Procedure.where("DATE(created_at) > ? AND DATE(created_at) < ? and police_unit_in_charge_id=?", params[:desde], params[:hasta], current_user.police_unit_id).pluck(:id)
+      elsif current_user.admin?
+        x = Procedure.where("DATE(created_at) > ? AND DATE(created_at) < ?", params[:desde], params[:hasta]).pluck(:id)
+      end
       for i in x
         @desde.push(i)
       end
     elsif params[:desde] != nil and params[:desde] != ""
       print("DESDE")
-      x = Procedure.where("DATE(date_of_arrest) > ? and local_prosecution_in_charge_id=?", params[:desde], current_user.prosecutor.local_prosecution_id).pluck(:id)
+      if current_user.prosecutor.present?
+        x = Procedure.where("DATE(date_of_arrest) > ? and local_prosecution_in_charge_id=?", params[:desde], current_user.prosecutor.local_prosecution_id).pluck(:id)
+      elsif current_user.police_unit.present?
+        x = Procedure.where("DATE(date_of_arrest) > ? and police_unit_in_charge_id=?", params[:desde], current_user.police_unit_id).pluck(:id)
+      elsif current_user.admin?
+        x = Procedure.where("DATE(date_of_arrest) > ?", params[:desde]).pluck(:id)
+      end
       for i in x
         @desde.push(i)
       end
     elsif params[:hasta] != nil and params[:hasta] != ""
       print("HASTA")
-      x = Procedure.where("DATE(date_of_arrest) < ? and local_prosecution_in_charge_id=?", params[:hasta], current_user.prosecutor.local_prosecution_id).pluck(:id)
+      if current_user.prosecutor.present?
+        x = Procedure.where("DATE(date_of_arrest) < ? and local_prosecution_in_charge_id=?", params[:hasta], current_user.prosecutor.local_prosecution_id).pluck(:id)
+      elsif current_user.police_unit.present?
+        x = Procedure.where("DATE(date_of_arrest) < ? and police_unit_in_charge_id=?", params[:hasta], current_user.police_unit_id).pluck(:id)
+      elsif current_user.admin?
+        x = Procedure.where("DATE(date_of_arrest) < ?", params[:hasta]).pluck(:id)
+      end
       for i in x
         @desde.push(i)
       end
@@ -47,17 +77,35 @@ class PagesController < ApplicationController
       print("CLASIFICAION: ", params[:classification] )
       case params[:classification]
       when "Flagrancia"
-        x = Procedure.where("classification = 0 and local_prosecution_in_charge_id=?", current_user.prosecutor.local_prosecution_id).pluck(:id)
+        if current_user.prosecutor.present?
+          x = Procedure.where("classification = 0 and local_prosecution_in_charge_id=?", current_user.prosecutor.local_prosecution_id).pluck(:id)
+        elsif current_user.police_unit.present?
+          x = Procedure.where("classification = 0 and police_unit_in_charge_id=?", current_user.police_unit_id).pluck(:id)
+        elsif current_user.admin?
+          x = Procedure.where("classification = 0").pluck(:id)
+        end
         for i in x
           @clasificacion.push(i)
         end
       when "ODP"
-        x = Procedure.where("classification = 1 and local_prosecution_in_charge_id=?", current_user.prosecutor.local_prosecution_id).pluck(:id)
+        if current_user.prosecutor.present?
+          x = Procedure.where("classification = 1 and local_prosecution_in_charge_id=?", current_user.prosecutor.local_prosecution_id).pluck(:id)
+        elsif current_user.police_unit.present?
+          x = Procedure.where("classification = 1 and police_unit_in_charge_id=?", current_user.police_unit_id).pluck(:id)
+        elsif current_user.admin?
+          x = Procedure.where("classification = 1").pluck(:id)
+        end
         for i in x
           @clasificacion.push(i)
         end
       when "Ambas"
-        x = Procedure.where("classification = 2 and local_prosecution_in_charge_id=?", current_user.prosecutor.local_prosecution_id).pluck(:id)
+        if current_user.prosecutor.present?
+          x = Procedure.where("classification = 2 and local_prosecution_in_charge_id=?", current_user.prosecutor.local_prosecution_id).pluck(:id)
+        elsif current_user.police_unit.present?
+          x = Procedure.where("classification = 2 and police_unit_in_charge_id=?", current_user.police_unit_id).pluck(:id)
+        elsif current_user.admin?
+          x = Procedure.where("classification = 2").pluck(:id)
+        end
         for i in x
           @clasificacion.push(i)
         end
@@ -69,12 +117,24 @@ class PagesController < ApplicationController
       print("involucra_fallecidos")
       case params[:involucra_fallecidos]
       when "Si"
-        x = Procedure.where("involves_deceased = true and local_prosecution_in_charge_id=?", current_user.prosecutor.local_prosecution_id).pluck(:id)
+        if current_user.prosecutor.present?
+          x = Procedure.where("involves_deceased = true and local_prosecution_in_charge_id=?", current_user.prosecutor.local_prosecution_id).pluck(:id)
+        elsif current_user.police_unit.present?
+          x = Procedure.where("involves_deceased = true and police_unit_in_charge_id=?", current_user.police_unit_id).pluck(:id)
+        elsif current_user.admin?
+          x = Procedure.where("involves_deceased = true").pluck(:id)
+        end
         for i in x
           @involucra_fallecidos.push(i)
         end
       else
-        x = Procedure.where("involves_deceased = false and local_prosecution_in_charge_id=?", current_user.prosecutor.local_prosecution_id).pluck(:id)
+        if current_user.prosecutor.present?
+          x = Procedure.where("involves_deceased = false and local_prosecution_in_charge_id=?", current_user.prosecutor.local_prosecution_id).pluck(:id)
+        elsif current_user.police_unit.present?
+          x = Procedure.where("involves_deceased = false and police_unit_in_charge_id=?", current_user.police_unit_id).pluck(:id)
+        elsif current_user.admin?
+          x = Procedure.where("involves_deceased = false").pluck(:id)
+        end
         for i in x
           @involucra_fallecidos.push(i)
         end
@@ -83,9 +143,15 @@ class PagesController < ApplicationController
 
     @delito = []
     if params[:delito] != nil and params[:delito] != ""
-      print("delito")
+      print("Delito")
       x = Procedure.find(CrimeInAccused.where("crime_id = ?",Crime.where(name: params[:delito]).pluck(:id)).pluck(:procedure_id)).pluck(:id)
-      yy = Procedure.where("local_prosecution_in_charge_id=?", current_user.prosecutor.local_prosecution_id).pluck(:id)
+      if current_user.prosecutor.present?
+        yy = Procedure.where("local_prosecution_in_charge_id=?", current_user.prosecutor.local_prosecution_id).pluck(:id)
+      elsif current_user.police_unit.present?
+        yy = Procedure.where("police_unit_in_charge_id=?", current_user.police_unit_id).pluck(:id)
+      elsif current_user.admin?
+        yy = Procedure.all.pluck(:id)
+      end
       x = x & yy
       for i in x
         @delito.push(i)
@@ -103,7 +169,13 @@ class PagesController < ApplicationController
           x.push(w)
         end
       end
-      yy = Procedure.where("local_prosecution_in_charge_id=?", current_user.prosecutor.local_prosecution_id).pluck(:id)
+      if current_user.prosecutor.present?
+        yy = Procedure.where("local_prosecution_in_charge_id=?", current_user.prosecutor.local_prosecution_id).pluck(:id)
+      elsif current_user.police_unit.present?
+        yy = Procedure.where("police_unit_in_charge_id=?", current_user.police_unit_id).pluck(:id)
+      elsif current_user.admin?
+        yy = Procedure.all.pluck(:id)
+      end
       @marcas = x & yy
 
     end
@@ -138,6 +210,7 @@ class PagesController < ApplicationController
     if @fin != []
       @vieneDeHeader = false
       @procedimientos_buscados = Procedure.find(@fin)
+      @procedimientos_buscados = @procedimientos_buscados.sort_by &:created_at
     else
       if params.key?("palabras_clave") or params.key?("query")
         @vieneDeHeader = true
