@@ -11,7 +11,7 @@ class ProceduresController < ApplicationController
     elsif current_user.police_unit.present?
       @pagy, @procedures = pagy(Procedure.where(:state => 2, :creator_id => current_user.id, :police_unit_in_charge_id => current_user.police_unit.id).order(created_at: :desc))
     elsif current_user.admin?
-      @pagy, @procedures = pagy([])
+      @procedures = []
     end
   end
 

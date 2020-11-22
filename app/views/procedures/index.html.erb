@@ -1,13 +1,6 @@
 <!--
 <p id="notice"><%= notice %></p>
 -->
-<div style="min-height: 90vh">
-  <% if !current_user.admin? %>
-    <div class="text-center">
-      <%= link_to "Crear nuevo procedimiento", new_procedure_path, class: "btn btn-warning text-white ml-sm-4" %>
-    </div>
-  <% end %>
-
 <% if !current_user.admin? %>
   <div class="text-center">
     <%= link_to "Crear nuevo procedimiento", new_procedure_path, class: "btn btn-warning text-white ml-sm-4"%>
