@@ -1,7 +1,7 @@
 <script>
-    function fun(){
-        document.getElementById('text').value='';
-    }
+    $(document).on('turbolinks:load', function() {
+        $('#message_content').val("");
+    });
 </script>
 
 <%= form_with model: @new_message, url: {controller: "messages", action: "create"} do |form| %>
@@ -18,7 +18,7 @@
     <%= form.text_area :content, size: 90,placeholder: "Escribe un mensaje ..."  ,class: "form-control" %>
   </div>
 
-  <div class="actions" onclick="fun()" >
+  <div class="actions">
     <%= form.submit "Enviar" , class: "btn btn-primary"%>
     <%= link_to 'Atrás', procedure_path(@procedure.id), class: ["btn", "btn-primary"] %>
   </div>

@@ -12,11 +12,15 @@ class Procedure < ApplicationRecord
   belongs_to :creator, class_name: 'User'
   has_one_attached :videos
   has_many_attached :photos
+  has_many_attached :documents
 
   validate :past_date
   validate :empty_address
-  validates :videos, blob: { content_type: :image, size_range: 1..4.gigabytes}
-  validates :photos, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'], size_range: 1..5.megabytes }
+  validates :videos, blob: { content_type: :video, size_range: 1..4.gigabytes}
+  validates :photos, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg', 'image/bmp'], size_range: 1..5.megabytes }
+  validates :documents, blob: { content_type: ['application/pdf', 'application/doc', 'application/docx', 'application/ppt',
+                                               'application/pptx', 'application/ps', 'application/rtf', 'application/txt',
+                                               'application/xls', 'application/xlsx'], size_range: 1..5.megabytes }
 
 
   enum state: {open: 0, close: 1, draft: 2}

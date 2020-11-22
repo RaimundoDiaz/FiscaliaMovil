@@ -17,12 +17,11 @@ class Ability
       can [:create,:read], Message do |msg|
         Procedure.find(msg.procedure_id).local_prosecution_in_charge.id == user.prosecutor.local_prosecution.id
       end
+
     #If the user is a policeman:
     elsif user.police_unit.present?
       #Can manage all procedures of police_unit
       can :manage, Procedure, police_unit_in_charge: user.police_unit
-      #Except procedures that are open
-      cannot :manage, Procedure, state: "Open"
       #Except the drafts made by other policemen of the same police_unit
       cannot :manage, Procedure do |pro|
         (pro.state == "Draft" && pro.creator_id != user.id)
@@ -31,6 +30,7 @@ class Ability
       can [:create,:read], Message do |msg|
         Procedure.find(msg.procedure_id).police_unit_in_charge.id == user.police_unit.id
       end
+
     #If neither of them the it must be an admin
     elsif user.admin == true
       can :manage, :all

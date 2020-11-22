@@ -21,8 +21,6 @@ gem 'jbuilder', '~> 2.7'
 gem 'faker', '~> 2.14'
 gem 'ffaker', '~> 2.17.0'
 
-gem 'cancancan', '~> 3.1'
-
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -40,6 +38,8 @@ gem 'omniauth-google-oauth2'
 # Add CanCanCan for user authorization
 gem 'cancancan', '~> 3.1'
 
+# Add Pagy for pagination
+gem 'pagy', '~> 3.8', '3.8.3'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -51,6 +51,8 @@ gem 'rut_validator'
 gem 'roo', '~> 2.8'
 
 gem 'chosen-rails'
+
+gem 'gon'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

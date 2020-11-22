@@ -9,12 +9,17 @@
       <div class="topMessageBox">
         <% if (message.user.police_unit != nil) %>
           <%= message.user.police_unit.name %>
+            <%=current_user.prosecutor.name%>
         <% elsif (message.user.prosecutor != nil) %>
           <%= message.user.prosecutor.local_prosecution.name %>
         <% end %>
-
-        <span class="dateSide"><%= message.created_at %></span>
       </div>
+
+      <div class="centerMessageBox font-weight-bold">
+        <span class="dateSide"><%= message.created_at %></span>
+        <p class="text-primary"><%=current_user.prosecutor.name%></p>
+      </div>
+
 
       <div class="bottomMessageBox">
         <%= message.content %>

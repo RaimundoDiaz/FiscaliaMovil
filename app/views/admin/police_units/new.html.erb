@@ -1,30 +1,30 @@
-<div id="content_box">
 
-  <%= form_with(model: [:admin, @police_unit], local: true) do |form| %>
-    <% if @police_unit.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@police_unit.errors.count, "error") %> prohibited this crime from being saved:</h2>
+<%= form_with(model: [:admin, @police_unit], local: true) do |form| %>
+  <% if @police_unit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@police_unit.errors.count, "error") %> prohibited this crime from being saved:</h2>
 
-        <ul>
-          <% @police_unit.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class="field">
-      <%= form.label :name %>
-      <%= form.text_field :name %>
-    </div>
-
-    <div class="form-group">
-      <%= form.label :police_station %>
-      <%= form.collection_select(:police_station_id, PoliceStation.all, :id, :name, {}, { class: "form-control" }) %>
-    </div>
-
-    <div class="actions">
-      <%= form.submit %>
+      <ul>
+        <% @police_unit.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
     </div>
   <% end %>
-</div>
+  <h1>Crear Unidad Policial</h1>
+  <div class="actions">
+    <div class="row">
+      <div class="form-group col-10">
+        <%= form.label :nombre %>
+        <%= form.text_field :name, class: "form-control" %>
+      </div>
+
+      <div class="form-group col-10">
+        <%= form.label :comisaría %>
+        <%= form.collection_select(:police_station_id, PoliceStation.all, :id, :name, {}, { class: "form-control" }) %>
+      </div>
+    </div>
+    <%= form.submit 'Crear Unidad Policial', class: ["btn", "btn-primary"]  %>
+    <%= link_to "Atras", admin_police_units_path, class: ["btn", "btn-secondary"] %>
+  </div>
+<% end %>

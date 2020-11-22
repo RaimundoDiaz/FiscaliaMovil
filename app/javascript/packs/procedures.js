@@ -476,6 +476,32 @@ $(document).on('turbolinks:load', function() {
 
 
     if ($('#prosecutionInCharge').length){
+        function changeProsecutorsSelect(){
+            let option = $('#procedure_prosecution_in_charge').val();
+            console.log(option)
+            let fiscalesDeFIscalia = gon.fiscales.filter(function(obj){
+                if(parseInt(obj.local_prosecution_id) == parseInt(option)){
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            })
+            $('#procedure_prosecutor_in_charge').children().remove();
+            $.each(fiscalesDeFIscalia, function (i, item) {
+                $('#procedure_prosecutor_in_charge').append($('<option>', {
+                    value: item.id,
+                    text : item.name
+                }));
+            });
+            $("#procedure_prosecutor_in_charge").trigger("chosen:updated");
+        }
+        changeProsecutorsSelect();
+
+        $("#procedure_prosecution_in_charge").change(function () {
+            changeProsecutorsSelect();
+        });
+
         $('#procedure_prosecution_in_charge').chosen({
             width: '100%'
         });
@@ -727,21 +753,44 @@ $(document).on('turbolinks:load', function() {
     });
 
     $("#btn-save").click(function () {
-
+        if($("#procedure_date").val()==""){
+            $("#procedure_date").addClass("is-invalid");
+            $('#form-invalid-date').removeAttr('hidden');
+            $('#form-invalid-date').html('Fecha necesaria.');
+        }
+        if($("#procedure_time").val()==""){
+            $("#procedure_time").addClass("is-invalid");
+            $('#form-invalid-time').removeAttr('hidden');
+            $('#form-invalid-time').html('Hora necesaria.');
+        }
+        if(!$("#accussed").length){
+            $('#form-invalid-accussed').removeAttr('hidden');
+        }
+        if($("#procedure_address").val()==""){
+            $("#procedure_address").addClass("is-invalid");
+            $('#form-invalid-address').removeAttr('hidden');
+            $('#form-invalid-address').html('Direccion necesaria.');
+        }
     });
 
     $("#btn-send").click(function () {
         if($("#procedure_date").val()==""){
-            console.log("falta fecha");
+            $("#procedure_date").addClass("is-invalid");
+            $('#form-invalid-date').removeAttr('hidden');
+            $('#form-invalid-date').html('Fecha necesaria.');
         }
         if($("#procedure_time").val()==""){
-            console.log("falta hora");
+            $("#procedure_time").addClass("is-invalid");
+            $('#form-invalid-time').removeAttr('hidden');
+            $('#form-invalid-time').html('Hora necesaria.');
         }
         if(!$("#accussed").length){
-            console.log("faltan acusados");
+            $('#form-invalid-accussed').removeAttr('hidden');
         }
-        if(!$("#procedure_address").val()==""){
-            console.log("falta direccion");
+        if($("#procedure_address").val()==""){
+            $("#procedure_address").addClass("is-invalid");
+            $('#form-invalid-address').removeAttr('hidden');
+            $('#form-invalid-address').html('Direccion necesaria.');
         }
     });
 });
