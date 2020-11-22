@@ -65,15 +65,20 @@ while i < policemen_db_size  do
 end
 ######################################
 # Create local prosecutors
-i=0
-prosecutor_db_size = 80
-while i < prosecutor_db_size  do
+@prosecutions = LocalProsecution.all
+
+for pros in @prosecutions
   name = FFaker::Name.name
   rut = Faker::ChileRut.unique.full_rut
-  prosecution = LocalProsecution.order('RANDOM()').first
+  prosecution = pros
   Prosecutor.create(name: name, rut: rut, local_prosecution: prosecution)
-  i +=1
+
+  name = FFaker::Name.name
+  rut = Faker::ChileRut.unique.full_rut
+  prosecution = pros
+  Prosecutor.create(name: name, rut: rut, local_prosecution: prosecution)
 end
+
 ######################################
 # Create persons (more alive than dead)
 i=0
