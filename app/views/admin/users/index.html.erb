@@ -13,23 +13,38 @@
 <div id="content_box">
   <div class="container mt-3">
     <div>
-      <h2 class="float-left">Delitos</h2>
-      <%= button_to "Crear delito", new_admin_crime_path, :method => :get, :class => "btn btn-primary text-white mb-2 float-right" %>
+      <h2 class="float-left">Usuarios</h2>
+      <%= button_to "Crear Usuario", new_admin_user_path, :method => :get, :class => "btn btn-primary text-white mb-2 float-right" %>
     </div>
-    <input class="form-control" id="myInput" type="text" placeholder="Buscar delito..">
+    <input class="form-control" id="myInput" type="text" placeholder="Buscar Usuario..">
     <br>
     <table class="table table-bordered">
       <thead>
       <tr>
-        <th>Nombre</th>
+        <th>Email</th>
+        <th style="width: 35%">Pertenece a</th>
+        <th style="width: 15%;">Administrador</th>
         <th style="text-align: center; width: 18%">Acciones</th>
       </tr>
       </thead>
       <tbody id="myTable">
-      <% @crimes.each do |crime| %>
+      <% @users.each do |user| %>
         <tr>
-          <td><%= crime.name %></td>
-          <td><%= link_to 'Editar', edit_admin_crime_path(crime) %> <%= link_to 'Eliminar', admin_crime_path(crime), data: { confirm: "¿Estás seguro que quieres borrar este delito?, ya que se borrará de los procedimientos e imputados que la contengan" }, method: :delete, :class => "float-right"%></td>
+          <td><%= user.email %></td>
+          <% unless user.police_unit.nil? %>
+          <td><%= user.police_unit.name  %></td>
+            <% role = 1 %>
+          <%  end %>
+          <% unless user.prosecutor.nil? %>
+            <td><%= user.prosecutor.local_prosecution.name  %></td>
+            <% role = 2 %>
+          <%  end %>
+          <% if user.prosecutor.nil? and user.police_unit.nil? %>
+            <td>No aplica</td>
+            <% role = 0 %>
+          <%  end %>
+          <td><%= user.admin ? 'Si' : 'No' %></td>
+          <td><%= link_to 'Editar', edit_admin_user_path(user, role: role) %> <%= link_to 'Eliminar', admin_user_path(user), method: :delete, data: { confirm: "¿Estás seguro que quieres borrar este usuario?" }, :class => "float-right"%></td>
         </tr>
 
       <% end %>

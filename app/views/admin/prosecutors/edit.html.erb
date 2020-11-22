@@ -1,0 +1,35 @@
+ <%= form_with(model: [:admin, @prosecutor], local: true) do |form| %>
+    <% if @prosecutor.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@prosecutor.errors.count, "error") %> prohibited this crime from being saved:</h2>
+
+        <ul>
+          <% @prosecutor.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <h1>Editar Fiscal</h1>
+    <div class="actions">
+      <div class="row">
+        <div class="form-group col-10">
+          <%= form.label :nombre %>
+          <%= form.text_field :name, class: "form-control" %>
+        </div>
+
+        <div class="form-group col-10">
+         <%= form.label :rut %>
+         <%= form.text_field :rut, class: "form-control" %>
+        </div>
+
+        <div class="form-group col-10">
+         <%= form.label :local_prosecution %>
+         <%= form.collection_select(:local_prosecution_id, LocalProsecution.all, :id, :name, {}, { class: "form-control" }) %>
+        </div>
+      </div>
+      <%= form.submit 'Editar Fiscal', class: ["btn", "btn-primary"]  %>
+      <%= link_to "Atras", admin_prosecutors_path, class: ["btn", "btn-secondary"] %>
+   </div>
+  <% end %>
+</div>

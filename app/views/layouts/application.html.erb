@@ -10,90 +10,119 @@
   </head>
 
   <body>
-    <header>
       <% if user_signed_in? %>
         <% if current_user.admin? %>
-          <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-            <div class="sidebar-sticky">
-              <ul class="nav flex-column">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
-                    Usuarios
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-                    Policias
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                    Fiscales
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="<%= admin_crimes_path %>">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-                    Delitos
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-                    Marcas
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-                    Unidades policiales
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-                    Fiscalias
-                  </a>
-                </li>
-              </ul>
+          <div class="container-fluid">
+            <div class="row">
+              <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                  <ul class="nav flex-column">
+                    <div style="margin-top: 5%; margin-bottom: 15%; margin-left: auto; margin-right: auto">
+                      <%= image_tag "logo.png", size: "200x150"%>
+                    </div>
+
+                    <li class="nav-item">
+                      <a class="nav-link" href="<%= admin_users_path %>">
+                        <i class="fas fa-users"></i>
+                        Usuarios
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="<%= admin_police_men_path %>">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                        </svg>
+                        Policias
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="<%= admin_prosecutors_path %>">
+                        <i class="fas fa-gavel"></i>
+                        Fiscales
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="<%= admin_crimes_path %>">
+                        <i class="fas fa-bell"></i>
+                        Delitos
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="<%= admin_tags_path %>">
+                        <i class="fas fa-tag"></i>
+                        Marcas
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="<%= admin_police_units_path %>">
+                        <i class="fas fa-house-user"></i>
+                        Unidades policiales
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="<%= admin_local_prosecutions_path %>">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-building" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694L1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z"/>
+                          <path d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z"/>
+                        </svg>
+                        Fiscalias
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <br>
+                      <br>
+                    </li>
+                    <li class="nav-item">
+                      <%= button_to "Cerrar sesión", destroy_user_session_path, :method => :delete, :class => "btn btn-danger text-white ml-sm-4" %>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+              <main class="mainAdmin col-md-9 ml-sm-auto col-lg-10 pt-3 px-4" role="main">
+                <%= yield %>
+              </main>
             </div>
-          </nav>
+          </div>
         <% else %>
-          <nav class="navbar navbar-light bg-light">
-            <div class="navbar-brand">
-              <a style="margin-left: -1em" class="mr-sm-4"><%= link_to image_tag("FiscaliaLogo.png", width: "70em"), root_path %></a>
-              <a class="mr-sm-4"><%= link_to image_tag("FiscaliaNombre.png", width: "180em"), root_path %></a>
-            </div>
-            <% if current_user.notifications.where(seen: false).count > 0 %>
-              <!a style="margin-right: -0.4em"><!%= current_user.notifications.count %></a>
-              <a><%= link_to image_tag("Notification_1.png", width: "30em"), notifications_path %></a>
-              <a style="margin-left: -0.2em"><%= current_user.notifications.where(seen: false).count %></a>
-            <% else %>
-              <a><%= link_to image_tag("Notification_0.png", width: "30em"), notifications_path %></a>
-            <% end %>
-            <%if (current_user.prosecutor.present?)%>
-              <p style="color: #EC9D32; font-weight: bold; margin: 0px; font-size: small; width: 30%; margin-left: 1.2em;"><%=current_user.prosecutor.name%></p>
-            <%elsif (current_user.police_unit.present?)%>
-              <p style="color: #EC9D32; font-weight: bold; margin: 0px; font-size: small; width: 30%; margin-left: 1.2em;">Unidad Policial: <%=current_user.police_unit.name%></p>
-            <%end%>
-            <%= form_with url: search_path, method: :get, local: true do |form| %>
-              <div class="form-inline row">
-                <%= form.text_field :query, :placeholder => "Buscar por Folio...", class: "form-control" %>
-                <%= form.submit "Buscar", class: ["btn", "btn-primary"] %>
+          <header>
+            <nav class="navbar navbar-light bg-light">
+              <div class="navbar-brand">
+                <a style="margin-left: -1em" class="mr-sm-4"><%= link_to image_tag("FiscaliaLogo.png", width: "70em"), root_path %></a>
+                <a class="mr-sm-4"><%= link_to image_tag("FiscaliaNombre.png", width: "180em"), root_path %></a>
               </div>
-            <% end %>
-            <%= button_to "Búsqueda Avanzada", search_path, :method => :get, :class => "btn btn-primary text-white ml-sm-4"%>
-            <%= button_to "Cerrar sesión", destroy_user_session_path, :method => :delete, :class => "btn btn-warning text-white ml-sm-4" %>
-          </nav>
+              <% if current_user.notifications.where(seen: false).count > 0 %>
+                <!a style="margin-right: -0.4em"><!%= current_user.notifications.count %></a>
+                <a><%= link_to image_tag("Notification_1.png", width: "30em"), notifications_path %></a>
+                <a style="margin-left: -0.2em"><%= current_user.notifications.where(seen: false).count %></a>
+              <% else %>
+                <a><%= link_to image_tag("Notification_0.png", width: "30em"), notifications_path %></a>
+              <% end %>
+              <%if (current_user.prosecutor.present?)%>
+                <p style="color: #EC9D32; font-weight: bold; margin: 0px; font-size: small; width: 30%; margin-left: 1.2em;"><%=current_user.prosecutor.name%></p>
+              <%elsif (current_user.police_unit.present?)%>
+                <p style="color: #EC9D32; font-weight: bold; margin: 0px; font-size: small; width: 30%; margin-left: 1.2em;">Unidad Policial: <%=current_user.police_unit.name%></p>
+              <%end%>
+              <%= form_with url: search_path, method: :get, local: true do |form| %>
+                <div class="form-inline row">
+                  <%= form.text_field :query, :placeholder => "Buscar por Folio...", class: "form-control" %>
+                  <%= form.submit "Buscar", class: ["btn", "btn-primary"] %>
+                </div>
+              <% end %>
+              <%= button_to "Búsqueda Avanzada", search_path, :method => :get, :class => "btn btn-primary text-white ml-sm-4"%>
+              <%= button_to "Cerrar sesión", destroy_user_session_path, :method => :delete, :class => "btn btn-warning text-white ml-sm-4" %>
+            </nav>
+          </header>
+          <main class="normalMain">
+            <%= yield %>
+          </main>
         <% end %>
+      <%else %>
+        <main class="normalMain">
+          <%= yield %>
+        </main>
       <% end %>
-    </header>
-    <main>
-      <%= yield %>
-    </main>
+
+
     <% if user_signed_in? %>
       <footer class="light bg-light border-top p-1 mb-0">
         <div class="container text-center text-md-left mt-2">

@@ -1,5 +1,5 @@
 class Crime < ApplicationRecord
-  has_many :person_in_procedures
-  has_many :people, through: :person_in_procedures
+  has_many :crime_in_accuseds, :dependent => :destroy
+  has_many :people, through: :crime_in_accuseds
 
 end

@@ -1,10 +1,13 @@
 <!--
 <p id="notice"><%= notice %></p>
 -->
-
 <% if !current_user.admin? %>
   <div class="text-center">
     <%= link_to "Crear nuevo procedimiento", new_procedure_path, class: "btn btn-warning text-white ml-sm-4"%>
+  </div>
+<% else %>
+  <div style="margin-top: 22%">
+    <h1 style="text-align: center">Bienvenido Administrador!</h1>
   </div>
 <% end %>
 
@@ -46,14 +49,33 @@
             )
         %>
 
-        <br>
-        <em>
-          <%= procedimiento.created_at %>
-        </em>
+        </div>
+        <div class="icons">
+          <%= link_to(
+                  content_tag(
+                      :i,
+                      nil,
+                      class: 'fas fa-envelope fa-2x',
+                      style: 'color: #EC9D32'
+                  ),
+                  procedure_messages_path(procedimiento.id)
+              )
+          %>
+          <br>
+          <em>
+            <%= procedimiento.created_at %>
+          </em>
+        </div>
       </div>
-
-
+    <% end %>
+  <% else %>
+    <div id="homeProcedureDiv" , class="d-flex justify-content-center pt-3 alert-info" , style="font-size: x-large;">
+      <a>No hay procedimientos</a>
     </div>
-
   <% end %>
+</div>
+<% if @procedures != [] %>
+  <div class="d-flex justify-content-center pt-3">
+    <%== pagy_bootstrap_nav(@pagy) %>
+  </div>
 <% end %>

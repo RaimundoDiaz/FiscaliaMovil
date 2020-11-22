@@ -13,23 +13,25 @@
 <div id="content_box">
   <div class="container mt-3">
     <div>
-      <h2 class="float-left">Delitos</h2>
-      <%= button_to "Crear delito", new_admin_crime_path, :method => :get, :class => "btn btn-primary text-white mb-2 float-right" %>
+      <h2 class="float-left">Fiscales</h2>
+      <%= button_to "Crear Fiscal", new_admin_prosecutor_path, :method => :get, :class => "btn btn-primary text-white mb-2 float-right" %>
     </div>
-    <input class="form-control" id="myInput" type="text" placeholder="Buscar delito..">
+    <input class="form-control" id="myInput" type="text" placeholder="Buscar Fiscal..">
     <br>
     <table class="table table-bordered">
       <thead>
       <tr>
         <th>Nombre</th>
+        <th>RUT</th>
         <th style="text-align: center; width: 18%">Acciones</th>
       </tr>
       </thead>
       <tbody id="myTable">
-      <% @crimes.each do |crime| %>
+      <% @prosecutors.each do |prosecutor| %>
         <tr>
-          <td><%= crime.name %></td>
-          <td><%= link_to 'Editar', edit_admin_crime_path(crime) %> <%= link_to 'Eliminar', admin_crime_path(crime), data: { confirm: "¿Estás seguro que quieres borrar este delito?, ya que se borrará de los procedimientos e imputados que la contengan" }, method: :delete, :class => "float-right"%></td>
+          <td><%= prosecutor.name %></td>
+          <td><%= prosecutor.rut %></td>
+          <td><%= link_to 'Editar', edit_admin_prosecutor_path(prosecutor) %> <%= link_to 'Eliminar', admin_prosecutor_path(prosecutor), method: :delete, data: { confirm: "¿Estás seguro que quieres borrar este Fiscal?" }, :class => "float-right" %></td>
         </tr>
 
       <% end %>
