@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function() {
-    regiones = gon.regiones;
+    var regiones = gon.regiones;
     regiones = JSON.parse(JSON.stringify(regiones));
     var option = $("#procedure_region").val();
     var nuevas_comunas = $.grep(regiones, function(region) { return region.codigo == option; });
