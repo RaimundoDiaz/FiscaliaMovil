@@ -12,16 +12,30 @@ class Prosecutor < ApplicationRecord
     @email = @name.join("")+"@fiscalia.com"
 
     #Search if email is duplicate
-    @count = User.where("email LIKE ?", "%"+@name.join("")+"%").count
+    @count = User.where("email LIKE ? AND admin = False", "%"+@name.join("")+"@fiscalia.com%").count
 
     if(@count>0)
       @name[1]+=(@count+1).to_s
       @email = @name.join("")+"@fiscalia.com"
     end
 
+    #puts(@email)
+
     #Password
     @password = 123456789
 
     User.create(prosecutor: self, email: @email, password: "123456789")
+
+    #ADMIN ACCOUNT
+    #Email
+    @email = @name.join("")+"@adminfiscalia.com"
+
+    #puts(@email)
+
+    #Password
+    @password = 123456789
+
+    User.create(prosecutor: self, admin:true, email: @email, password: "123456789")
+
   end
 end

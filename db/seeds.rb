@@ -95,6 +95,8 @@ end
 ######################################
 police = PoliceMan.find(1)
 prosecutor = Prosecutor.create(name: "Rodrigo Ponce", rut: "19638846-k", local_prosecution_id: 1607)
+prosecutor = Prosecutor.create(name: "Rodrigoss Ponce", rut: "19638846-5", local_prosecution_id: 1607)
+prosecutor = Prosecutor.create(name: "Rodrigo Ponce", rut: "19638846-2", local_prosecution_id: 1607)
 admin = User.create(email: "admin@gmail.com", password: "123456789", admin: true)
 localadmin = User.create(email: "adminlocal@gmail.com", password: "123456789", admin: true, prosecutor: prosecutor)
 u1 = User.create(police_unit_id: 10101, email: "unidadpolicia1@gmail.com", password: "123456789")
