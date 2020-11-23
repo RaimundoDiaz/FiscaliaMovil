@@ -6,6 +6,15 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  rescue_from CanCan::AccessDenied do |exception|
+
+    respond_to do |format|
+      format.json { head :forbidden, content_type: 'text/html' }
+      format.html { redirect_to main_app.procedures_path, alert: 'No tienes permisos para acceder a esta página' }
+      format.js { head :forbidden, content_type: 'text/html' }
+    end
+  end
+
   def after_sign_in_path_for(resource)
     #current_user.is_a?(Admin) ? admin_tests_path : (stored_location_for(resource) || root_path)
     procedures_path
