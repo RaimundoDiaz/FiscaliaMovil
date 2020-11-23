@@ -259,7 +259,7 @@ class ProceduresController < ApplicationController
           format.json { render json: @procedure.errors, status: :unprocessable_entity }
         end
       end
-    else
+    elsif params[:petition] == "change_state"
       respond_to do |format|
         $aux = @procedure.state
         if @procedure.update(state: params[:state])

@@ -1,5 +1,5 @@
 class Admin::LocalProsecutionsController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource except: [:create]
   before_action :set_admin_local_prosecution, only: [:edit, :update, :destroy]
   before_action :authenticate_admin!
 

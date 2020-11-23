@@ -327,7 +327,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <%= form.submit "Cerrar procedimiento", class: ["btn", "btn-danger"] %>
+          <%= form.submit "Cerrar procedimiento", class: ["btn", "btn-danger"], name: "petition", value: "change_state" %>
         </div>
       <% end %>
     </div>
