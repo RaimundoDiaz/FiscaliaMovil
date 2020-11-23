@@ -17,6 +17,10 @@ $(document).on('turbolinks:load', function() {
         }));
     });
 
+    if(gon.sector){
+        $('#procedure_sector').val(gon.sector);
+    }
+
     //preparar lo anterior para cada vez que se cambie el select de regiones
     $("#procedure_region").change(function(){
         //seleccionar las comunas de la region correspondiente
