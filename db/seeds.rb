@@ -93,13 +93,21 @@ while i < 30  do
 end
 
 ######################################
+# CUENTAS PARA USAR RAPIDAMENTE
+# admin@admin.com = super admin
+# adminlocal@adminfiscalia.com = admin de fiscalia local
+# up10101@adminup.com = admin de unidad policial
+# unidadpolicial1@up.com = cuenta de unidad policial
+# rponce@fiscalia.com = cuenta de fiscal
+
+
+admin = User.create(email: "admin@admin.com", password: "123456789", admin: true)
+localadmin = User.create(email: "adminlocal@adminfiscalia.com", password: "123456789", admin: true, local_prosecution_id: 1607)
 police = PoliceMan.find(1)
 prosecutor = Prosecutor.create(name: "Rodrigo Ponce", rut: "19638846-k", local_prosecution_id: 1607)
-admin = User.create(email: "admin@gmail.com", password: "123456789", admin: true)
-localadmin = User.create(email: "adminlocal@gmail.com", password: "123456789", admin: true, local_prosecution_id: 1607)
-u1 = User.create(police_unit_id: 10101, email: "unidadpolicia1@gmail.com", password: "123456789")
-u2 = User.create(prosecutor: prosecutor, email: "fiscal1@gmail.com", password: "123456789")
-u3 = User.create(police_unit_id: 10102, email: "unidadpolicia2@gmail.com", password: "123456789")
+u2 = User.last
+u1 = User.create(police_unit_id: 10101, email: "unidadpolicial1@up.com", password: "123456789")
+u3 = User.create(police_unit_id: 10102, email: "unidadpolicial2@up.com", password: "123456789")
 procedure1 = Procedure.create(creator: u1, story: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?", state: 0, address: "Monseñor Álvaro del Portillo 123456", sector: "Las Condes", region: "Metropolitana", date_of_arrest: Date.today ,classification: 0, police_unit_in_charge_id: 10101, police_in_charge: police, local_prosecution_in_charge_id: 1607, prosecutor_in_charge: prosecutor, involves_deceased: false)
 person = Person.create(name: "Juan", last_name: "Perez", rut: "19838173-k", deceased: false, birthday: Date.new(2000))
 imputado = Person.create(name: "Martin", last_name: "Moreno", rut: "19838173-k", deceased: true, birthday: Date.new(1997))

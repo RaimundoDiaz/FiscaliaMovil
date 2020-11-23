@@ -1,4 +1,5 @@
 class Admin::RegionalProsecutionsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_admin_regional_prosecution, only: [:edit, :update, :destroy]
   before_action :authenticate_admin!
   include ProceduresHelper

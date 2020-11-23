@@ -1,4 +1,5 @@
 class Admin::PoliceStationsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_admin_police_station, only: [:edit, :update, :destroy]
   before_action :authenticate_admin!
 
