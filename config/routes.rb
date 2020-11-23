@@ -29,6 +29,8 @@ Rails.application.routes.draw do
       resources :police_units
       resources :police_men
       resources :local_prosecutions
+      resources :regional_prosecutions
+      resources :police_stations
       resources :users
   end
 
