@@ -7,7 +7,7 @@ class LocalProsecution < ApplicationRecord
 
   def create_admin
     #Email
-    @email = "fiscalia"+self.id.to_s+"@adminfiscalia.com"
+    @email = "fiscalia"+self.id.to_s+"@admin.com"
 
     #Password
     @password = 123456789
