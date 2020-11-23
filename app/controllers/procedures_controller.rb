@@ -48,6 +48,26 @@ class ProceduresController < ApplicationController
 
   # GET /procedures/1/edit
   def edit
+    @procedure = Procedure.find(params[:id])
+    @preponderant_crime = @procedure.crime_in_accuseds.find_by(preponderant: true)
+    @crimes = @procedure.crime_in_accuseds.where(preponderant: false).distinct.map { |x| x.crime.name }.uniq
+    @accuseds = @procedure.person_in_procedures.where(role: 0)
+    @victims = @procedure.person_in_procedures.where(role: 2)
+    @witnesses = @procedure.person_in_procedures.where(role: 1)
+    @classification_dic = {"Flagrancy" => "Flagrancia", "Pending arrest warrant" => "ODP","Both" => "Ambas"}
+    get_regiones
+    @regiones.each do |region|
+      if region[:nombre].to_s == @procedure.region
+        @selected_region = region[:codigo]
+      end
+      region[:comunas].each do |comuna|
+        if comuna[:nombre].to_s == @procedure.sector
+          @selected_sector = comuna[:codigo]
+        end
+      end
+    end
+
+    gon.sector = @selected_sector
   end
 
   # POST /procedures
@@ -87,7 +107,6 @@ class ProceduresController < ApplicationController
 
     dateOfArrest = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec, t.zone)
 
-
     @procedure = Procedure.new(classification: classification_procedure,
                                creator: current_user,
                                police_in_charge: PoliceMan.find(procedure_params[:police_in_charge]),
@@ -98,7 +117,7 @@ class ProceduresController < ApplicationController
                                address: procedure_params[:address],
                                sector: selected_sector,
                                region: selected_region,
-                               state: procedure_params[:state].to_i,
+                               state: params[:state].to_i,
                                date_of_arrest: dateOfArrest,
                                involves_deceased: procedure_params[:involves_deceased]
                                )
@@ -186,23 +205,78 @@ class ProceduresController < ApplicationController
   # PATCH/PUT /procedures/1
   # PATCH/PUT /procedures/1.json
   def update
-    #byebug
-    respond_to do |format|
-      $aux = @procedure.state
-      if @procedure.update(state: params[:state])
-        #If procedure was closed, notify the police unit
-        if @procedure.state == "Close" && $aux == "Open"
-          police_unit_id =  @procedure.police_unit_in_charge.id
-          police_unit_users = User.where(police_unit_id: police_unit_id)
-          police_unit_users.each { |user|
-            Notification.create(user_id: user.id, notification_type: 1, reference_id: @procedure.id, seen: false)
-          }
-        end
-        format.html { redirect_to @procedure, notice: 'Procedure was successfully updated.' }
-        format.json { render :show, status: :ok, location: @procedure }
+    if params[:petition] == "update_borrador"
+      if procedure_params[:classification] == "ODP"
+        classification_procedure = 1
+
+      elsif procedure_params[:classification] == "Flagrancia"
+        classification_procedure = 0
       else
-        format.html { render :edit }
-        format.json { render json: @procedure.errors, status: :unprocessable_entity }
+        classification_procedure = 2
+      end
+
+      selected_region = ""
+      selected_sector = ""
+
+      get_regiones
+
+      @regiones.each do |region|
+        if region[:codigo].to_s == procedure_params[:region].to_s
+          selected_region = region[:nombre]
+        end
+        region[:comunas].each do |comuna|
+          if comuna[:codigo].to_s == procedure_params[:sector].to_s
+            selected_sector = comuna[:nombre]
+          end
+        end
+      end
+
+
+      d = procedure_params[:date].to_date
+      t = procedure_params[:time].to_time
+
+
+      dateOfArrest = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec, t.zone)
+      respond_to do |format|
+        if @procedure.update(classification: classification_procedure,
+                                      creator: current_user,
+                                      police_in_charge: PoliceMan.find(procedure_params[:police_in_charge]),
+                                      police_unit_in_charge: PoliceUnit.find(procedure_params[:police_unit_in_charge]),
+                                      prosecutor_in_charge: Prosecutor.find(procedure_params[:prosecutor_in_charge]),
+                                      local_prosecution_in_charge: LocalProsecution.find(procedure_params[:prosecution_in_charge]),
+                                      story: procedure_params[:story],
+                                      address: procedure_params[:address],
+                                      sector: selected_sector,
+                                      region: selected_region,
+                                      state: params[:state].to_i,
+                                      date_of_arrest: dateOfArrest,
+                                      involves_deceased: procedure_params[:involves_deceased])
+
+          format.html { redirect_to @procedure, notice: 'Procedure was successfully updated.' }
+          format.json { render :show, status: :ok, location: @procedure }
+        else
+          format.html { render :edit }
+          format.json { render json: @procedure.errors, status: :unprocessable_entity }
+        end
+      end
+    else
+      respond_to do |format|
+        $aux = @procedure.state
+        if @procedure.update(state: params[:state])
+          #If procedure was closed, notify the police unit
+          if @procedure.state == "Close" && $aux == "Open"
+            police_unit_id =  @procedure.police_unit_in_charge.id
+            police_unit_users = User.where(police_unit_id: police_unit_id)
+            police_unit_users.each { |user|
+              Notification.create(user_id: user.id, notification_type: 1, reference_id: @procedure.id, seen: false)
+            }
+          end
+          format.html { redirect_to @procedure, notice: 'Procedure was successfully updated.' }
+          format.json { render :show, status: :ok, location: @procedure }
+        else
+          format.html { render :edit }
+          format.json { render json: @procedure.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -225,7 +299,7 @@ class ProceduresController < ApplicationController
 
   def procedure_params
     # Only allow a list of trusted parameters through.
-    params.require(:procedure).permit(:date,:time,:classification,:involves_deceased,:prosecutor_in_charge, :prosecution_in_charge,:police_unit_in_charge,:police_in_charge,:address,:region,:sector,:preponderant_crime,:state,:photos,:videos, :story, crimes:[],
+    params.require(:procedure).permit(:date,:time,:classification,:involves_deceased,:prosecutor_in_charge, :prosecution_in_charge,:police_unit_in_charge,:police_in_charge,:address,:region,:sector,:preponderant_crime, :state , :photos ,:videos, :story, crimes:[],
                                       tag_ids:[], :accuseds => [:name,:alias,:rut], :victims => [:name,:rut,:deceased,:contact,:story],
                                       :witness => [:name,:rut,:story,:contact])
   end
