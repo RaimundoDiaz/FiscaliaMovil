@@ -4,14 +4,14 @@ excel_file = Roo::Spreadsheet.open('./datos.xlsx')
 #drop(1) is for skipping the first row
 excel_file.sheet(0).drop(1).each do |row|
   id = row[0]
-  name = row[1].strip
+  name = row[1].squeeze
   Crime.create!(id:id, name: name)
 end
 ##################################
 #Prefecture
 excel_file.sheet(5).drop(1).each do |row|
   id = row[0]
-  name = row[1].strip
+  name = row[1].squeeze
   region = row[2]
   Prefecture.create!(id:id, name: name, region: region)
 end
@@ -19,7 +19,7 @@ end
 #RegionalProsecutions
 excel_file.sheet(2).drop(1).each do |row|
   id = row[0]
-  name = row[1].strip
+  name = row[1].squeeze
   region = row[2]
   RegionalProsecution.create!(id:id, name: name, region: region)
 end
@@ -27,7 +27,7 @@ end
 #LocalProsecutions
 excel_file.sheet(1).drop(1).each do |row|
   id = row[0]
-  name = row[1].strip
+  name = row[1].squeeze
   regional_prosecution_id = row[2]
   LocalProsecution.create!(id:id, name: name, regional_prosecution_id: regional_prosecution_id)
 end
@@ -35,7 +35,7 @@ end
 #Police Stations
 excel_file.sheet(4).drop(1).each do |row|
   id = row[0]
-  name = row[1].strip
+  name = row[1].squeeze
   prefecture = row[2]
   police_type = row[3]
   PoliceStation.create!(id:id, name: name, prefecture_id: prefecture, police_type: police_type)
@@ -44,7 +44,7 @@ end
 #Police Units
 excel_file.sheet(3).drop(1).each do |row|
   id = row[0]
-  name = row[1].strip
+  name = row[1].squeeze
   police_station = row[2]
   begin
     PoliceUnit.create!(id:id, name: name, police_station_id: police_station)
