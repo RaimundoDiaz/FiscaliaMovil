@@ -135,8 +135,8 @@ class ProceduresController < ApplicationController
           @procedure.save
         end
 
-        if params[:files] != nil
-          @procedure.files.attach(params[:files])
+        if params[:documents] != nil
+          @procedure.documents.attach(params[:documents])
           @procedure.save
         end
 
@@ -317,7 +317,7 @@ class ProceduresController < ApplicationController
 
   def procedure_params
     # Only allow a list of trusted parameters through.
-    params.require(:procedure).permit(:date,:time,:classification,:involves_deceased,:prosecutor_in_charge, :prosecution_in_charge,:police_unit_in_charge,:police_in_charge,:address,:region,:sector,:preponderant_crime, :state , :story, crimes:[],videos:[], photos:[], files:[],
+    params.require(:procedure).permit(:date,:time,:classification,:involves_deceased,:prosecutor_in_charge, :prosecution_in_charge,:police_unit_in_charge,:police_in_charge,:address,:region,:sector,:preponderant_crime, :state , :story, crimes:[],videos:[], photos:[], documents:[],
                                       tag_ids:[], :accuseds => [:name,:alias,:rut], :victims => [:name,:rut,:deceased,:contact,:story],
                                       :witness => [:name,:rut,:story,:contact])
   end
