@@ -20,7 +20,8 @@ class Admin::LocalProsecutionsController < ApplicationController
   # POST /admin/local_prosecutions
   # POST /admin/local_prosecutions.json
   def create
-    @local_prosecution = LocalProsecution.new(admin_local_prosecution_params)
+    x = LocalProsecution.all.pluck(:id).sort[-1] + 1
+    @local_prosecution = LocalProsecution.new(id: x, name: admin_local_prosecution_params["name"], regional_prosecution_id: admin_local_prosecution_params["regional_prosecution_id"].to_i)
 
     respond_to do |format|
       if @local_prosecution.save

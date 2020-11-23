@@ -18,8 +18,8 @@ class Admin::CrimesController < ApplicationController
   # POST /people
   # POST /people.json
   def create
-    @crime = Crime.new(crime_params)
-
+    x = Crime.all.pluck(:id).sort[-1] + 1
+    @crime = Crime.new(id: x, name: crime_params["name"])
     respond_to do |format|
       if @crime.save
         format.html { redirect_to admin_crimes_path, notice: 'Crime was successfully created.' }

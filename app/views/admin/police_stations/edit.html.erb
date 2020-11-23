@@ -1,0 +1,36 @@
+<%= form_with(model: [:admin, @police_station], local: true) do |form| %>
+  <% if @police_station.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@police_station.errors.count, "error") %> prohibited this police station from being saved:</h2>
+
+      <ul>
+        <% @police_station.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <h1>Editar Comisaría</h1>
+  <div class="actions">
+    <div class="row">
+      <div class="form-group col-10">
+        <%= form.label :nombre %>
+        <%= form.text_field :name, class: "form-control"  %>
+      </div>
+
+      <div class="form-group col-10">
+        <% prefecture = Prefecture.order(:name).map{|prefecture| [prefecture[:name]]} %>
+        <%= form.label :prefecture_id, 'Prefactura:', class: "form-label mr-2" %>
+        <%= form.select :prefecture_id, options_for_select(prefecture),{},{class: "form-control flex-grow-1"} %>
+      </div>
+
+      <div class="form-group col-10">
+        <%= form.label :police_type, 'Tipo de Policia:', class: "form-label mr-2" %>
+        <%= form.select :police_type, options_for_select([1,2,10]),{},{class: "form-control flex-grow-1"} %>
+      </div>
+    </div>
+
+    <%= form.submit 'Editar Comisaría', class: ["btn", "btn-primary"]  %>
+    <%= link_to "Atras", admin_police_stations_path, class: ["btn", "btn-secondary"] %>
+  </div>
+<% end %>
