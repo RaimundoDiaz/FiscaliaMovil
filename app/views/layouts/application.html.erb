@@ -109,14 +109,25 @@
                 </div>
               </nav>
               <main class="mainAdmin col-md-9 ml-sm-auto col-lg-10 pt-3 px-4" role="main">
+                <span class="success_msgs">
+                  <% if notice %>
+                    <p class="notice alert-success">
+                        <%= notice %>
+                    </p>
+                    <% end %>
+                </span>
+                <span class="error_msgs">
+                  <% if alert %>
+                    <p class="alert alert-success">
+                        <%= alert %>
+                    </p>
+                  <% end %>
+                </span>
                 <%= yield %>
               </main>
             </div>
           </div>
         </nav>
-        <main class="mainAdmin col-md-9 ml-sm-auto col-lg-10 pt-3 px-4" role="main">
-          <%= yield %>
-        </main>
       </div>
     </div>
   <% else %>
