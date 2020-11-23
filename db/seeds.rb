@@ -55,7 +55,7 @@ end
 ######################################
 # Create police men
 i=0
-policemen_db_size = 80
+policemen_db_size = 40
 while i < policemen_db_size  do
   name = FFaker::Name.name
   rut = Faker::ChileRut.unique.full_rut
@@ -82,7 +82,7 @@ end
 ######################################
 # Create persons (more alive than dead)
 i=0
-while i < 50  do
+while i < 30  do
   name = FFaker::Name.name
   last_name = FFaker::Name.last_name
   rut = Faker::ChileRut.unique.full_rut
@@ -95,8 +95,6 @@ end
 ######################################
 police = PoliceMan.find(1)
 prosecutor = Prosecutor.create(name: "Rodrigo Ponce", rut: "19638846-k", local_prosecution_id: 1607)
-prosecutor = Prosecutor.create(name: "Rodrigoss Ponce", rut: "19638846-5", local_prosecution_id: 1607)
-prosecutor = Prosecutor.create(name: "Rodrigo Ponce", rut: "19638846-2", local_prosecution_id: 1607)
 admin = User.create(email: "admin@gmail.com", password: "123456789", admin: true)
 localadmin = User.create(email: "adminlocal@gmail.com", password: "123456789", admin: true, prosecutor: prosecutor)
 u1 = User.create(police_unit_id: 10101, email: "unidadpolicia1@gmail.com", password: "123456789")
