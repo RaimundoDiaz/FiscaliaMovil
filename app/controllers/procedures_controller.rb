@@ -66,6 +66,8 @@ class ProceduresController < ApplicationController
         end
       end
     end
+
+    gon.sector = @selected_sector
   end
 
   # POST /procedures
