@@ -5,7 +5,12 @@ class Admin::ProsecutorsController < ApplicationController
   # GET /admin/prosecutors
   # GET /admin/prosecutors.json
   def index
-    @prosecutors = Prosecutor.all.order(:name)
+    if current_user.prosecutor.present?
+      @prosecutors = Prosecutor.all.where(local_prosecution: current_user.prosecutor.local_prosecution).order(:name)
+    else
+      @prosecutors = Prosecutor.all.order(:name)
+    end
+
   end
 
   # GET /admin/prosecutors/new

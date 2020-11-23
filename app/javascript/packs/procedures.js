@@ -423,12 +423,17 @@ $(document).on('turbolinks:load', function() {
         }
     ];
 
-    var comunas = regiones[0];
-    comunas = JSON.parse(JSON.stringify(comunas));
-    comunas = comunas.comunas; // [{codigo : 1231, nombre: "", ...}]
+    regiones = JSON.parse(JSON.stringify(regiones));
+    var option = $("#procedure_region").val();
+    var nuevas_comunas = $.grep(regiones, function(region) { return region.codigo == option; });
+    nuevas_comunas = nuevas_comunas[0].comunas;
+    console.log(nuevas_comunas);
+
+    //borrar las opciones actuales
+    $('#procedure_sector').children().remove();
 
     //agregar al select de comunas los datos del json
-    $.each(comunas, function (i, item) {
+    $.each(nuevas_comunas, function (i, item) {
         $('#procedure_sector').append($('<option>', {
             value: item.codigo,
             text : item.nombre
@@ -438,7 +443,6 @@ $(document).on('turbolinks:load', function() {
     //preparar lo anterior para cada vez que se cambie el select de regiones
     $("#procedure_region").change(function(){
         //seleccionar las comunas de la region correspondiente
-        regiones = JSON.parse(JSON.stringify(regiones));
         var option = $(this).val();
         console.log("opcion = " + option);
         var nuevas_comunas = $.grep(regiones, function(region) { return region.codigo == option; });
@@ -497,11 +501,9 @@ $(document).on('turbolinks:load', function() {
             $("#procedure_prosecutor_in_charge").trigger("chosen:updated");
         }
         changeProsecutorsSelect();
-
         $("#procedure_prosecution_in_charge").change(function () {
             changeProsecutorsSelect();
         });
-
         $('#procedure_prosecution_in_charge').chosen({
             width: '100%'
         });
@@ -588,7 +590,8 @@ $(document).on('turbolinks:load', function() {
             accussedHTML = $(accussedHTML).append(input);
 
             $('#accuseds').append(accussedHTML);
-            restartAccusedModal()
+            restartAccusedModal();
+            $('#form-invalid-accussed').hide();
             $("#accusedClose").click()
         }
         else{
@@ -793,4 +796,34 @@ $(document).on('turbolinks:load', function() {
             $('#form-invalid-address').html('Direccion necesaria.');
         }
     });
+
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+    if(dd<10){
+        dd='0'+dd
+    }
+    if(mm<10){
+        mm='0'+mm
+    }
+
+    today = yyyy+'-'+mm+'-'+dd;
+    $("#procedure_date").attr("max", today);
+
+    $("#procedure_date").change(function(){
+        $("#procedure_date").removeClass("is-invalid");
+        $('#form-invalid-date').attr("hidden",true);
+    });
+
+    $("#procedure_time").change(function(){
+        $("#procedure_time").removeClass("is-invalid");
+        $('#form-invalid-time').attr("hidden",true);
+    });
+
+    $("#procedure_address").change(function(){
+        $("#procedure_address").removeClass("is-invalid");
+        $('#form-invalid-address').attr("hidden",true);
+    });
+
 });

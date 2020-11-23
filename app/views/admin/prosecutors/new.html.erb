@@ -22,11 +22,14 @@
         <%= form.label :rut %>
         <%= form.text_field :rut, class: "form-control" %>
       </div>
-
+      <% if current_user.prosecutor.nil? and current_user.police_unit.nil? %>
       <div class="form-group col-10">
         <%= form.label :fiscalía_local %>
         <%= form.collection_select(:local_prosecution_id, LocalProsecution.all, :id, :name, {}, { class: "form-control" }) %>
       </div>
+        <% else %>
+        <%= form.hidden_field :local_prosecution_id, :value => current_user.prosecutor.local_prosecution.id %>
+      <% end %>
     </div>
     <%= form.submit 'Crear Fiscal', class: ["btn", "btn-primary"]  %>
     <%= link_to "Atras", admin_prosecutors_path, class: ["btn", "btn-secondary"] %>
