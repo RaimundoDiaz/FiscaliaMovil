@@ -123,7 +123,7 @@
             <%= crimes_fields.select "" , options_for_select(crimes, crime.crime.name), {name: "procedure[crimes][]"},{class: "form-control flex-grow-1"}  %>
           <% end %>
           <button type="button" class="ml-2 btn btn-danger delete_crime"> Eliminar delito </button>
-          <p id="crimeID"> <%= crime.id %></p>
+          <p id="crimeID" hidden> <%= crime.id %></p>
         </div>
       <% end %>
       <div id = "new_crime" class="mt-3 form-inline d-flex justify-content-between">

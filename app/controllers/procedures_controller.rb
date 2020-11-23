@@ -121,8 +121,24 @@ class ProceduresController < ApplicationController
                                date_of_arrest: dateOfArrest,
                                involves_deceased: procedure_params[:involves_deceased]
                                )
+
     respond_to do |format|
       if @procedure.save!
+
+        if params[:photos] != nil
+          @procedure.photos.attach(params[:photos])
+          @procedure.save
+        end
+
+        if params[:videos] != nil
+          @procedure.videos.attach(params[:videos])
+          @procedure.save
+        end
+
+        if params[:files] != nil
+          @procedure.files.attach(params[:files])
+          @procedure.save
+        end
 
         procedure_params[:tag_ids][1..procedure_params[:tag_ids].size].each do |tag|
           @tag = Tagging.new(tag: Tag.find_by_name(tag),
@@ -301,7 +317,7 @@ class ProceduresController < ApplicationController
 
   def procedure_params
     # Only allow a list of trusted parameters through.
-    params.require(:procedure).permit(:date,:time,:classification,:involves_deceased,:prosecutor_in_charge, :prosecution_in_charge,:police_unit_in_charge,:police_in_charge,:address,:region,:sector,:preponderant_crime, :state , :photos ,:videos, :story, crimes:[],
+    params.require(:procedure).permit(:date,:time,:classification,:involves_deceased,:prosecutor_in_charge, :prosecution_in_charge,:police_unit_in_charge,:police_in_charge,:address,:region,:sector,:preponderant_crime, :state , :story, crimes:[],videos:[], photos:[], files:[],
                                       tag_ids:[], :accuseds => [:name,:alias,:rut], :victims => [:name,:rut,:deceased,:contact,:story],
                                       :witness => [:name,:rut,:story,:contact])
   end
