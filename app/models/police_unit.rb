@@ -6,7 +6,7 @@ class PoliceUnit < ApplicationRecord
 
   def create_user
     #Email
-    @email = "up"+self.id.to_s+"@fiscalia.com"
+    @email = "up"+self.id.to_s+"@up.com"
 
     #Password
     @password = 123456789
