@@ -35,8 +35,13 @@
           <%= hidden_field_tag(:role, params[:role]) %>
         </div>
       <% end %>
+      <!--
+      <div class="form-group col-10">
+        <%= form.label :administrador %>
+        <%= form.check_box :admin %>
+      </div>
+      -->
     </div>
-
 
     <%= form.submit "Editar", class: ["btn", "btn-primary"] %>
     <%= link_to "Atras", admin_users_path, class: ["btn", "btn-secondary"] %>

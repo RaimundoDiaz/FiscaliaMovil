@@ -28,7 +28,7 @@
                         Usuarios
                       </a>
                     </li>
-                    <% unless current_user.police_unit.nil? %>
+                    <% if current_user.police_unit.present? or (current_user.local_prosecution.nil? and current_user.police_unit.nil?) %>
                     <li class="nav-item">
                               <a class="nav-link" href="<%=  admin_police_men_path  %>">
                                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -38,7 +38,7 @@
                               </a>
                     </li>
                     <%  end %>
-                    <% unless current_user.prosecutor.nil? %>
+                    <% if current_user.local_prosecution.present? or (current_user.local_prosecution.nil? and current_user.police_unit.nil?) %>
                       <li class="nav-item">
                         <a class="nav-link" href="<%= admin_prosecutors_path %>">
                           <i class="fas fa-gavel"></i>
@@ -46,7 +46,7 @@
                         </a>
                       </li>
                       <% end %>
-                    <% if current_user.prosecutor.nil? and current_user.police_unit.nil? %>
+                    <% if current_user.local_prosecution.nil? and current_user.police_unit.nil? %>
                       <li class="nav-item">
                         <a class="nav-link" href="<%= admin_crimes_path %>">
                           <i class="fas fa-bell"></i>
@@ -60,7 +60,7 @@
                         </a>
                       </li>
                       <% end %>
-                    <% if current_user.police_unit.present? %>
+                    <% if current_user.local_prosecution.nil? and current_user.police_unit.nil?%>
                     <li class="nav-item">
                       <a class="nav-link" href="<%= admin_police_units_path %>">
                         <i class="fas fa-house-user"></i>
@@ -68,7 +68,7 @@
                       </a>
                     </li>
                       <% end %>
-                    <% if current_user.prosecutor.nil? and current_user.police_unit.nil? %>
+                    <% if current_user.local_prosecution.nil? and current_user.police_unit.nil? %>
                     <li class="nav-item">
                       <a class="nav-link" href="<%= admin_local_prosecutions_path %>">
                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-building" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

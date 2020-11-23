@@ -5,7 +5,15 @@ class Admin::UsersController < ApplicationController
   # GET /admin/users
   # GET /admin/users.json
   def index
-    @users = User.all
+    if current_user.local_prosecution.present?
+      fiscalia = current_user.local_prosecution
+      @users = User.joins(:prosecutor).where(prosecutors: { local_prosecution: fiscalia })
+    elsif current_user.police_unit.present?
+      @users = User.where(police_unit: current_user.police_unit)
+    else
+      @users = User.all
+    end
+
   end
 
   # GET /admin/users/new

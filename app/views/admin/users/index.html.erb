@@ -14,7 +14,9 @@
   <div class="container mt-3">
     <div>
       <h2 class="float-left">Usuarios</h2>
-      <%= button_to "Crear Administrador", new_admin_user_path, :method => :get, :class => "btn btn-primary text-white mb-2 float-right" %>
+      <% if current_user.local_prosecution.nil? and current_user.police_unit.nil? and current_user.prosecutor.nil?%>
+        <%= button_to "Crear Administrador Nacional", new_admin_user_path, :method => :get, :class => "btn btn-primary text-white mb-2 float-right" %>
+      <%end%>
     </div>
     <input class="form-control" id="myInput" type="text" placeholder="Buscar Usuario..">
     <br>
@@ -31,15 +33,19 @@
       <% @users.each do |user| %>
         <tr>
           <td><%= user.email %></td>
-          <% unless user.police_unit.nil? %>
+          <% if user.police_unit.present? %>
           <td><%= user.police_unit.name  %></td>
             <% role = 1 %>
           <%  end %>
-          <% unless user.prosecutor.nil? %>
+          <% if user.local_prosecution.present? %>
+            <td><%= user.local_prosecution.name  %></td>
+            <% role = 2 %>
+          <%  end %>
+          <% if user.prosecutor.present? %>
             <td><%= user.prosecutor.local_prosecution.name  %></td>
             <% role = 2 %>
           <%  end %>
-          <% if user.prosecutor.nil? and user.police_unit.nil? %>
+          <% if user.local_prosecution.nil? and user.police_unit.nil? and user.prosecutor.nil?%>
             <td>No aplica</td>
             <% role = 0 %>
           <%  end %>
