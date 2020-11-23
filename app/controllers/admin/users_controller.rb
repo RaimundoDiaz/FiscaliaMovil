@@ -8,6 +8,8 @@ class Admin::UsersController < ApplicationController
     if current_user.local_prosecution.present?
       fiscalia = current_user.local_prosecution
       @users = User.joins(:prosecutor).where(prosecutors: { local_prosecution: fiscalia })
+    elsif current_user.police_unit.present?
+      @users = User.where(police_unit: current_user.police_unit)
     else
       @users = User.all
     end

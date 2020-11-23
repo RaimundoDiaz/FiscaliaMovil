@@ -60,7 +60,7 @@
                         </a>
                       </li>
                       <% end %>
-                    <% if current_user.police_unit.present? or (current_user.local_prosecution.nil? and current_user.police_unit.nil?)%>
+                    <% if current_user.local_prosecution.nil? and current_user.police_unit.nil?%>
                     <li class="nav-item">
                       <a class="nav-link" href="<%= admin_police_units_path %>">
                         <i class="fas fa-house-user"></i>

@@ -24,7 +24,7 @@
       </div>
 
       <% if action_name == "edit" %>
-        <div class="form-group">
+        <div class="form-group col-10">
           <% if params[:role] == "1" %>
             <%= form.label :police_unit %>
             <%= form.collection_select(:police_unit_id, PoliceUnit.all, :id, :name, {}, { class: "form-control" }) %>
@@ -35,13 +35,13 @@
           <%= hidden_field_tag(:role, params[:role]) %>
         </div>
       <% end %>
-
+      <!--
       <div class="form-group col-10">
         <%= form.label :administrador %>
         <%= form.check_box :admin %>
       </div>
+      -->
     </div>
-
 
     <%= form.submit "Editar", class: ["btn", "btn-primary"] %>
     <%= link_to "Atras", admin_users_path, class: ["btn", "btn-secondary"] %>
