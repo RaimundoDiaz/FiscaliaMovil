@@ -48,6 +48,24 @@ class ProceduresController < ApplicationController
 
   # GET /procedures/1/edit
   def edit
+    @procedure = Procedure.find(params[:id])
+    @preponderant_crime = @procedure.crime_in_accuseds.find_by(preponderant: true)
+    @crimes = @procedure.crime_in_accuseds.where(preponderant: false).distinct.map { |x| x.crime.name }.uniq
+    @accuseds = @procedure.person_in_procedures.where(role: 0)
+    @victims = @procedure.person_in_procedures.where(role: 2)
+    @witnesses = @procedure.person_in_procedures.where(role: 1)
+    @classification_dic = {"Flagrancy" => "Flagrancia", "Pending arrest warrant" => "ODP","Both" => "Ambas"}
+    get_regiones
+    @regiones.each do |region|
+      if region[:nombre].to_s == @procedure.region
+        @selected_region = region[:codigo]
+      end
+      region[:comunas].each do |comuna|
+        if comuna[:nombre].to_s == @procedure.sector
+          @selected_sector = comuna[:codigo]
+        end
+      end
+    end
   end
 
   # POST /procedures
