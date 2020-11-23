@@ -5,10 +5,9 @@ class Admin::UsersController < ApplicationController
   # GET /admin/users
   # GET /admin/users.json
   def index
-    if current_user.prosecutor.present?
-      fiscalia = current_user.prosecutor.local_prosecution
+    if current_user.local_prosecution.present?
+      fiscalia = current_user.local_prosecution
       @users = User.joins(:prosecutor).where(prosecutors: { local_prosecution: fiscalia })
-      byebug
     else
       @users = User.all
     end

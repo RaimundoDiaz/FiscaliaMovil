@@ -7,15 +7,19 @@ class Prosecutor < ApplicationRecord
 
   def create_user
     #Email
-    @name = self.name.downcase.gsub!(/[^A-Za-z]/, ' ').split(" ")
-    @name[0] = @name[0][0]
-    @email = @name.join("")+"@fiscalia.com"
+    @name = self.name.downcase.gsub(/[^a-z]/, ' ').split(" ")
+    if (@name.length>1)
+      @name[0] = @name[0][0]
+      @email = @name.join("")+"@fiscalia.com"
 
-    #Search if email is duplicate
-    @count = User.where("email LIKE ? AND admin = False", "%"+@name.join("")+"%").count
+      #Search if email is duplicate
+      @count = User.where("email LIKE ? AND admin = False", "%"+@name.join("")+"%").count
 
-    if(@count>0)
-      @name[1]+=(@count+1).to_s
+      if(@count>0)
+        @name[1]+=(@count+1).to_s
+        @email = @name.join("")+"@fiscalia.com"
+      end
+    else
       @email = @name.join("")+"@fiscalia.com"
     end
 
@@ -23,15 +27,5 @@ class Prosecutor < ApplicationRecord
     @password = 123456789
 
     User.create(prosecutor: self, email: @email, password: "123456789")
-
-    #ADMIN ACCOUNT
-    #Email
-    @email = @name.join("")+"@adminfiscalia.com"
-
-    #Password
-    @password = 123456789
-
-    User.create(prosecutor: self, admin:true, email: @email, password: "123456789")
-
   end
 end
