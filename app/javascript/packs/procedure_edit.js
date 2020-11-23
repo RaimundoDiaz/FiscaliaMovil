@@ -1,44 +1,30 @@
 $(document).on('turbolinks:load', function() {
+    if($("#borradorTitulo").length){
+        if(gon.sector){
+            $('#procedure_sector').val(gon.sector);
+        }
 
-    var regiones = gon.regiones;
-    regiones = JSON.parse(JSON.stringify(regiones));
-    var option = $("#procedure_region").val();
-    var nuevas_comunas = $.grep(regiones, function(region) { return region.codigo == option; });
-    nuevas_comunas = nuevas_comunas[0].comunas;
-    console.log(nuevas_comunas);
-
-    //borrar las opciones actuales
-    $('#procedure_sector').children().remove();
-
-    //agregar al select de comunas los datos del json
-    $.each(nuevas_comunas, function (i, item) {
-        $('#procedure_sector').append($('<option>', {
-            value: item.codigo,
-            text : item.nombre
-        }));
-    });
-
-    $('#procedure_sector')
-
-    //preparar lo anterior para cada vez que se cambie el select de regiones
-    $("#procedure_region").change(function(){
-        //seleccionar las comunas de la region correspondiente
-        var option = $(this).val();
-        console.log("opcion = " + option);
-        var nuevas_comunas = $.grep(regiones, function(region) { return region.codigo == option; });
-        nuevas_comunas = nuevas_comunas[0].comunas;
-        console.log(nuevas_comunas);
-
-        //borrar las opciones actuales
-        $('#procedure_sector').children().remove();
-
-        //agregar al select de comunas los datos del json
-        $.each(nuevas_comunas, function (i, item) {
-            $('#procedure_sector').append($('<option>', {
-                value: item.codigo,
-                text : item.nombre
-            }));
+        $('.delete_crime').each(function(){
+            $(this).click(function(){
+                let division = $(this).closest('#old_crime')
+                division.remove()
+            })
         });
-    });
+
+        $('#accussedDelete').click(function () {
+            let division = $(this).closest('#accussed')
+            division.remove()
+        });
+
+        $('#victimDelete').click(function () {
+            let division = $(this).closest('#victim')
+            division.remove()
+        });
+
+        $('#witnessDelete').click(function () {
+            let division = $(this).closest('#witness')
+            division.remove()
+        });
+    }
 
 });
