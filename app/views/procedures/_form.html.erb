@@ -120,9 +120,10 @@
         <div id = "old_crime" class="mt-3 form-inline d-flex justify-content-between">
           <%= fields_for "procedure[crimes]" do |crimes_fields| %>
             <%= crimes_fields.label "", 'Delito:', class: "form-label mr-2"%>
-            <%= crimes_fields.select "" , options_for_select(crimes, crime), {name: "procedure[crimes][]"},{class: "form-control flex-grow-1"}  %>
+            <%= crimes_fields.select "" , options_for_select(crimes, crime.crime.name), {name: "procedure[crimes][]"},{class: "form-control flex-grow-1"}  %>
           <% end %>
           <button type="button" class="ml-2 btn btn-danger delete_crime"> Eliminar delito </button>
+          <p id="crimeID"> <%= crime.id %></p>
         </div>
       <% end %>
       <div id = "new_crime" class="mt-3 form-inline d-flex justify-content-between">
@@ -158,6 +159,7 @@
             <input type="hidden" name="procedure[accuseds][][name]" value="<%= accused.person.name%>">
             <input type="hidden" name="procedure[accuseds][][rut]" value="<%= accused.person.rut%>">
             <input type="hidden" name="procedure[accuseds][][alias]" value="<%= accused.person.alias_accuseds[0].alias%>">
+            <p id="accussedID" hidden><%= accused.id%></p>
           </div>
         </div>
       <% end %>
@@ -179,6 +181,7 @@
             <input type="hidden" name="procedure[victim][][rut]" value="<%= victim.person.rut%>">
             <input type="hidden" name="procedure[victim][][contact]" value="<%= victim.person.contact%>">
             <input type="hidden" name="procedure[victim][][story]" value="<%= victim.witness_declaration%>">
+            <p id="victimID" hidden><%= victim.id%></p>
           </div>
         </div>
     <% end %>
@@ -199,6 +202,7 @@
             <input type="hidden" name="procedure[witness][][rut]" value="<%= witness.person.rut%>">
             <input type="hidden" name="procedure[witness][][contact]" value="<%= witness.person.contact%>">
             <input type="hidden" name="procedure[witness][][story]" value="<%= witness.witness_declaration%>">
+            <p id="witnessID" hidden><%= witness.id%></p>
           </div>
         </div>
       <% end %>
