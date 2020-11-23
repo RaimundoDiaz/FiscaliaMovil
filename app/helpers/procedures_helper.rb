@@ -424,5 +424,6 @@ module ProceduresHelper
             ]
         }
     ]
+    gon.regiones = @regiones
   end
 end

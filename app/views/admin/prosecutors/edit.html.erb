@@ -23,10 +23,12 @@
          <%= form.text_field :rut, class: "form-control" %>
         </div>
 
-        <div class="form-group col-10">
-         <%= form.label :local_prosecution %>
-         <%= form.collection_select(:local_prosecution_id, LocalProsecution.all, :id, :name, {}, { class: "form-control" }) %>
-        </div>
+        <% if current_user.local_prosecution.nil? and current_user.police_unit.nil? %>
+          <div class="form-group col-10">
+           <%= form.label :local_prosecution %>
+           <%= form.collection_select(:local_prosecution_id, LocalProsecution.all, :id, :name, {}, { class: "form-control" }) %>
+          </div>
+        <% end %>
       </div>
       <%= form.submit 'Editar Fiscal', class: ["btn", "btn-primary"]  %>
       <%= link_to "Atras", admin_prosecutors_path, class: ["btn", "btn-secondary"] %>

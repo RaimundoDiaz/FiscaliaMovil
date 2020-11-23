@@ -1,4 +1,5 @@
 class Admin::PoliceUnitsController < ApplicationController
+  load_and_authorize_resource except: [:create]
   before_action :set_admin_police_unit, only: [:edit, :update, :destroy]
   before_action :authenticate_admin!
 
@@ -20,7 +21,8 @@ class Admin::PoliceUnitsController < ApplicationController
   # POST /admin/police_units
   # POST /admin/police_units.json
   def create
-    @police_unit = PoliceUnit.new(admin_police_unit_params)
+    x = PoliceUnit.all.pluck(:id).sort[-1] + 1
+    @police_unit = PoliceUnit.new(id: x, name: admin_police_unit_params["name"], police_station_id: admin_police_unit_params["police_station_id"].to_i)
 
     respond_to do |format|
       if @police_unit.save

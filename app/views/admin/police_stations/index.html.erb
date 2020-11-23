@@ -13,25 +13,25 @@
 <div id="content_box">
   <div class="container mt-3">
     <div>
-      <h2 class="float-left">Fiscalías Locales</h2>
-      <%= button_to "Crear Fiscalía Local", new_admin_local_prosecution_path, :method => :get, :class => "btn btn-primary text-white mb-2 float-right" %>
+      <h2 class="float-left">Comisarías</h2>
+      <%= button_to "Crear Comisaría", new_admin_police_station_path, :method => :get, :class => "btn btn-primary text-white mb-2 float-right" %>
     </div>
-    <input class="form-control" id="myInput" type="text" placeholder="Buscar Fiscalía Local..">
+    <input class="form-control" id="myInput" type="text" placeholder="Buscar Comisaría..">
     <br>
     <table class="table table-bordered">
       <thead>
       <tr>
         <th>Nombre</th>
-        <th>Fiscalía Regional</th>
+        <th>Prefectura</th>
         <th style="text-align: center; width: 18%">Acciones</th>
       </tr>
       </thead>
       <tbody id="myTable">
-      <% @local_prosecutions.each do |local_prosecution| %>
+      <% @police_stations.each do |police_station| %>
         <tr>
-          <td width="40%"><%= local_prosecution.name %></td>
-          <td><%= local_prosecution.regional_prosecution.name %></td>
-          <td><%= link_to 'Editar', edit_admin_local_prosecution_path(local_prosecution), :class => "float-left mr-2" %> <%= link_to 'Eliminar', admin_local_prosecution_path(local_prosecution), data: { confirm: "¿Estás seguro que quieres borrar esta fiscalía local? se borrarán todos los usuarios, procedimientos y fiscales vinculados a esta" }, method: :delete, :class => "float-right" %></td>
+          <td><%= police_station.name %></td>
+          <td><%= Prefecture.find(police_station.prefecture_id).name %></td>
+          <td><%= link_to 'Editar', edit_admin_police_station_path(police_station) %> <%= link_to 'Eliminar', admin_police_station_path(police_station), method: :delete, data: { confirm: "¿Estás seguro que quieres borrar ests comisaría?" }, :class => "float-right" %></td>
         </tr>
 
       <% end %>

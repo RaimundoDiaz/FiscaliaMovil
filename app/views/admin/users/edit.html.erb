@@ -24,24 +24,26 @@
       </div>
 
       <% if action_name == "edit" %>
-        <div class="form-group">
-          <% if params[:role] == "1" %>
-            <%= form.label :police_unit %>
-            <%= form.collection_select(:police_unit_id, PoliceUnit.all, :id, :name, {}, { class: "form-control" }) %>
-          <% elsif params[:role] == "2" %>
-            <%= form.label :local_prosecution %>
-            <%= form.collection_select(:local_prosecution_id, LocalProsecution.all, :id, :name, {}, { class: "form-control" }) %>
+        <div class="form-group col-10">
+          <% if current_user.local_prosecution.nil? and current_user.police_unit.nil?%>
+            <% if params[:role] == "1" %>
+              <%= form.label :unidad_policial %>
+              <%= form.collection_select(:police_unit_id, PoliceUnit.all, :id, :name, {}, { class: "form-control" }) %>
+            <% elsif params[:role] == "2" %>
+              <%= form.label :fiscalia_local %>
+              <%= form.collection_select(:local_prosecution_id, LocalProsecution.all, :id, :name, {}, { class: "form-control" }) %>
+            <%end %>
           <%end %>
           <%= hidden_field_tag(:role, params[:role]) %>
         </div>
       <% end %>
-
+      <!--
       <div class="form-group col-10">
         <%= form.label :administrador %>
         <%= form.check_box :admin %>
       </div>
+      -->
     </div>
-
 
     <%= form.submit "Editar", class: ["btn", "btn-primary"] %>
     <%= link_to "Atras", admin_users_path, class: ["btn", "btn-secondary"] %>

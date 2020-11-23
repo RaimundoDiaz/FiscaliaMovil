@@ -1,15 +1,15 @@
 {
-  "application.js": "/packs/js/application-fec430ce723678382e24.js",
-  "application.js.map": "/packs/js/application-fec430ce723678382e24.js.map",
+  "application.js": "/packs/js/application-ee95f99bcdf654f38f85.js",
+  "application.js.map": "/packs/js/application-ee95f99bcdf654f38f85.js.map",
   "chosen.js": "/packs/js/chosen-bef77f267d52e4259e78.js",
   "chosen.js.map": "/packs/js/chosen-bef77f267d52e4259e78.js.map",
   "entrypoints": {
     "application": {
       "js": [
-        "/packs/js/application-fec430ce723678382e24.js"
+        "/packs/js/application-ee95f99bcdf654f38f85.js"
       ],
       "js.map": [
-        "/packs/js/application-fec430ce723678382e24.js.map"
+        "/packs/js/application-ee95f99bcdf654f38f85.js.map"
       ]
     },
     "chosen": {
@@ -28,17 +28,27 @@
         "/packs/js/jquery-84f37bd1770e07cac8ca.js.map"
       ]
     },
-    "procedures": {
+    "procedure_edit": {
       "js": [
-        "/packs/js/procedures-28601ef6710db37e71dd.js"
+        "/packs/js/procedure_edit-562f307501b23c1d1c65.js"
       ],
       "js.map": [
-        "/packs/js/procedures-28601ef6710db37e71dd.js.map"
+        "/packs/js/procedure_edit-562f307501b23c1d1c65.js.map"
+      ]
+    },
+    "procedures": {
+      "js": [
+        "/packs/js/procedures-8ab8a47ee9829cb2082f.js"
+      ],
+      "js.map": [
+        "/packs/js/procedures-8ab8a47ee9829cb2082f.js.map"
       ]
     }
   },
   "jquery.js": "/packs/js/jquery-84f37bd1770e07cac8ca.js",
   "jquery.js.map": "/packs/js/jquery-84f37bd1770e07cac8ca.js.map",
-  "procedures.js": "/packs/js/procedures-28601ef6710db37e71dd.js",
-  "procedures.js.map": "/packs/js/procedures-28601ef6710db37e71dd.js.map"
+  "procedure_edit.js": "/packs/js/procedure_edit-562f307501b23c1d1c65.js",
+  "procedure_edit.js.map": "/packs/js/procedure_edit-562f307501b23c1d1c65.js.map",
+  "procedures.js": "/packs/js/procedures-8ab8a47ee9829cb2082f.js",
+  "procedures.js.map": "/packs/js/procedures-8ab8a47ee9829cb2082f.js.map"
 }

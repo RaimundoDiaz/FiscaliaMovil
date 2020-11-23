@@ -9,6 +9,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("./procedures")
+require("./procedure_edit")
 require("./jquery.rut")
 require("./chosen.jquery.min")
 import "bootstrap"

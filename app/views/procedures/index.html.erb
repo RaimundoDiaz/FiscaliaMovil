@@ -4,9 +4,7 @@
     <%= link_to "Crear nuevo procedimiento", new_procedure_path, class: "btn btn-warning text-white ml-sm-4"%>
   </div>
 <% else %>
-  <div style="margin-top: 22%">
-    <h1 style="text-align: center">Bienvenido Administrador!</h1>
-  </div>
+  <% controller.redirect_to admin_users_path %>
 <% end %>
 
 <%if @procedures != [] %>

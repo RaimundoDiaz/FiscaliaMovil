@@ -1,11 +1,17 @@
 class Admin::ProsecutorsController < ApplicationController
+  load_and_authorize_resource except: [:create]
   before_action :set_admin_prosecutor, only: [:edit, :update, :destroy]
   before_action :authenticate_admin!
 
   # GET /admin/prosecutors
   # GET /admin/prosecutors.json
   def index
-    @prosecutors = Prosecutor.all.order(:name)
+    if current_user.local_prosecution.present?
+      @prosecutors = Prosecutor.where(local_prosecution: current_user.local_prosecution).order(:name)
+    else
+      @prosecutors = Prosecutor.all.order(:name)
+    end
+
   end
 
   # GET /admin/prosecutors/new
