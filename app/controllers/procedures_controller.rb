@@ -284,6 +284,8 @@ class ProceduresController < ApplicationController
 
       dateOfArrest = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec, t.zone)
 
+      #This aux is for the notification
+      $aux = @procedure.state
       respond_to do |format|
         if @procedure.update!(classification: classification_procedure,
                                       police_in_charge: PoliceMan.find(procedure_params[:police_in_charge]),
@@ -416,6 +418,13 @@ class ProceduresController < ApplicationController
             end
           end
 
+          #If procedure was a draft and now was send (open)
+          if @procedure.state == "Open" && $aux == "Draft"
+            if current_user.police_unit.present?
+              Notification.create(user: @procedure.prosecutor_in_charge.user, notification_type: 3, reference_id: @procedure.id, seen: false)
+            end
+          end
+
           format.html { redirect_to @procedure, notice: 'Procedure was successfully updated.' }
           format.json { render :show, status: :ok, location: @procedure }
         else
@@ -433,13 +442,6 @@ class ProceduresController < ApplicationController
             police_unit_users.each { |user|
               Notification.create(user_id: user.id, notification_type: 1, reference_id: @procedure.id, seen: false)
             }
-          end
-
-          #If procedure was a draft and now was send (open)
-          if @procedure.state == "Open" && $aux == "Draft"
-            if current_user.police_unit.present?
-              Notification.create(user: @procedure.prosecutor_in_charge.user, notification_type: 3, reference_id: @procedure.id, seen: false)
-            end
           end
 
           format.html { redirect_to @procedure, notice: 'Procedure was successfully updated.' }
