@@ -26,7 +26,7 @@
         <% if current_user.local_prosecution.nil? and current_user.police_unit.nil? %>
           <div class="form-group col-10">
            <%= form.label :local_prosecution %>
-           <%= form.collection_select(:local_prosecution_id, LocalProsecution.all, :id, :name, {}, { class: "form-control" }) %>
+           <%= form.collection_select(:local_prosecution_id, LocalProsecution.not_deleted.all, :id, :name, {}, { class: "form-control" }) %>
           </div>
         <% end %>
       </div>

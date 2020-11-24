@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 2020_11_19_214528) do
   create_table "local_prosecutions", force: :cascade do |t|
     t.string "name"
     t.bigint "regional_prosecution_id", null: false
+    t.boolean "deleted", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["regional_prosecution_id"], name: "index_local_prosecutions_on_regional_prosecution_id"
@@ -184,6 +185,7 @@ ActiveRecord::Schema.define(version: 2020_11_19_214528) do
   create_table "regional_prosecutions", force: :cascade do |t|
     t.string "name"
     t.integer "region"
+    t.boolean "deleted", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

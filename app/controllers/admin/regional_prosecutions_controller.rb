@@ -7,7 +7,7 @@ class Admin::RegionalProsecutionsController < ApplicationController
   # GET /admin/regional_prosecutions
   # GET /admin/regional_prosecutions.json
   def index
-    @regional_prosecutions = RegionalProsecution.all
+    @regional_prosecutions = RegionalProsecution.not_deleted
   end
 
   # GET /admin/regional_prosecutions/new
@@ -49,7 +49,17 @@ class Admin::RegionalProsecutionsController < ApplicationController
   # DELETE /admin/regional_prosecutions/1
   # DELETE /admin/regional_prosecutions/1.json
   def destroy
-    @regional_prosecution.destroy
+    #@regional_prosecution.destroy
+    @regional_prosecution.soft_delete
+    @regional_prosecution.local_prosecutions.each {|local|
+      local.soft_delete
+      local.user.soft_delete
+      local.prosecutors.each { |pros|
+        pros.soft_delete
+        pros.user.soft_delete
+      }
+    }
+
     respond_to do |format|
       format.html { redirect_to admin_regional_prosecutions_url, notice: 'Fiscalía Regional ha sido eliminada con éxito.' }
     end

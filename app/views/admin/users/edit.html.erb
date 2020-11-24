@@ -31,7 +31,7 @@
               <%= form.collection_select(:police_unit_id, PoliceUnit.not_deleted.all, :id, :name, {}, { class: "form-control" }) %>
             <% elsif params[:role] == "2" %>
               <%= form.label :fiscalia_local %>
-              <%= form.collection_select(:local_prosecution_id, LocalProsecution.all, :id, :name, {}, { class: "form-control" }) %>
+              <%= form.collection_select(:local_prosecution_id, LocalProsecution.not_deleted.all, :id, :name, {}, { class: "form-control" }) %>
             <%end %>
           <%end %>
           <%= hidden_field_tag(:role, params[:role]) %>

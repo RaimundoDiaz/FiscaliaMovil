@@ -20,7 +20,7 @@
 
       <div class="form-group col-10">
         <%= form.label :fiscalía_regional %>
-        <%= form.collection_select(:regional_prosecution_id, RegionalProsecution.all, :id, :name, {}, { class: "form-control" }) %>
+        <%= form.collection_select(:regional_prosecution_id, RegionalProsecution.not_deleted.all, :id, :name, {}, { class: "form-control" }) %>
       </div>
     </div>
     <%= form.submit 'Editar Fiscalía Local', class: ["btn", "btn-primary"]  %>
