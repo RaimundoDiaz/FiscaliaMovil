@@ -5,6 +5,13 @@ class LocalProsecution < ApplicationRecord
   has_many :prosecutors
   has_one :user
 
+  scope :not_deleted, -> { where(deleted: false) }
+  scope :deleted, -> { where(deleted: true) }
+
+  def soft_delete
+    update(deleted: true)
+  end
+
   def create_admin
     #Email
     @email = "fiscalia"+self.id.to_s+"@admin.com"

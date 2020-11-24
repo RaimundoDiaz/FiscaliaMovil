@@ -48,7 +48,7 @@
             <h5 class="card-header">Fiscalia a cargo</h5>
             <div id="prosecutionInCharge" class="card-body">
               <div class="form-inline">
-                <%= form.select :prosecution_in_charge, options_for_select(LocalProsecution.order(:name).map { |prosecution| [prosecution[:name], prosecution[:id]] }),{},{class: "form-control flex-grow-1"} %>
+                <%= form.select :prosecution_in_charge, options_for_select(LocalProsecution.not_deleted.order(:name).map { |prosecution| [prosecution[:name], prosecution[:id]] }),{},{class: "form-control flex-grow-1"} %>
               </div>
             </div>
           </div>
