@@ -93,12 +93,9 @@
           <div class="card-body">
             <h6 class="card-title"><strong>Delitos</strong></h6>
       <p class="card-text">
-        <% @procedure.crime_in_accuseds.each do |crime_in_accused| %>
-          <% if crime_in_accused.preponderant? %>
-            <span class="badge badge-danger"><%= crime_in_accused.crime.name %></span>
-          <% else %>
-            <span class="badge badge-primary"><%= crime_in_accused.crime.name %></span>
-          <% end %>
+        <span class="badge badge-danger"><%= @preponderant_crime.crime.name %></span>
+        <% @crimes.each do |crime| %>
+          <span class="badge badge-primary"><%= crime.crime.name %></span>
         <% end %>
       </p>
     </div>
@@ -169,7 +166,7 @@
                     </small>
                     </p>
                   </h6>
-                  <% if @procedure.open? %>
+                  <% if @procedure.open? and current_user.prosecutor.present? %>
                     <%= link_to "Pronunciarse", "#pronounceModal-" + accused[0].id.to_s , :class => ["btn", "btn-outline-primary"], "data-toggle" => "modal" %>
                     <!-- Modal -->
                     <div class="modal fade" id="pronounceModal-<%= accused[0].id.to_s %>" tabindex="-1" role="dialog" aria-labelledby="pronounceModalCenterTitle" aria-hidden="true">
@@ -341,7 +338,7 @@
 <br>
 <div align="right">
   <%= link_to 'Atrás', procedures_path, class: ["btn", "btn-outline-primary"] %>
-  <% if @procedure.open? %>
+  <% if @procedure.open? and current_user.prosecutor.present? %>
     <% disableButton = false %>
     <% @accuseds.each do |element| %>
       <% if element[1] == "pending" %>
