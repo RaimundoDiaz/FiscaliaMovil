@@ -135,6 +135,7 @@ ActiveRecord::Schema.define(version: 2020_11_19_214528) do
   create_table "police_units", force: :cascade do |t|
     t.string "name"
     t.bigint "police_station_id", null: false
+    t.boolean "deleted", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["police_station_id"], name: "index_police_units_on_police_station_id"

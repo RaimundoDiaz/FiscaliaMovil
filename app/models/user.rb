@@ -17,5 +17,15 @@ class User < ApplicationRecord
     update(deleted: true)
   end
 
+  def active_for_authentication?
+    super and !self.deleted?
+  end
+
+  def inactive_message
+    "Tu cuenta ha sido borrada"
+  end
+
+
+
 end
 

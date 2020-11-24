@@ -4,6 +4,13 @@ class PoliceUnit < ApplicationRecord
   has_many :users
   has_many :procedures
 
+  scope :not_deleted, -> { where(deleted: false) }
+  scope :deleted, -> { where(deleted: true) }
+
+  def soft_delete
+    update(deleted: true)
+  end
+
   def create_user
     #Email
     @email = "up"+self.id.to_s+"@up.com"

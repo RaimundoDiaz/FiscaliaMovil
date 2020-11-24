@@ -36,7 +36,7 @@ class MessagesController < ApplicationController
         #Create notification
         if current_user.prosecutor.present?
           police_unit_id =  @message.procedure.police_unit_in_charge.id
-          police_unit_users = User.where(police_unit_id: police_unit_id)
+          police_unit_users = User.not_deleted.where(police_unit_id: police_unit_id)
 
           #Send notifiaction to the associated users
           police_unit_users.each { |user|

@@ -75,7 +75,7 @@
       <h5 class="card-header">Unidad policial a cargo</h5>
       <div id="policeUnitInCharge" class="card-body">
         <div class="form-inline">
-          <%= form.select :police_unit_in_charge, options_for_select(PoliceUnit.order(:name).map { |policeUnit| [policeUnit[:name],policeUnit[:id]] }, @procedure.police_unit_in_charge_id),{},{class: "form-control flex-grow-1"} %>
+          <%= form.select :police_unit_in_charge, options_for_select(PoliceUnit.not_deleted.order(:name).map { |policeUnit| [policeUnit[:name],policeUnit[:id]] }, @procedure.police_unit_in_charge_id),{},{class: "form-control flex-grow-1"} %>
         </div>
       </div>
     </div>
