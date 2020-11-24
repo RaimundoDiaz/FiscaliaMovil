@@ -128,6 +128,7 @@ ActiveRecord::Schema.define(version: 2020_11_19_214528) do
     t.string "name"
     t.integer "police_type"
     t.bigint "prefecture_id", null: false
+    t.boolean "deleted", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["prefecture_id"], name: "index_police_stations_on_prefecture_id"

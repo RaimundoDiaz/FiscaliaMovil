@@ -21,7 +21,7 @@
 
       <div class="form-group col-10">
         <%= form.label :unidad_policial %>
-        <%= form.collection_select(:police_station_id, PoliceStation.all, :id, :name, {}, { class: "form-control" }) %>
+        <%= form.collection_select(:police_station_id, PoliceStation.not_deleted.all, :id, :name, {}, { class: "form-control" }) %>
       </div>
     </div>
     <%= form.submit 'Editar Unidad Policial', class: ["btn", "btn-primary"]  %>
