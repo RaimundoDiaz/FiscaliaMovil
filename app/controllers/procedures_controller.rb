@@ -217,7 +217,9 @@ class ProceduresController < ApplicationController
           if current_user.police_unit.present?
             Notification.create(user: @procedure.prosecutor_in_charge.user, notification_type: 0, reference_id: @procedure.id, seen: false)
           elsif current_user.prosecutor.present?
-            Notification.create(user: @procedure.police_unit_in_charge.user, notification_type: 0, reference_id: @procedure.id, seen: false)
+            @procedure.police_unit_in_charge.users.each { |police_user|
+              Notification.create(user: police_user, notification_type: 0, reference_id: @procedure.id, seen: false)
+            }
           end
         end
 
