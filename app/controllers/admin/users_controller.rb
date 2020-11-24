@@ -32,7 +32,7 @@ class Admin::UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to admin_users_path, notice: 'User was successfully created.' }
+        format.html { redirect_to admin_users_path, notice: 'El administrador ha sido creado con éxito.' }
       else
         format.html { render :new }
       end
@@ -47,7 +47,7 @@ class Admin::UsersController < ApplicationController
     end
     respond_to do |format|
       if @user.update(admin_user_params)
-        format.html { redirect_to admin_users_path, notice: 'User was successfully updated.' }
+        format.html { redirect_to admin_users_path, notice: 'El administrador ha sido actualizado con éxito.' }
       else
         format.html { redirect_to edit_admin_user_path(@user, role: params[:role]), alert: 'Usuario no actualizado' }
       end
@@ -59,7 +59,7 @@ class Admin::UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to admin_users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to admin_users_url, notice: 'Administrador ha sido eliminado con éxito..' }
     end
   end
 

@@ -23,7 +23,7 @@ class Admin::CrimesController < ApplicationController
     @crime = Crime.new(id: x, name: crime_params["name"])
     respond_to do |format|
       if @crime.save
-        format.html { redirect_to admin_crimes_path, notice: 'Crime was successfully created.' }
+        format.html { redirect_to admin_crimes_path, notice: 'Crimen ha sido creado con éxito.' }
       else
         format.html { render :new }
       end
@@ -35,7 +35,7 @@ class Admin::CrimesController < ApplicationController
   def update
     respond_to do |format|
       if @crime.update(crime_params)
-        format.html { redirect_to admin_crimes_path, notice: 'Crime was successfully updated.' }
+        format.html { redirect_to admin_crimes_path, notice: 'Crimen ha sido actualizado con éxito.' }
       else
         format.html { render :edit }
       end
@@ -47,7 +47,7 @@ class Admin::CrimesController < ApplicationController
   def destroy
     @crime.destroy
     respond_to do |format|
-      format.html { redirect_to admin_crimes_path, notice: 'Crime was successfully destroyed.' }
+      format.html { redirect_to admin_crimes_path, notice: 'Crimen ha sido destruido con éxito.' }
       format.json { head :no_content }
     end
   end
