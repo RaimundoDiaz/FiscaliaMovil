@@ -26,7 +26,7 @@ class Admin::PoliceUnitsController < ApplicationController
 
     respond_to do |format|
       if @police_unit.save
-        format.html { redirect_to admin_police_units_path, notice: 'Police unit was successfully created.' }
+        format.html { redirect_to admin_police_units_path, notice: 'Unidad Policial ha sido creado con éxito.' }
       else
         format.html { render :new }
       end
@@ -38,7 +38,7 @@ class Admin::PoliceUnitsController < ApplicationController
   def update
     respond_to do |format|
       if @police_unit.update(admin_police_unit_params)
-        format.html { redirect_to admin_police_units_path, notice: 'Police unit was successfully updated.' }
+        format.html { redirect_to admin_police_units_path, notice: 'Unidad Policial ha sido actualizada con éxito.' }
       else
         format.html { render :edit }
       end
@@ -50,7 +50,7 @@ class Admin::PoliceUnitsController < ApplicationController
   def destroy
     @police_unit.destroy
     respond_to do |format|
-      format.html { redirect_to admin_police_units_url, notice: 'Police unit was successfully destroyed.' }
+      format.html { redirect_to admin_police_units_url, notice: 'Unidad Policial ha sido eliminada con éxito.' }
     end
   end
 

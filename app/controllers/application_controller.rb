@@ -10,7 +10,12 @@ class ApplicationController < ActionController::Base
 
     respond_to do |format|
       format.json { head :forbidden, content_type: 'text/html' }
-      format.html { redirect_to main_app.procedures_path, alert: 'No tienes permisos para acceder a esta página' }
+      if current_user.admin?
+        format.html { redirect_to admin_users_path, alert: 'No tienes permisos para acceder a esta página' }
+      else
+        format.html { redirect_to main_app.procedures_path, alert: 'No tienes permisos para acceder a esta página' }
+      end
+
       format.js { head :forbidden, content_type: 'text/html' }
     end
   end
