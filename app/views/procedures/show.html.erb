@@ -352,7 +352,11 @@
     <%= link_to "Cerrar procedimiento", "#closeProcedureModal", :class => ["btn", "btn-outline-danger" + (disableButton ? " disabled" : "")], "data-toggle" => "modal"%>
   <% end %>
   <%= link_to 'Mensajes del procedimiento', procedure_messages_path(@procedure.id), class: ["btn", "btn-outline-warning"] %>
-  <%= link_to 'Editar', edit_procedure_path, class: ["btn", "btn-outline-warning"] %>
+  <% if @procedure.state == "Draft" %>
+    <%= link_to 'Editar', edit_procedure_path, class: ["btn", "btn-outline-warning"] %>
+  <% elsif current_user.prosecutor %>
+    <%= link_to "Solicitar más información", "#informationModal", :class => ["btn", "btn-outline-warning"], "data-toggle" => "modal"%>
+  <%end %>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="closeProcedureModal" tabindex="-1" role="dialog" aria-labelledby="closeProcedureModalCenterTitle" aria-hidden="true">
@@ -371,7 +375,31 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <%= form.submit "Cerrar procedimiento", class: ["btn", "btn-danger"], name: "petition", value: "change_state" %>
+          <%= form.button "Cerrar procedimiento", type: "submit", class: ["btn", "btn-danger"], name: "petition", value: "change_state" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="informationModal" tabindex="-1" role="dialog" aria-labelledby="informationModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="informationModalLongTitle">Solicitar información</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= form_with(url: @procedure, method: "put") do |form| %>
+        <div class="modal-body">
+          Detalle de la solicitud
+          <%= form.text_area :message, class: "form-control" %>
+          <%= form.hidden_field :state, value: "draft" %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <%= form.button "Solicitar", type: "submit", class: ["btn", "btn-info"], name: "petition", value: "change_state" %>
         </div>
       <% end %>
     </div>
