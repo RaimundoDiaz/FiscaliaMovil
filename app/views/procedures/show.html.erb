@@ -351,7 +351,7 @@
   <%= link_to 'Mensajes del procedimiento', procedure_messages_path(@procedure.id), class: ["btn", "btn-outline-warning"] %>
   <% if @procedure.state == "Draft" %>
     <%= link_to 'Editar', edit_procedure_path, class: ["btn", "btn-outline-warning"] %>
-  <% elsif current_user.prosecutor %>
+  <% elsif current_user.prosecutor and @procedure.creator != current_user and @procedure.state != "Close"%>
     <%= link_to "Solicitar más información", "#informationModal", :class => ["btn", "btn-outline-warning"], "data-toggle" => "modal"%>
   <%end %>
 </div>
