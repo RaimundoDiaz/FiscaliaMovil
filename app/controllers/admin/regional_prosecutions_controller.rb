@@ -27,7 +27,7 @@ class Admin::RegionalProsecutionsController < ApplicationController
     @regional_prosecution = RegionalProsecution.new(id: x, name: admin_regional_prosecution_params["name"], region: admin_regional_prosecution_params["region"].to_i)
     respond_to do |format|
       if @regional_prosecution.save
-        format.html { redirect_to admin_regional_prosecutions_path, notice: 'Regional prosecution was successfully created.' }
+        format.html { redirect_to admin_regional_prosecutions_path, notice: 'Fiscalía Regional ha sido creada con éxito.' }
       else
         format.html { render :new }
       end
@@ -39,7 +39,7 @@ class Admin::RegionalProsecutionsController < ApplicationController
   def update
     respond_to do |format|
       if @regional_prosecution.update(admin_regional_prosecution_params)
-        format.html { redirect_to admin_regional_prosecutions_path, notice: 'Regional prosecution was successfully updated.' }
+        format.html { redirect_to admin_regional_prosecutions_path, notice: 'Fiscalía Regional ha sido actualizada con éxito.' }
       else
         format.html { render :edit }
       end
@@ -51,7 +51,7 @@ class Admin::RegionalProsecutionsController < ApplicationController
   def destroy
     @regional_prosecution.destroy
     respond_to do |format|
-      format.html { redirect_to admin_regional_prosecutions_url, notice: 'Regional prosecution was successfully destroyed.' }
+      format.html { redirect_to admin_regional_prosecutions_url, notice: 'Fiscalía Regional ha sido eliminada con éxito.' }
     end
   end
 

@@ -26,7 +26,7 @@ class Admin::LocalProsecutionsController < ApplicationController
 
     respond_to do |format|
       if @local_prosecution.save
-        format.html { redirect_to admin_local_prosecutions_path, notice: 'Local prosecution was successfully created.' }
+        format.html { redirect_to admin_local_prosecutions_path, notice: 'Fiscalía Local ha sido creada con éxito.' }
       else
         format.html { render :new }
       end
@@ -38,7 +38,7 @@ class Admin::LocalProsecutionsController < ApplicationController
   def update
     respond_to do |format|
       if @local_prosecution.update(admin_local_prosecution_params)
-        format.html { redirect_to admin_local_prosecutions_path, notice: 'Local prosecution was successfully updated.' }
+        format.html { redirect_to admin_local_prosecutions_path, notice: 'Fiscalía Local ha sido actualizada con éxito.' }
       else
         format.html { render :edit }
       end
@@ -50,7 +50,7 @@ class Admin::LocalProsecutionsController < ApplicationController
   def destroy
     @local_prosecution.destroy
     respond_to do |format|
-      format.html { redirect_to admin_local_prosecutions_url, notice: 'Local prosecution was successfully destroyed.' }
+      format.html { redirect_to admin_local_prosecutions_url, notice: 'Fiscalía Local ha sido eliminada con éxito.' }
     end
   end
 

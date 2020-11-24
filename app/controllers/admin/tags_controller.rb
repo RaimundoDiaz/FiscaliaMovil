@@ -25,7 +25,7 @@ class Admin::TagsController < ApplicationController
 
     respond_to do |format|
       if @admin_tag.save
-        format.html { redirect_to admin_tags_path, notice: 'Tag was successfully created.' }
+        format.html { redirect_to admin_tags_path, notice: 'Marca creada con éxito.' }
       else
         format.html { render :new }
       end
@@ -37,7 +37,7 @@ class Admin::TagsController < ApplicationController
   def update
     respond_to do |format|
       if @admin_tag.update(admin_tag_params)
-        format.html { redirect_to admin_tags_path, notice: 'Tag was successfully updated.' }
+        format.html { redirect_to admin_tags_path, notice: 'Marca actualizada con éxito.' }
       else
         format.html { render :edit }
       end
@@ -50,7 +50,7 @@ class Admin::TagsController < ApplicationController
     #@admin_tag.destroy
     @admin_tag.soft_delete
     respond_to do |format|
-      format.html { redirect_to admin_tags_path, notice: 'Tag was successfully destroyed.' }
+      format.html { redirect_to admin_tags_path, notice: 'Marca eliminada con éxito.' }
     end
   end
 
