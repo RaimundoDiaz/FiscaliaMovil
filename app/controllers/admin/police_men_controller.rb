@@ -6,7 +6,7 @@ class Admin::PoliceMenController < ApplicationController
   # GET /admin/police_men
   # GET /admin/police_men.json
   def index
-    @police_men = PoliceMan.all.order(:name)
+    @police_men = PoliceMan.not_deleted.order(:name)
   end
 
   # GET /admin/police_men/new
@@ -47,7 +47,8 @@ class Admin::PoliceMenController < ApplicationController
   # DELETE /admin/police_men/1
   # DELETE /admin/police_men/1.json
   def destroy
-    @police_man.destroy
+    #@police_man.destroy
+    @police_man.soft_delete
     respond_to do |format|
       format.html { redirect_to admin_police_men_url, notice: 'Policía ha sido eliminado con éxito.' }
     end

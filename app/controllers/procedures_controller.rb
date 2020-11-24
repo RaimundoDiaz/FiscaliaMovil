@@ -50,7 +50,7 @@ class ProceduresController < ApplicationController
   def edit
     @procedure = Procedure.find(params[:id])
     @preponderant_crime = @procedure.crime_in_accuseds.find_by(preponderant: true)
-    @crimes = @procedure.crime_in_accuseds.where(preponderant: false).distinct.map { |x| x.crime.name }.uniq
+    @crimes = @procedure.crime_in_accuseds.where(preponderant: false).uniq{ |s| s.crime.id}
     @accuseds = @procedure.person_in_procedures.where(role: 0)
     @victims = @procedure.person_in_procedures.where(role: 2)
     @witnesses = @procedure.person_in_procedures.where(role: 1)
@@ -121,8 +121,24 @@ class ProceduresController < ApplicationController
                                date_of_arrest: dateOfArrest,
                                involves_deceased: procedure_params[:involves_deceased]
                                )
+
     respond_to do |format|
       if @procedure.save!
+
+        if params[:photos] != nil
+          @procedure.photos.attach(params[:photos])
+          @procedure.save
+        end
+
+        if params[:videos] != nil
+          @procedure.videos.attach(params[:videos])
+          @procedure.save
+        end
+
+        if params[:documents] != nil
+          @procedure.documents.attach(params[:documents])
+          @procedure.save
+        end
 
         procedure_params[:tag_ids][1..procedure_params[:tag_ids].size].each do |tag|
           @tag = Tagging.new(tag: Tag.find_by_name(tag),
@@ -252,6 +268,8 @@ class ProceduresController < ApplicationController
                                       date_of_arrest: dateOfArrest,
                                       involves_deceased: procedure_params[:involves_deceased])
 
+
+
           format.html { redirect_to @procedure, notice: 'Procedure was successfully updated.' }
           format.json { render :show, status: :ok, location: @procedure }
         else
@@ -299,7 +317,7 @@ class ProceduresController < ApplicationController
 
   def procedure_params
     # Only allow a list of trusted parameters through.
-    params.require(:procedure).permit(:date,:time,:classification,:involves_deceased,:prosecutor_in_charge, :prosecution_in_charge,:police_unit_in_charge,:police_in_charge,:address,:region,:sector,:preponderant_crime, :state , :photos ,:videos, :story, crimes:[],
+    params.require(:procedure).permit(:date,:time,:classification,:involves_deceased,:prosecutor_in_charge, :prosecution_in_charge,:police_unit_in_charge,:police_in_charge,:address,:region,:sector,:preponderant_crime, :state , :story, crimes:[],videos:[], photos:[], documents:[],
                                       tag_ids:[], :accuseds => [:name,:alias,:rut], :victims => [:name,:rut,:deceased,:contact,:story],
                                       :witness => [:name,:rut,:story,:contact])
   end
