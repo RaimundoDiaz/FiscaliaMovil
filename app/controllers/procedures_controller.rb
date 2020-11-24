@@ -110,7 +110,7 @@ class ProceduresController < ApplicationController
     t = procedure_params[:time].to_time
 
 
-    dateOfArrest = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec, t.zone)
+    dateOfArrest = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec)
 
     @procedure = Procedure.new(classification: classification_procedure,
                                creator: current_user,
@@ -132,17 +132,17 @@ class ProceduresController < ApplicationController
 
         if procedure_params[:photos] != nil
           @procedure.photos.attach(procedure_params[:photos])
-          @procedure.save
+          @procedure.save!
         end
 
         if procedure_params[:videos] != nil
           @procedure.videos.attach(procedure_params[:videos])
-          @procedure.save
+          @procedure.save!
         end
 
         if procedure_params[:documents] != nil
           @procedure.documents.attach(procedure_params[:documents])
-          @procedure.save
+          @procedure.save!
         end
 
         procedure_params[:tag_ids][1..procedure_params[:tag_ids].size].each do |tag|
@@ -295,7 +295,7 @@ class ProceduresController < ApplicationController
       d = procedure_params[:date].to_date
       t = procedure_params[:time].to_time
 
-      dateOfArrest = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec, t.zone)
+      dateOfArrest = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec)
 
       respond_to do |format|
         if @procedure.update!(classification: classification_procedure,
