@@ -446,6 +446,13 @@ class ProceduresController < ApplicationController
             police_unit_users.each { |user|
               Notification.create(user_id: user.id, notification_type: 1, reference_id: @procedure.id, seen: false)
             }
+            #Si el procedimiento pasa a estado borrador (se esta solicitando informacion)
+          else
+            #Crear mensaje con el contenido del text area del modal
+            @message = Message.new(user_id: current_user.id, procedure_id: @procedure.id, content: params[:message])
+            if @message.save
+              #Se manda notificacion
+            end
           end
 
           format.html { redirect_to @procedure, notice: 'Procedimiento ha sido actualizado con éxito.' }
