@@ -209,6 +209,16 @@ class ProceduresController < ApplicationController
           end
         end
 
+        #si el procedimiento se envia, se mandan las notificaciones pertinentes
+        if procedure_params[:state] == "Open"
+          #si el usuario actual es fiscal, mandar una notificacion de creacion al policia, sino mandarle al fiscal
+          if current_user.prosecutor
+            Notification.create(user_id: PoliceMan.find(procedure_params[:police_in_charge]).user, notification_type: 0, reference_id: @procedure.id, seen: false)
+          elsif
+            Notification.create(user_id: Prosecutor.find(procedure_params[:prosecutor_in_charge]).user, notification_type: 0, reference_id: @procedure.id, seen: false)
+          end
+        end
+
         format.html { redirect_to @procedure, notice: 'Procedure was successfully created.' }
         format.json { render :show, status: :created, location: @procedure }
       else
@@ -247,10 +257,6 @@ class ProceduresController < ApplicationController
         end
       end
 
-
-      d = procedure_params[:date].to_date
-      t = procedure_params[:time].to_time
-
       if procedure_params[:deletedAccusseds] != nil
         procedure_params[:deletedAccusseds].each do |accussed|
           personInProcedure = PersonInProcedure.find(accussed[:id])
@@ -275,7 +281,11 @@ class ProceduresController < ApplicationController
       #destruimos todos los crimenes, para asi crearlos denuevo y no tener problemas
       @procedure.crime_in_accuseds.destroy_all
 
+      d = procedure_params[:date].to_date
+      t = procedure_params[:time].to_time
+
       dateOfArrest = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec, t.zone)
+
       respond_to do |format|
         if @procedure.update!(classification: classification_procedure,
                                       police_in_charge: PoliceMan.find(procedure_params[:police_in_charge]),
@@ -405,6 +415,16 @@ class ProceduresController < ApplicationController
                                                               witness_declaration: witness[:story])
                 @witness_in_procedure.save
               end
+            end
+          end
+
+          #mandar las notificaciones correspondientes
+          if procedure_params[:state] == "Open"
+            #si el usuario actual es fiscal, mandar una notificacion de creacion al policia, sino mandarle al fiscal
+            if current_user.prosecutor
+              Notification.create(user_id: PoliceMan.find(procedure_params[:police_in_charge]).user, notification_type: 0, reference_id: @procedure.id, seen: false)
+            elsif
+            Notification.create(user_id: Prosecutor.find(procedure_params[:prosecutor_in_charge]).user, notification_type: 0, reference_id: @procedure.id, seen: false)
             end
           end
 
