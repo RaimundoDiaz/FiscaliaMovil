@@ -16,11 +16,11 @@ class Procedure < ApplicationRecord
 
   validate :past_date
   validate :empty_address
-  validates :videos, blob: { content_type: :video, size_range: 1..4.gigabytes}
-  validates :photos, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg', 'image/bmp'], size_range: 1..5.megabytes }
+  validates :videos, blob: { content_type: :video, max_size: 1.gigabytes}
+  validates :photos, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg', 'image/bmp'], max_size: 10.megabytes }
   validates :documents, blob: { content_type: ['application/pdf', 'application/doc', 'application/docx', 'application/ppt',
                                                'application/pptx', 'application/ps', 'application/rtf', 'application/txt',
-                                               'application/xls', 'application/xlsx'], size_range: 1..5.megabytes }
+                                               'application/xls', 'application/xlsx'], max_size: 10.megabytes }
 
 
   enum state: {open: 0, close: 1, draft: 2}
