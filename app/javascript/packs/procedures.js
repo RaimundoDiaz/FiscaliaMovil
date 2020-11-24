@@ -78,6 +78,10 @@ $(document).on('turbolinks:load', function() {
                     text : item.name
                 }));
             });
+            if(gon.fiscal){
+                $('#procedure_prosecutor_in_charge').val(gon.fiscal.id);
+                console.log(gon.fiscal)
+            }
             $("#procedure_prosecutor_in_charge").trigger("chosen:updated");
         }
         changeProsecutorsSelect();

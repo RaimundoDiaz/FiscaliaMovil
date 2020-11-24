@@ -70,6 +70,8 @@ class ProceduresController < ApplicationController
     end
 
     gon.sector = @selected_sector
+    gon.fiscales = Prosecutor.not_deleted
+    gon.fiscal = @procedure.prosecutor_in_charge
   end
 
   # POST /procedures
@@ -154,7 +156,8 @@ class ProceduresController < ApplicationController
           if @criminal.save!
             @criminal_in_procedure = PersonInProcedure.new(role: 0,
                                                            person: @criminal,
-                                                           procedure: @procedure)
+                                                           procedure: @procedure,
+                                                           state: 0)
             @criminal_in_procedure.save
             @criminal_alias = AliasAccused.new(alias: accused[:alias],
                                            person: @criminal)
@@ -339,7 +342,8 @@ class ProceduresController < ApplicationController
                 #lo agregamos al procedimiento
                 @criminal_in_procedure = PersonInProcedure.new(role: 0,
                                                                person: @criminal,
-                                                               procedure: @procedure)
+                                                               procedure: @procedure,
+                                                               state: 0)
                 @criminal_in_procedure.save
                 @criminal_alias = AliasAccused.new(alias: accused[:alias],
                                                    person: @criminal)
@@ -448,6 +452,13 @@ class ProceduresController < ApplicationController
             police_unit_users.each { |user|
               Notification.create(user_id: user.id, notification_type: 1, reference_id: @procedure.id, seen: false)
             }
+            #Si el procedimiento pasa a estado borrador (se esta solicitando informacion)
+          else
+            #Crear mensaje con el contenido del text area del modal
+            @message = Message.new(user_id: current_user.id, procedure_id: @procedure.id, content: params[:message])
+            if @message.save
+              #Se manda notificacion
+            end
           end
 
           format.html { redirect_to @procedure, notice: 'Procedimiento ha sido actualizado con éxito.' }
