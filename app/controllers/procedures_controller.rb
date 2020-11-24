@@ -215,9 +215,9 @@ class ProceduresController < ApplicationController
         if @procedure.state == "Open"
           #si el usuario actual es policia, mandar notificaccion al fiscal y alrevez para lo otro
           if current_user.police_unit.present?
-            Notification.create(user: @procedure.prosecutor.user, notification_type: 0, reference_id: @procedure.id, seen: false)
+            Notification.create(user: @procedure.prosecutor_in_charge.user, notification_type: 0, reference_id: @procedure.id, seen: false)
           elsif current_user.prosecutor.present?
-            Notification.create(user: @procedure.police_unit.user, notification_type: 0, reference_id: @procedure.id, seen: false)
+            Notification.create(user: @procedure.police_unit_in_charge.user, notification_type: 0, reference_id: @procedure.id, seen: false)
           end
         end
 
