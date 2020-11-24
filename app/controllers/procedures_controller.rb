@@ -152,7 +152,8 @@ class ProceduresController < ApplicationController
           if @criminal.save!
             @criminal_in_procedure = PersonInProcedure.new(role: 0,
                                                            person: @criminal,
-                                                           procedure: @procedure)
+                                                           procedure: @procedure,
+                                                           state: 0)
             @criminal_in_procedure.save
             @criminal_alias = AliasAccused.new(alias: accused[:alias],
                                            person: @criminal)
@@ -335,7 +336,8 @@ class ProceduresController < ApplicationController
                 #lo agregamos al procedimiento
                 @criminal_in_procedure = PersonInProcedure.new(role: 0,
                                                                person: @criminal,
-                                                               procedure: @procedure)
+                                                               procedure: @procedure,
+                                                               state: 0)
                 @criminal_in_procedure.save
                 @criminal_alias = AliasAccused.new(alias: accused[:alias],
                                                    person: @criminal)
