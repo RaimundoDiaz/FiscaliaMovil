@@ -43,7 +43,7 @@ class ProceduresController < ApplicationController
   def new
     @procedure = Procedure.new
     get_regiones
-    gon.fiscales = Prosecutor.all
+    gon.fiscales = Prosecutor.not_deleted
   end
 
   # GET /procedures/1/edit
@@ -441,7 +441,7 @@ class ProceduresController < ApplicationController
           #If procedure was closed, notify the police unit
           if @procedure.state == "Close" && $aux == "Open"
             police_unit_id =  @procedure.police_unit_in_charge.id
-            police_unit_users = User.where(police_unit_id: police_unit_id)
+            police_unit_users = User.not_deleted.where(police_unit_id: police_unit_id)
             police_unit_users.each { |user|
               Notification.create(user_id: user.id, notification_type: 1, reference_id: @procedure.id, seen: false)
             }

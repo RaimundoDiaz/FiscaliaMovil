@@ -50,7 +50,7 @@
             <% role = 0 %>
           <%  end %>
           <td><%= user.admin ? 'Si' : 'No' %></td>
-          <td><%= link_to 'Editar', edit_admin_user_path(user, role: role) %> <%= link_to 'Eliminar', admin_user_path(user), method: :delete, data: { confirm: "¿Estás seguro que quieres borrar este usuario?" }, :class => "float-right"%></td>
+          <td style="text-align: center"><%= link_to 'Editar', edit_admin_user_path(user, role: role) %> </td>
         </tr>
 
       <% end %>

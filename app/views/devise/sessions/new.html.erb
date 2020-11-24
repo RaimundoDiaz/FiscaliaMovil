@@ -18,11 +18,6 @@
       </div>
       <%= f.password_field :password, autocomplete: "current-password" %>
     </div>
-    <% if alert.present? %>
-      <div class="mb-0 mt-2" role="alert">
-        <div id="alert" class="alert alert-danger mx-auto my-0" style="width: 280px;"><%= alert %></div>
-      </div>
-    <%end %>
 
     <div class="actions">
       <%= f.submit "Ingresar", class: ["btn", "btn-warning", "button"] %>

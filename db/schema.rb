@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 2020_11_19_214528) do
   create_table "local_prosecutions", force: :cascade do |t|
     t.string "name"
     t.bigint "regional_prosecution_id", null: false
+    t.boolean "deleted", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["regional_prosecution_id"], name: "index_local_prosecutions_on_regional_prosecution_id"
@@ -127,6 +128,7 @@ ActiveRecord::Schema.define(version: 2020_11_19_214528) do
     t.string "name"
     t.integer "police_type"
     t.bigint "prefecture_id", null: false
+    t.boolean "deleted", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["prefecture_id"], name: "index_police_stations_on_prefecture_id"
@@ -135,6 +137,7 @@ ActiveRecord::Schema.define(version: 2020_11_19_214528) do
   create_table "police_units", force: :cascade do |t|
     t.string "name"
     t.bigint "police_station_id", null: false
+    t.boolean "deleted", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["police_station_id"], name: "index_police_units_on_police_station_id"
@@ -174,6 +177,7 @@ ActiveRecord::Schema.define(version: 2020_11_19_214528) do
     t.string "name"
     t.string "rut"
     t.bigint "local_prosecution_id"
+    t.boolean "deleted", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["local_prosecution_id"], name: "index_prosecutors_on_local_prosecution_id"
@@ -182,6 +186,7 @@ ActiveRecord::Schema.define(version: 2020_11_19_214528) do
   create_table "regional_prosecutions", force: :cascade do |t|
     t.string "name"
     t.integer "region"
+    t.boolean "deleted", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -206,6 +211,7 @@ ActiveRecord::Schema.define(version: 2020_11_19_214528) do
     t.bigint "police_unit_id"
     t.bigint "prosecutor_id"
     t.bigint "local_prosecution_id"
+    t.boolean "deleted", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "email", default: "", null: false

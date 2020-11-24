@@ -5,6 +5,13 @@ class Prosecutor < ApplicationRecord
   has_one :user
   belongs_to :local_prosecution
 
+  scope :not_deleted, -> { where(deleted: false) }
+  scope :deleted, -> { where(deleted: true) }
+
+  def soft_delete
+    update(deleted: true)
+  end
+
   def create_user
     #Email
     @name = self.name.downcase.gsub(/[^a-z]/, ' ').split(" ")

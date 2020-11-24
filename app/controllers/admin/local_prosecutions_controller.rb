@@ -6,7 +6,7 @@ class Admin::LocalProsecutionsController < ApplicationController
   # GET /admin/local_prosecutions
   # GET /admin/local_prosecutions.json
   def index
-    @local_prosecutions = LocalProsecution.all
+    @local_prosecutions = LocalProsecution.not_deleted
   end
 
   # GET /admin/local_prosecutions/new
@@ -48,7 +48,13 @@ class Admin::LocalProsecutionsController < ApplicationController
   # DELETE /admin/local_prosecutions/1
   # DELETE /admin/local_prosecutions/1.json
   def destroy
-    @local_prosecution.destroy
+    #@local_prosecution.destroy
+    @local_prosecution.soft_delete
+    @local_prosecution.user.soft_delete
+    @local_prosecution.prosecutors.each { |pros|
+      pros.soft_delete
+      pros.user.soft_delete
+    }
     respond_to do |format|
       format.html { redirect_to admin_local_prosecutions_url, notice: 'Fiscalía Local ha sido eliminada con éxito.' }
     end

@@ -7,11 +7,11 @@ class Admin::UsersController < ApplicationController
   def index
     if current_user.local_prosecution.present?
       fiscalia = current_user.local_prosecution
-      @users = User.joins(:prosecutor).where(prosecutors: { local_prosecution: fiscalia })
+      @users = User.not_deleted.joins(:prosecutor).where(prosecutors: { local_prosecution: fiscalia })
     elsif current_user.police_unit.present?
-      @users = User.where(police_unit: current_user.police_unit)
+      @users = User.not_deleted.where(police_unit: current_user.police_unit)
     else
-      @users = User.all
+      @users = User.not_deleted
     end
 
   end
@@ -57,7 +57,8 @@ class Admin::UsersController < ApplicationController
   # DELETE /admin/users/1
   # DELETE /admin/users/1.json
   def destroy
-    @user.destroy
+    #@user.destroy
+    @user.soft_delete
     respond_to do |format|
       format.html { redirect_to admin_users_url, notice: 'Administrador ha sido eliminado con éxito..' }
     end

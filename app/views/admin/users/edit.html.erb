@@ -28,10 +28,10 @@
           <% if current_user.local_prosecution.nil? and current_user.police_unit.nil?%>
             <% if params[:role] == "1" %>
               <%= form.label :unidad_policial %>
-              <%= form.collection_select(:police_unit_id, PoliceUnit.all, :id, :name, {}, { class: "form-control" }) %>
+              <%= form.collection_select(:police_unit_id, PoliceUnit.not_deleted.all, :id, :name, {}, { class: "form-control" }) %>
             <% elsif params[:role] == "2" %>
               <%= form.label :fiscalia_local %>
-              <%= form.collection_select(:local_prosecution_id, LocalProsecution.all, :id, :name, {}, { class: "form-control" }) %>
+              <%= form.collection_select(:local_prosecution_id, LocalProsecution.not_deleted.all, :id, :name, {}, { class: "form-control" }) %>
             <%end %>
           <%end %>
           <%= hidden_field_tag(:role, params[:role]) %>

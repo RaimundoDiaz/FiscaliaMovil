@@ -23,6 +23,7 @@
       <tr>
         <th>Nombre</th>
         <th>RUT</th>
+        <th style="width: 40%">Fiscalía Local</th>
         <th style="text-align: center; width: 18%">Acciones</th>
       </tr>
       </thead>
@@ -31,6 +32,7 @@
         <tr>
           <td><%= prosecutor.name %></td>
           <td><%= prosecutor.rut %></td>
+          <td><%= prosecutor.local_prosecution.name %></td>
           <td><%= link_to 'Editar', edit_admin_prosecutor_path(prosecutor) %> <%= link_to 'Eliminar', admin_prosecutor_path(prosecutor), method: :delete, data: { confirm: "¿Estás seguro que quieres borrar este Fiscal?" }, :class => "float-right" %></td>
         </tr>
 

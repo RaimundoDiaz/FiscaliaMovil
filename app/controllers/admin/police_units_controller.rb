@@ -6,7 +6,7 @@ class Admin::PoliceUnitsController < ApplicationController
   # GET /admin/police_units
   # GET /admin/police_units.json
   def index
-    @police_units = PoliceUnit.all
+    @police_units = PoliceUnit.not_deleted
   end
 
   # GET /admin/police_units/new
@@ -48,7 +48,11 @@ class Admin::PoliceUnitsController < ApplicationController
   # DELETE /admin/police_units/1
   # DELETE /admin/police_units/1.json
   def destroy
-    @police_unit.destroy
+    #@police_unit.destroy
+    @police_unit.soft_delete
+    @police_unit.users.each { |user|
+      user.soft_delete
+    }
     respond_to do |format|
       format.html { redirect_to admin_police_units_url, notice: 'Unidad Policial ha sido eliminada con éxito.' }
     end

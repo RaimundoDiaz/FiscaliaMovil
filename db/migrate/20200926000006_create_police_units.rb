@@ -3,6 +3,7 @@ class CreatePoliceUnits < ActiveRecord::Migration[6.0]
     create_table :police_units do |t|
       t.string :name
       t.references :police_station, null: false, foreign_key: true
+      t.boolean :deleted, default: false
 
       t.timestamps
     end
