@@ -7,9 +7,9 @@ class Admin::ProsecutorsController < ApplicationController
   # GET /admin/prosecutors.json
   def index
     if current_user.local_prosecution.present?
-      @prosecutors = Prosecutor.where(local_prosecution: current_user.local_prosecution).order(:name)
+      @prosecutors = Prosecutor.not_deleted.where(local_prosecution: current_user.local_prosecution).order(:name)
     else
-      @prosecutors = Prosecutor.all.order(:name)
+      @prosecutors = Prosecutor.not_deleted.order(:name)
     end
 
   end
@@ -57,7 +57,9 @@ class Admin::ProsecutorsController < ApplicationController
   # DELETE /admin/prosecutors/1
   # DELETE /admin/prosecutors/1.json
   def destroy
-    @prosecutor.destroy
+    #@prosecutor.destroy
+    @prosecutor.soft_delete
+    @prosecutor.user.soft_delete
     respond_to do |format|
       format.html { redirect_to admin_prosecutors_url, notice: 'Fiscal ha sido eliminado con éxito.' }
     end

@@ -44,11 +44,9 @@ class MessagesController < ApplicationController
           }
         elsif current_user.police_unit.present?
           local_prosecution_id =  @message.procedure.local_prosecution_in_charge.id
-          prosecutors = Prosecutor.where(local_prosecution_id: local_prosecution_id)
+          prosecutors = Prosecutor.not_deleted.where(local_prosecution_id: local_prosecution_id)
 
-          #Delete old notification of the same topic
-
-          #Send notifiaction to the associated users
+          #Send notification to the associated users
           prosecutors.each { |pros|
             if pros.user != nil
               Notification.create(user_id: pros.user.id, notification_type: 4, reference_id: params[:procedure_id], seen: false)

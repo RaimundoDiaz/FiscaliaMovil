@@ -9,5 +9,13 @@ class User < ApplicationRecord
   belongs_to :local_prosecution, optional: true
   belongs_to :prosecutor, optional: true
   belongs_to :police_unit, optional: true
+
+  scope :not_deleted, -> { where(deleted: false) }
+  scope :deleted, -> { where(deleted: true) }
+
+  def soft_delete
+    update(deleted: true)
+  end
+
 end
 

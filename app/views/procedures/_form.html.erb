@@ -52,7 +52,7 @@
       <h5 class="card-header">Fiscal a cargo</h5>
       <div id="prosecutorInCharge" class="card-body">
         <div class="form-inline">
-          <%= form.select :prosecutor_in_charge, options_for_select(Prosecutor.order(:name).map { |prosecutor| [prosecutor[:name], prosecutor[:id]] }, @procedure.prosecutor_in_charge_id),{},{class: "form-control flex-grow-1"} %>
+          <%= form.select :prosecutor_in_charge, options_for_select(Prosecutor.not_deleted.order(:name).map { |prosecutor| [prosecutor[:name], prosecutor[:id]] }, @procedure.prosecutor_in_charge_id),{},{class: "form-control flex-grow-1"} %>
         </div>
       </div>
     </div>
