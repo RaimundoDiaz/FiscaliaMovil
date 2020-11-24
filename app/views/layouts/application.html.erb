@@ -108,7 +108,7 @@
                       </li>
                     <% elsif current_user.local_prosecution.present?%>
                       <li class="nav-item">
-                        <%= button_to "Eliminar Fiscalía Local", admin_local_prosecution_path(current_user.police_unit.id), :method => :delete, :class => "btn btn-danger text-white ml-sm-4 mb-4", data: { confirm: "¿Estás seguro que quieres borrar esta fiscalía local?" } %>
+                        <%= button_to "Eliminar Fiscalía Local", admin_local_prosecution_path(current_user.local_prosecution.id), :method => :delete, :class => "btn btn-danger text-white ml-sm-4 mb-4", data: { confirm: "¿Estás seguro que quieres borrar esta fiscalía local?" } %>
                       </li>
                     <% end %>
                     <li class="nav-item">
