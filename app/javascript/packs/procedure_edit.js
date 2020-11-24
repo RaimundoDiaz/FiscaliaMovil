@@ -7,25 +7,47 @@ $(document).on('turbolinks:load', function() {
         $('.delete_crime').each(function(){
             $(this).click(function(){
                 let division = $(this).closest('#old_crime');
-                let crimeID = $("#crimeID");
-                division.remove()
+                let crimeID = division.find("#crimeID").html();
+                division.remove();
+
+                let input = $("<input>")
+                    .attr("type", "hidden")
+                    .attr("name", "procedure[deletedCrimes][][id]").val(crimeID);
+                $('#crimes').append(input);
             })
         });
 
-        $('#accussedDelete').click(function () {
+        $('[id=accussedDelete]').click(function () {
             let division = $(this).closest('#accussed');
-            let accussedID = $("#")
-            division.remove()
+            let accussedID = division.find('#accussedID').html();
+            division.remove();
+
+            let input = $("<input>")
+                .attr("type", "hidden")
+                .attr("name", "procedure[deletedAccusseds][][id]").val(accussedID);
+            $('#accuseds').append(input);
         });
 
-        $('#victimDelete').click(function () {
+        $('[id=victimDelete]').click(function () {
             let division = $(this).closest('#victim');
-            division.remove()
+            let victimID = division.find("#victimID").html();
+            division.remove();
+
+            let input = $("<input>")
+                .attr("type", "hidden")
+                .attr("name", "procedure[deletedVictims][][id]").val(victimID);
+            $('#victims').append(input);
         });
 
-        $('#witnessDelete').click(function () {
+        $('[id=witnessDelete]').click(function () {
             let division = $(this).closest('#witness');
-            division.remove()
+            let witnessID = division.find("#witnessID").html();
+            division.remove();
+
+            let input = $("<input>")
+                .attr("type", "hidden")
+                .attr("name", "procedure[deletedWitnesses][][id]").val(witnessID);
+            $('#witnesses').append(input);
         });
     }
 
