@@ -217,7 +217,7 @@ class ProceduresController < ApplicationController
           end
         end
 
-        format.html { redirect_to @procedure, notice: 'Procedure was successfully created.' }
+        format.html { redirect_to @procedure, notice: 'Procedimiento ha sido creado con éxito.' }
         format.json { render :show, status: :created, location: @procedure }
       else
         format.html { render :new }
@@ -303,17 +303,17 @@ class ProceduresController < ApplicationController
 
           if procedure_params[:photos] != nil
             @procedure.photos.attach(procedure_params[:photos])
-            @procedure.save
+            @procedure.save!
           end
 
           if procedure_params[:videos] != nil
             @procedure.videos.attach(procedure_params[:videos])
-            @procedure.save
+            @procedure.save!
           end
 
           if procedure_params[:documents] != nil
             @procedure.documents.attach(procedure_params[:documents])
-            @procedure.save
+            @procedure.save!
           end
 
           @procedure.taggings.destroy_all
@@ -425,7 +425,7 @@ class ProceduresController < ApplicationController
             end
           end
 
-          format.html { redirect_to @procedure, notice: 'Procedure was successfully updated.' }
+          format.html { redirect_to @procedure, notice: 'Procedimiento ha sido actualizado con éxito.' }
           format.json { render :show, status: :ok, location: @procedure }
         else
           format.json { render json: @procedure.errors, status: :unprocessable_entity }
@@ -444,7 +444,7 @@ class ProceduresController < ApplicationController
             }
           end
 
-          format.html { redirect_to @procedure, notice: 'Procedure was successfully updated.' }
+          format.html { redirect_to @procedure, notice: 'Procedimiento ha sido actualizado con éxito.' }
           format.json { render :show, status: :ok, location: @procedure }
         else
           format.json { render json: @procedure.errors, status: :unprocessable_entity }
@@ -458,7 +458,7 @@ class ProceduresController < ApplicationController
   def destroy
     @procedure.destroy
     respond_to do |format|
-      format.html { redirect_to procedures_url, notice: 'Procedure was successfully destroyed.' }
+      format.html { redirect_to procedures_url, notice: 'Procedimiento ha sido eliminado con éxito.' }
       format.json { head :no_content }
     end
   end

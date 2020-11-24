@@ -23,19 +23,7 @@
       <%= f.submit "Ingresar", class: ["btn", "btn-warning", "button"] %>
     </div>
 
-    <div class="remember_me">
-      <div class="div1">
-        <% if devise_mapping.rememberable? %>
-          <div class="field">
-            <%= f.check_box :remember_me %>
-            <%= f.label "Recuerdame" %>
-          </div>
-        <% end %>
-      </div>
-      <div class="div2">
-        <%= render "devise/shared/links" %>
-      </div>
-    </div>
+
   <% end %>
 
 </div>
