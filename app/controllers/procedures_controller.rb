@@ -219,7 +219,10 @@ class ProceduresController < ApplicationController
         if @procedure.state == "Open"
           #si el usuario actual es policia, mandar notificaccion al fiscal y alrevez para lo otro
           if current_user.police_unit.present?
-            Notification.create(user: @procedure.prosecutor_in_charge.user, notification_type: 0, reference_id: @procedure.id, seen: false)
+            prosecutors = Prosecutor.not_deleted.where(local_prosecution_id: @procedure.local_prosecution_in_charge.id)
+            prosecutors.each { |pros|
+              Notification.create(user: pros.user, notification_type: 0, reference_id: @procedure.id, seen: false)
+            }
           elsif current_user.prosecutor.present?
             @procedure.police_unit_in_charge.users.each { |police_user|
               Notification.create(user: police_user, notification_type: 0, reference_id: @procedure.id, seen: false)
@@ -429,12 +432,17 @@ class ProceduresController < ApplicationController
 
 
           #mandar las notificaciones correspondientes
-          if procedure_params[:state] == "Open"
+          if @procedure.state == "Open"
             #si el usuario actual es fiscal, mandar una notificacion de creacion al policia, sino mandarle al fiscal
             if current_user.prosecutor.present?
-              Notification.create(user: @procedure.police_unit_in_charge.user, notification_type: 0, reference_id: @procedure.id, seen: false)
+              @procedure.police_unit_in_charge.users.each { |police_user|
+                Notification.create(user: police_user, notification_type: 0, reference_id: @procedure.id, seen: false)
+              }
             elsif current_user.police_unit.present?
-              Notification.create(user: @procedure.prosecutor_in_charge.user, notification_type: 0, reference_id: @procedure.id, seen: false)
+              prosecutors = Prosecutor.not_deleted.where(local_prosecution_id: @procedure.local_prosecution_in_charge.id)
+              prosecutors.each { |pros|
+                Notification.create(user: pros.user, notification_type: 0, reference_id: @procedure.id, seen: false)
+              }
             end
           end
 
@@ -455,12 +463,14 @@ class ProceduresController < ApplicationController
             police_unit_users.each { |user|
               Notification.create(user_id: user.id, notification_type: 1, reference_id: @procedure.id, seen: false)
             }
-            #Si el procedimiento pasa a estado borrador (se esta solicitando informacion)
+          #Si el procedimiento pasa a estado borrador (se esta solicitando informacion)
           else
             #Crear mensaje con el contenido del text area del modal
             @message = Message.new(user_id: current_user.id, procedure_id: @procedure.id, content: params[:message])
-            if @message.save
-              #Se manda notificacion
+            if @message.save and @procedure.creator != current_user
+              @procedure.police_unit_in_charge.users.each { |user|
+                Notification.create(user_id: user.id, notification_type: 2, reference_id: @procedure.id, seen: false)
+              }
             end
           end
 
