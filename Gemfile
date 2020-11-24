@@ -28,7 +28,7 @@ gem 'ffaker', '~> 2.17.0'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-gem 'activestorage-validator'
+gem 'file_validators'
 
 # Add devise for user authentication, registration, etc.
 gem 'devise', '~> 4.7'

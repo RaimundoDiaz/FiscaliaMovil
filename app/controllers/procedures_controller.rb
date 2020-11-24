@@ -132,17 +132,17 @@ class ProceduresController < ApplicationController
 
         if procedure_params[:photos] != nil
           @procedure.photos.attach(procedure_params[:photos])
-          @procedure.save
+          @procedure.save!
         end
 
         if procedure_params[:videos] != nil
           @procedure.videos.attach(procedure_params[:videos])
-          @procedure.save
+          @procedure.save!
         end
 
         if procedure_params[:documents] != nil
           @procedure.documents.attach(procedure_params[:documents])
-          @procedure.save
+          @procedure.save!
         end
 
         procedure_params[:tag_ids][1..procedure_params[:tag_ids].size].each do |tag|
