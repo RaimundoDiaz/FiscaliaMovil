@@ -68,6 +68,8 @@ class ProceduresController < ApplicationController
     end
 
     gon.sector = @selected_sector
+    gon.fiscales = Prosecutor.not_deleted
+    gon.fiscal = @procedure.prosecutor_in_charge
   end
 
   # POST /procedures
