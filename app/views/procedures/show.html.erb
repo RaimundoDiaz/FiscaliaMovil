@@ -93,12 +93,9 @@
           <div class="card-body">
             <h6 class="card-title"><strong>Delitos</strong></h6>
       <p class="card-text">
-        <% @procedure.crime_in_accuseds.each do |crime_in_accused| %>
-          <% if crime_in_accused.preponderant? %>
-            <span class="badge badge-danger"><%= crime_in_accused.crime.name %></span>
-          <% else %>
-            <span class="badge badge-primary"><%= crime_in_accused.crime.name %></span>
-          <% end %>
+        <span class="badge badge-danger"><%= @preponderant_crime.crime.name %></span>
+        <% @crimes.each do |crime| %>
+          <span class="badge badge-primary"><%= crime.crime.name %></span>
         <% end %>
       </p>
     </div>

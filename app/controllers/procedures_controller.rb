@@ -19,6 +19,8 @@ class ProceduresController < ApplicationController
   # GET /procedures/1.json
   def show
     #save list with all accuseds person of the procedure
+    @preponderant_crime = @procedure.crime_in_accuseds.find_by(preponderant: true)
+    @crimes = @procedure.crime_in_accuseds.where(preponderant: false).uniq{ |s| s.crime.id}
     accuseds_in_procedure = @procedure.person_in_procedures.where(role: 0)
     @accuseds = []
     accuseds_in_procedure.each do |accused|
