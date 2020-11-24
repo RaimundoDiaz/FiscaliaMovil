@@ -9,7 +9,8 @@ class ProceduresController < ApplicationController
     if current_user.prosecutor.present?
       @pagy, @procedures = pagy(Procedure.where(:state => 0, :local_prosecution_in_charge_id => current_user.prosecutor.local_prosecution.id).or(Procedure.where(:state => 2, :creator_id => current_user.id, :local_prosecution_in_charge_id => current_user.prosecutor.local_prosecution.id)).order(created_at: :desc))
     elsif current_user.police_unit.present?
-      @pagy, @procedures = pagy(Procedure.where(:state => 2, :creator_id => current_user.id, :police_unit_in_charge_id => current_user.police_unit.id).order(created_at: :desc))
+      @pagy, @procedures = pagy(Procedure.where(:state => 2, :creator_id => current_user.id, :police_unit_in_charge_id => current_user.police_unit.id).or(Procedure.where(:state => 0, :police_unit_in_charge_id => current_user.police_unit.id)).order(created_at: :desc))
+      puts(@procedures)
     elsif current_user.admin?
       @procedures = []
     end
@@ -20,7 +21,7 @@ class ProceduresController < ApplicationController
   def show
     #save list with all accuseds person of the procedure
     @preponderant_crime = @procedure.crime_in_accuseds.find_by(preponderant: true)
-    @crimes = @procedure.crime_in_accuseds.where(preponderant: false).uniq{ |s| s.crime.id}
+    @crimes = @procedure.crime_in_accuseds.where(preponderant: false).uniq { |s| s.crime.id }
     accuseds_in_procedure = @procedure.person_in_procedures.where(role: 0)
     @accuseds = []
     accuseds_in_procedure.each do |accused|
@@ -52,11 +53,11 @@ class ProceduresController < ApplicationController
   def edit
     @procedure = Procedure.find(params[:id])
     @preponderant_crime = @procedure.crime_in_accuseds.find_by(preponderant: true)
-    @crimes = @procedure.crime_in_accuseds.where(preponderant: false).uniq{ |s| s.crime.id}
+    @crimes = @procedure.crime_in_accuseds.where(preponderant: false).uniq { |s| s.crime.id }
     @accuseds = @procedure.person_in_procedures.where(role: 0)
     @victims = @procedure.person_in_procedures.where(role: 2)
     @witnesses = @procedure.person_in_procedures.where(role: 1)
-    @classification_dic = {"Flagrancy" => "Flagrancia", "Pending arrest warrant" => "ODP","Both" => "Ambas"}
+    @classification_dic = {"Flagrancy" => "Flagrancia", "Pending arrest warrant" => "ODP", "Both" => "Ambas"}
     get_regiones
     @regiones.each do |region|
       if region[:nombre].to_s == @procedure.region
@@ -124,24 +125,24 @@ class ProceduresController < ApplicationController
                                state: params[:state].to_i,
                                date_of_arrest: dateOfArrest,
                                involves_deceased: procedure_params[:involves_deceased]
-                               )
+    )
 
     respond_to do |format|
       if @procedure.save!
 
         if procedure_params[:photos] != nil
           @procedure.photos.attach(procedure_params[:photos])
-          @procedure.save
+          @procedure.save!
         end
 
         if procedure_params[:videos] != nil
           @procedure.videos.attach(procedure_params[:videos])
-          @procedure.save
+          @procedure.save!
         end
 
         if procedure_params[:documents] != nil
           @procedure.documents.attach(procedure_params[:documents])
-          @procedure.save
+          @procedure.save!
         end
 
         procedure_params[:tag_ids][1..procedure_params[:tag_ids].size].each do |tag|
@@ -152,7 +153,7 @@ class ProceduresController < ApplicationController
 
         procedure_params[:accuseds].each do |accused|
           @criminal = Person.new(name: accused[:name],
-                               rut: accused[:rut])
+                                 rut: accused[:rut])
           if @criminal.save!
             @criminal_in_procedure = PersonInProcedure.new(role: 0,
                                                            person: @criminal,
@@ -160,7 +161,7 @@ class ProceduresController < ApplicationController
                                                            state: 0)
             @criminal_in_procedure.save
             @criminal_alias = AliasAccused.new(alias: accused[:alias],
-                                           person: @criminal)
+                                               person: @criminal)
             @criminal_alias.save
             if procedure_params[:crimes]
               procedure_params[:crimes].each do |crime|
@@ -293,21 +294,19 @@ class ProceduresController < ApplicationController
 
       dateOfArrest = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec)
 
-      #This aux is for the notification
-      $aux = @procedure.state
       respond_to do |format|
         if @procedure.update!(classification: classification_procedure,
-                                      police_in_charge: PoliceMan.find(procedure_params[:police_in_charge]),
-                                      police_unit_in_charge: PoliceUnit.find(procedure_params[:police_unit_in_charge]),
-                                      prosecutor_in_charge: Prosecutor.find(procedure_params[:prosecutor_in_charge]),
-                                      local_prosecution_in_charge: LocalProsecution.find(procedure_params[:prosecution_in_charge]),
-                                      story: procedure_params[:story],
-                                      address: procedure_params[:address],
-                                      sector: selected_sector,
-                                      region: selected_region,
-                                      state: params[:state].to_i,
-                                      date_of_arrest: dateOfArrest,
-                                      involves_deceased: procedure_params[:involves_deceased])
+                              police_in_charge: PoliceMan.find(procedure_params[:police_in_charge]),
+                              police_unit_in_charge: PoliceUnit.find(procedure_params[:police_unit_in_charge]),
+                              prosecutor_in_charge: Prosecutor.find(procedure_params[:prosecutor_in_charge]),
+                              local_prosecution_in_charge: LocalProsecution.find(procedure_params[:prosecution_in_charge]),
+                              story: procedure_params[:story],
+                              address: procedure_params[:address],
+                              sector: selected_sector,
+                              region: selected_region,
+                              state: params[:state].to_i,
+                              date_of_arrest: dateOfArrest,
+                              involves_deceased: procedure_params[:involves_deceased])
 
 
           if procedure_params[:photos] != nil
@@ -428,10 +427,14 @@ class ProceduresController < ApplicationController
             end
           end
 
-          #If procedure was a draft and now was send (open)
-          if @procedure.state == "Open" && $aux == "Draft"
-            if current_user.police_unit.present?
-              Notification.create(user: @procedure.prosecutor_in_charge.user, notification_type: 3, reference_id: @procedure.id, seen: false)
+
+          #mandar las notificaciones correspondientes
+          if procedure_params[:state] == "Open"
+            #si el usuario actual es fiscal, mandar una notificacion de creacion al policia, sino mandarle al fiscal
+            if current_user.prosecutor.present?
+              Notification.create(user: @procedure.police_unit_in_charge.user, notification_type: 0, reference_id: @procedure.id, seen: false)
+            elsif current_user.police_unit.present?
+              Notification.create(user: @procedure.prosecutor_in_charge.user, notification_type: 0, reference_id: @procedure.id, seen: false)
             end
           end
 
@@ -447,7 +450,7 @@ class ProceduresController < ApplicationController
         if @procedure.update(state: params[:state])
           #If procedure was closed, notify the police unit
           if @procedure.state == "Close" && $aux == "Open"
-            police_unit_id =  @procedure.police_unit_in_charge.id
+            police_unit_id = @procedure.police_unit_in_charge.id
             police_unit_users = User.not_deleted.where(police_unit_id: police_unit_id)
             police_unit_users.each { |user|
               Notification.create(user_id: user.id, notification_type: 1, reference_id: @procedure.id, seen: false)
@@ -461,7 +464,7 @@ class ProceduresController < ApplicationController
             end
           end
 
-          format.html { redirect_to @procedure, notice: 'Procedimiento ha sido actualizado con éxito.' }
+          format.html { redirect_to procedures_path, notice: 'Procedimiento ha sido actualizado con éxito.' }
           format.json { render :show, status: :ok, location: @procedure }
         else
           format.json { render json: @procedure.errors, status: :unprocessable_entity }
@@ -481,6 +484,7 @@ class ProceduresController < ApplicationController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_procedure
     @procedure = Procedure.find(params[:id])
@@ -488,8 +492,8 @@ class ProceduresController < ApplicationController
 
   def procedure_params
     # Only allow a list of trusted parameters through.
-    params.require(:procedure).permit(:date,:time,:classification,:involves_deceased,:prosecutor_in_charge, :prosecution_in_charge,:police_unit_in_charge,:police_in_charge,:address,:region,:sector,:preponderant_crime, :state , :story, crimes:[],videos:[], photos:[], documents:[],
-                                      tag_ids:[], :accuseds => [:name,:alias,:rut], :victims => [:name,:rut,:deceased,:contact,:story],
-                                      :witness => [:name,:rut,:story,:contact], :deletedAccusseds => [:id], :deletedVictims => [:id], :deletedWitnesses => [:id], :deletedCrimes => [:id])
+    params.require(:procedure).permit(:date, :time, :classification, :involves_deceased, :prosecutor_in_charge, :prosecution_in_charge, :police_unit_in_charge, :police_in_charge, :address, :region, :sector, :preponderant_crime, :state, :story, crimes: [], videos: [], photos: [], documents: [],
+                                      tag_ids: [], :accuseds => [:name, :alias, :rut], :victims => [:name, :rut, :deceased, :contact, :story],
+                                      :witness => [:name, :rut, :story, :contact], :deletedAccusseds => [:id], :deletedVictims => [:id], :deletedWitnesses => [:id], :deletedCrimes => [:id])
   end
 end
