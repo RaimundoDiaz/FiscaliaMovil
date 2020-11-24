@@ -5,7 +5,7 @@
     <div id="general" class="card-body">
       <div id="datetime" class="mb-3 d-flex justify-content-between">
         <div class="form-inline">
-          <%= form.label :date,'Fecha: ', class: "mr-2 form-label"%>
+          <%= form.label :date,'Fecha de procedimiento: ', class: "mr-2 form-label"%>
           <div>
             <%= form.date_field :date , :value => @procedure.date_of_arrest.strftime("%Y-%m-%d"), class: "form-control"%>
             <div id="form-invalid-date" class="invalid-feedback" hidden></div>
@@ -43,7 +43,7 @@
       <h5 class="card-header">Fiscalia a cargo</h5>
       <div id="prosecutionInCharge" class="card-body">
         <div class="form-inline">
-          <%= form.select :prosecution_in_charge, options_for_select(LocalProsecution.not_deleted.order(:name).map { |prosecution| [prosecution[:name], prosecution[:id]] }, @procedure.prosecutor_in_charge.id),{},{class: "form-control flex-grow-1"} %>
+          <%= form.select :prosecution_in_charge, options_for_select(LocalProsecution.not_deleted.order(:name).map { |prosecution| [prosecution[:name], prosecution[:id]] }, @procedure.prosecutor_in_charge.local_prosecution.id),{},{class: "form-control flex-grow-1"} %>
         </div>
       </div>
     </div>
