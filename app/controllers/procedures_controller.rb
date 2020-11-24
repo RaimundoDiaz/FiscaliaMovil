@@ -210,12 +210,10 @@ class ProceduresController < ApplicationController
         end
 
         #si el procedimiento se envia, se mandan las notificaciones pertinentes
-        if procedure_params[:state] == "Open"
-          #si el usuario actual es fiscal, mandar una notificacion de creacion al policia, sino mandarle al fiscal
-          if current_user.prosecutor.present?
-            Notification.create(user_id: PoliceMan.find(procedure_params[:police_in_charge]).user, notification_type: 0, reference_id: @procedure.id, seen: false)
-          elsif current_user.police_unit.present?
-            Notification.create(user_id: Prosecutor.find(procedure_params[:prosecutor_in_charge]).user, notification_type: 0, reference_id: @procedure.id, seen: false)
+        if @procedure.state == "Open"
+          #si el usuario actual es policia, mandar notificaccion al fiscal, si es alrevez no hacer nada porque no tendria sentido
+          if current_user.police_unit.present?
+            Notification.create(user: Prosecutor.find(procedure_params[:prosecutor_in_charge]).user, notification_type: 0, reference_id: @procedure.id, seen: false)
           end
         end
 
@@ -418,16 +416,6 @@ class ProceduresController < ApplicationController
             end
           end
 
-          #mandar las notificaciones correspondientes
-          if procedure_params[:state] == "Open"
-            #si el usuario actual es fiscal, mandar una notificacion de creacion al policia, sino mandarle al fiscal
-            if current_user.prosecutor.present?
-              Notification.create(user_id: PoliceMan.find(procedure_params[:police_in_charge]).user, notification_type: 0, reference_id: @procedure.id, seen: false)
-            elsif current_user.police_unit.present?
-            Notification.create(user_id: Prosecutor.find(procedure_params[:prosecutor_in_charge]).user, notification_type: 0, reference_id: @procedure.id, seen: false)
-            end
-          end
-
           format.html { redirect_to @procedure, notice: 'Procedure was successfully updated.' }
           format.json { render :show, status: :ok, location: @procedure }
         else
@@ -446,6 +434,14 @@ class ProceduresController < ApplicationController
               Notification.create(user_id: user.id, notification_type: 1, reference_id: @procedure.id, seen: false)
             }
           end
+
+          #If procedure was a draft and now was send (open)
+          if @procedure.state == "Open" && $aux == "Draft"
+            if current_user.police_unit.present?
+              Notification.create(user: @procedure.prosecutor_in_charge.user, notification_type: 3, reference_id: @procedure.id, seen: false)
+            end
+          end
+
           format.html { redirect_to @procedure, notice: 'Procedure was successfully updated.' }
           format.json { render :show, status: :ok, location: @procedure }
         else
