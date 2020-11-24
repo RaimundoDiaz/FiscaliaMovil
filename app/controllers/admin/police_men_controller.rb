@@ -6,7 +6,7 @@ class Admin::PoliceMenController < ApplicationController
   # GET /admin/police_men
   # GET /admin/police_men.json
   def index
-    @police_men = PoliceMan.all.order(:name)
+    @police_men = PoliceMan.not_deleted.order(:name)
   end
 
   # GET /admin/police_men/new
@@ -25,7 +25,7 @@ class Admin::PoliceMenController < ApplicationController
 
     respond_to do |format|
       if @police_man.save
-        format.html { redirect_to admin_police_men_path, notice: 'Police man was successfully created.' }
+        format.html { redirect_to admin_police_men_path, notice: 'Policía ha sido creado con éxito.' }
       else
         format.html { render :new }
       end
@@ -37,7 +37,7 @@ class Admin::PoliceMenController < ApplicationController
   def update
     respond_to do |format|
       if @police_man.update(admin_police_man_params)
-        format.html { redirect_to admin_police_men_path, notice: 'Police man was successfully updated.' }
+        format.html { redirect_to admin_police_men_path, notice: 'Policía ha sido actualizado con éxito.' }
       else
         format.html { render :edit }
       end
@@ -47,9 +47,10 @@ class Admin::PoliceMenController < ApplicationController
   # DELETE /admin/police_men/1
   # DELETE /admin/police_men/1.json
   def destroy
-    @police_man.destroy
+    #@police_man.destroy
+    @police_man.soft_delete
     respond_to do |format|
-      format.html { redirect_to admin_police_men_url, notice: 'Police man was successfully destroyed.' }
+      format.html { redirect_to admin_police_men_url, notice: 'Policía ha sido eliminado con éxito.' }
     end
   end
 

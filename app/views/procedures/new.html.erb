@@ -70,7 +70,7 @@
           <h5 class="card-header">Policia a cargo</h5>
           <div id="policeman" class="card-body">
             <div class="form-inline">
-              <%= form.select :police_in_charge, options_for_select(PoliceMan.order(:name).map { |police| ["%s - %s"%[police[:name].to_s,police[:badge].to_s],police[:id]] }),{},{class: "form-control flex-grow-1"} %>
+              <%= form.select :police_in_charge, options_for_select(PoliceMan.not_deleted.order(:name).map { |police| ["%s - %s"%[police[:name].to_s,police[:badge].to_s],police[:id]] }),{},{class: "form-control flex-grow-1"} %>
             </div>
           </div>
         </div>

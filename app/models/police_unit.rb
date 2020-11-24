@@ -16,7 +16,7 @@ class PoliceUnit < ApplicationRecord
 
   def create_local_admin
     #Email
-    @email = "up"+self.id.to_s+"@adminup.com"
+    @email = "up"+self.id.to_s+"@admin.com"
 
     #Password
     @password = 123456789

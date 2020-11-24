@@ -34,7 +34,7 @@ class Admin::ProsecutorsController < ApplicationController
 
       respond_to do |format|
         if @prosecutor.save
-          format.html { redirect_to admin_prosecutors_path, notice: 'Prosecutor was successfully created.' }
+          format.html { redirect_to admin_prosecutors_path, notice: 'Fiscal ha sido creado con éxito.' }
         else
           format.html { render :new }
         end
@@ -47,7 +47,7 @@ class Admin::ProsecutorsController < ApplicationController
   def update
     respond_to do |format|
       if @prosecutor.update(admin_prosecutor_params)
-        format.html { redirect_to admin_prosecutors_path, notice: 'Prosecutor was successfully updated.' }
+        format.html { redirect_to admin_prosecutors_path, notice: 'Fiscal ha sido actualizado con éxito.' }
       else
         format.html { render :edit }
       end
@@ -59,7 +59,7 @@ class Admin::ProsecutorsController < ApplicationController
   def destroy
     @prosecutor.destroy
     respond_to do |format|
-      format.html { redirect_to admin_prosecutors_url, notice: 'Prosecutor was successfully destroyed.' }
+      format.html { redirect_to admin_prosecutors_url, notice: 'Fiscal ha sido eliminado con éxito.' }
     end
   end
 

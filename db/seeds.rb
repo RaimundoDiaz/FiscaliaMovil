@@ -95,14 +95,14 @@ end
 ######################################
 # CUENTAS PARA USAR RAPIDAMENTE
 # admin@admin.com = super admin
-# adminlocal@adminfiscalia.com = admin de fiscalia local
-# up10101@adminup.com = admin de unidad policial
+# fiscalialocal@admin.com = admin de fiscalia local
+# up10101@admin.com = admin de unidad policial
 # unidadpolicial1@up.com = cuenta de unidad policial
 # rponce@fiscalia.com = cuenta de fiscal
 
 
-admin = User.create(email: "admin@admin.com", password: "123456789", admin: true)
-localadmin = User.create(email: "adminlocal@adminfiscalia.com", password: "123456789", admin: true, local_prosecution_id: 1607)
+User.create(email: "admin@admin.com", password: "123456789", admin: true)
+User.create(email: "fiscalialocal@admin.com", password: "123456789", admin: true, local_prosecution_id: 1607)
 police = PoliceMan.find(1)
 prosecutor = Prosecutor.create(name: "Rodrigo Ponce", rut: "19638846-k", local_prosecution_id: 1607)
 u2 = User.last

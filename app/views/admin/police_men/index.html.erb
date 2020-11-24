@@ -28,12 +28,12 @@
       </tr>
       </thead>
       <tbody id="myTable">
-      <% @police_men.each do |crime| %>
+      <% @police_men.each do |police| %>
         <tr>
-          <td><%= crime.name %></td>
-          <td><%= crime.rut %></td>
-          <td><%= crime.badge %></td>
-          <td><%= link_to 'Editar', edit_admin_police_man_path(crime) %> <%= link_to 'Eliminar', admin_police_man_path(crime), method: :delete, data: { confirm: "¿Estás seguro que quieres borrar este policía?" }, :class => "float-right" %></td>
+          <td><%= police.name %></td>
+          <td><%= police.rut %></td>
+          <td><%= police.badge %></td>
+          <td><%= link_to 'Editar', edit_admin_police_man_path(police) %> <%= link_to 'Eliminar', admin_police_man_path(police), method: :delete, data: { confirm: "¿Estás seguro que quieres borrar este policía?" }, :class => "float-right" %></td>
         </tr>
 
       <% end %>

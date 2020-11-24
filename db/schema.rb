@@ -117,6 +117,7 @@ ActiveRecord::Schema.define(version: 2020_11_19_214528) do
     t.string "name"
     t.string "rut"
     t.integer "badge"
+    t.boolean "deleted", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
