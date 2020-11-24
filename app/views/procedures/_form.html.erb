@@ -111,7 +111,7 @@
   <div class="card mb-3">
     <h5 class="card-header d-flex justify-content-between align-items-center">Delitos <button type="button" id="add_crime_btn" class="btn btn-primary">+ Agregar delito </button></h5>
     <div id="crimes" class="card-body">
-      <% crimes = Crime.order(:name).map{|crime| [crime[:name]]} %>
+      <% crimes = Crime.not_deleted.order(:name).map{|crime| [crime[:name]]} %>
       <div class="form-inline d-flex justify-content-between">
         <%= form.label :preponderant_crime, 'Delito preponderante:', class: "form-label mr-2" %>
         <%= form.select :preponderant_crime, options_for_select(crimes, @preponderant_crime.crime.name ),{},{class: "form-control flex-grow-1"} %>
@@ -140,7 +140,7 @@
     <h5 class="card-header">Marcas</h5>
     <div id="marks" class="form-group card-body">
 
-      <%= form.select :tag_ids, options_for_select(Tag.order(:name).map { |tag| [tag[:name]] }, @procedure.tags.map {|tag| tag[:name]}),{},{class: "form-control",multiple: true} %>
+      <%= form.select :tag_ids, options_for_select(Tag.not_deleted.order(:name).map { |tag| [tag[:name]] }, @procedure.tags.map {|tag| tag[:name]}),{},{class: "form-control",multiple: true} %>
 
     </div>
   </div>

@@ -1,12 +1,11 @@
 class Admin::TagsController < ApplicationController
-  load_and_authorize_resource except: [:create]
   before_action :set_admin_tag, only: [:edit, :update, :destroy]
   before_action :authenticate_admin!
 
   # GET /admin/tags
   # GET /admin/tags.json
   def index
-    @admin_tags = Tag.not_deleted.order(:name)
+    @admin_tags = Tag.all
   end
 
   # GET /admin/tags/new
@@ -25,7 +24,7 @@ class Admin::TagsController < ApplicationController
 
     respond_to do |format|
       if @admin_tag.save
-        format.html { redirect_to admin_tags_path, notice: 'Marca creada con éxito.' }
+        format.html { redirect_to admin_tags_path, notice: 'Tag was successfully created.' }
       else
         format.html { render :new }
       end
@@ -37,7 +36,7 @@ class Admin::TagsController < ApplicationController
   def update
     respond_to do |format|
       if @admin_tag.update(admin_tag_params)
-        format.html { redirect_to admin_tags_path, notice: 'Marca actualizada con éxito.' }
+        format.html { redirect_to admin_tags_path, notice: 'Tag was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -47,10 +46,9 @@ class Admin::TagsController < ApplicationController
   # DELETE /admin/tags/1
   # DELETE /admin/tags/1.json
   def destroy
-    #@admin_tag.destroy
-    @admin_tag.soft_delete
+    @admin_tag.destroy
     respond_to do |format|
-      format.html { redirect_to admin_tags_path, notice: 'Marca eliminada con éxito.' }
+      format.html { redirect_to admin_tags_path, notice: 'Tag was successfully destroyed.' }
     end
   end
 
