@@ -212,9 +212,9 @@ class ProceduresController < ApplicationController
         #si el procedimiento se envia, se mandan las notificaciones pertinentes
         if procedure_params[:state] == "Open"
           #si el usuario actual es fiscal, mandar una notificacion de creacion al policia, sino mandarle al fiscal
-          if current_user.prosecutor
+          if current_user.prosecutor.present?
             Notification.create(user_id: PoliceMan.find(procedure_params[:police_in_charge]).user, notification_type: 0, reference_id: @procedure.id, seen: false)
-          elsif
+          elsif current_user.police_unit.present?
             Notification.create(user_id: Prosecutor.find(procedure_params[:prosecutor_in_charge]).user, notification_type: 0, reference_id: @procedure.id, seen: false)
           end
         end
@@ -421,9 +421,9 @@ class ProceduresController < ApplicationController
           #mandar las notificaciones correspondientes
           if procedure_params[:state] == "Open"
             #si el usuario actual es fiscal, mandar una notificacion de creacion al policia, sino mandarle al fiscal
-            if current_user.prosecutor
+            if current_user.prosecutor.present?
               Notification.create(user_id: PoliceMan.find(procedure_params[:police_in_charge]).user, notification_type: 0, reference_id: @procedure.id, seen: false)
-            elsif
+            elsif current_user.police_unit.present?
             Notification.create(user_id: Prosecutor.find(procedure_params[:prosecutor_in_charge]).user, notification_type: 0, reference_id: @procedure.id, seen: false)
             end
           end
