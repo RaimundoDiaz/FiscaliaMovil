@@ -7,13 +7,7 @@ $(document).on('turbolinks:load', function() {
         $('.delete_crime').each(function(){
             $(this).click(function(){
                 let division = $(this).closest('#old_crime');
-                let crimeID = division.find("#crimeID").html();
                 division.remove();
-
-                let input = $("<input>")
-                    .attr("type", "hidden")
-                    .attr("name", "procedure[deletedCrimes][][id]").val(crimeID);
-                $('#crimes').append(input);
             })
         });
 

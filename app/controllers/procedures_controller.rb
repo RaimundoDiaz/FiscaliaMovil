@@ -272,14 +272,8 @@ class ProceduresController < ApplicationController
         end
       end
 
-      if procedure_params[:deletedCrimes] != nil
-        procedure_params[:deletedCrimes].each do |crime|
-          crimeInProcedure = @procedure.crime_in_accuseds.where(crime_id: crime[:id])
-          if crimeInProcedure != nil
-            crimeInProcedure.destroy_all
-          end
-        end
-      end
+      #destruimos todos los crimenes, para asi crearlos denuevo y no tener problemas
+      @procedure.crime_in_accuseds.destroy_all
 
       dateOfArrest = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec, t.zone)
       respond_to do |format|
@@ -319,11 +313,14 @@ class ProceduresController < ApplicationController
             @tag.save
           end
 
+          #si hay imputados nuevos
           if procedure_params[:accuseds]
             procedure_params[:accuseds].each do |accused|
+              #los creamos
               @criminal = Person.new(name: accused[:name],
                                      rut: accused[:rut])
               if @criminal.save!
+                #lo agregamos al procedimiento
                 @criminal_in_procedure = PersonInProcedure.new(role: 0,
                                                                person: @criminal,
                                                                procedure: @procedure)
@@ -331,9 +328,10 @@ class ProceduresController < ApplicationController
                 @criminal_alias = AliasAccused.new(alias: accused[:alias],
                                                    person: @criminal)
                 @criminal_alias.save
+                #si hay crimenes nuevos
                 if procedure_params[:crimes]
-                  @procedure.crime_in_accuseds.destroy_all
                   procedure_params[:crimes].each do |crime|
+                    #se los agregamos al acusado
                     @crime_in_accused = CrimeInAccused.new(preponderant: false,
                                                            crime: Crime.find_by_name(crime),
                                                            person: @criminal,
@@ -342,11 +340,36 @@ class ProceduresController < ApplicationController
                   end
                 end
 
+                #le agregamos el delito preponderante al acusado
                 @preponderan_crime_in_accused = CrimeInAccused.new(preponderant: true,
                                                                    crime: Crime.find_by_name(procedure_params[:preponderant_crime]),
                                                                    person: @criminal,
                                                                    procedure: @procedure)
                 @preponderan_crime_in_accused.save
+              end
+            end
+          end
+
+          #si ya teniamos imputados
+          if @procedure.person_in_procedures.where(role: 0)
+            @procedure.person_in_procedures.where(role: 0).each do |criminal|
+              #les agregamos el delito preponderante
+              @preponderan_crime_in_accused = CrimeInAccused.new(preponderant: true,
+                                                                 crime: Crime.find_by_name(procedure_params[:preponderant_crime]),
+                                                                 person: criminal.person,
+                                                                 procedure: @procedure)
+              @preponderan_crime_in_accused.save
+
+              #si hay delitos nuevos
+              if procedure_params[:crimes]
+                #le agregamos los delitos nuevos a los imputados existentes
+                procedure_params[:crimes].each do |crime|
+                  @crime_in_accused = CrimeInAccused.new(preponderant: false,
+                                                         crime: Crime.find_by_name(crime),
+                                                         person: criminal.person,
+                                                         procedure: @procedure)
+                  @crime_in_accused.save
+                end
               end
             end
           end

@@ -65,7 +65,7 @@
     <h5 class="card-header">Policia a cargo</h5>
     <div id="policeman" class="card-body">
       <div class="form-inline">
-        <%= form.select :police_in_charge, options_for_select(PoliceMan.order(:name).map { |police| ["%s - %s"%[police[:name].to_s,police[:badge].to_s],police[:id]] }, @procedure.police_in_charge_id),{},{class: "form-control flex-grow-1"} %>
+        <%= form.select :police_in_charge, options_for_select(PoliceMan.not_deleted.order(:name).map { |police| ["%s - %s"%[police[:name].to_s,police[:badge].to_s],police[:id]] }, @procedure.police_in_charge_id),{},{class: "form-control flex-grow-1"} %>
       </div>
     </div>
   </div>
@@ -123,7 +123,6 @@
             <%= crimes_fields.select "" , options_for_select(crimes, crime.crime.name), {name: "procedure[crimes][]"},{class: "form-control flex-grow-1"}  %>
           <% end %>
           <button type="button" class="ml-2 btn btn-danger delete_crime"> Eliminar delito </button>
-          <p id="crimeID" hidden> <%= crime.crime.id %></p>
         </div>
       <% end %>
       <div id = "new_crime" class="mt-3 form-inline d-flex justify-content-between">
