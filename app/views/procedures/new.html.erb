@@ -48,7 +48,7 @@
             <h5 class="card-header">Fiscalia a cargo</h5>
             <div id="prosecutionInCharge" class="card-body">
               <div class="form-inline">
-                <%= form.select :prosecution_in_charge, options_for_select(LocalProsecution.order(:name).map { |prosecution| [prosecution[:name], prosecution[:id]] }),{},{class: "form-control flex-grow-1"} %>
+                <%= form.select :prosecution_in_charge, options_for_select(LocalProsecution.not_deleted.order(:name).map { |prosecution| [prosecution[:name], prosecution[:id]] }),{},{class: "form-control flex-grow-1"} %>
               </div>
             </div>
           </div>
@@ -57,7 +57,7 @@
             <h5 class="card-header">Fiscal a cargo</h5>
             <div id="prosecutorInCharge" class="card-body">
               <div class="form-inline">
-                  <%= form.select :prosecutor_in_charge, options_for_select(Prosecutor.order(:name).map { |prosecutor| [prosecutor[:name], prosecutor[:id]] }),{},{class: "form-control flex-grow-1"} %>
+                  <%= form.select :prosecutor_in_charge, options_for_select(Prosecutor.not_deleted.order(:name).map { |prosecutor| [prosecutor[:name], prosecutor[:id]] }),{},{class: "form-control flex-grow-1"} %>
               </div>
             </div>
           </div>
@@ -80,7 +80,7 @@
             <h5 class="card-header">Unidad policial a cargo</h5>
             <div id="policeUnitInCharge" class="card-body">
               <div class="form-inline">
-                <%= form.select :police_unit_in_charge, options_for_select(PoliceUnit.order(:name).map { |policeUnit| [policeUnit[:name],policeUnit[:id]] }),{},{class: "form-control flex-grow-1"} %>
+                <%= form.select :police_unit_in_charge, options_for_select(PoliceUnit.not_deleted.order(:name).map { |policeUnit| [policeUnit[:name],policeUnit[:id]] }),{},{class: "form-control flex-grow-1"} %>
               </div>
             </div>
           </div>

@@ -4,6 +4,7 @@ class CreateProsecutors < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :rut
       t.references :local_prosecution, foreign_key: true
+      t.boolean :deleted, default: false
 
       t.timestamps
     end

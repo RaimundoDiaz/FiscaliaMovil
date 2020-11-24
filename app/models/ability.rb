@@ -36,12 +36,14 @@ class Ability
       can :read, Procedure
       can :manage, Prosecutor, local_prosecution: user.local_prosecution
       can :manage, User
+      can :manage, LocalProsecution, id: user.local_prosecution.id
 
     #Police Unit admin
     elsif user.admin == true and user.police_unit.present?
       can :read, Procedure
       can :manage, PoliceMan
       can :manage, User
+      can :manage, PoliceUnit, id: user.police_unit.id
 
 
       #If neither of them the it must be an national admin
