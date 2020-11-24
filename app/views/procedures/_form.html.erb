@@ -65,7 +65,7 @@
     <h5 class="card-header">Policia a cargo</h5>
     <div id="policeman" class="card-body">
       <div class="form-inline">
-        <%= form.select :police_in_charge, options_for_select(PoliceMan.order(:name).map { |police| ["%s - %s"%[police[:name].to_s,police[:badge].to_s],police[:id]] }, @procedure.police_in_charge_id),{},{class: "form-control flex-grow-1"} %>
+        <%= form.select :police_in_charge, options_for_select(PoliceMan.not_deleted.order(:name).map { |police| ["%s - %s"%[police[:name].to_s,police[:badge].to_s],police[:id]] }, @procedure.police_in_charge_id),{},{class: "form-control flex-grow-1"} %>
       </div>
     </div>
   </div>
@@ -111,7 +111,7 @@
   <div class="card mb-3">
     <h5 class="card-header d-flex justify-content-between align-items-center">Delitos <button type="button" id="add_crime_btn" class="btn btn-primary">+ Agregar delito </button></h5>
     <div id="crimes" class="card-body">
-      <% crimes = Crime.order(:name).map{|crime| [crime[:name]]} %>
+      <% crimes = Crime.not_deleted.order(:name).map{|crime| [crime[:name]]} %>
       <div class="form-inline d-flex justify-content-between">
         <%= form.label :preponderant_crime, 'Delito preponderante:', class: "form-label mr-2" %>
         <%= form.select :preponderant_crime, options_for_select(crimes, @preponderant_crime.crime.name ),{},{class: "form-control flex-grow-1"} %>
@@ -141,7 +141,7 @@
     <h5 class="card-header">Marcas</h5>
     <div id="marks" class="form-group card-body">
 
-      <%= form.select :tag_ids, options_for_select(Tag.order(:name).map { |tag| [tag[:name]] }, @procedure.tags.map {|tag| tag[:name]}),{},{class: "form-control",multiple: true} %>
+      <%= form.select :tag_ids, options_for_select(Tag.not_deleted.order(:name).map { |tag| [tag[:name]] }, @procedure.tags.map {|tag| tag[:name]}),{},{class: "form-control",multiple: true} %>
 
     </div>
   </div>

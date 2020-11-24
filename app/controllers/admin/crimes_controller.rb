@@ -4,7 +4,7 @@ class Admin::CrimesController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @crimes = Crime.all
+    @crimes = Crime.not_deleted.order(:name)
   end
 
   # GET /people/new
@@ -45,7 +45,8 @@ class Admin::CrimesController < ApplicationController
   # DELETE /people/1
   # DELETE /people/1.json
   def destroy
-    @crime.destroy
+    #@crime.destroy
+    @crime.soft_delete
     respond_to do |format|
       format.html { redirect_to admin_crimes_path, notice: 'Crimen ha sido destruido con éxito.' }
       format.json { head :no_content }

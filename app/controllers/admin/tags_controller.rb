@@ -6,7 +6,7 @@ class Admin::TagsController < ApplicationController
   # GET /admin/tags
   # GET /admin/tags.json
   def index
-    @admin_tags = Tag.all
+    @admin_tags = Tag.not_deleted.order(:name)
   end
 
   # GET /admin/tags/new
@@ -47,7 +47,8 @@ class Admin::TagsController < ApplicationController
   # DELETE /admin/tags/1
   # DELETE /admin/tags/1.json
   def destroy
-    @admin_tag.destroy
+    #@admin_tag.destroy
+    @admin_tag.soft_delete
     respond_to do |format|
       format.html { redirect_to admin_tags_path, notice: 'Marca eliminada con éxito.' }
     end
