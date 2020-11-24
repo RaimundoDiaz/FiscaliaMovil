@@ -125,18 +125,18 @@ class ProceduresController < ApplicationController
     respond_to do |format|
       if @procedure.save!
 
-        if params[:photos] != nil
-          @procedure.photos.attach(params[:photos])
+        if procedure_params[:photos] != nil
+          @procedure.photos.attach(procedure_params[:photos])
           @procedure.save
         end
 
-        if params[:videos] != nil
-          @procedure.videos.attach(params[:videos])
+        if procedure_params[:videos] != nil
+          @procedure.videos.attach(procedure_params[:videos])
           @procedure.save
         end
 
-        if params[:documents] != nil
-          @procedure.documents.attach(params[:documents])
+        if procedure_params[:documents] != nil
+          @procedure.documents.attach(procedure_params[:documents])
           @procedure.save
         end
 

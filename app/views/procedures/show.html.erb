@@ -1,8 +1,6 @@
 <div id="content_box" >
-
   <h1 style="text-align:center;">Procedimiento <%= @procedure.id %></h1>
   <br>
-
   <p style="text-align:center;">
     <strong>Estado:</strong>
     <% if @procedure.open? %>
@@ -13,26 +11,21 @@
       Borrador
     <% end %>
   </p>
-
   <p style="text-align:center;">
     <strong>Fecha de creación:</strong>
     <%= @procedure.created_at_str %>
   </p>
-
   <p style="text-align:center;">
     <strong>Fecha de procedimiento:</strong>
     <%= @procedure.date_str %>
   </p>
-
   <p style="text-align:center;">
     <strong>Dirección:</strong>
     <%= @procedure.address %>, <%= @procedure.sector %>, <%= @procedure.region %>
   </p>
-
   <div class="card">
     <h5 class="card-header">Datos del procedimiento</h5>
     <div class="card-body">
-
       <div class="row">
         <div class="col-4">
           <div class="list-group" id="list-tab" role="tablist">
@@ -79,14 +72,12 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
   <br>
   <div class="card">
     <h5 class="card-header">Datos delictuales</h5>
     <div class="card-body">
-
       <p class="card-text">
         <strong>Clasificación:</strong>
         <% if @procedure.flagrancy? %>
@@ -97,7 +88,6 @@
           Flagrancia y Orden de detención pendiente
         <% end %>
       </p>
-
       <p lass="card-text">
         <div class="card">
           <div class="card-body">
@@ -111,9 +101,7 @@
           <% end %>
         <% end %>
       </p>
-
     </div>
-
   </div>
   <br>
   <p class="card-text">
@@ -121,38 +109,29 @@
       <div class="card-body">
         <h6 class="card-title"><strong>Marcas</strong></h6>
   <p class="card-text">
-
     <% @procedure.tags.each do |tag| %>
       <span class="badge badge-pill badge-primary"><%= tag.name %></span>
     <% end %>
   </p>
-
 </div>
 </div>
-
-
 </div>
 </div>
-  </p>
-
+</p>
 <div class="card">
   <h5 class="card-header">Relato</h5>
   <div class="card-body">
     <p class="card-text"><%= @procedure.story %></p>
-
     <p class="card-text">
       <strong>Involucra fallecidos:</strong>
       <%= @procedure.involves_deceased ? "Si" : "No" %>
     </p>
-
   </div>
-
 </div>
 <br>
 <div class="card">
   <h5 class="card-header">Datos de involucrados</h5>
   <div class="card-body">
-
     <nav>
       <div class="nav nav-tabs" id="nav-tab" role="tablist">
         <a class="nav-item nav-link active" id="nav-accused-tab" data-toggle="tab" href="#nav-accused" role="tab" aria-controls="nav-home" aria-selected="true">Imputados</a>
@@ -173,11 +152,11 @@
                     <%= accused[0].rut %>
                     <br>
                     <% unless accused[0].birthday.nil? %>
-                    <%=  ((Time.zone.now - accused[0].birthday.to_time) / 1.year.seconds).floor  %> años
+                      <%=  ((Time.zone.now - accused[0].birthday.to_time) / 1.year.seconds).floor  %> años
                     <% end %>
                     <br>
                     <% unless accused[0].alias_accuseds.first.nil? %>
-                    Alias: "<%=  accused[0].alias_accuseds.first.alias  %>"
+                      Alias: "<%=  accused[0].alias_accuseds.first.alias  %>"
                     <%  end %>
                     <p class="card-text"><small class="text-muted">
                       <% if accused[1] == "pending" %>
@@ -191,38 +170,36 @@
                     </p>
                   </h6>
                   <% if @procedure.open? %>
-                  <%= link_to "Pronunciarse", "#pronounceModal-" + accused[0].id.to_s , :class => ["btn", "btn-outline-primary"], "data-toggle" => "modal" %>
-
-                  <!-- Modal -->
-                  <div class="modal fade" id="pronounceModal-<%= accused[0].id.to_s %>" tabindex="-1" role="dialog" aria-labelledby="pronounceModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="pronounceModalLongTitle">Pronunciarse sobre <%= accused[0].name %></h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
+                    <%= link_to "Pronunciarse", "#pronounceModal-" + accused[0].id.to_s , :class => ["btn", "btn-outline-primary"], "data-toggle" => "modal" %>
+                    <!-- Modal -->
+                    <div class="modal fade" id="pronounceModal-<%= accused[0].id.to_s %>" tabindex="-1" role="dialog" aria-labelledby="pronounceModalCenterTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="pronounceModalLongTitle">Pronunciarse sobre <%= accused[0].name %></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <%= form_with(url: person_in_procedures_path, method: "put") do |form| %>
+                            <div class="modal-body">
+                              <%= form.select :state, options_for_select([['Pendiente', "pending"], ['Apercibido', "noticed"], ['Audiencia control de detención', "acd"]]),{},{class: "form-control"} %>
+                              <%= form.hidden_field :id, value: accused[2] %>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                              <%= form.submit "Enviar", class: ["btn", "btn-primary"] %>
+                            </div>
+                          <% end %>
                         </div>
-                        <%= form_with(url: person_in_procedures_path, method: "put") do |form| %>
-                          <div class="modal-body">
-                            <%= form.select :state, options_for_select([['Pendiente', "pending"], ['Apercibido', "noticed"], ['Audiencia control de detención', "acd"]]),{},{class: "form-control"} %>
-                            <%= form.hidden_field :id, value: accused[2] %>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                            <%= form.submit "Enviar", class: ["btn", "btn-primary"] %>
-                          </div>
-                        <% end %>
                       </div>
                     </div>
-                  </div>
-                <%end %>
+                  <%end %>
                 </div>
               </div>
             </div>
           <% end %>
         </div>
-
         <% if @accuseds.empty? %>
           <div class="alert alert-info" role="alert">
             No hay imputados en este procedimiento.
@@ -237,14 +214,15 @@
               <div class="card">
                 <div class="card-body">
                   <h5 class="card-title"><%= victim[0].name %></h5>
-                  <h6 class="card-subtitle mb-2 text-muted"><%= victim[0].rut %> <br>
+                  <h6 class="card-subtitle mb-2 text-muted">
+                    <%= victim[0].rut %> <br>
                     <% if !victim[0].birthday.nil? %>
                       <%= ((Time.zone.now - victim[0].birthday.to_time) / 1.year.seconds).floor %> años
                     <%end %>
-                  <p class="card-text"><small class="text-muted">
-                    <%= victim[0].deceased ? "Fallecido" : "" %></small>
-                    <%= victim[1] %>
-                  </p>
+                    <p class="card-text"><small class="text-muted">
+                      <%= victim[0].deceased ? "Fallecido" : "" %></small>
+                      <%= victim[1] %>
+                    </p>
                 </div>
               </div>
             </div>
@@ -264,15 +242,16 @@
               <div class="card">
                 <div class="card-body">
                   <h5 class="card-title"><%= witness[0].name %> </h5>
-                  <h6 class="card-subtitle mb-2 text-muted"><%= witness[0].rut %>
+                  <h6 class="card-subtitle mb-2 text-muted">
+                    <%= witness[0].rut %>
                     <br>
                     <% unless witness[0].birthday.nil? %>
-                    <%=  ((Time.zone.now - witness[0].birthday.to_time) / 1.year.seconds).floor  %> años
+                      <%=  ((Time.zone.now - witness[0].birthday.to_time) / 1.year.seconds).floor  %> años
                     <% end %>
-                  <p class="card-text">
-                    <br>
-                    <%= witness[1] %>
-                  </p>
+                    <p class="card-text">
+                      <br>
+                      <%= witness[1] %>
+                    </p>
                 </div>
               </div>
             </div>
@@ -288,13 +267,81 @@
   </div>
 </div>
 <br>
+<div class="card">
+  <h5 class="card-header">Archivos</h5>
+  <div class="card-body">
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-images-tab" data-toggle="tab" href="#nav-images" role="tab" aria-controls="nav-images" aria-selected="true">Imágenes</a>
+        <a class="nav-item nav-link" id="nav-videos-tab" data-toggle="tab" href="#nav-videos" role="tab" aria-controls="nav-videos" aria-selected="false">Videos</a>
+        <a class="nav-item nav-link" id="nav-documents-tab" data-toggle="tab" href="#nav-documents" role="tab" aria-controls="nav-documents" aria-selected="false">Documentos</a>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-images" role="tabpanel" aria-labelledby="nav-home-tab">
+        <br>
+        <div class="row row-cols-1 row-cols-md-3">
+          <% @procedure.photos.each do |image| %>
+            <%= image_tag(image, style:"width:100%") %>
+          <% end %>
+        </div>
+        <% unless @procedure.photos.attached? %>
+          <div class="alert alert-info" role="alert">
+            No hay imágenes en este procedimiento.
+          </div>
+        <% end %>
+      </div>
+      <div class="tab-pane fade" id="nav-videos" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <br>
+          <% if @procedure.videos.attached? %>
+          <div class="row row-cols-1 row-cols-md-3">
+            <% @procedure.videos.each do |video|  %>
+              <div class="col-4">
+                <video width="320" height="240" controls>
+                  <source src=<%= rails_blob_path(video) %> type="video/mp4" />
+                </video>
+              </div>
+            <% end %>
+          </div>
 
+      <% else %>
+            <div class="alert alert-info" role="alert">
+              No hay videos en este procedimiento.
+            </div>
+          <% end %>
+        </div>
+      <div class="tab-pane fade" id="nav-documents" role="tabpanel" aria-labelledby="nav-contact-tab">
+        <br>
+          <% if @procedure.documents.attached? %>
+          <div class="row row-cols-1 row-cols-md-3">
+            <table class="table">
+              <thead>
+              <tr>
+                <th>File</th>
+              </tr>
+              </thead>
+              <tbody>
+              <% @procedure.documents.each do |doc|  %>
+                <tr>
+                  <td><%= link_to "Document", rails_blob_path(doc), target: :_blank %></td>
+                </tr>
+              <%end %>
+              </tbody>
+            </table>
+          </div>
+          <% else %>
+            <div class="alert alert-info" role="alert">
+              No hay documentos en este procedimiento.
+            </div>
+          <% end %>
+          </div>
+    </div>
+  </div>
+</div>
 <br>
 <div align="right">
   <%= link_to 'Atrás', procedures_path, class: ["btn", "btn-outline-primary"] %>
-
   <% if @procedure.open? %>
-
     <% disableButton = false %>
     <% @accuseds.each do |element| %>
       <% if element[1] == "pending" %>
@@ -302,14 +349,11 @@
         <% break %>
       <%end %>
     <% end %>
-
     <%= link_to "Cerrar procedimiento", "#closeProcedureModal", :class => ["btn", "btn-outline-danger" + (disableButton ? " disabled" : "")], "data-toggle" => "modal"%>
   <% end %>
-
   <%= link_to 'Mensajes del procedimiento', procedure_messages_path(@procedure.id), class: ["btn", "btn-outline-warning"] %>
   <%= link_to 'Editar', edit_procedure_path, class: ["btn", "btn-outline-warning"] %>
 </div>
-
 <!-- Modal -->
 <div class="modal fade" id="closeProcedureModal" tabindex="-1" role="dialog" aria-labelledby="closeProcedureModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
