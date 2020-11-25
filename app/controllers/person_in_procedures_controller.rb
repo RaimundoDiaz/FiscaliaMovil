@@ -28,7 +28,7 @@ class PersonInProceduresController < ApplicationController
 
     respond_to do |format|
       if @person_in_procedure.save
-        format.html { redirect_to @person_in_procedure, notice: 'Person in procedure was successfully created.' }
+        format.html { redirect_to @person_in_procedure, notice: 'Se ha creado un imputado con éxito.' }
         format.json { render :show, status: :created, location: @person_in_procedure }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class PersonInProceduresController < ApplicationController
   def update
     respond_to do |format|
       if @person_in_procedure.update(state: params[:state])
-        format.html { redirect_to request.referrer, notice: 'Person in procedure was successfully updated.' }
+        format.html { redirect_to request.referrer, notice: 'Se ha pronunciado sobre un imputado con éxito.' }
         format.json { render :show, status: :ok, location: @person_in_procedure }
       else
         format.html { render request.referrer }
@@ -56,7 +56,7 @@ class PersonInProceduresController < ApplicationController
   def destroy
     @person_in_procedure.destroy
     respond_to do |format|
-      format.html { redirect_to person_in_procedures_url, notice: 'Person in procedure was successfully destroyed.' }
+      format.html { redirect_to person_in_procedures_url, notice: 'Se ha eliminado un imputado con éxito.' }
       format.json { head :no_content }
     end
   end

@@ -16,12 +16,15 @@ class Procedure < ApplicationRecord
 
   validate :past_date
   validate :empty_address
-  validates :videos, blob: { content_type: :video, max_size: 1.gigabytes}
-  validates :photos, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg', 'image/bmp'], max_size: 10.megabytes }
-  validates :documents, blob: { content_type: ['application/pdf', 'application/doc', 'application/docx', 'application/ppt',
-                                               'application/pptx', 'application/ps', 'application/rtf', 'application/txt',
-                                               'application/xls', 'application/xlsx'], max_size: 10.megabytes }
 
+  validates :photos, file_size: { less_than_or_equal_to: 500.kilobytes },
+            file_content_type: { allow: ['image/jpeg', 'image/png', 'image/jpg', 'image/bmp'] }
+
+  validates :videos, file_size: { less_than_or_equal_to: 1.gigabytes },
+            file_content_type: { allow: ['video/mp4']}
+
+  validates :documents,file_size: { less_than_or_equal_to: 5.megabytes},
+            file_content_type: { allow: [ 'application/pdf', 'text/plain'] }
 
   enum state: {open: 0, close: 1, draft: 2}
   enum classification: {flagrancy: 0, pending_arrest_warrant: 1, both: 2}

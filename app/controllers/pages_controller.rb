@@ -15,6 +15,8 @@ class PagesController < ApplicationController
       for i in x
         @palabras_clave.push(i)
       end
+    else
+      @palabras_clave = [-1]
     end
     @query = []
     if params[:query] != nil and params[:query] != ""
@@ -32,6 +34,8 @@ class PagesController < ApplicationController
           redirect_to procedure_path(params[:query].to_s)
         end
       end
+    else
+      @query = [-1]
     end
     @desde = []
     if params[:desde] != nil and params[:desde] != "" and params[:hasta] != nil and params[:hasta] != ""
@@ -70,6 +74,8 @@ class PagesController < ApplicationController
       for i in x
         @desde.push(i)
       end
+    else
+      @desde = [-1]
     end
 
     @clasificacion = []
@@ -110,6 +116,8 @@ class PagesController < ApplicationController
           @clasificacion.push(i)
         end
       end
+    else
+      @clasificacion = [-1]
     end
 
     @involucra_fallecidos = []
@@ -139,6 +147,8 @@ class PagesController < ApplicationController
           @involucra_fallecidos.push(i)
         end
       end
+    else
+      @involucra_fallecidos = [-1]
     end
 
     @delito = []
@@ -156,6 +166,8 @@ class PagesController < ApplicationController
       for i in x
         @delito.push(i)
       end
+    else
+      @delito = [-1]
     end
 
     @marcas = []
@@ -163,6 +175,7 @@ class PagesController < ApplicationController
       for tag_name in params[:tag_ids][1..params[:tag_ids].size]
         @marcas.push(Procedure.find(Tagging.where("tag_id = ?",Tag.where("name = ?", tag_name).pluck(:id)).pluck(:procedure_id)).pluck(:id))
       end
+      print("TEEEEEEEEEEEEEEEEEEEEEESTTTTTTTTTTTTTTTT",@marcas)
       x = []
       for i in @marcas
         for w in i
@@ -177,43 +190,38 @@ class PagesController < ApplicationController
         yy = Procedure.all.pluck(:id)
       end
       @marcas = x & yy
-
+    else
+      @marcas = [-1]
     end
-
-    for i in [@query, @palabras_clave, @desde, @clasificacion, @involucra_fallecidos, @delito, @marcas]
-      if i != []
-        if @palabras_clave == []
-          @palabras_clave = i
+    puts(@palabras_clave)
+    puts(@desde)
+    puts(@clasificacion)
+    puts(@involucra_fallecidos)
+    puts(@delito)
+    puts(@query)
+    puts(@marcas)
+    @fin = [-2]
+    [@query, @palabras_clave, @desde, @clasificacion, @involucra_fallecidos, @delito, @marcas].each do |list|
+      if list != [-1]
+        if @fin == [-2]
+          @fin = list
         end
-        if @desde == []
-          @desde = i
-        end
-        if @clasificacion == []
-          @clasificacion = i
-        end
-        if @involucra_fallecidos == []
-          @involucra_fallecidos = i
-        end
-        if @delito == []
-          @delito = i
-        end
-        if @query == []
-          @query = i
-        end
-        if @marcas == []
-          @marcas = i
-        end
-        break
+        @fin = @fin & list
       end
     end
-    @fin = @palabras_clave & @desde & @clasificacion & @involucra_fallecidos & @delito & @query & @marcas
-    if @fin != []
-      @vieneDeHeader = false
-      @procedimientos_buscados = Procedure.find(@fin)
-      @procedimientos_buscados = @procedimientos_buscados.sort_by &:created_at
-    else
-      if params.key?("palabras_clave") or params.key?("query")
+
+    if @fin != [-2]
+      if params.key?("query")
         @vieneDeHeader = true
+      else
+        if @fin == []
+          @vieneDeHeader = true
+        else
+          @vieneDeHeader = false
+        end
+
+        @procedimientos_buscados = Procedure.find(@fin)
+        @procedimientos_buscados = @procedimientos_buscados.sort_by &:created_at
       end
     end
   end

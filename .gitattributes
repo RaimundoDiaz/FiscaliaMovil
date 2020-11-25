@@ -1,0 +1,16 @@
+jquery.js -linguist-vendored
+# Node dependencies
+- (^|/)node_modules/
+# jQuery
+- (^|/)jquery([^.]*)\.js$
+- (^|/)jquery\-\d\.\d+(\.\d+)?\.js$
+
+# jQuery UI
+- (^|/)jquery\-ui(\-\d\.\d+(\.\d+)?)?(\.\w+)?\.(js|css)$
+- (^|/)jquery\.(ui|effects)\.([^.]*)\.(js|css)$
+
+# jQuery Gantt
+- (^|/)jquery\.fn\.gantt\.js
+
+# jQuery fancyBox
+- (^|/)jquery\.fancybox\.(js|css)
