@@ -17,13 +17,13 @@ class Procedure < ApplicationRecord
   validate :past_date
   validate :empty_address
 
-  validates :photos, file_size: { less_than_or_equal_to: 500.kilobytes },
+  validates :photos, file_size: { less_than_or_equal_to: 50.megabytes },
             file_content_type: { allow: ['image/jpeg', 'image/png', 'image/jpg', 'image/bmp'] }
 
   validates :videos, file_size: { less_than_or_equal_to: 1.gigabytes },
             file_content_type: { allow: ['video/mp4']}
 
-  validates :documents,file_size: { less_than_or_equal_to: 5.megabytes},
+  validates :documents,file_size: { less_than_or_equal_to: 50.megabytes},
             file_content_type: { allow: [ 'application/pdf', 'text/plain'] }
 
   enum state: {open: 0, close: 1, draft: 2}

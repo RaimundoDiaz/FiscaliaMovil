@@ -41,6 +41,7 @@ class PagesController < ApplicationController
     if params[:desde] != nil and params[:desde] != "" and params[:hasta] != nil and params[:hasta] != ""
       print("DESDE Y HASTA")
       if current_user.prosecutor.present?
+        print("Dentro de presecutor desde")
         x = Procedure.where("DATE(created_at) > ? AND DATE(created_at) < ? and local_prosecution_in_charge_id=?", params[:desde], params[:hasta], current_user.prosecutor.local_prosecution_id).pluck(:id)
       elsif current_user.police_unit.present?
         x = Procedure.where("DATE(created_at) > ? AND DATE(created_at) < ? and police_unit_in_charge_id=?", params[:desde], params[:hasta], current_user.police_unit_id).pluck(:id)
@@ -171,11 +172,10 @@ class PagesController < ApplicationController
     end
 
     @marcas = []
-    if params[:tag_ids] != nil and params[:tag_ids] != ""
+    if params[:tag_ids] != nil and params[:tag_ids] != [""]
       for tag_name in params[:tag_ids][1..params[:tag_ids].size]
         @marcas.push(Procedure.find(Tagging.where("tag_id = ?",Tag.where("name = ?", tag_name).pluck(:id)).pluck(:procedure_id)).pluck(:id))
       end
-      print("TEEEEEEEEEEEEEEEEEEEEEESTTTTTTTTTTTTTTTT",@marcas)
       x = []
       for i in @marcas
         for w in i
@@ -193,13 +193,6 @@ class PagesController < ApplicationController
     else
       @marcas = [-1]
     end
-    puts(@palabras_clave)
-    puts(@desde)
-    puts(@clasificacion)
-    puts(@involucra_fallecidos)
-    puts(@delito)
-    puts(@query)
-    puts(@marcas)
     @fin = [-2]
     [@query, @palabras_clave, @desde, @clasificacion, @involucra_fallecidos, @delito, @marcas].each do |list|
       if list != [-1]
