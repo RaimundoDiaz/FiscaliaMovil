@@ -1,14 +1,4 @@
 <%= form_with(model: [:admin, @user], local: true) do |form| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibieron a este usuario de ser guardado:</h2>
-      <ul>
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
   <h1>Crear Administrador</h1>
   <div class="actions">
     <div class="row">

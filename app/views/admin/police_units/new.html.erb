@@ -1,16 +1,6 @@
 
 <%= form_with(model: [:admin, @police_unit], local: true) do |form| %>
-  <% if @police_unit.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@police_unit.errors.count, "error") %> prohibited this crime from being saved:</h2>
 
-      <ul>
-        <% @police_unit.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
   <h1>Crear Unidad Policial</h1>
   <div class="actions">
     <div class="row">

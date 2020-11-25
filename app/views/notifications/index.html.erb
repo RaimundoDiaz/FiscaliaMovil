@@ -4,7 +4,7 @@
       <div id="homeNotificationDiv">
         <div class="procedimiento_badge" , style="font-size: x-large">
           <% if notification.new_procedure? %>
-            <%= link_to "Procedimiento N° " + String(notification.reference_id) + " paso a abierto", see_notification_path(notification), method: :put %>
+            <%= link_to "Procedimiento N° " + String(notification.reference_id) + " pasó a abierto", see_notification_path(notification), method: :put %>
           <% elsif notification.procedure_closed? %>
             <%= link_to "Procedimiento N° " + String(notification.reference_id) + " se ha cerrado", see_notification_path(notification), method: :put %>
           <% elsif notification.procedure_requiring_info? %>

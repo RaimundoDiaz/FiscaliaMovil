@@ -1,15 +1,5 @@
 <%= form_with(model: [:admin, @police_station], local: true) do |form| %>
-  <% if @police_station.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@police_station.errors.count, "error") %> prohibited this police station from being saved:</h2>
 
-      <ul>
-        <% @police_station.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
   <h1>Editar Comisaría</h1>
   <div class="actions">
     <div class="row">
