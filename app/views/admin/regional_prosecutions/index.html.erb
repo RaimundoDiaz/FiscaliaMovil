@@ -29,7 +29,7 @@
       <% @regional_prosecutions.each do |regional_prosecution| %>
         <tr>
           <td><%= regional_prosecution.name %></td>
-          <td><%= link_to 'Editar', edit_admin_regional_prosecution_path(regional_prosecution), :class => "float-left mr-2" %> <%= link_to 'Eliminar', admin_regional_prosecution_path(regional_prosecution), data: { confirm: "¿Estás seguro que quieres borrar esta fiscalía local? se borrarán todos los usuarios, procedimientos y fiscales vinculados a esta" }, method: :delete, :class => "float-right" %></td>
+          <td><%= link_to 'Editar', edit_admin_regional_prosecution_path(regional_prosecution), :class => "float-left mr-2" %> <%= link_to 'Eliminar', admin_regional_prosecution_path(regional_prosecution), data: { confirm: "¿Estás seguro que quieres borrar esta fiscalía regional? se borrarán todos los usuarios, procedimientos y fiscales vinculados a esta" }, method: :delete, :class => "float-right" %></td>
         </tr>
 
       <% end %>
