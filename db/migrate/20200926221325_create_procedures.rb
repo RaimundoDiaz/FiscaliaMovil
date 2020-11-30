@@ -7,7 +7,7 @@ class CreateProcedures < ActiveRecord::Migration[6.0]
       t.references :prosecutor_in_charge, null: false, foreign_key: { to_table: :prosecutors }
       t.references :local_prosecution_in_charge, null: false, foreign_key: { to_table: :local_prosecutions }
       t.references :creator, null: false, foreign_key: { to_table: :users }
-      t.string :story
+      t.string :story, null: false
       t.string :address
       t.string :sector
       t.string :region

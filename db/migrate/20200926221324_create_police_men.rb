@@ -4,6 +4,7 @@ class CreatePoliceMen < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :rut
       t.integer :badge
+      t.string :phone_number, null: true
       t.boolean :deleted, default: false
 
       t.timestamps
