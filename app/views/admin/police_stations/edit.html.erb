@@ -10,7 +10,7 @@
 
       <div class="form-group col-10">
         <% prefecture = Prefecture.order(:name).map{|prefecture| [prefecture[:name], prefecture[:id]]} %>
-        <%= form.label :prefecture_id, 'Prefactura:', class: "form-label mr-2" %>
+        <%= form.label :prefecture_id, 'Prefectura:', class: "form-label mr-2" %>
         <%= form.select :prefecture_id, options_for_select(prefecture),{},{class: "form-control flex-grow-1"} %>
       </div>
 
