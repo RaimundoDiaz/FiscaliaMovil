@@ -339,7 +339,7 @@ $(document).on('turbolinks:load', function() {
         }
     });
 
-    $("#btn-save").click(function () {
+    function checkInputs(){
         if($("#procedure_date").val()==""){
             $("#procedure_date").addClass("is-invalid");
             $('#form-invalid-date').removeAttr('hidden');
@@ -358,27 +358,20 @@ $(document).on('turbolinks:load', function() {
             $('#form-invalid-address').removeAttr('hidden');
             $('#form-invalid-address').html('Direccion necesaria.');
         }
+        if($("#procedure_story").val() == ""){
+            $("#procedure_story").addClass("is-invalid");
+            $('#form-invalid-story').removeAttr('hidden');
+            $('#form-invalid-story').html('Relato necesario.');
+        }
+    }
+
+
+    $("#btn-save").click(function () {
+        checkInputs()
     });
 
     $("#btn-send").click(function () {
-        if($("#procedure_date").val()==""){
-            $("#procedure_date").addClass("is-invalid");
-            $('#form-invalid-date').removeAttr('hidden');
-            $('#form-invalid-date').html('Fecha necesaria.');
-        }
-        if($("#procedure_time").val()==""){
-            $("#procedure_time").addClass("is-invalid");
-            $('#form-invalid-time').removeAttr('hidden');
-            $('#form-invalid-time').html('Hora necesaria.');
-        }
-        if(!$("#accussed").length){
-            $('#form-invalid-accussed').removeAttr('hidden');
-        }
-        if($("#procedure_address").val()==""){
-            $("#procedure_address").addClass("is-invalid");
-            $('#form-invalid-address').removeAttr('hidden');
-            $('#form-invalid-address').html('Direccion necesaria.');
-        }
+        checkInputs()
     });
 
     var today = new Date();
@@ -410,4 +403,8 @@ $(document).on('turbolinks:load', function() {
         $('#form-invalid-address').attr("hidden",true);
     });
 
+    $("#procedure_story").change(function(){
+        $("#procedure_story").removeClass("is-invalid");
+        $('#form-invalid-story').attr("hidden",true);
+    });
 });
