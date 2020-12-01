@@ -43,6 +43,17 @@ $(document).on('turbolinks:load', function() {
                 .attr("name", "procedure[deletedWitnesses][][id]").val(witnessID);
             $('#witnesses').append(input);
         });
+
+        $("[id=delete_photo_edit]").click(function(){
+            let division = $(this).closest("#single-photo-edit");
+            let photoID = division.find("#photoID").html();
+            division.remove();
+
+            let input = $("<input>")
+                .attr("type", "hidden")
+                .attr("name", "procedure[deleted_photos][]").val(photoID);
+            $('#photos').append(input);
+        });
     }
 
 });
