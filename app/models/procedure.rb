@@ -10,18 +10,13 @@ class Procedure < ApplicationRecord
   has_many :crimes, :through => :crime_in_accuseds
   has_many :messages
   belongs_to :creator, class_name: 'User'
+  has_many :photo_in_procedures
   has_many_attached :videos
-  has_many_attached :photos
   has_many_attached :documents
   validates :story, presence: true
 
-  validate
-
   validate :past_date
   validate :empty_address
-
-  validates :photos, file_size: { less_than_or_equal_to: 50.megabytes },
-            file_content_type: { allow: ['image/jpeg', 'image/png', 'image/jpg', 'image/bmp'] }
 
   validates :videos, file_size: { less_than_or_equal_to: 1.gigabytes },
             file_content_type: { allow: ['video/mp4']}

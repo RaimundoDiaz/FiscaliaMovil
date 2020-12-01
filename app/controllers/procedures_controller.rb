@@ -131,8 +131,10 @@ class ProceduresController < ApplicationController
       if @procedure.save!
 
         if procedure_params[:photos] != nil
-          @procedure.photos.attach(procedure_params[:photos])
-          @procedure.save!
+          procedure_params[:photos].each_with_index do |i,photo|
+            @photo = Photo.new(description: "")
+            @photo.photo.attach(photo)
+          end
         end
 
         if procedure_params[:videos] != nil
