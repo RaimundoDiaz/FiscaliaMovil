@@ -21,12 +21,13 @@ class Admin::OperatorsController < ApplicationController
   # GET /operators/new
   def new
     @operator = Operator.new
-    @prosecutors = Prosecutor.not_deleted.where(local_prosecution: @operator.prosecutor.local_prosecution)
+    @prosecutors = Prosecutor.not_deleted.where(local_prosecution: current_user.local_prosecution).order(:name)
+    #print (@prosecutors[2].name)
   end
 
   # GET /operators/1/edit
   def edit
-    @prosecutors = Prosecutor.not_deleted.where(local_prosecution: @operator.prosecutor.local_prosecution)
+    @prosecutors = Prosecutor.not_deleted.where(local_prosecution: @operator.prosecutor.local_prosecution).order(:name)
   end
 
   # POST /operators
@@ -60,7 +61,6 @@ class Admin::OperatorsController < ApplicationController
   def destroy
     #@operator.destroy
     @operator.soft_delete
-    @operator.user.soft_delete
     respond_to do |format|
       format.html { redirect_to admin_operators_url, notice: 'Operador ha sido eliminado con éxito.' }
     end

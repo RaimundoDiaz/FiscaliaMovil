@@ -16,9 +16,9 @@
       <% if current_user.local_prosecution.nil? and current_user.police_unit.nil? %>
         <div class="form-group col-10">
           <%= form.label :fiscal %>
-          <%= form.collection_select(:prosecutor_id, Prosecutor.not_deleted, :id, :name, {}, { class: "form-control" }) %>
+          <%= form.collection_select(:prosecutor_id, Prosecutor.not_deleted.order(:name), :id, :name, {}, { class: "form-control" }) %>
         </div>
-      <% elsif current_user.local_prosecution.nil? %>
+      <% elsif current_user.local_prosecution.present? %>
         <%= form.label :fiscal %>
         <%= form.collection_select(:prosecutor_id, @prosecutors, :id, :name, {}, { class: "form-control" }) %>
       <% end %>
