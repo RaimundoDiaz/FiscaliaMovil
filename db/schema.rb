@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_19_214528) do
+ActiveRecord::Schema.define(version: 2020_12_01_003729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,16 @@ ActiveRecord::Schema.define(version: 2020_11_19_214528) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
+  create_table "operators", force: :cascade do |t|
+    t.string "name"
+    t.string "rut"
+    t.bigint "prosecutor_id", null: false
+    t.boolean "deleted", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["prosecutor_id"], name: "index_operators_on_prosecutor_id"
   end
 
   create_table "people", force: :cascade do |t|
@@ -235,6 +245,7 @@ ActiveRecord::Schema.define(version: 2020_11_19_214528) do
   add_foreign_key "crime_in_accuseds", "procedures"
   add_foreign_key "local_prosecutions", "regional_prosecutions"
   add_foreign_key "notifications", "users"
+  add_foreign_key "operators", "prosecutors"
   add_foreign_key "person_in_procedures", "people"
   add_foreign_key "person_in_procedures", "procedures"
   add_foreign_key "police_stations", "prefectures"

@@ -35,6 +35,9 @@ class Ability
     elsif user.admin == true and user.local_prosecution.present?
       can :read, Procedure
       can :manage, Prosecutor, local_prosecution: user.local_prosecution
+      can :manage, Operator do |ope|
+        ope.prosecutor.local_prosecution == user.local_prosecution
+      end
       can :manage, User
       can :manage, LocalProsecution, id: user.local_prosecution.id
 
