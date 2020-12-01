@@ -15,6 +15,10 @@ require("./jquery.rut")
 require("./chosen.jquery.min")
 import "bootstrap"
 
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import 'sweetalert2/src/sweetalert2.scss'
+window.Swal = Swal;
+
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

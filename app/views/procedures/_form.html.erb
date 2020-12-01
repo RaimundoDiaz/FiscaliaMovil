@@ -204,18 +204,42 @@
     </div>
   </div>
   <div class="card mb-3">
-    <h5 class="card-header">Archivos</h5>
-    <div id="attachments" class="card-body">
-      <div class="form-group">
-        <%= form.label :photos, 'Fotos:' , class: "mr-2 form-label"%>
-        <%= form.file_field :photos,multiple: true, class: "form-control-file" %>
+    <h5 class="card-header d-flex justify-content-between align-items-center">Fotos <button type="button" id="add_photo_btn" class="btn btn-warning text-light"> + Agregar Foto </button></h5>
+    <div id="photos" class="card-body">
+      <div id="single-photo" class="card p-3 m-1">
+        <h5 class="card-title"> Foto <button id="delete_photo" type="button" class="close" aria-label="Close ml-2 mb-2"><span aria-hidden="true">&times;</span></button></h5>
+        <%= form.file_field "",multiple: false, class: "form-control-file mb-3", name: "procedure[photos][]" %>
+        <div class="form-inline">
+          <%= form.label "", 'Descripcion:' , class: "mr-2 form-label"%>
+          <%= form.text_field "", class: "form-control flex-grow-1", name:"procedure[photo_descriptions][]" %>
+        </div>
       </div>
+      <% @photos.each do |photo| %>
+        <div id="single-photo-edit" class="card m-1">
+          <h5 class="card-header"><button id="delete_photo_edit" type="button" class="close" aria-label="Close ml-2 mb-2"><span aria-hidden="true">&times;</span></button></h5>
+          <%= image_tag(photo.photo, style:"width:100%", class: "card-img-top") %>
+          <div class="card-body">
+            <p class="card-text"><b>Descripcion: </b><%= photo.description %></p>
+          </div>
+          <p id="photoID" hidden><%= photo.id%></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <h5 class="card-header">Videos</h5>
+    <div id="videos" class="card-body">
       <div class="form-group">
-        <%= form.label :photos, 'Videos:' , class: "mr-2 form-label"%>
         <%= form.file_field :videos, multiple: true, class: "form-control-file" %>
       </div>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <h5 class="card-header">Documentos</h5>
+    <div id="videos" class="card-body">
       <div class="form-group">
-        <%= form.label :documents, 'Documentos:' , class: "mr-2 form-label"%>
         <%= form.file_field :documents, multiple: true, class: "form-control-file" %>
       </div>
     </div>

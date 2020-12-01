@@ -163,25 +163,42 @@
           <h5 class="card-header">Relato</h5>
           <div id="story" class="card-body">
             <%= form.text_area :story,  class: "form-control flex-grow-1"  %>
+            <div id="form-invalid-story" class="invalid-feedback" hidden></div>
           </div>
         </div>
+
         <div class="card mb-3">
-          <h5 class="card-header">Archivos</h5>
-          <div id="attachments" class="card-body">
-            <div class="form-group">
-              <%= form.label :photos, 'Fotos:' , class: "mr-2 form-label"%>
-              <%= form.file_field :photos,multiple: true, class: "form-control-file" %>
+          <h5 class="card-header d-flex justify-content-between align-items-center">Fotos <button type="button" id="add_photo_btn" class="btn btn-warning text-light"> + Agregar Foto </button></h5>
+          <div id="photos" class="card-body">
+            <div id="single-photo" class="card p-3 m-1">
+              <h5 class="card-title"> Foto <button id="delete_photo" type="button" class="close" aria-label="Close ml-2 mb-2"><span aria-hidden="true">&times;</span></button></h5>
+              <%= form.file_field "",multiple: false, class: "form-control-file mb-3", name: "procedure[photos][]" %>
+              <div class="form-inline">
+                <%= form.label "", 'Descripcion:' , class: "mr-2 form-label"%>
+                <%= form.text_field "", class: "form-control flex-grow-1", name:"procedure[photo_descriptions][]" %>
+              </div>
             </div>
+          </div>
+        </div>
+
+        <div class="card mb-3">
+          <h5 class="card-header">Videos</h5>
+          <div id="videos" class="card-body">
             <div class="form-group">
-              <%= form.label :videos, 'Videos:' , class: "mr-2 form-label"%>
               <%= form.file_field :videos, multiple: true, class: "form-control-file" %>
             </div>
-             <div class="form-group">
-              <%= form.label :documents, 'Documentos:' , class: "mr-2 form-label"%>
-               <%= form.file_field :documents, multiple: true, class: "form-control-file" %>
+          </div>
+        </div>
+
+        <div class="card mb-3">
+          <h5 class="card-header">Documentos</h5>
+          <div id="videos" class="card-body">
+            <div class="form-group">
+              <%= form.file_field :documents, multiple: true, class: "form-control-file" %>
             </div>
           </div>
         </div>
+
         <div>
           <%= form.button "Enviar",type:'submit', class: "btn btn-primary", id:"btn-send",name:'state',value:0%>
           <%= form.button "Guardar borrador", type:'submit', class: "btn btn-info", id:"btn-save", name:'state',value:2%>

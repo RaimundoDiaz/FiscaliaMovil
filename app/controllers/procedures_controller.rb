@@ -58,6 +58,7 @@ class ProceduresController < ApplicationController
     @victims = @procedure.person_in_procedures.where(role: 2)
     @witnesses = @procedure.person_in_procedures.where(role: 1)
     @classification_dic = {"Flagrancy" => "Flagrancia", "Pending arrest warrant" => "ODP", "Both" => "Ambas"}
+    @photos = @procedure.photos
     get_regiones
     @regiones.each do |region|
       if region[:nombre].to_s == @procedure.region
@@ -131,8 +132,11 @@ class ProceduresController < ApplicationController
       if @procedure.save!
 
         if procedure_params[:photos] != nil
-          @procedure.photos.attach(procedure_params[:photos])
-          @procedure.save!
+          procedure_params[:photos].each_with_index do |photo,i|
+            @photo = Photo.new(description: procedure_params[:photo_descriptions][i], procedure: @procedure)
+            @photo.photo.attach(photo)
+            @photo.save!
+          end
         end
 
         if procedure_params[:videos] != nil
@@ -268,27 +272,6 @@ class ProceduresController < ApplicationController
         end
       end
 
-      if procedure_params[:deletedAccusseds] != nil
-        procedure_params[:deletedAccusseds].each do |accussed|
-          personInProcedure = PersonInProcedure.find(accussed[:id])
-          personInProcedure.destroy!
-        end
-      end
-
-      if procedure_params[:deletedVictims] != nil
-        procedure_params[:deletedVictims].each do |victim|
-          personInProcedure = PersonInProcedure.find(victim[:id])
-          personInProcedure.destroy!
-        end
-      end
-
-      if procedure_params[:deletedWitnesses] != nil
-        procedure_params[:deletedWitnesses].each do |witness|
-          personInProcedure = PersonInProcedure.find(witness[:id])
-          personInProcedure.destroy!
-        end
-      end
-
       #destruimos todos los crimenes, para asi crearlos denuevo y no tener problemas
       @procedure.crime_in_accuseds.destroy_all
 
@@ -312,9 +295,41 @@ class ProceduresController < ApplicationController
                               involves_deceased: procedure_params[:involves_deceased])
 
 
+          if procedure_params[:deletedAccusseds] != nil
+            procedure_params[:deletedAccusseds].each do |accussed|
+              personInProcedure = PersonInProcedure.find(accussed[:id])
+              personInProcedure.destroy!
+            end
+          end
+
+          if procedure_params[:deletedVictims] != nil
+            procedure_params[:deletedVictims].each do |victim|
+              personInProcedure = PersonInProcedure.find(victim[:id])
+              personInProcedure.destroy!
+            end
+          end
+
+          if procedure_params[:deletedWitnesses] != nil
+            procedure_params[:deletedWitnesses].each do |witness|
+              personInProcedure = PersonInProcedure.find(witness[:id])
+              personInProcedure.destroy!
+            end
+          end
+
+          if procedure_params[:deleted_photos] != nil
+            procedure_params[:deleted_photos].each do |photo|
+              photoInProcedure = Photo.find(photo)
+              photoInProcedure.destroy!
+            end
+          end
+
+
           if procedure_params[:photos] != nil
-            @procedure.photos.attach(procedure_params[:photos])
-            @procedure.save!
+            procedure_params[:photos].each_with_index do |photo,i|
+              @photo = Photo.new(description: procedure_params[:photo_descriptions][i], procedure: @procedure)
+              @photo.photo.attach(photo)
+              @photo.save!
+            end
           end
 
           if procedure_params[:videos] != nil
@@ -502,7 +517,7 @@ class ProceduresController < ApplicationController
 
   def procedure_params
     # Only allow a list of trusted parameters through.
-    params.require(:procedure).permit(:date, :time, :classification, :involves_deceased, :prosecutor_in_charge, :prosecution_in_charge, :police_unit_in_charge, :police_in_charge, :address, :region, :sector, :preponderant_crime, :state, :story, crimes: [], videos: [], photos: [], documents: [],
+    params.require(:procedure).permit(:date, :time, :classification, :involves_deceased, :prosecutor_in_charge, :prosecution_in_charge, :police_unit_in_charge, :police_in_charge, :address, :region, :sector, :preponderant_crime, :state, :story, crimes: [], videos: [], photos: [],photo_descriptions: [],deleted_photos: [], documents: [],
                                       tag_ids: [], :accuseds => [:name, :alias, :rut], :victims => [:name, :rut, :deceased, :contact, :story],
                                       :witness => [:name, :rut, :story, :contact], :deletedAccusseds => [:id], :deletedVictims => [:id], :deletedWitnesses => [:id], :deletedCrimes => [:id])
   end
