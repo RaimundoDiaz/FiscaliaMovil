@@ -339,29 +339,49 @@ $(document).on('turbolinks:load', function() {
         }
     });
 
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'bottom-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+    });
+    
     function checkInputs(){
+        let invalidField = false;
         if($("#procedure_date").val()==""){
+            invalidField = true
             $("#procedure_date").addClass("is-invalid");
             $('#form-invalid-date').removeAttr('hidden');
             $('#form-invalid-date').html('Fecha necesaria.');
         }
         if($("#procedure_time").val()==""){
+            invalidField = true
             $("#procedure_time").addClass("is-invalid");
             $('#form-invalid-time').removeAttr('hidden');
             $('#form-invalid-time').html('Hora necesaria.');
         }
         if(!$("#accussed").length){
+            invalidField=true
             $('#form-invalid-accussed').removeAttr('hidden');
         }
         if($("#procedure_address").val()==""){
+            invalidField=true
             $("#procedure_address").addClass("is-invalid");
             $('#form-invalid-address').removeAttr('hidden');
             $('#form-invalid-address').html('Direccion necesaria.');
         }
         if($("#procedure_story").val() == ""){
+            invalidField=true
             $("#procedure_story").addClass("is-invalid");
             $('#form-invalid-story').removeAttr('hidden');
             $('#form-invalid-story').html('Relato necesario.');
+        }
+        if(invalidField){
+            Toast.fire({
+                icon: 'error',
+                title: 'Debes rellenar los campos solicitados!'
+            })
         }
     }
 
@@ -374,19 +394,31 @@ $(document).on('turbolinks:load', function() {
         checkInputs()
     });
 
-    var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth()+1; //January is 0!
-    var yyyy = today.getFullYear();
-    if(dd<10){
-        dd='0'+dd
-    }
-    if(mm<10){
-        mm='0'+mm
+    function getCurrentDate(){
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+        var yyyy = today.getFullYear();
+        if(dd<10){
+            dd='0'+dd
+        }
+        if(mm<10){
+            mm='0'+mm
+        }
+        today = yyyy+'-'+mm+'-'+dd;
+        return today
     }
 
-    today = yyyy+'-'+mm+'-'+dd;
-    $("#procedure_date").attr("max", today);
+    function getCurrentTime(){
+        let now = new Date()
+        let HH = now.getHours()
+        let MM = now.getMinutes()
+        HH < 10 ? HH = '0'+HH : HH;
+        MM < 10 ? MM = '0'+MM : MM;
+        return HH+':'+MM;
+    }
+
+    $("#procedure_date").attr("max", getCurrentDate());
 
     $("#procedure_date").change(function(){
         $("#procedure_date").removeClass("is-invalid");
@@ -396,6 +428,10 @@ $(document).on('turbolinks:load', function() {
     $("#procedure_time").change(function(){
         $("#procedure_time").removeClass("is-invalid");
         $('#form-invalid-time').attr("hidden",true);
+        if($("#procedure_date").val() == getCurrentDate()){
+            $("#procedure_time").attr("max", getCurrentTime());
+            $('#form-invalid-time').html('Hora necesaria.');
+        }
     });
 
     $("#procedure_address").change(function(){
