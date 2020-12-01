@@ -62,6 +62,6 @@ class Admin::PoliceMenController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def admin_police_man_params
-      params.fetch(:police_man, {}).permit(:name, :rut, :badge)
+      params.fetch(:police_man, {}).permit(:name, :rut, :badge, :phone_number)
     end
 end

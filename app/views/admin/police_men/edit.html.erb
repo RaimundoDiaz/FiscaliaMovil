@@ -17,6 +17,11 @@
         <%= form.label :numero_de_placa %>
         <%= form.text_field :badge, class: "form-control"  %>
       </div>
+
+      <div class="form-group col-10">
+        <%= form.label :numero_de_teléfono %>
+        <%= form.text_field :phone_number, class: "form-control"  %>
+      </div>
     </div>
     <%= form.submit 'Editar Policia', class: ["btn", "btn-primary"]  %>
     <%= link_to "Atras", admin_police_men_path, class: ["btn", "btn-secondary"] %>

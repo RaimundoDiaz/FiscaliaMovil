@@ -13,6 +13,9 @@ class Procedure < ApplicationRecord
   has_many_attached :videos
   has_many_attached :photos
   has_many_attached :documents
+  validates :story, presence: true
+
+  validate
 
   validate :past_date
   validate :empty_address

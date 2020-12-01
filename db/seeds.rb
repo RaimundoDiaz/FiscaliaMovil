@@ -60,7 +60,8 @@ while i < policemen_db_size  do
   name = FFaker::Name.name
   rut = Faker::ChileRut.unique.full_rut
   badge = Faker::Number.unique.number(digits: 7)
-  PoliceMan.create(name: name, rut: rut, badge: badge)
+  phone_number = "+569" + Faker::Number.unique.number(digits: 8).to_s
+  PoliceMan.create(name: name, rut: rut, badge: badge, phone_number: phone_number)
   i +=1
 end
 ######################################

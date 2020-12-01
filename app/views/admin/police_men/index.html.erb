@@ -24,6 +24,7 @@
         <th>Nombre</th>
         <th>RUT</th>
         <th>Número placa</th>
+        <th>Teléfono</th>
         <th style="text-align: center; width: 18%">Acciones</th>
       </tr>
       </thead>
@@ -33,6 +34,11 @@
           <td><%= police.name %></td>
           <td><%= police.rut %></td>
           <td><%= police.badge %></td>
+          <% if police.phone_number.present? %>
+            <td><%= police.phone_number %></td>
+          <% else %>
+            <td> - </td>
+          <% end  %>
           <td><%= link_to 'Editar', edit_admin_police_man_path(police) %> <%= link_to 'Eliminar', admin_police_man_path(police), method: :delete, data: { confirm: "¿Estás seguro que quieres borrar este policía?" }, :class => "float-right" %></td>
         </tr>
 

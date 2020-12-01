@@ -49,7 +49,9 @@
               <div class="card" style="width: 18rem;">
                 <div class="card-body">
                   <h5 class="card-title"><%= @procedure.police_in_charge.name %></h5>
-                  <h6 class="card-subtitle mb-2 text-muted"><%= @procedure.police_in_charge.rut %></h6>
+                  <h6 class="card-subtitle mb-2 text-muted">Rut: <%= @procedure.police_in_charge.rut %></h6>
+                  <h6 class="card-subtitle mb-2 text-muted">Placa: <%= @procedure.police_in_charge.badge %></h6>
+                  <h6 class="card-subtitle mb-2 text-muted">Telefono: <%= @procedure.police_in_charge.phone_number %></h6>
                 </div>
               </div>
             </div>
@@ -65,7 +67,7 @@
               <div class="card" style="width: 18rem;">
                 <div class="card-body">
                   <h5 class="card-title"><%= @procedure.prosecutor_in_charge.name %></h5>
-                  <h6 class="card-subtitle mb-2 text-muted"><%= @procedure.prosecutor_in_charge.rut %></h6>
+                  <h6 class="card-subtitle mb-2 text-muted">Rut: <%= @procedure.prosecutor_in_charge.rut %></h6>
                 </div>
               </div>
             </div>
