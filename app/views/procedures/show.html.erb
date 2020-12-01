@@ -279,12 +279,17 @@
     <div class="tab-content" id="nav-tabContent">
       <div class="tab-pane fade show active" id="nav-images" role="tabpanel" aria-labelledby="nav-home-tab">
         <br>
-        <div class="row row-cols-1 row-cols-md-3">
+        <div class="d-flex flex-wrap">
           <% @procedure.photos.each do |image| %>
-            <%= image_tag(image, style:"width:100%") %>
+            <div class="card m-2" style="width: 20rem;">
+              <%= image_tag(image.photo, style:"width:100%", class: "card-img-top") %>
+              <div class="card-body">
+                <p class="card-text"><b>Descripcion: </b><%= image.description %></p>
+              </div>
+            </div>
           <% end %>
         </div>
-        <% unless @procedure.photos.attached? %>
+        <% if @procedure.photos == [] %>
           <div class="alert alert-info" role="alert">
             No hay imágenes en este procedimiento.
           </div>

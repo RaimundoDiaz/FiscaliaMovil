@@ -443,4 +443,21 @@ $(document).on('turbolinks:load', function() {
         $("#procedure_story").removeClass("is-invalid");
         $('#form-invalid-story').attr("hidden",true);
     });
+
+
+    var singlePhoto = $("#single-photo").clone();
+    $("#delete_photo").remove();
+
+    $('#add_photo_btn').click(function () {
+
+        let photoHTML = singlePhoto.clone()
+
+        let delBtn = photoHTML.find('#delete_photo');
+        $(delBtn).click(function () {
+            let division = $(delBtn).closest('#single-photo')
+            division.remove()
+        });
+        $('#photos').append(photoHTML)
+    });
+
 });

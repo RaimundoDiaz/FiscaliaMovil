@@ -159,7 +159,7 @@
           </div>
         </div>
 
-        <div class="card mb-3">git
+        <div class="card mb-3">
           <h5 class="card-header">Relato</h5>
           <div id="story" class="card-body">
             <%= form.text_area :story,  class: "form-control flex-grow-1"  %>
@@ -167,9 +167,9 @@
           </div>
         </div>
         <div class="card mb-3">
-          <h5 class="card-header d-flex justify-content-between align-items-center">Fotos <button type="button" id="add_photo_btn" class="btn btn-warning text-light"> + Agregar Imputado </button></h5>
+          <h5 class="card-header d-flex justify-content-between align-items-center">Fotos <button type="button" id="add_photo_btn" class="btn btn-warning text-light"> + Agregar Foto </button></h5>
           <div id="photos" class="card-body">
-            <div id="single-photo" class="card p-3">
+            <div id="single-photo" class="card p-3 m-1">
               <h5 class="card-title"> Foto <button id="delete_photo" type="button" class="close" aria-label="Close ml-2 mb-2"><span aria-hidden="true">&times;</span></button></h5>
               <%= form.file_field "",multiple: false, class: "form-control-file mb-3", name: "procedure[photos][]" %>
               <div class="form-inline">

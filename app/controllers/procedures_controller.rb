@@ -130,10 +130,12 @@ class ProceduresController < ApplicationController
     respond_to do |format|
       if @procedure.save!
 
+        puts(procedure_params[:photos],"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
         if procedure_params[:photos] != nil
-          procedure_params[:photos].each_with_index do |i,photo|
-            @photo = Photo.new(description: "")
+          procedure_params[:photos].each_with_index do |photo,i|
+            @photo = Photo.new(description: procedure_params[:photo_descriptions][i], procedure: @procedure)
             @photo.photo.attach(photo)
+            @photo.save!
           end
         end
 
@@ -504,7 +506,7 @@ class ProceduresController < ApplicationController
 
   def procedure_params
     # Only allow a list of trusted parameters through.
-    params.require(:procedure).permit(:date, :time, :classification, :involves_deceased, :prosecutor_in_charge, :prosecution_in_charge, :police_unit_in_charge, :police_in_charge, :address, :region, :sector, :preponderant_crime, :state, :story, crimes: [], videos: [], photos: [], documents: [],
+    params.require(:procedure).permit(:date, :time, :classification, :involves_deceased, :prosecutor_in_charge, :prosecution_in_charge, :police_unit_in_charge, :police_in_charge, :address, :region, :sector, :preponderant_crime, :state, :story, crimes: [], videos: [], photos: [],photo_descriptions: [], documents: [],
                                       tag_ids: [], :accuseds => [:name, :alias, :rut], :victims => [:name, :rut, :deceased, :contact, :story],
                                       :witness => [:name, :rut, :story, :contact], :deletedAccusseds => [:id], :deletedVictims => [:id], :deletedWitnesses => [:id], :deletedCrimes => [:id])
   end

@@ -1,6 +1,5 @@
 class Photo < ApplicationRecord
-  belongs_to :photo_in_procedure
-  has_one :procedure, through: :photo_in_procedure
+  belongs_to :procedure
   has_one_attached :photo
 
   validates :photo, file_size: { less_than_or_equal_to: 50.megabytes },

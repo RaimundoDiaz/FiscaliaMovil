@@ -10,7 +10,7 @@ class Procedure < ApplicationRecord
   has_many :crimes, :through => :crime_in_accuseds
   has_many :messages
   belongs_to :creator, class_name: 'User'
-  has_many :photo_in_procedures
+  has_many :photos, dependent: :destroy
   has_many_attached :videos
   has_many_attached :documents
   validates :story, presence: true
