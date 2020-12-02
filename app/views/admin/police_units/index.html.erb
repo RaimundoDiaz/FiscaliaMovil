@@ -31,7 +31,7 @@
         <tr>
           <td><%= police_unit.name %></td>
           <td><%= police_unit.police_station.name %></td>
-          <td><%= link_to 'Editar', edit_admin_police_unit_path(police_unit) %> <%= link_to 'Eliminar', admin_police_unit_path(police_unit), method: :delete, data: { confirm: "¿Estás seguro que quieres borrar una Unidad Policial?, ya que se borrarán todos los usuarios vinculados a esta" }, :class => "float-right" %></td>
+          <td><%= link_to 'Editar', edit_admin_police_unit_path(police_unit, :viene => true) %> <%= link_to 'Eliminar', admin_police_unit_path(police_unit), method: :delete, data: { confirm: "¿Estás seguro que quieres borrar una Unidad Policial?, ya que se borrarán todos los usuarios vinculados a esta" }, :class => "float-right" %></td>
         </tr>
 
       <% end %>

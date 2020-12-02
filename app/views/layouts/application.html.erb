@@ -127,9 +127,15 @@
                     </li>
                     <% if current_user.police_unit.present? %>
                       <li class="nav-item">
+                        <%= link_to "Editar Unidad Policial", edit_admin_police_unit_path(current_user.police_unit.id, :viene => false), :class => "btn btn-success text-white ml-sm-4 mb-4" %>
+                      </li>
+                      <li class="nav-item">
                         <%= button_to "Eliminar Unidad Policial", admin_police_unit_path(current_user.police_unit.id), :method => :delete, :class => "btn btn-danger text-white ml-sm-4 mb-4", data: { confirm: "¿Estás seguro que quieres borrar esta unidad policial?" } %>
                       </li>
                     <% elsif current_user.local_prosecution.present?%>
+                      <li class="nav-item">
+                        <%= link_to "Editar Fiscalía Local", edit_admin_local_prosecution_path(current_user.local_prosecution.id, :viene => false), :class => "btn btn-success text-white ml-sm-4 mb-4" %>
+                      </li>
                       <li class="nav-item">
                         <%= button_to "Eliminar Fiscalía Local", admin_local_prosecution_path(current_user.local_prosecution.id), :method => :delete, :class => "btn btn-danger text-white ml-sm-4 mb-4", data: { confirm: "¿Estás seguro que quieres borrar esta fiscalía local?" } %>
                       </li>

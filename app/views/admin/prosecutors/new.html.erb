@@ -25,7 +25,12 @@
       <% end %>
       <%= form.hidden_field :prosecutor_on_duty, :value => !@operador %>
     </div>
-    <%= form.submit 'Crear Fiscal', class: ["btn", "btn-primary"] %>
+    <%if @operador %>
+      <%= form.submit 'Crear Operador', class: ["btn", "btn-primary"] %>
+    <% else %>
+      <%= form.submit 'Crear Fiscal', class: ["btn", "btn-primary"] %>
+    <% end %>
+
     <%= link_to "Atras", admin_prosecutors_path, class: ["btn", "btn-secondary"] %>
   </div>
 <% end %>

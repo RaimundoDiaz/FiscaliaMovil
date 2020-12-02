@@ -38,7 +38,11 @@ class Admin::LocalProsecutionsController < ApplicationController
   def update
     respond_to do |format|
       if @local_prosecution.update(admin_local_prosecution_params)
-        format.html { redirect_to admin_local_prosecutions_path, notice: 'Fiscalía Local ha sido actualizada con éxito.' }
+        if params["viene"]
+          format.html { redirect_to admin_local_prosecutions_path, notice: 'Fiscalía Local ha sido actualizada con éxito.' }
+        else
+          format.html { redirect_to admin_prosecutors_path, notice: 'Fiscalía Local ha sido actualizada con éxito.' }
+        end
       else
         format.html { render :edit }
       end
