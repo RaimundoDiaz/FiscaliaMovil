@@ -64,6 +64,17 @@ $(document).on('turbolinks:load', function() {
                 .attr("name", "procedure[deleted_videos][]").val(videoID);
             $('#videos').append(input);
         });
+
+        $("[id=delete_document_edit]").click(function(){
+            let division = $(this).closest("#single-document-edit");
+            let documentID = division.find("#documentID").html();
+            division.remove();
+
+            let input = $("<input>")
+                .attr("type", "hidden")
+                .attr("name", "procedure[deleted_documents][]").val(documentID);
+            $('#documents').append(input);
+        });
     }
 
 });
