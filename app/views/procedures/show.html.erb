@@ -297,18 +297,19 @@
       </div>
       <div class="tab-pane fade" id="nav-videos" role="tabpanel" aria-labelledby="nav-profile-tab">
         <br>
-          <% if @procedure.videos.attached? %>
           <div class="row row-cols-1 row-cols-md-3">
             <% @procedure.videos.each do |video|  %>
-              <div class="col-4">
-                <video width="320" height="240" controls>
-                  <source src=<%= rails_blob_path(video) %> type="video/mp4" />
+              <div class="card m-2" style="width: 20rem;">
+                <video controls class="card-img-top">
+                  <source src=<%= rails_blob_path(video.video) %> type="video/mp4" />
                 </video>
+                <div class="card-body">
+                  <p class="card-text"><b>Descripcion: </b><%= video.description %></p>
+                </div>
               </div>
             <% end %>
           </div>
-
-      <% else %>
+          <% if @procedure.videos == [] %>
             <div class="alert alert-info" role="alert">
               No hay videos en este procedimiento.
             </div>

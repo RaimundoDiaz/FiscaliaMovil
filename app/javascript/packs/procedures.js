@@ -460,4 +460,19 @@ $(document).on('turbolinks:load', function() {
         $('#photos').append(photoHTML)
     });
 
+    var singleVideo = $("#single-video").clone();
+    $("#delete_video").remove();
+
+    $('#add_video_btn').click(function () {
+
+        let videoHTML = singleVideo.clone()
+
+        let delBtn = videoHTML.find('#delete_video');
+        $(delBtn).click(function () {
+            let division = $(delBtn).closest('#single-video')
+            division.remove()
+        });
+        $('#videos').append(videoHTML)
+    });
+
 });

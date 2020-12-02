@@ -228,11 +228,28 @@
   </div>
 
   <div class="card mb-3">
-    <h5 class="card-header">Videos</h5>
+    <h5 class="card-header d-flex justify-content-between align-items-center">Videos<button type="button" id="add_video_btn" class="btn btn-warning text-light"> + Agregar Video </button></h5>
     <div id="videos" class="card-body">
-      <div class="form-group">
-        <%= form.file_field :videos, multiple: true, class: "form-control-file" %>
+      <div id="single-video" class="card p-3 m-1">
+        <h5 class="card-title"> Videos <button id="delete_video" type="button" class="close" aria-label="Close ml-2 mb-2"><span aria-hidden="true">&times;</span></button></h5>
+        <%= form.file_field "",multiple: false, class: "form-control-file mb-3", name: "procedure[videos][]" %>
+        <div class="form-inline">
+          <%= form.label "", 'Descripcion:' , class: "mr-2 form-label"%>
+          <%= form.text_field "", class: "form-control flex-grow-1", name:"procedure[video_descriptions][]" %>
+        </div>
       </div>
+      <% @videos.each do |video| %>
+        <div id="single-video-edit" class="card m-1">
+          <h5 class="card-header">Video<button id="delete_video_edit" type="button" class="close" aria-label="Close ml-2 mb-2"><span aria-hidden="true">&times;</span></button></h5>
+          <video controls class="card-img-top">
+            <source src=<%= rails_blob_path(video.video) %> type="video/mp4" />
+          </video>
+          <div class="card-body">
+            <p class="card-text"><b>Descripcion: </b><%= video.description %></p>
+          </div>
+          <p id="videoID" hidden><%= video.id%></p>
+        </div>
+      <% end %>
     </div>
   </div>
 

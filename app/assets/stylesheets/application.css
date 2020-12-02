@@ -101,3 +101,27 @@ footer {
     color: white;
     margin-bottom: 15px;
 }
+/*
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    width:calc(100% - 26px);
+}
+
+.upload-btn-wrapper .btnr {
+    position: relative;
+}
+.upload-btn-wrapper .btnr + span {
+    padding: 5px;
+    font-weight: normal;
+}
+
+.upload-btn-wrapper input[type=file] {
+    font-size: 42px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+*/

@@ -11,15 +11,12 @@ class Procedure < ApplicationRecord
   has_many :messages
   belongs_to :creator, class_name: 'User'
   has_many :photos, dependent: :destroy
-  has_many_attached :videos
+  has_many :videos, dependent: :destroy
   has_many_attached :documents
   validates :story, presence: true
 
   validate :past_date
   validate :empty_address
-
-  validates :videos, file_size: { less_than_or_equal_to: 1.gigabytes },
-            file_content_type: { allow: ['video/mp4']}
 
   validates :documents,file_size: { less_than_or_equal_to: 50.megabytes},
             file_content_type: { allow: [ 'application/pdf', 'text/plain'] }

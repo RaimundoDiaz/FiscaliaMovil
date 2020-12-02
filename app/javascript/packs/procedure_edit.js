@@ -54,6 +54,16 @@ $(document).on('turbolinks:load', function() {
                 .attr("name", "procedure[deleted_photos][]").val(photoID);
             $('#photos').append(input);
         });
+        $("[id=delete_video_edit]").click(function(){
+            let division = $(this).closest("#single-video-edit");
+            let videoID = division.find("#videoID").html();
+            division.remove();
+
+            let input = $("<input>")
+                .attr("type", "hidden")
+                .attr("name", "procedure[deleted_videos][]").val(videoID);
+            $('#videos').append(input);
+        });
     }
 
 });
