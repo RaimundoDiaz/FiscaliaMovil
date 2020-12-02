@@ -13,6 +13,11 @@
         <%= form.label :unidad_policial %>
         <%= form.collection_select(:police_station_id, PoliceStation.not_deleted.all, :id, :name, {}, { class: "form-control" }) %>
       </div>
+
+      <div class="form-group col-10">
+        <%= form.label :fiscalía_local_asignada %>
+        <%= form.collection_select(:local_prosecution_id, LocalProsecution.not_deleted, :id, :name, {}, { class: "form-control" }) %>
+      </div>
     </div>
     <%= form.submit 'Editar Unidad Policial', class: ["btn", "btn-primary"]  %>
     <%= link_to "Atras", admin_police_units_path, class: ["btn", "btn-secondary"] %>

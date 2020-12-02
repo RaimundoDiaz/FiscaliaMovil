@@ -31,7 +31,7 @@
         <tr>
           <td width="40%"><%= local_prosecution.name %></td>
           <td><%= local_prosecution.regional_prosecution.name %></td>
-          <td><%= link_to 'Editar', edit_admin_local_prosecution_path(local_prosecution), :class => "float-left mr-2" %> <%= link_to 'Eliminar', admin_local_prosecution_path(local_prosecution), data: { confirm: "¿Estás seguro que quieres borrar esta fiscalía local? se borrarán todos los usuarios, procedimientos y fiscales vinculados a esta" }, method: :delete, :class => "float-right" %></td>
+          <td><%= link_to 'Editar', edit_admin_local_prosecution_path(local_prosecution, :viene => false), :class => "float-left mr-2" %> <%= link_to 'Eliminar', admin_local_prosecution_path(local_prosecution), data: { confirm: "¿Estás seguro que quieres borrar esta fiscalía local? se borrarán todos los usuarios, procedimientos y fiscales vinculados a esta" }, method: :delete, :class => "float-right" %></td>
         </tr>
 
       <% end %>

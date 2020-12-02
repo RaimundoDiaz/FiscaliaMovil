@@ -22,7 +22,7 @@ class Admin::PoliceUnitsController < ApplicationController
   # POST /admin/police_units.json
   def create
     x = PoliceUnit.all.pluck(:id).sort[-1] + 1
-    @police_unit = PoliceUnit.new(id: x, name: admin_police_unit_params["name"], police_station_id: admin_police_unit_params["police_station_id"].to_i)
+    @police_unit = PoliceUnit.new(id: x, name: admin_police_unit_params["name"], police_station_id: admin_police_unit_params["police_station_id"].to_i, local_prosecution_id:admin_police_unit_params["local_prosecution_id"].to_i)
 
     respond_to do |format|
       if @police_unit.save
@@ -38,7 +38,12 @@ class Admin::PoliceUnitsController < ApplicationController
   def update
     respond_to do |format|
       if @police_unit.update(admin_police_unit_params)
-        format.html { redirect_to admin_police_units_path, notice: 'Unidad Policial ha sido actualizada con éxito.' }
+        if params["viene"]
+          format.html { redirect_to admin_police_units_path, notice: 'Unidad Policial ha sido actualizada con éxito.' }
+        else
+          format.html { redirect_to admin_police_men_path, notice: 'Unidad Policial ha sido actualizada con éxito.' }
+        end
+
       else
         format.html { render :edit }
       end
@@ -66,6 +71,6 @@ class Admin::PoliceUnitsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def admin_police_unit_params
-      params.fetch(:police_unit, {}).permit(:name, :police_station_id)
+      params.fetch(:police_unit, {}).permit(:name, :police_station_id, :local_prosecution_id)
     end
 end

@@ -96,10 +96,7 @@
       </table>
     <% elsif @attribute == 3 %>
       <div>
-        <h2 class="float-left">Usuarios</h2>
-        <% if current_user.local_prosecution.nil? and current_user.police_unit.nil? and current_user.prosecutor.nil?%>
-          <%= button_to "Crear Usuario de UP", new_admin_user_path, :method => :get, :class => "btn btn-primary text-white mb-2 float-right" %>
-        <%end%>
+        <h2 class="float-left">Usuarios de UP</h2>
       </div>
       <input class="form-control" id="myInput" type="text" placeholder="Buscar Usuario..">
       <br>
@@ -107,7 +104,8 @@
         <thead>
         <tr>
           <th>Email</th>
-          <th style="width: 35%">Pertenece a</th>
+          <th style="width: 20%">Pertenece a</th>
+          <th style="width: 20%">Fiscalía Local</th>
           <th style="width: 15%;">Administrador</th>
           <th style="text-align: center; width: 18%">Acciones</th>
         </tr>
@@ -132,6 +130,7 @@
               <td>No aplica</td>
               <% role = 0 %>
             <%  end %>
+            <td><%= user.police_unit.local_prosecution.name %></td>
             <td style="text-align: center"><%= user.admin ? 'Si' : 'No' %></td>
             <td style="text-align: center"><%= link_to 'Editar', edit_admin_user_path(user, role: role) %> <%= link_to 'Eliminar', admin_user_path(user, :attribute => @attribute), method: :delete, data: { confirm: "¿Estás seguro que quieres borrar este usuario de UP?" }, :class => "float-right" %></td>
           </tr>
