@@ -68,7 +68,14 @@ class Admin::UsersController < ApplicationController
     #@user.destroy
     @user.soft_delete
     respond_to do |format|
-      format.html { redirect_to admin_users_url, notice: 'Administrador ha sido eliminado con éxito..' }
+      if params["attribute"].to_i == 1
+        format.html { redirect_to admin_users_path(:attribute => params["attribute"].to_i), notice: 'Administrador Nacional ha sido eliminado con éxito..' }
+      elsif params["attribute"].to_i == 2
+        format.html { redirect_to admin_users_path(:attribute => params["attribute"].to_i), notice: 'Usuarios de fiscalía ha sido eliminado con éxito..' }
+      elsif params["attribute"].to_i == 3
+        format.html { redirect_to admin_users_path(:attribute => params["attribute"].to_i), notice: 'Usuarios de UP ha sido eliminado con éxito..' }
+      end
+
     end
   end
 

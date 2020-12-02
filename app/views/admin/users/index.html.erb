@@ -50,11 +50,11 @@
       <table class="table table-bordered">
         <thead>
         <tr>
-          <th>Email</th>
-          <th style="width: 35%">Pertenece a</th>
-          <th style="width: 15%;">Administrador</th>
-          <th style="width: 15%;">Fiscal de turno</th>
-          <th style="text-align: center; width: 18%">Acciones</th>
+          <th style="width: 10%">Email</th>
+          <th style="width: 40%">Pertenece a</th>
+          <th style="width: 10%;">Administrador</th>
+          <th style="width: 15%; text-align: center">Fiscal de turno</th>
+          <th style="text-align: center; width: 25%">Acciones</th>
         </tr>
         </thead>
         <tbody id="myTable">
@@ -77,18 +77,18 @@
               <td>No aplica</td>
               <% role = 0 %>
             <%  end %>
-            <td><%= user.admin ? 'Si' : 'No' %></td>
+            <td style="text-align: center"><%= user.admin ? 'Si' : 'No' %></td>
             <% if user.prosecutor.present? %>
               <% if user.prosecutor.prosecutor_on_duty%>
-                <td>Si</td>
+                <td style="text-align: center">Si</td>
               <% elsif !user.prosecutor.prosecutor_on_duty%>
-                <td>No</td>
+                <td style="text-align: center">>No</td>
               <%  end %>
             <% else %>
               <td>No Aplica</td>
             <%  end %>
 
-            <td style="text-align: center"><%= link_to 'Editar', edit_admin_user_path(user, role: role) %> </td>
+            <td style="text-align: center"><%= link_to 'Editar', edit_admin_user_path(user, role: role) %><%= link_to 'Eliminar', admin_user_path(user, :attribute => @attribute), method: :delete, data: { confirm: "¿Estás seguro que quieres borrar este usuario de fiscalía?" }, :class => "float-right" %> </td>
           </tr>
 
         <% end %>
@@ -98,7 +98,7 @@
       <div>
         <h2 class="float-left">Usuarios</h2>
         <% if current_user.local_prosecution.nil? and current_user.police_unit.nil? and current_user.prosecutor.nil?%>
-          <%= button_to "Crear Administrador Nacional", new_admin_user_path, :method => :get, :class => "btn btn-primary text-white mb-2 float-right" %>
+          <%= button_to "Crear Usuario de UP", new_admin_user_path, :method => :get, :class => "btn btn-primary text-white mb-2 float-right" %>
         <%end%>
       </div>
       <input class="form-control" id="myInput" type="text" placeholder="Buscar Usuario..">
@@ -132,8 +132,8 @@
               <td>No aplica</td>
               <% role = 0 %>
             <%  end %>
-            <td><%= user.admin ? 'Si' : 'No' %></td>
-            <td style="text-align: center"><%= link_to 'Editar', edit_admin_user_path(user, role: role) %> </td>
+            <td style="text-align: center"><%= user.admin ? 'Si' : 'No' %></td>
+            <td style="text-align: center"><%= link_to 'Editar', edit_admin_user_path(user, role: role) %> <%= link_to 'Eliminar', admin_user_path(user, :attribute => @attribute), method: :delete, data: { confirm: "¿Estás seguro que quieres borrar este usuario de UP?" }, :class => "float-right" %></td>
           </tr>
 
         <% end %>
