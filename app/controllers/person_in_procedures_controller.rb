@@ -42,6 +42,12 @@ class PersonInProceduresController < ApplicationController
   def update
     respond_to do |format|
       if @person_in_procedure.update(state: params[:state])
+        @register = RegistryInAccused.find_by(accused_id: @person_in_procedure.id)
+        if @register.present?
+          @register.update(prosecutor_id: params[:prosecutor])
+        else
+          RegistryInAccused.create(prosecutor_id: params[:prosecutor], accused_id: @person_in_procedure.id)
+        end
         format.html { redirect_to request.referrer, notice: 'Se ha pronunciado sobre un imputado con éxito.' }
         format.json { render :show, status: :ok, location: @person_in_procedure }
       else

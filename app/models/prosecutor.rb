@@ -4,6 +4,7 @@ class Prosecutor < ApplicationRecord
   has_many :procedures
   has_one :user
   belongs_to :local_prosecution
+  has_many :registry_in_accuseds
 
   scope :not_deleted, -> { where(deleted: false) }
   scope :deleted, -> { where(deleted: true) }

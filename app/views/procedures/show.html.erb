@@ -180,7 +180,7 @@
                               <span aria-hidden="true">&times;</span>
                             </button>
                           </div>
-                          <%= form_with(url: person_in_procedures_path, method: "put") do |form| %>
+                          <%= form_with(url: person_in_procedures_path(prosecutor: current_user.prosecutor), method: "put") do |form| %>
                             <div class="modal-body">
                               <%= form.select :state, options_for_select([['Pendiente', "pending"], ['Apercibido', "noticed"], ['Audiencia control de detención', "acd"]]),{},{class: "form-control"} %>
                               <%= form.hidden_field :id, value: accused[2] %>

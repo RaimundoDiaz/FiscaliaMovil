@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_02_161141) do
+ActiveRecord::Schema.define(version: 2020_12_02_191513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -203,6 +203,15 @@ ActiveRecord::Schema.define(version: 2020_12_02_161141) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "registry_in_accuseds", force: :cascade do |t|
+    t.bigint "accused_id", null: false
+    t.bigint "prosecutor_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["accused_id"], name: "index_registry_in_accuseds_on_accused_id"
+    t.index ["prosecutor_id"], name: "index_registry_in_accuseds_on_prosecutor_id"
+  end
+
   create_table "taggings", force: :cascade do |t|
     t.bigint "tag_id"
     t.bigint "procedure_id"
@@ -265,6 +274,8 @@ ActiveRecord::Schema.define(version: 2020_12_02_161141) do
   add_foreign_key "procedures", "prosecutors", column: "prosecutor_in_charge_id"
   add_foreign_key "procedures", "users", column: "creator_id"
   add_foreign_key "prosecutors", "local_prosecutions"
+  add_foreign_key "registry_in_accuseds", "person_in_procedures", column: "accused_id"
+  add_foreign_key "registry_in_accuseds", "prosecutors"
   add_foreign_key "taggings", "procedures"
   add_foreign_key "taggings", "tags"
   add_foreign_key "users", "local_prosecutions"
