@@ -28,7 +28,7 @@
                     <li class="nav-item">
                       <a class="nav-link" href="<%= admin_users_path %>">
                         <i class="fas fa-users"></i>
-                        Usuarios
+                        Administradores Nacionales
                       </a>
                     </li>
                     <% if current_user.police_unit.present? or (current_user.local_prosecution.nil? and current_user.police_unit.nil?) %>
@@ -46,6 +46,13 @@
                         <a class="nav-link" href="<%= admin_prosecutors_path %>">
                           <i class="fas fa-gavel"></i>
                           Fiscales
+                        </a>
+                      </li>
+
+                      <li class="nav-item">
+                        <a class="nav-link" href="<%= admin_users_path %>">
+                          <i class="fas fa-users"></i>
+                          Usuarios de fiscalía
                         </a>
                       </li>
                       <% end %>
