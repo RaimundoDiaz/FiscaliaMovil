@@ -12,50 +12,135 @@
 </div>
 <div id="content_box">
   <div class="container mt-3">
-    <div>
-      <h2 class="float-left">Usuarios</h2>
-      <% if current_user.local_prosecution.nil? and current_user.police_unit.nil? and current_user.prosecutor.nil?%>
-        <%= button_to "Crear Administrador Nacional", new_admin_user_path, :method => :get, :class => "btn btn-primary text-white mb-2 float-right" %>
-      <%end%>
-    </div>
-    <input class="form-control" id="myInput" type="text" placeholder="Buscar Usuario..">
-    <br>
-    <table class="table table-bordered">
-      <thead>
-      <tr>
-        <th>Email</th>
-        <th style="width: 35%">Pertenece a</th>
-        <th style="width: 15%;">Administrador</th>
-        <th style="text-align: center; width: 18%">Acciones</th>
-      </tr>
-      </thead>
-      <tbody id="myTable">
-      <% @users.each do |user| %>
+    <% if @attribute == 1 %>
+      <div>
+        <h2 class="float-left">Usuarios</h2>
+        <% if current_user.local_prosecution.nil? and current_user.police_unit.nil? and current_user.prosecutor.nil?%>
+          <%= button_to "Crear Administrador Nacional", new_admin_user_path, :method => :get, :class => "btn btn-primary text-white mb-2 float-right" %>
+        <%end%>
+      </div>
+      <input class="form-control" id="myInput" type="text" placeholder="Buscar Usuario..">
+      <br>
+      <table class="table table-bordered">
+        <thead>
         <tr>
-          <td><%= user.email %></td>
-          <% if user.police_unit.present? %>
-          <td><%= user.police_unit.name  %></td>
-            <% role = 1 %>
-          <%  end %>
-          <% if user.local_prosecution.present? %>
-            <td><%= user.local_prosecution.name  %></td>
-            <% role = 2 %>
-          <%  end %>
-          <% if user.prosecutor.present? %>
-            <td><%= user.prosecutor.local_prosecution.name  %></td>
-            <% role = 2 %>
-          <%  end %>
-          <% if user.local_prosecution.nil? and user.police_unit.nil? and user.prosecutor.nil?%>
-            <td>No aplica</td>
-            <% role = 0 %>
-          <%  end %>
-          <td><%= user.admin ? 'Si' : 'No' %></td>
-          <td style="text-align: center"><%= link_to 'Editar', edit_admin_user_path(user, role: role) %> </td>
+          <th>Email</th>
+          <th style="text-align: center; width: 18%">Acciones</th>
         </tr>
+        </thead>
+        <tbody id="myTable">
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.email %></td>
+            <td style="text-align: center"><%= link_to 'Editar', edit_admin_user_path(user, role: 0) %> </td>
+          </tr>
 
-      <% end %>
-      </tbody>
-    </table>
+        <% end %>
+        </tbody>
+      </table>
+    <% elsif @attribute == 2%>
+      <div>
+        <h2 class="float-left">Usuarios</h2>
+        <% if current_user.local_prosecution.present? or (current_user.local_prosecution.nil? and current_user.police_unit.nil? and current_user.prosecutor.nil?)%>
+          <%= link_to "Crear Operador", new_admin_prosecutor_path(:operador => true), :method => :get, :class => "btn btn-primary text-white mb-2 float-right" %>
+        <%end%>
+      </div>
+      <input class="form-control" id="myInput" type="text" placeholder="Buscar Usuario..">
+      <br>
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th>Email</th>
+          <th style="width: 35%">Pertenece a</th>
+          <th style="width: 15%;">Administrador</th>
+          <th style="width: 15%;">Fiscal de turno</th>
+          <th style="text-align: center; width: 18%">Acciones</th>
+        </tr>
+        </thead>
+        <tbody id="myTable">
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.email %></td>
+            <% if user.police_unit.present? %>
+              <td><%= user.police_unit.name  %></td>
+              <% role = 1 %>
+            <%  end %>
+            <% if user.local_prosecution.present? %>
+              <td><%= user.local_prosecution.name  %></td>
+              <% role = 2 %>
+            <%  end %>
+            <% if user.prosecutor.present? %>
+              <td><%= user.prosecutor.local_prosecution.name  %></td>
+              <% role = 2 %>
+            <%  end %>
+            <% if user.local_prosecution.nil? and user.police_unit.nil? and user.prosecutor.nil?%>
+              <td>No aplica</td>
+              <% role = 0 %>
+            <%  end %>
+            <td><%= user.admin ? 'Si' : 'No' %></td>
+            <% if user.prosecutor.present? %>
+              <% if user.prosecutor.prosecutor_on_duty%>
+                <td>Si</td>
+              <% elsif !user.prosecutor.prosecutor_on_duty%>
+                <td>No</td>
+              <%  end %>
+            <% else %>
+              <td>No Aplica</td>
+            <%  end %>
+
+            <td style="text-align: center"><%= link_to 'Editar', edit_admin_user_path(user, role: role) %> </td>
+          </tr>
+
+        <% end %>
+        </tbody>
+      </table>
+    <% elsif @attribute == 3 %>
+      <div>
+        <h2 class="float-left">Usuarios</h2>
+        <% if current_user.local_prosecution.nil? and current_user.police_unit.nil? and current_user.prosecutor.nil?%>
+          <%= button_to "Crear Administrador Nacional", new_admin_user_path, :method => :get, :class => "btn btn-primary text-white mb-2 float-right" %>
+        <%end%>
+      </div>
+      <input class="form-control" id="myInput" type="text" placeholder="Buscar Usuario..">
+      <br>
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th>Email</th>
+          <th style="width: 35%">Pertenece a</th>
+          <th style="width: 15%;">Administrador</th>
+          <th style="text-align: center; width: 18%">Acciones</th>
+        </tr>
+        </thead>
+        <tbody id="myTable">
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.email %></td>
+            <% if user.police_unit.present? %>
+              <td><%= user.police_unit.name  %></td>
+              <% role = 1 %>
+            <%  end %>
+            <% if user.local_prosecution.present? %>
+              <td><%= user.local_prosecution.name  %></td>
+              <% role = 2 %>
+            <%  end %>
+            <% if user.prosecutor.present? %>
+              <td><%= user.prosecutor.local_prosecution.name  %></td>
+              <% role = 2 %>
+            <%  end %>
+            <% if user.local_prosecution.nil? and user.police_unit.nil? and user.prosecutor.nil?%>
+              <td>No aplica</td>
+              <% role = 0 %>
+            <%  end %>
+            <td><%= user.admin ? 'Si' : 'No' %></td>
+            <td style="text-align: center"><%= link_to 'Editar', edit_admin_user_path(user, role: role) %> </td>
+          </tr>
+
+        <% end %>
+        </tbody>
+      </table>
+    <% end %>
+
 
   </div>
   <script>

@@ -4,7 +4,13 @@
     <%= link_to "Crear nuevo procedimiento", new_procedure_path, class: "btn btn-warning text-white ml-sm-4"%>
   </div>
 <% else %>
-  <% controller.redirect_to admin_users_path %>
+  <%if current_user.police_unit.present? %>
+    <% controller.redirect_to admin_users_path(:attribute => 3) %>
+  <%elsif current_user.local_prosecution.present? %>
+    <% controller.redirect_to admin_users_path(:attribute => 2) %>
+  <%else %>
+    <% controller.redirect_to admin_users_path(:attribute => 1) %>
+  <% end %>
 <% end %>
 
 <%if @procedures != [] %>
