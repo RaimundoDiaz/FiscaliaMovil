@@ -26,7 +26,6 @@ Rails.application.routes.draw do
       resources :crimes
       resources :tags
       resources :prosecutors
-      resources :operators
       resources :police_units
       resources :police_men
       resources :local_prosecutions
