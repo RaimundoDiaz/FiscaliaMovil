@@ -5,15 +5,23 @@ class Admin::UsersController < ApplicationController
   # GET /admin/users
   # GET /admin/users.json
   def index
-    if current_user.local_prosecution.present?
-      fiscalia = current_user.local_prosecution
-      @users = User.not_deleted.joins(:prosecutor).where(prosecutors: { local_prosecution: fiscalia })
-    elsif current_user.police_unit.present?
-      @users = User.not_deleted.where(police_unit: current_user.police_unit)
-    else
-      @users = User.not_deleted
+    @attribute = params["attribute"].to_i
+    if @attribute == 1
+      @users = User.not_deleted.where(prosecutor_id: nil, local_prosecution_id: nil, police_unit_id: nil)
+    elsif @attribute == 2
+      if current_user.local_prosecution.present?
+        fiscalia = current_user.local_prosecution
+        @users = User.not_deleted.joins(:prosecutor).where(prosecutors: { local_prosecution: fiscalia }) + User.not_deleted.where(local_prosecution: fiscalia)
+      else
+        @users = User.not_deleted.where.not(prosecutor_id: nil) + User.not_deleted.where.not(local_prosecution_id: nil)
+      end
+    elsif @attribute == 3
+      if current_user.police_unit.present?
+        @users = User.not_deleted.where(police_unit: current_user.police_unit)
+      else
+        @users = User.not_deleted.where.not(police_unit_id: nil)
+      end
     end
-
   end
 
   # GET /admin/users/new

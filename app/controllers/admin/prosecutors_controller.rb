@@ -16,6 +16,7 @@ class Admin::ProsecutorsController < ApplicationController
 
   # GET /admin/prosecutors/new
   def new
+    @operador = params["operador"]
     @prosecutor = Prosecutor.new
   end
 
@@ -73,6 +74,6 @@ class Admin::ProsecutorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def admin_prosecutor_params
-      params.fetch(:prosecutor, {}).permit(:rut, :name, :local_prosecution_id)
+      params.fetch(:prosecutor, {}).permit(:rut, :name, :local_prosecution_id, :prosecutor_on_duty)
     end
 end

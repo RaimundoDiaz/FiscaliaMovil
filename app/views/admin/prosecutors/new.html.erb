@@ -1,6 +1,9 @@
 <%= form_with(model: [:admin, @prosecutor], local: true) do |form| %>
-
-  <h1>Crear Fiscal</h1>
+  <%if @operador %>
+    <h1>Crear Operador</h1>
+  <% else %>
+    <h1>Crear Fiscal</h1>
+  <% end %>
   <div class="actions">
     <div class="row">
       <div class="form-group col-10">
@@ -20,6 +23,7 @@
         <% else %>
         <%= form.hidden_field :local_prosecution_id, :value => current_user.local_prosecution.id %>
       <% end %>
+      <%= form.hidden_field :prosecutor_on_duty, :value => !@operador %>
     </div>
     <%= form.submit 'Crear Fiscal', class: ["btn", "btn-primary"] %>
     <%= link_to "Atras", admin_prosecutors_path, class: ["btn", "btn-secondary"] %>
