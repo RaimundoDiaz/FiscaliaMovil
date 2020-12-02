@@ -3,6 +3,7 @@ class PoliceUnit < ApplicationRecord
   belongs_to :police_station
   has_many :users
   has_many :procedures
+  belongs_to :local_prosecution
 
   scope :not_deleted, -> { where(deleted: false) }
   scope :deleted, -> { where(deleted: true) }
