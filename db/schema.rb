@@ -146,9 +146,11 @@ ActiveRecord::Schema.define(version: 2020_12_01_041921) do
   create_table "police_units", force: :cascade do |t|
     t.string "name"
     t.bigint "police_station_id", null: false
+    t.bigint "local_prosecution_id", null: false
     t.boolean "deleted", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["local_prosecution_id"], name: "index_police_units_on_local_prosecution_id"
     t.index ["police_station_id"], name: "index_police_units_on_police_station_id"
   end
 
@@ -247,6 +249,7 @@ ActiveRecord::Schema.define(version: 2020_12_01_041921) do
   add_foreign_key "person_in_procedures", "people"
   add_foreign_key "person_in_procedures", "procedures"
   add_foreign_key "police_stations", "prefectures"
+  add_foreign_key "police_units", "local_prosecutions"
   add_foreign_key "police_units", "police_stations"
   add_foreign_key "procedures", "local_prosecutions", column: "local_prosecution_in_charge_id"
   add_foreign_key "procedures", "police_men", column: "police_in_charge_id"
