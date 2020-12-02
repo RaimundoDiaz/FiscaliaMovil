@@ -46,8 +46,9 @@ excel_file.sheet(3).drop(1).each do |row|
   id = row[0]
   name = row[1].squeeze
   police_station = row[2]
+  local_prosecution = row[3]
   begin
-    PoliceUnit.create!(id:id, name: name, police_station_id: police_station)
+    PoliceUnit.create!(id:id, name: name, police_station_id: police_station, local_prosecution_id: local_prosecution)
   rescue
   ensure
   end

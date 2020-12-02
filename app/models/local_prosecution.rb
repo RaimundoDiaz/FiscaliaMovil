@@ -4,6 +4,7 @@ class LocalProsecution < ApplicationRecord
   has_many :procedures, class_name: 'Procedure', foreign_key: :prosecutor_in_charge_id, dependent: :destroy
   has_many :prosecutors
   has_one :user
+  has_many :police_units
 
   scope :not_deleted, -> { where(deleted: false) }
   scope :deleted, -> { where(deleted: true) }

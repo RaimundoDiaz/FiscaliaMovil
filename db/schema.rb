@@ -92,16 +92,6 @@ ActiveRecord::Schema.define(version: 2020_12_02_161141) do
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
-  create_table "operators", force: :cascade do |t|
-    t.string "name"
-    t.string "rut"
-    t.bigint "prosecutor_id", null: false
-    t.boolean "deleted", default: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["prosecutor_id"], name: "index_operators_on_prosecutor_id"
-  end
-
   create_table "people", force: :cascade do |t|
     t.string "name"
     t.string "last_name"
@@ -156,9 +146,11 @@ ActiveRecord::Schema.define(version: 2020_12_02_161141) do
   create_table "police_units", force: :cascade do |t|
     t.string "name"
     t.bigint "police_station_id", null: false
+    t.bigint "local_prosecution_id", null: false
     t.boolean "deleted", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["local_prosecution_id"], name: "index_police_units_on_local_prosecution_id"
     t.index ["police_station_id"], name: "index_police_units_on_police_station_id"
   end
 
@@ -195,6 +187,7 @@ ActiveRecord::Schema.define(version: 2020_12_02_161141) do
   create_table "prosecutors", force: :cascade do |t|
     t.string "name"
     t.string "rut"
+    t.boolean "prosecutor_on_duty", default: true
     t.bigint "local_prosecution_id"
     t.boolean "deleted", default: false
     t.datetime "created_at", precision: 6, null: false
@@ -261,10 +254,10 @@ ActiveRecord::Schema.define(version: 2020_12_02_161141) do
   add_foreign_key "crime_in_accuseds", "procedures"
   add_foreign_key "local_prosecutions", "regional_prosecutions"
   add_foreign_key "notifications", "users"
-  add_foreign_key "operators", "prosecutors"
   add_foreign_key "person_in_procedures", "people"
   add_foreign_key "person_in_procedures", "procedures"
   add_foreign_key "police_stations", "prefectures"
+  add_foreign_key "police_units", "local_prosecutions"
   add_foreign_key "police_units", "police_stations"
   add_foreign_key "procedures", "local_prosecutions", column: "local_prosecution_in_charge_id"
   add_foreign_key "procedures", "police_men", column: "police_in_charge_id"

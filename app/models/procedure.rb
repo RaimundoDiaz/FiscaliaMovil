@@ -21,7 +21,7 @@ class Procedure < ApplicationRecord
   validates :documents,file_size: { less_than_or_equal_to: 50.megabytes},
             file_content_type: { allow: [ 'application/pdf', 'text/plain'] }
 
-  enum state: {open: 0, close: 1, draft: 2}
+  enum state: {open: 0, close: 1, draft: 2, re_send: 3}
   enum classification: {flagrancy: 0, pending_arrest_warrant: 1, both: 2}
 
   def state
