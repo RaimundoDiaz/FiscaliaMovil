@@ -1,0 +1,30 @@
+<%= form_with(model: [:admin, @operator], local: true) do |form| %>
+
+  <h1>Editar Operador</h1>
+  <div class="actions">
+    <div class="row">
+      <div class="form-group col-10">
+        <%= form.label :nombre %>
+        <%= form.text_field :name, class: "form-control" %>
+      </div>
+
+      <div class="form-group col-10">
+        <%= form.label :rut %>
+        <%= form.text_field :rut, class: "form-control" %>
+      </div>
+
+      <% if current_user.local_prosecution.nil? and current_user.police_unit.nil? %>
+        <div class="form-group col-10">
+          <%= form.label :fiscal %>
+          <%= form.collection_select(:prosecutor_id, Prosecutor.not_deleted.order(:name), :id, :name, {}, { class: "form-control" }) %>
+        </div>
+      <% elsif current_user.local_prosecution.present? %>
+        <%= form.label :fiscal %>
+        <%= form.collection_select(:prosecutor_id, @prosecutors, :id, :name, {}, { class: "form-control" }) %>
+      <% end %>
+    </div>
+    <%= form.submit 'Editar Operador', class: ["btn", "btn-primary"]  %>
+    <%= link_to "Atras", admin_operators_path, class: ["btn", "btn-secondary"] %>
+  </div>
+<% end %>
+</div>
