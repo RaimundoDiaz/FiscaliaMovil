@@ -35,6 +35,9 @@
                         </div>
                       </li>
                     <% end %>
+                    <% if current_user.police_unit.present? %>
+                      <p style="margin-left: 6%;">Unidad Policial: <%= current_user.police_unit.name %></p>
+                    <% end %>
                     <% if current_user.police_unit.present? or (current_user.local_prosecution.nil? and current_user.police_unit.nil? and current_user.prosecutor.nil?) %>
                     <li class="nav-item">
                               <a class="nav-link" href="<%=  admin_police_men_path  %>">
@@ -45,6 +48,9 @@
                               </a>
                     </li>
                     <%  end %>
+                    <% if current_user.local_prosecution.present? %>
+                      <p style="margin-left: 6%;">Fiscalía Local: <%= current_user.local_prosecution.name %></p>
+                    <% end %>
                     <% if current_user.local_prosecution.present? or (current_user.local_prosecution.nil? and current_user.police_unit.nil? and current_user.prosecutor.nil?) %>
                       <li class="nav-item">
                         <a class="nav-link" href="<%= admin_prosecutors_path %>">
