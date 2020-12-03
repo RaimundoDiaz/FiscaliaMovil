@@ -109,10 +109,12 @@ ActiveRecord::Schema.define(version: 2020_12_02_191513) do
     t.string "witness_declaration"
     t.integer "role"
     t.integer "state"
+    t.bigint "prosecutor_pronounced_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["person_id"], name: "index_person_in_procedures_on_person_id"
     t.index ["procedure_id"], name: "index_person_in_procedures_on_procedure_id"
+    t.index ["prosecutor_pronounced_id"], name: "index_person_in_procedures_on_prosecutor_pronounced_id"
   end
 
   create_table "photos", force: :cascade do |t|
@@ -265,6 +267,7 @@ ActiveRecord::Schema.define(version: 2020_12_02_191513) do
   add_foreign_key "notifications", "users"
   add_foreign_key "person_in_procedures", "people"
   add_foreign_key "person_in_procedures", "procedures"
+  add_foreign_key "person_in_procedures", "prosecutors", column: "prosecutor_pronounced_id"
   add_foreign_key "police_stations", "prefectures"
   add_foreign_key "police_units", "local_prosecutions"
   add_foreign_key "police_units", "police_stations"

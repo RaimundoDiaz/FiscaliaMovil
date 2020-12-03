@@ -6,6 +6,7 @@ class CreatePersonInProcedures < ActiveRecord::Migration[6.0]
       t.string :witness_declaration, null:true
       t.integer :role
       t.integer :state
+      t.references :prosecutor_pronounced, null: false, foreign_key: { to_table: :prosecutors }
 
       t.timestamps
     end
