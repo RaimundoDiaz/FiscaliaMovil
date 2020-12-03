@@ -40,18 +40,8 @@
 
   <% if !current_user.prosecutor %>
     <%= form.hidden_field :prosecution_in_charge, value: current_user.police_unit.local_prosecution.id %>
-
-    <div class="card mb-3">
-      <h5 class="card-header">Fiscal a cargo</h5>
-      <div id="prosecutorInCharge" class="card-body">
-        <div class="form-inline">
-          <%= form.select :prosecutor_in_charge, options_for_select(Prosecutor.not_deleted.order(:name).map { |prosecutor| [prosecutor[:name], prosecutor[:id]] }, @procedure.prosecutor_in_charge_id),{},{class: "form-control flex-grow-1"} %>
-        </div>
-      </div>
-    </div>
   <% else %>
     <%= form.hidden_field :prosecution_in_charge, :value => current_user.prosecutor.local_prosecution.id %>
-    <%= form.hidden_field :prosecutor_in_charge, :value => current_user.prosecutor.id %>
   <% end %>
 
   <div class="card mb-3">
@@ -68,7 +58,7 @@
       <h5 class="card-header">Unidad policial a cargo</h5>
       <div id="policeUnitInCharge" class="card-body">
         <div class="form-inline">
-          <%= form.select :police_unit_in_charge, options_for_select(PoliceUnit.not_deleted.order(:name).map { |policeUnit| [policeUnit[:name],policeUnit[:id]] }, @procedure.police_unit_in_charge_id),{},{class: "form-control flex-grow-1"} %>
+          <%= form.select :police_unit_in_charge, options_for_select(current_user.prosecutor.local_prosecution.police_units.not_deleted.order(:name).map { |policeUnit| [policeUnit[:name],policeUnit[:id]] }, @procedure.police_unit_in_charge_id),{},{class: "form-control flex-grow-1"} %>
         </div>
       </div>
     </div>

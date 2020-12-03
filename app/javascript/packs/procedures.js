@@ -58,47 +58,6 @@ $(document).on('turbolinks:load', function() {
         width: '100%'
     });
 
-
-    if ($('#prosecutionInCharge').length){
-        function changeProsecutorsSelect(){
-            let option = $('#procedure_prosecution_in_charge').val();
-            console.log(option)
-            let fiscalesDeFIscalia = gon.fiscales.filter(function(obj){
-                if(parseInt(obj.local_prosecution_id) == parseInt(option)){
-                    return true;
-                }
-                else {
-                    return false;
-                }
-            })
-            $('#procedure_prosecutor_in_charge').children().remove();
-            $.each(fiscalesDeFIscalia, function (i, item) {
-                $('#procedure_prosecutor_in_charge').append($('<option>', {
-                    value: item.id,
-                    text : item.name
-                }));
-            });
-            if(gon.fiscal){
-                $('#procedure_prosecutor_in_charge').val(gon.fiscal.id);
-                console.log(gon.fiscal)
-            }
-            $("#procedure_prosecutor_in_charge").trigger("chosen:updated");
-        }
-        changeProsecutorsSelect();
-        $("#procedure_prosecution_in_charge").change(function () {
-            changeProsecutorsSelect();
-        });
-        $('#procedure_prosecution_in_charge').chosen({
-            width: '100%'
-        });
-    }
-
-    if ($('#prosecutorInCharge').length){
-        $('#procedure_prosecutor_in_charge').chosen({
-            width: '100%'
-        });
-    }
-
     if ($('#policeUnitInCharge').length){
         $('#procedure_police_unit_in_charge').chosen({
             width: '100%'
@@ -349,6 +308,7 @@ $(document).on('turbolinks:load', function() {
     
     function checkInputs(){
         let invalidField = false;
+        let invalidDate = false
         if($("#procedure_date").val()==""){
             invalidField = true
             $("#procedure_date").addClass("is-invalid");
@@ -360,6 +320,12 @@ $(document).on('turbolinks:load', function() {
             $("#procedure_time").addClass("is-invalid");
             $('#form-invalid-time').removeAttr('hidden');
             $('#form-invalid-time').html('Hora necesaria.');
+        }
+        else if ($("#procedure_time").val() > getCurrentTime()){
+            invalidDate = true;
+            $("#procedure_time").addClass("is-invalid");
+            $('#form-invalid-time').removeAttr('hidden');
+            $('#form-invalid-time').html('Hora invalida.');
         }
         if(!$("#accussed").length){
             invalidField=true
@@ -381,6 +347,12 @@ $(document).on('turbolinks:load', function() {
             Toast.fire({
                 icon: 'error',
                 title: 'Debes rellenar los campos solicitados!'
+            })
+        }
+        if(invalidDate){
+            Toast.fire({
+                icon: 'error',
+                title: 'La fecha ingresada no puede ser futura!'
             })
         }
     }
@@ -429,8 +401,11 @@ $(document).on('turbolinks:load', function() {
         $("#procedure_time").removeClass("is-invalid");
         $('#form-invalid-time').attr("hidden",true);
         if($("#procedure_date").val() == getCurrentDate()){
-            $("#procedure_time").attr("max", getCurrentTime());
-            $('#form-invalid-time').html('Hora necesaria.');
+            if ($("#procedure_time").val() > getCurrentTime()){
+                $("#procedure_time").addClass("is-invalid");
+                $('#form-invalid-time').removeAttr('hidden');
+                $('#form-invalid-time').html('Hora invalida.');
+            }
         }
     });
 

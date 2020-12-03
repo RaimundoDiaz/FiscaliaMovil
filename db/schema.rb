@@ -63,6 +63,15 @@ ActiveRecord::Schema.define(version: 2020_12_02_191513) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "documents", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.bigint "procedure_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["procedure_id"], name: "index_documents_on_procedure_id"
+  end
+
   create_table "local_prosecutions", force: :cascade do |t|
     t.string "name"
     t.bigint "regional_prosecution_id", null: false

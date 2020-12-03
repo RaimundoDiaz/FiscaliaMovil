@@ -75,7 +75,6 @@ class ProceduresController < ApplicationController
 
     gon.sector = @selected_sector
     gon.fiscales = Prosecutor.not_deleted
-    gon.fiscal = @procedure.prosecutor_in_charge
   end
 
   # POST /procedures
@@ -119,7 +118,6 @@ class ProceduresController < ApplicationController
                                creator: current_user,
                                police_in_charge: PoliceMan.find(procedure_params[:police_in_charge]),
                                police_unit_in_charge: PoliceUnit.find(procedure_params[:police_unit_in_charge]),
-                               prosecutor_in_charge: Prosecutor.find(procedure_params[:prosecutor_in_charge]),
                                local_prosecution_in_charge: LocalProsecution.find(procedure_params[:prosecution_in_charge]),
                                story: procedure_params[:story],
                                address: procedure_params[:address],
@@ -292,7 +290,6 @@ class ProceduresController < ApplicationController
         if @procedure.update!(classification: classification_procedure,
                               police_in_charge: PoliceMan.find(procedure_params[:police_in_charge]),
                               police_unit_in_charge: PoliceUnit.find(procedure_params[:police_unit_in_charge]),
-                              prosecutor_in_charge: Prosecutor.find(procedure_params[:prosecutor_in_charge]),
                               local_prosecution_in_charge: LocalProsecution.find(procedure_params[:prosecution_in_charge]),
                               story: procedure_params[:story],
                               address: procedure_params[:address],
@@ -548,7 +545,7 @@ class ProceduresController < ApplicationController
 
   def procedure_params
     # Only allow a list of trusted parameters through.
-    params.require(:procedure).permit(:date, :time, :classification, :involves_deceased, :prosecutor_in_charge, :prosecution_in_charge, :police_unit_in_charge, :police_in_charge, :address, :region, :sector, :preponderant_crime, :state, :story, crimes: [],
+    params.require(:procedure).permit(:date, :time, :classification, :involves_deceased, :prosecution_in_charge, :police_unit_in_charge, :police_in_charge, :address, :region, :sector, :preponderant_crime, :state, :story, crimes: [],
                                       videos: [],video_descriptions: [],deleted_videos: [], photos: [],photo_descriptions: [],deleted_photos: [], documents: [],document_names: [],document_descriptions: [],deleted_documents: [],
                                       tag_ids: [], :accuseds => [:name, :alias, :rut], :victims => [:name, :rut, :deceased, :contact, :story],
                                       :witness => [:name, :rut, :story, :contact], :deletedAccusseds => [:id], :deletedVictims => [:id], :deletedWitnesses => [:id], :deletedCrimes => [:id])
