@@ -171,7 +171,7 @@
                     </p>
                     <% if RegistryInAccused.exists?(accused[2])%>
                       <p class="card-text"><small class="text-muted">
-                        Fiscal que se pronunció: <%=RegistryInAccused.find(accused[2]).prosecutor.name%>
+                        Fiscal que se pronunció: <%= accused[3] %>
                       </small>
                       </p>
                     <% end %>
@@ -188,8 +188,11 @@
                               <span aria-hidden="true">&times;</span>
                             </button>
                           </div>
-                          <%= form_with(url: person_in_procedures_path(prosecutor: current_user.prosecutor), method: "put") do |form| %>
+                          <%= form_with(url: person_in_procedures_path, method: "put") do |form| %>
                             <div class="modal-body">
+                              <%= form.label :Fiscal %>
+                              <%= form.select :prosecutor_pronounced, options_for_select(@procedure.local_prosecution_in_charge.prosecutors.not_deleted.order(:name).map { |prosecutor| [prosecutor[:name], prosecutor[:id]] }),{},{class: "form-control flex-grow-1"} %>
+                              <%= form.label :Estado %>
                               <%= form.select :state, options_for_select([['Pendiente', "pending"], ['Apercibido', "noticed"], ['Audiencia control de detención', "acd"]]),{},{class: "form-control"} %>
                               <%= form.hidden_field :id, value: accused[2] %>
                             </div>

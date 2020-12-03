@@ -42,12 +42,7 @@ class PersonInProceduresController < ApplicationController
   def update
     respond_to do |format|
       if @person_in_procedure.update(state: params[:state])
-        @register = RegistryInAccused.find_by(accused_id: @person_in_procedure.id)
-        if @register.present?
-          @register.update(prosecutor_id: params[:prosecutor])
-        else
-          RegistryInAccused.create(prosecutor_id: params[:prosecutor], accused_id: @person_in_procedure.id)
-        end
+        @person_in_procedure.prosecutor_pronounced = Prosecutor.find_by_id(params[:prosecutor_pronounced])
         format.html { redirect_to request.referrer, notice: 'Se ha pronunciado sobre un imputado con éxito.' }
         format.json { render :show, status: :ok, location: @person_in_procedure }
       else
@@ -75,6 +70,6 @@ class PersonInProceduresController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def person_in_procedure_params
-      params.require(:person_in_procedure).permit(:person_id, :procedure_id, :role)
+      params.require(:person_in_procedure).permit(:person_id, :procedure_id, :role, :prosecutor_pronounced)
     end
 end
