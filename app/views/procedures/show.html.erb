@@ -365,9 +365,9 @@
     <%= link_to "Cerrar procedimiento", "#closeProcedureModal", :class => ["btn", "btn-outline-danger" + (disableButton ? " disabled" : "")], "data-toggle" => "modal"%>
   <% end %>
   <%= link_to 'Mensajes del procedimiento', procedure_messages_path(@procedure.id), class: ["btn", "btn-outline-warning"] %>
-  <% if @procedure.state == "Draft" or @procedure.state == "Resend" %>
+  <% if @procedure.state == "Draft" or (@procedure.state == "Resend" and @procedure.creator == current_user) %>
     <%= link_to 'Editar', edit_procedure_path, class: ["btn", "btn-outline-warning"] %>
-  <% elsif current_user.prosecutor and @procedure.creator != current_user and @procedure.state != "Close"%>
+  <% elsif current_user.prosecutor and @procedure.creator != current_user and @procedure.state != "Close" and @procedure.state != "Resend"%>
     <%= link_to "Solicitar más información", "#informationModal", :class => ["btn", "btn-outline-warning"], "data-toggle" => "modal"%>
   <%end %>
 </div>

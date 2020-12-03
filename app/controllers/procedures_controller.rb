@@ -496,7 +496,10 @@ class ProceduresController < ApplicationController
           else
             #Crear mensaje con el contenido del text area del modal
             @message = Message.new(user_id: current_user.id, procedure_id: @procedure.id, content: params[:message])
-            if @message.save and @procedure.creator != current_user
+            if @message.content.strip != ""
+              @message.save
+            end
+            if @procedure.creator != current_user
               @procedure.police_unit_in_charge.users.each { |user|
                 Notification.create(user_id: user.id, notification_type: 2, reference_id: @procedure.id, seen: false)
               }

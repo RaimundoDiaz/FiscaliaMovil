@@ -260,7 +260,7 @@
     <% if @procedure.state == "Draft"%>
       <%= form.button "Guardar borrador", type:'submit', class: "btn btn-info", id:"btn-save", name:'state',value:2%>
     <% elsif @procedure.state == "Resend"%>
-      <%= form.button "Guardar cambios sin enviar", type:'submit', class: "btn btn-info", id:"btn-save", name:'state',value:3%>
+      <%= form.button "Guardar cambios", type:'submit', class: "btn btn-info", id:"btn-save", name:'state',value:3%>
     <% end %>
   </div>
   </div>
