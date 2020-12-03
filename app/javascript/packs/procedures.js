@@ -475,4 +475,19 @@ $(document).on('turbolinks:load', function() {
         $('#videos').append(videoHTML)
     });
 
+    var singleDocument = $("#single-document").clone();
+    $("#delete_document").remove();
+
+    $('#add_document_btn').click(function () {
+
+        let documentHTML = singleDocument.clone()
+
+        let delBtn = documentHTML.find('#delete_document');
+        $(delBtn).click(function () {
+            let division = $(delBtn).closest('#single-document')
+            division.remove()
+        });
+        $('#documents').append(documentHTML)
+    });
+
 });
