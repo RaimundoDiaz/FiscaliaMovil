@@ -23,7 +23,6 @@ class ProceduresController < ApplicationController
     @preponderant_crime = @procedure.crime_in_accuseds.find_by(preponderant: true)
     @crimes = @procedure.crime_in_accuseds.where(preponderant: false).uniq { |s| s.crime.id }
     accuseds_in_procedure = @procedure.person_in_procedures.where(role: 0)
-    byebug
     @accuseds = []
     accuseds_in_procedure.each do |accused|
       @accuseds.append([Person.find(accused.person_id), accused.state, accused.id, accused.prosecutor_pronounced])
