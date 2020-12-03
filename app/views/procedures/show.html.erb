@@ -9,6 +9,8 @@
       Cerrado
     <% elsif @procedure.draft? %>
       Borrador
+    <% elsif @procedure.state == "Resend" %>
+      Re-enviado
     <% end %>
   </p>
   <p style="text-align:center;">
@@ -363,7 +365,7 @@
     <%= link_to "Cerrar procedimiento", "#closeProcedureModal", :class => ["btn", "btn-outline-danger" + (disableButton ? " disabled" : "")], "data-toggle" => "modal"%>
   <% end %>
   <%= link_to 'Mensajes del procedimiento', procedure_messages_path(@procedure.id), class: ["btn", "btn-outline-warning"] %>
-  <% if @procedure.state == "Draft" %>
+  <% if @procedure.state == "Draft" or @procedure.state == "Resend" %>
     <%= link_to 'Editar', edit_procedure_path, class: ["btn", "btn-outline-warning"] %>
   <% elsif current_user.prosecutor and @procedure.creator != current_user and @procedure.state != "Close"%>
     <%= link_to "Solicitar más información", "#informationModal", :class => ["btn", "btn-outline-warning"], "data-toggle" => "modal"%>
@@ -406,7 +408,7 @@
         <div class="modal-body">
           Detalle de la solicitud
           <%= form.text_area :message, class: "form-control" %>
-          <%= form.hidden_field :state, value: "draft" %>
+          <%= form.hidden_field :state, value: "resend" %>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

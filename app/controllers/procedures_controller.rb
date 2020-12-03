@@ -9,7 +9,7 @@ class ProceduresController < ApplicationController
     if current_user.prosecutor.present?
       @pagy, @procedures = pagy(Procedure.where(:state => 0, :local_prosecution_in_charge_id => current_user.prosecutor.local_prosecution.id).or(Procedure.where(:state => 2, :creator_id => current_user.id, :local_prosecution_in_charge_id => current_user.prosecutor.local_prosecution.id)).order(created_at: :desc))
     elsif current_user.police_unit.present?
-      @pagy, @procedures = pagy(Procedure.where(:state => 2, :creator_id => current_user.id, :police_unit_in_charge_id => current_user.police_unit.id).or(Procedure.where(:state => 0, :police_unit_in_charge_id => current_user.police_unit.id)).order(created_at: :desc))
+      @pagy, @procedures = pagy(Procedure.where(:state => 2, :creator_id => current_user.id, :police_unit_in_charge_id => current_user.police_unit.id).or(Procedure.where(:state => 3, :police_unit_in_charge_id => current_user.police_unit.id)).order(created_at: :desc))
       puts(@procedures)
     elsif current_user.admin?
       @procedures = []

@@ -20,8 +20,7 @@ class Procedure < ApplicationRecord
 
   validates :documents,file_size: { less_than_or_equal_to: 50.megabytes},
             file_content_type: { allow: [ 'application/pdf', 'text/plain'] }
-
-  enum state: {open: 0, close: 1, draft: 2, re_send: 3}
+  enum state: {open: 0, close: 1, draft: 2, resend: 3}
   enum classification: {flagrancy: 0, pending_arrest_warrant: 1, both: 2}
 
   def state
@@ -44,13 +43,13 @@ class Procedure < ApplicationRecord
 
   def past_date
     if date_of_arrest > Date.today
-      errors.add(:date_of_arrest, "la fecha no puede ser en el futuro")
+      errors.add(:date_of_arrest, "La fecha no puede ser en el futuro")
     end
   end
 
   def empty_address
     if address.match(/^$/)
-      errors.add(:address, "la direccion no puede ser vacia")
+      errors.add(:address, "La direccion no puede ser vacia")
     end
   end
 

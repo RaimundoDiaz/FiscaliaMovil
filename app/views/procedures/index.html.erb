@@ -35,6 +35,8 @@
           Cerrado
         <% elsif procedimiento.draft? %>
           Borrador
+        <% elsif procedimiento.state == "Resend" %>
+          Re-enviado
         <% end %>
 
       </div>
