@@ -167,6 +167,12 @@
                       <% end %>
                     </small>
                     </p>
+                    <% if RegistryInAccused.exists?(accused[2])%>
+                      <p class="card-text"><small class="text-muted">
+                        Fiscal que se pronunció: <%=RegistryInAccused.find(accused[2]).prosecutor.name%>
+                      </small>
+                      </p>
+                    <% end %>
                   </h6>
                   <% if @procedure.open? and current_user.prosecutor.present? %>
                     <%= link_to "Pronunciarse", "#pronounceModal-" + accused[0].id.to_s , :class => ["btn", "btn-outline-primary"], "data-toggle" => "modal" %>
@@ -180,7 +186,7 @@
                               <span aria-hidden="true">&times;</span>
                             </button>
                           </div>
-                          <%= form_with(url: person_in_procedures_path, method: "put") do |form| %>
+                          <%= form_with(url: person_in_procedures_path(prosecutor: current_user.prosecutor), method: "put") do |form| %>
                             <div class="modal-body">
                               <%= form.select :state, options_for_select([['Pendiente', "pending"], ['Apercibido', "noticed"], ['Audiencia control de detención', "acd"]]),{},{class: "form-control"} %>
                               <%= form.hidden_field :id, value: accused[2] %>
