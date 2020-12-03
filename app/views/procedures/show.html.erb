@@ -167,6 +167,12 @@
                       <% end %>
                     </small>
                     </p>
+                    <% if RegistryInAccused.exists?(accused[2])%>
+                      <p class="card-text"><small class="text-muted">
+                        Fiscal que se pronunció: <%=RegistryInAccused.find(accused[2]).prosecutor.name%>
+                      </small>
+                      </p>
+                    <% end %>
                   </h6>
                   <% if @procedure.open? and current_user.prosecutor.present? %>
                     <%= link_to "Pronunciarse", "#pronounceModal-" + accused[0].id.to_s , :class => ["btn", "btn-outline-primary"], "data-toggle" => "modal" %>
