@@ -12,16 +12,7 @@
           <%= message.user.prosecutor.local_prosecution.name %>
         <% end %>
       </div>
-
-      <div class="centerMessageBox font-weight-bold">
-        <span class="dateSide"><%= message.created_at %></span>
-        <%if  (message.user.prosecutor != nil)%>
-        <p class="text-primary"><%=message.user.prosecutor.name%></p>
-     
-        <%end%>
-      </div>
-
-
+      
       <div class="bottomMessageBox">
         <%= message.content %>
       </div>
