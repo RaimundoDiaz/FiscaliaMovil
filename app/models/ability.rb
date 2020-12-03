@@ -22,6 +22,7 @@ class Ability
     elsif user.police_unit.present? and user.admin == false
       #Can manage all procedures of police_unit
       can :manage, Procedure, police_unit_in_charge: user.police_unit
+      can :read, Procedure, state: "Resend"
       #Except the drafts made by other policemen of the same police_unit
       cannot :manage, Procedure do |pro|
         (pro.state == "Draft" && pro.creator_id != user.id)
