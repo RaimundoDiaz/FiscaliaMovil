@@ -125,126 +125,127 @@ class ProceduresController < ApplicationController
                                region: selected_region,
                                state: params[:state].to_i,
                                date_of_arrest: dateOfArrest,
-                               involves_deceased: procedure_params[:involves_deceased]
-    )
+                               involves_deceased: procedure_params[:involves_deceased])
 
     respond_to do |format|
-      if @procedure.save!
+      if procedure_params[:accuseds]
+        if @procedure.save!
 
-        if procedure_params[:photos] != nil
-          procedure_params[:photos].each_with_index do |photo,i|
-            @photo = Photo.new(description: procedure_params[:photo_descriptions][i], procedure: @procedure)
-            @photo.photo.attach(photo)
-            @photo.save!
+          if procedure_params[:photos] != nil
+            procedure_params[:photos].each_with_index do |photo,i|
+              @photo = Photo.new(description: procedure_params[:photo_descriptions][i], procedure: @procedure)
+              @photo.photo.attach(photo)
+              @photo.save!
+            end
           end
-        end
 
-        if procedure_params[:videos] != nil
-          procedure_params[:videos].each_with_index do |video,i|
-            @video = Video.new(description: procedure_params[:video_descriptions][i], procedure: @procedure)
-            @video.video.attach(video)
-            @video.save!
+          if procedure_params[:videos] != nil
+            procedure_params[:videos].each_with_index do |video,i|
+              @video = Video.new(description: procedure_params[:video_descriptions][i], procedure: @procedure)
+              @video.video.attach(video)
+              @video.save!
+            end
           end
-        end
 
-        if procedure_params[:documents] != nil
-          procedure_params[:documents].each_with_index do |document,i|
-            @document = Document.new(description: procedure_params[:document_descriptions][i],name: procedure_params[:document_names][i], procedure: @procedure)
-            @document.document.attach(document)
-            @document.save!
+          if procedure_params[:documents] != nil
+            procedure_params[:documents].each_with_index do |document,i|
+              @document = Document.new(description: procedure_params[:document_descriptions][i],name: procedure_params[:document_names][i], procedure: @procedure)
+              @document.document.attach(document)
+              @document.save!
+            end
           end
-        end
 
-        procedure_params[:tag_ids][1..procedure_params[:tag_ids].size].each do |tag|
-          @tag = Tagging.new(tag: Tag.find_by_name(tag),
-                             procedure: @procedure)
-          @tag.save
-        end
+          procedure_params[:tag_ids][1..procedure_params[:tag_ids].size].each do |tag|
+            @tag = Tagging.new(tag: Tag.find_by_name(tag),
+                               procedure: @procedure)
+            @tag.save
+          end
 
-        procedure_params[:accuseds].each do |accused|
-          @criminal = Person.new(name: accused[:name],
-                                 rut: accused[:rut])
-          if @criminal.save!
-            @criminal_in_procedure = PersonInProcedure.new(role: 0,
-                                                           person: @criminal,
-                                                           procedure: @procedure,
-                                                           state: 0)
-            @criminal_in_procedure.save
-            @criminal_alias = AliasAccused.new(alias: accused[:alias],
-                                               person: @criminal)
-            @criminal_alias.save
-            if procedure_params[:crimes]
-              procedure_params[:crimes].each do |crime|
-                @crime_in_accused = CrimeInAccused.new(preponderant: false,
-                                                       crime: Crime.find_by_name(crime),
-                                                       person: @criminal,
-                                                       procedure: @procedure)
-                @crime_in_accused.save
+          procedure_params[:accuseds].each do |accused|
+            @criminal = Person.new(name: accused[:name],
+                                   rut: accused[:rut])
+            if @criminal.save!
+              @criminal_in_procedure = PersonInProcedure.new(role: 0,
+                                                             person: @criminal,
+                                                             procedure: @procedure,
+                                                             state: 0)
+              @criminal_in_procedure.save
+              @criminal_alias = AliasAccused.new(alias: accused[:alias],
+                                                 person: @criminal)
+              @criminal_alias.save
+              if procedure_params[:crimes]
+                procedure_params[:crimes].each do |crime|
+                  @crime_in_accused = CrimeInAccused.new(preponderant: false,
+                                                         crime: Crime.find_by_name(crime),
+                                                         person: @criminal,
+                                                         procedure: @procedure)
+                  @crime_in_accused.save
+                end
+              end
+
+              @preponderan_crime_in_accused = CrimeInAccused.new(preponderant: true,
+                                                                 crime: Crime.find_by_name(procedure_params[:preponderant_crime]),
+                                                                 person: @criminal,
+                                                                 procedure: @procedure)
+              @preponderan_crime_in_accused.save
+            end
+          end
+
+          if procedure_params[:victims]
+            procedure_params[:victims].each do |victim|
+              @victim = Person.new(name: victim[:name],
+                                   rut: victim[:rut],
+                                   deceased: victim[:deceased],
+                                   contact: victim[:contact]
+              )
+              if @victim.save!
+                @victim_in_procedure = PersonInProcedure.new(role: 2,
+                                                             person: @victim,
+                                                             procedure: @procedure,
+                                                             witness_declaration: victim[:story])
+                @victim_in_procedure.save
               end
             end
-
-            @preponderan_crime_in_accused = CrimeInAccused.new(preponderant: true,
-                                                               crime: Crime.find_by_name(procedure_params[:preponderant_crime]),
-                                                               person: @criminal,
-                                                               procedure: @procedure)
-            @preponderan_crime_in_accused.save
           end
-        end
 
-        if procedure_params[:victims]
-          procedure_params[:victims].each do |victim|
-            @victim = Person.new(name: victim[:name],
-                                 rut: victim[:rut],
-                                 deceased: victim[:deceased],
-                                 contact: victim[:contact]
-            )
-            if @victim.save!
-              @victim_in_procedure = PersonInProcedure.new(role: 2,
-                                                           person: @victim,
-                                                           procedure: @procedure,
-                                                           witness_declaration: victim[:story])
-              @victim_in_procedure.save
+
+          if procedure_params[:witness]
+            procedure_params[:witness].each do |witness|
+              @witness = Person.new(name: witness[:name],
+                                    rut: witness[:rut],
+                                    contact: witness[:contact]
+              )
+              if @witness.save!
+                @witness_in_procedure = PersonInProcedure.new(role: 1,
+                                                              person: @witness,
+                                                              procedure: @procedure,
+                                                              witness_declaration: witness[:story])
+                @witness_in_procedure.save
+              end
             end
           end
-        end
 
-
-        if procedure_params[:witness]
-          procedure_params[:witness].each do |witness|
-            @witness = Person.new(name: witness[:name],
-                                  rut: witness[:rut],
-                                  contact: witness[:contact]
-            )
-            if @witness.save!
-              @witness_in_procedure = PersonInProcedure.new(role: 1,
-                                                            person: @witness,
-                                                            procedure: @procedure,
-                                                            witness_declaration: witness[:story])
-              @witness_in_procedure.save
+          #si el procedimiento se envia, se mandan las notificaciones pertinentes
+          if @procedure.state == "Open"
+            #si el usuario actual es policia, mandar notificaccion al fiscal y alrevez para lo otro
+            if current_user.police_unit.present?
+              prosecutors = Prosecutor.not_deleted.where(local_prosecution_id: @procedure.local_prosecution_in_charge.id)
+              prosecutors.each { |pros|
+                Notification.create(user: pros.user, notification_type: 0, reference_id: @procedure.id, seen: false)
+              }
+            elsif current_user.prosecutor.present?
+              @procedure.police_unit_in_charge.users.each { |police_user|
+                Notification.create(user: police_user, notification_type: 0, reference_id: @procedure.id, seen: false)
+              }
             end
           end
-        end
 
-        #si el procedimiento se envia, se mandan las notificaciones pertinentes
-        if @procedure.state == "Open"
-          #si el usuario actual es policia, mandar notificaccion al fiscal y alrevez para lo otro
-          if current_user.police_unit.present?
-            prosecutors = Prosecutor.not_deleted.where(local_prosecution_id: @procedure.local_prosecution_in_charge.id)
-            prosecutors.each { |pros|
-              Notification.create(user: pros.user, notification_type: 0, reference_id: @procedure.id, seen: false)
-            }
-          elsif current_user.prosecutor.present?
-            @procedure.police_unit_in_charge.users.each { |police_user|
-              Notification.create(user: police_user, notification_type: 0, reference_id: @procedure.id, seen: false)
-            }
-          end
+          format.html { redirect_to @procedure, notice: 'Procedimiento ha sido creado con éxito.' }
+          format.json { render :show, status: :created, location: @procedure }
+        else
+          format.html { render :new }
+          format.json { render json: @procedure.errors, status: :unprocessable_entity }
         end
-
-        format.html { redirect_to @procedure, notice: 'Procedimiento ha sido creado con éxito.' }
-        format.json { render :show, status: :created, location: @procedure }
-      else
-        format.html { render :new }
-        format.json { render json: @procedure.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -278,9 +279,6 @@ class ProceduresController < ApplicationController
         end
       end
 
-      #destruimos todos los crimenes, para asi crearlos denuevo y no tener problemas
-      @procedure.crime_in_accuseds.destroy_all
-
       d = procedure_params[:date].to_date
       t = procedure_params[:time].to_time
 
@@ -301,9 +299,15 @@ class ProceduresController < ApplicationController
 
 
           if procedure_params[:deletedAccusseds] != nil
-            procedure_params[:deletedAccusseds].each do |accussed|
-              personInProcedure = PersonInProcedure.find(accussed[:id])
-              personInProcedure.destroy!
+            if procedure_params[:deletedAccusseds].length() < @procedure.person_in_procedures.where(role: 0).length() + procedure_params[:accuseds].length()
+              procedure_params[:deletedAccusseds].each do |accussed|
+                personInProcedure = PersonInProcedure.find(accussed[:id])
+                personInProcedure.destroy!
+              end
+            else
+              @procedure.errors.add(:person_in_procedure, "se necesita al menos un imputado")
+              format.json { render json: @procedure.errors, status: :unprocessable_entity }
+              return
             end
           end
 
@@ -373,6 +377,9 @@ class ProceduresController < ApplicationController
                                procedure: @procedure)
             @tag.save
           end
+
+          #destruimos todos los crimenes, para asi crearlos denuevo y no tener problemas
+          @procedure.crime_in_accuseds.destroy_all
 
           #si hay imputados nuevos
           if procedure_params[:accuseds]

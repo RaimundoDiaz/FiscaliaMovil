@@ -427,7 +427,6 @@ $(document).on('turbolinks:load', function() {
     $("#delete_photo").remove();
 
     $('#add_photo_btn').click(function () {
-
         let photoHTML = singlePhoto.clone()
 
         let delBtn = photoHTML.find('#delete_photo');
@@ -442,7 +441,6 @@ $(document).on('turbolinks:load', function() {
     $("#delete_video").remove();
 
     $('#add_video_btn').click(function () {
-
         let videoHTML = singleVideo.clone()
 
         let delBtn = videoHTML.find('#delete_video');
