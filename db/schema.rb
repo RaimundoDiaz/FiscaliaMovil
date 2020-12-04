@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_02_191513) do
+ActiveRecord::Schema.define(version: 2020_12_02_191050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -118,10 +118,12 @@ ActiveRecord::Schema.define(version: 2020_12_02_191513) do
     t.string "witness_declaration"
     t.integer "role"
     t.integer "state"
+    t.bigint "prosecutor_pronounced_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["person_id"], name: "index_person_in_procedures_on_person_id"
     t.index ["procedure_id"], name: "index_person_in_procedures_on_procedure_id"
+    t.index ["prosecutor_pronounced_id"], name: "index_person_in_procedures_on_prosecutor_pronounced_id"
   end
 
   create_table "photos", force: :cascade do |t|
@@ -174,7 +176,6 @@ ActiveRecord::Schema.define(version: 2020_12_02_191513) do
     t.integer "classification"
     t.bigint "police_in_charge_id", null: false
     t.bigint "police_unit_in_charge_id", null: false
-    t.bigint "prosecutor_in_charge_id", null: false
     t.bigint "local_prosecution_in_charge_id", null: false
     t.bigint "creator_id", null: false
     t.string "story", null: false
@@ -190,7 +191,6 @@ ActiveRecord::Schema.define(version: 2020_12_02_191513) do
     t.index ["local_prosecution_in_charge_id"], name: "index_procedures_on_local_prosecution_in_charge_id"
     t.index ["police_in_charge_id"], name: "index_procedures_on_police_in_charge_id"
     t.index ["police_unit_in_charge_id"], name: "index_procedures_on_police_unit_in_charge_id"
-    t.index ["prosecutor_in_charge_id"], name: "index_procedures_on_prosecutor_in_charge_id"
   end
 
   create_table "prosecutors", force: :cascade do |t|
@@ -210,15 +210,6 @@ ActiveRecord::Schema.define(version: 2020_12_02_191513) do
     t.boolean "deleted", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "registry_in_accuseds", force: :cascade do |t|
-    t.bigint "accused_id", null: false
-    t.bigint "prosecutor_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["accused_id"], name: "index_registry_in_accuseds_on_accused_id"
-    t.index ["prosecutor_id"], name: "index_registry_in_accuseds_on_prosecutor_id"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -274,17 +265,15 @@ ActiveRecord::Schema.define(version: 2020_12_02_191513) do
   add_foreign_key "notifications", "users"
   add_foreign_key "person_in_procedures", "people"
   add_foreign_key "person_in_procedures", "procedures"
+  add_foreign_key "person_in_procedures", "prosecutors", column: "prosecutor_pronounced_id"
   add_foreign_key "police_stations", "prefectures"
   add_foreign_key "police_units", "local_prosecutions"
   add_foreign_key "police_units", "police_stations"
   add_foreign_key "procedures", "local_prosecutions", column: "local_prosecution_in_charge_id"
   add_foreign_key "procedures", "police_men", column: "police_in_charge_id"
   add_foreign_key "procedures", "police_units", column: "police_unit_in_charge_id"
-  add_foreign_key "procedures", "prosecutors", column: "prosecutor_in_charge_id"
   add_foreign_key "procedures", "users", column: "creator_id"
   add_foreign_key "prosecutors", "local_prosecutions"
-  add_foreign_key "registry_in_accuseds", "person_in_procedures", column: "accused_id"
-  add_foreign_key "registry_in_accuseds", "prosecutors"
   add_foreign_key "taggings", "procedures"
   add_foreign_key "taggings", "tags"
   add_foreign_key "users", "local_prosecutions"

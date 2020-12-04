@@ -3,7 +3,6 @@ class Procedure < ApplicationRecord
   belongs_to :local_prosecution_in_charge, class_name: 'LocalProsecution'
 
   belongs_to :police_unit_in_charge, class_name: 'PoliceUnit'
-  belongs_to :prosecutor_in_charge, class_name: 'Prosecutor'
   has_many :person_in_procedures
   has_many :people, :through => :person_in_procedures
   has_many :crime_in_accuseds
@@ -18,7 +17,7 @@ class Procedure < ApplicationRecord
   validate :past_date
   validate :empty_address
 
-  enum state: {open: 0, close: 1, draft: 2, re_send: 3}
+  enum state: {open: 0, close: 1, draft: 2, resend: 3}
   enum classification: {flagrancy: 0, pending_arrest_warrant: 1, both: 2}
 
   def state

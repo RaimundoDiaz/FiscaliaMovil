@@ -1,7 +1,7 @@
 class LocalProsecution < ApplicationRecord
   after_create :create_admin
   belongs_to :regional_prosecution
-  has_many :procedures, class_name: 'Procedure', foreign_key: :prosecutor_in_charge_id, dependent: :destroy
+  has_many :procedures
   has_many :prosecutors
   has_one :user
   has_many :police_units

@@ -25,7 +25,7 @@ class ProceduresController < ApplicationController
     accuseds_in_procedure = @procedure.person_in_procedures.where(role: 0)
     @accuseds = []
     accuseds_in_procedure.each do |accused|
-      @accuseds.append([Person.find(accused.person_id), accused.state, accused.id])
+      @accuseds.append([Person.find(accused.person_id), accused.state, accused.id, accused.prosecutor_pronounced])
     end
     #save list with all victims person of the procedure
     victims_in_procedure = @procedure.person_in_procedures.where(role: 2)
