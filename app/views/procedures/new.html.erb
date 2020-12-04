@@ -182,14 +182,14 @@
           <h5 class="card-header d-flex justify-content-between align-items-center">Documentos <button type="button" id="add_document_btn" class="btn btn-warning text-light"> + Agregar documento </button></h5>
           <div id="documents" class="card-body">
             <div id="single-document" class="card p-3 m-1">
-              <h5 class="card-title"> documento <button id="delete_document" type="button" class="close" aria-label="Close ml-2 mb-2"><span aria-hidden="true">&times;</span></button></h5>
+              <h5 class="card-title"> Documento <button id="delete_document" type="button" class="close" aria-label="Close ml-2 mb-2"><span aria-hidden="true">&times;</span></button></h5>
               <%= form.file_field "",multiple: false, class: "form-control-file mb-3", name: "procedure[documents][]" %>
               <div class="form-inline mb-3">
                 <%= form.label "", 'Nombre:' , class: "mr-2 form-label"%>
                 <%= form.text_field "", class: "form-control flex-grow-1", name:"procedure[document_names][]" %>
               </div>
               <div class="form-inline">
-                <%= form.label "", 'Descripcion:' , class: "mr-2 form-label"%>
+                <%= form.label "", 'Descripción:' , class: "mr-2 form-label"%>
                 <%= form.text_field "", class: "form-control flex-grow-1", name:"procedure[document_descriptions][]" %>
               </div>
             </div>
