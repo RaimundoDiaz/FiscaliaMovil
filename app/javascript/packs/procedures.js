@@ -321,15 +321,18 @@ $(document).on('turbolinks:load', function() {
             $('#form-invalid-time').removeAttr('hidden');
             $('#form-invalid-time').html('Hora necesaria.');
         }
-        else if ($("#procedure_time").val() > getCurrentTime()){
-            invalidDate = true;
-            $("#procedure_time").addClass("is-invalid");
-            $('#form-invalid-time').removeAttr('hidden');
-            $('#form-invalid-time').html('Hora invalida.');
+        else if($("#procedure_date").val() == getCurrentDate()){
+            if ($("#procedure_time").val() > getCurrentTime()){
+                invalidDate = true;
+                $("#procedure_time").addClass("is-invalid");
+                $('#form-invalid-time').removeAttr('hidden');
+                $('#form-invalid-time').html('Hora invalida.');
+            }
         }
         if(!$("#accussed").length){
             invalidField=true
             $('#form-invalid-accussed').removeAttr('hidden');
+            $('#form-invalid-accussed').removeAttr('style');
         }
         if($("#procedure_address").val()==""){
             invalidField=true
