@@ -1,6 +1,10 @@
 <span>
   <div id="content_box">
-    <h1 class="d-flex justify-content-center"><b id="borradorTitulo">Borrador de procedimiento</b></h1>
+    <% if @procedure.state == "Draft" %>
+      <h1 class="d-flex justify-content-center"><b id="borradorTitulo">Borrador de procedimiento</b></h1>
+    <% else %>
+      <h1 class="d-flex justify-content-center"><b id="borradorTitulo">Edición de procedimiento</b></h1>
+    <% end %>
     <div class="pr-5 pl-5 mt-5" id="form">
       <%= render 'form'%>
     </div>
