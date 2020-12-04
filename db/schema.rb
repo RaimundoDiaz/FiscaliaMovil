@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_02_161141) do
+ActiveRecord::Schema.define(version: 2020_12_02_191050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -176,7 +176,6 @@ ActiveRecord::Schema.define(version: 2020_12_02_161141) do
     t.integer "classification"
     t.bigint "police_in_charge_id", null: false
     t.bigint "police_unit_in_charge_id", null: false
-    t.bigint "prosecutor_in_charge_id", null: false
     t.bigint "local_prosecution_in_charge_id", null: false
     t.bigint "creator_id", null: false
     t.string "story", null: false
@@ -192,7 +191,6 @@ ActiveRecord::Schema.define(version: 2020_12_02_161141) do
     t.index ["local_prosecution_in_charge_id"], name: "index_procedures_on_local_prosecution_in_charge_id"
     t.index ["police_in_charge_id"], name: "index_procedures_on_police_in_charge_id"
     t.index ["police_unit_in_charge_id"], name: "index_procedures_on_police_unit_in_charge_id"
-    t.index ["prosecutor_in_charge_id"], name: "index_procedures_on_prosecutor_in_charge_id"
   end
 
   create_table "prosecutors", force: :cascade do |t|
@@ -274,7 +272,6 @@ ActiveRecord::Schema.define(version: 2020_12_02_161141) do
   add_foreign_key "procedures", "local_prosecutions", column: "local_prosecution_in_charge_id"
   add_foreign_key "procedures", "police_men", column: "police_in_charge_id"
   add_foreign_key "procedures", "police_units", column: "police_unit_in_charge_id"
-  add_foreign_key "procedures", "prosecutors", column: "prosecutor_in_charge_id"
   add_foreign_key "procedures", "users", column: "creator_id"
   add_foreign_key "prosecutors", "local_prosecutions"
   add_foreign_key "taggings", "procedures"

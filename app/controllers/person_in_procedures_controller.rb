@@ -41,8 +41,7 @@ class PersonInProceduresController < ApplicationController
   # PATCH/PUT /person_in_procedures/1.json
   def update
     respond_to do |format|
-      if @person_in_procedure.update(state: params[:state])
-        @person_in_procedure.prosecutor_pronounced = Prosecutor.find_by_id(params[:prosecutor_pronounced])
+      if @person_in_procedure.update(state: params[:state], prosecutor_pronounced_id: params[:prosecutor_pronounced])
         format.html { redirect_to request.referrer, notice: 'Se ha pronunciado sobre un imputado con éxito.' }
         format.json { render :show, status: :ok, location: @person_in_procedure }
       else

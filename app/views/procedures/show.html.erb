@@ -34,7 +34,6 @@
             <a class="list-group-item list-group-item-action active" id="list-police-unit-list" data-toggle="list" href="#list-police-unit" role="tab" aria-controls="home">Unidad Policíal</a>
             <a class="list-group-item list-group-item-action" id="list-police-in-charge-list" data-toggle="list" href="#list-police-in-charge" role="tab" aria-controls="profile">Policía a cargo</a>
             <a class="list-group-item list-group-item-action" id="list-local-prosecution-list" data-toggle="list" href="#list-local-prosecution" role="tab" aria-controls="messages">Fiscalía Local</a>
-            <a class="list-group-item list-group-item-action" id="list-prosecutor-in-charge-list" data-toggle="list" href="#list-prosecutor-in-charge" role="tab" aria-controls="settings">Fiscal a cargo</a>
           </div>
         </div>
         <div class="col-8">
@@ -62,14 +61,6 @@
                 <div class="card-body">
                   <h5 class="card-title"><%= @procedure.local_prosecution_in_charge.name %></h5>
                   <h6 class="card-subtitle mb-2 text-muted">Pertenece a <%= @procedure.local_prosecution_in_charge.regional_prosecution.name %></h6>
-                </div>
-              </div>
-            </div>
-            <div class="tab-pane fade" id="list-prosecutor-in-charge" role="tabpanel" aria-labelledby="list-prosecutor-in-charge-list">
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title"><%= @procedure.prosecutor_in_charge.name %></h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Rut: <%= @procedure.prosecutor_in_charge.rut %></h6>
                 </div>
               </div>
             </div>
@@ -171,7 +162,7 @@
                     </p>
                     <% if accused[3] %>
                       <p class="card-text"><small class="text-muted">
-                        Fiscal que se pronunció: <%= accused[3] %>
+                        Fiscal que se pronunció: <%= accused[3].name %>
                       </small>
                       </p>
                     <% end %>
@@ -190,7 +181,7 @@
                           </div>
                           <%= form_with(url: person_in_procedures_path, method: "put") do |form| %>
                             <div class="modal-body">
-                              <%= form.label :Fiscal %>
+                              <%= form.label :Fiscal_que_se_va_a_pronunciar %>
                               <%= form.select :prosecutor_pronounced, options_for_select(@procedure.local_prosecution_in_charge.prosecutors.not_deleted.order(:name).map { |prosecutor| [prosecutor[:name], prosecutor[:id]] }),{},{class: "form-control flex-grow-1"} %>
                               <%= form.label :Estado %>
                               <%= form.select :state, options_for_select([['Pendiente', "pending"], ['Apercibido', "noticed"], ['Audiencia control de detención', "acd"]]),{},{class: "form-control"} %>
