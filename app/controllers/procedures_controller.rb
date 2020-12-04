@@ -60,6 +60,7 @@ class ProceduresController < ApplicationController
     @classification_dic = {"Flagrancy" => "Flagrancia", "Pending arrest warrant" => "ODP", "Both" => "Ambas"}
     @photos = @procedure.photos
     @videos = @procedure.videos
+    @documents = @procedure.documents
     get_regiones
     @regiones.each do |region|
       if region[:nombre].to_s == @procedure.region
@@ -74,7 +75,6 @@ class ProceduresController < ApplicationController
 
     gon.sector = @selected_sector
     gon.fiscales = Prosecutor.not_deleted
-    gon.fiscal = @procedure.prosecutor_in_charge
   end
 
   # POST /procedures
@@ -118,7 +118,6 @@ class ProceduresController < ApplicationController
                                creator: current_user,
                                police_in_charge: PoliceMan.find(procedure_params[:police_in_charge]),
                                police_unit_in_charge: PoliceUnit.find(procedure_params[:police_unit_in_charge]),
-                               prosecutor_in_charge: Prosecutor.find(procedure_params[:prosecutor_in_charge]),
                                local_prosecution_in_charge: LocalProsecution.find(procedure_params[:prosecution_in_charge]),
                                story: procedure_params[:story],
                                address: procedure_params[:address],
@@ -149,8 +148,11 @@ class ProceduresController < ApplicationController
         end
 
         if procedure_params[:documents] != nil
-          @procedure.documents.attach(procedure_params[:documents])
-          @procedure.save!
+          procedure_params[:documents].each_with_index do |document,i|
+            @document = Document.new(description: procedure_params[:document_descriptions][i],name: procedure_params[:document_names][i], procedure: @procedure)
+            @document.document.attach(document)
+            @document.save!
+          end
         end
 
         procedure_params[:tag_ids][1..procedure_params[:tag_ids].size].each do |tag|
@@ -288,7 +290,6 @@ class ProceduresController < ApplicationController
         if @procedure.update!(classification: classification_procedure,
                               police_in_charge: PoliceMan.find(procedure_params[:police_in_charge]),
                               police_unit_in_charge: PoliceUnit.find(procedure_params[:police_unit_in_charge]),
-                              prosecutor_in_charge: Prosecutor.find(procedure_params[:prosecutor_in_charge]),
                               local_prosecution_in_charge: LocalProsecution.find(procedure_params[:prosecution_in_charge]),
                               story: procedure_params[:story],
                               address: procedure_params[:address],
@@ -334,6 +335,13 @@ class ProceduresController < ApplicationController
             end
           end
 
+          if procedure_params[:deleted_documents] != nil
+            procedure_params[:deleted_documents].each do |doc|
+              docInProcedure = Document.find(doc)
+              docInProcedure.destroy!
+            end
+          end
+
 
           if procedure_params[:photos] != nil
             procedure_params[:photos].each_with_index do |photo,i|
@@ -352,8 +360,11 @@ class ProceduresController < ApplicationController
           end
 
           if procedure_params[:documents] != nil
-            @procedure.documents.attach(procedure_params[:documents])
-            @procedure.save!
+            procedure_params[:documents].each_with_index do |document,i|
+              @document = Document.new(description: procedure_params[:document_descriptions][i],name: procedure_params[:document_names][i], procedure: @procedure)
+              @document.document.attach(document)
+              @document.save!
+            end
           end
 
           @procedure.taggings.destroy_all
@@ -534,8 +545,8 @@ class ProceduresController < ApplicationController
 
   def procedure_params
     # Only allow a list of trusted parameters through.
-    params.require(:procedure).permit(:date, :time, :classification, :involves_deceased, :prosecutor_in_charge, :prosecution_in_charge, :police_unit_in_charge, :police_in_charge, :address, :region, :sector, :preponderant_crime, :state, :story, crimes: [],
-                                      videos: [],video_descriptions: [],deleted_videos: [], photos: [],photo_descriptions: [],deleted_photos: [], documents: [],document_descriptions: [],deleted_documents: [],
+    params.require(:procedure).permit(:date, :time, :classification, :involves_deceased, :prosecution_in_charge, :police_unit_in_charge, :police_in_charge, :address, :region, :sector, :preponderant_crime, :state, :story, crimes: [],
+                                      videos: [],video_descriptions: [],deleted_videos: [], photos: [],photo_descriptions: [],deleted_photos: [], documents: [],document_names: [],document_descriptions: [],deleted_documents: [],
                                       tag_ids: [], :accuseds => [:name, :alias, :rut], :victims => [:name, :rut, :deceased, :contact, :story],
                                       :witness => [:name, :rut, :story, :contact], :deletedAccusseds => [:id], :deletedVictims => [:id], :deletedWitnesses => [:id], :deletedCrimes => [:id])
   end

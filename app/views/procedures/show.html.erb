@@ -327,30 +327,27 @@
           <% end %>
         </div>
       <div class="tab-pane fade" id="nav-documents" role="tabpanel" aria-labelledby="nav-contact-tab">
-        <br>
-          <% if @procedure.documents.attached? %>
+        <% if @procedure.documents == [] %>
+          <div class="alert alert-info" role="alert">
+            No hay documentos en este procedimiento.
+          </div>
+        <% else %>
           <div class="row row-cols-1 row-cols-md-3">
             <table class="table">
-              <thead>
               <tr>
                 <th>Documentos</th>
+                <th>descripcion</th>
               </tr>
-              </thead>
-              <tbody>
               <% @procedure.documents.each do |doc|  %>
                 <tr>
-                  <td><%= link_to "Document", rails_blob_path(doc), target: :_blank %></td>
+                  <td><%= link_to doc.name, rails_blob_path(doc.document), target: :_blank %></td>
+                  <td><%= doc.description %></td>
                 </tr>
               <%end %>
-              </tbody>
             </table>
           </div>
-          <% else %>
-            <div class="alert alert-info" role="alert">
-              No hay documentos en este procedimiento.
-            </div>
-          <% end %>
-          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
@@ -370,7 +367,7 @@
   <%= link_to 'Mensajes del procedimiento', procedure_messages_path(@procedure.id), class: ["btn", "btn-outline-warning"] %>
   <% if @procedure.state == "Draft" or (@procedure.state == "Resend" and @procedure.creator == current_user) %>
     <%= link_to 'Editar', edit_procedure_path, class: ["btn", "btn-outline-warning"] %>
-  <% elsif current_user.prosecutor and @procedure.creator != current_user and @procedure.state != "Close" and @procedure.state != "Resend"%>
+  <% elsif current_user.prosecutor and @procedure.state == "Open"%>
     <%= link_to "Solicitar más información", "#informationModal", :class => ["btn", "btn-outline-warning"], "data-toggle" => "modal"%>
   <%end %>
 </div>
