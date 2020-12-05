@@ -39,7 +39,7 @@ class Procedure < ApplicationRecord
   end
 
   def past_date
-    if date_of_arrest > Date.today
+    if date_of_arrest > DateTime.now
       errors.add(:date_of_arrest, "La fecha no puede ser en el futuro")
     end
   end
