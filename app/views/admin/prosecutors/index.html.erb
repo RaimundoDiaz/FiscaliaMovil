@@ -13,8 +13,8 @@
 <div id="content_box">
   <div class="container mt-3">
     <div>
-      <h2 class="float-left">Fiscales</h2>
-      <%= link_to "Crear Fiscal", new_admin_prosecutor_path(:operador => false), :method => :get, :class => "btn btn-primary text-white mb-2 float-right" %>
+      <h2 class="float-left">Fiscales de turno</h2>
+      <%= link_to "Crear Fiscal de turno", new_admin_prosecutor_path(:operador => false), :method => :get, :class => "btn btn-primary text-white mb-2 float-right" %>
     </div>
     <input class="form-control" id="myInput" type="text" placeholder="Buscar Fiscal..">
     <br>
@@ -33,7 +33,7 @@
           <td><%= prosecutor.name %></td>
           <td><%= prosecutor.rut %></td>
           <td><%= prosecutor.local_prosecution.name %></td>
-          <td><%= link_to 'Editar', edit_admin_prosecutor_path(prosecutor) %> <%= link_to 'Eliminar', admin_prosecutor_path(prosecutor), method: :delete, data: { confirm: "¿Estás seguro que quieres borrar este Fiscal?" }, :class => "float-right" %></td>
+          <td><%= link_to 'Editar', edit_admin_prosecutor_path(prosecutor) %> <%= link_to 'Eliminar', admin_prosecutor_path(prosecutor), method: :delete, data: { confirm: "¿Estás seguro que quieres borrar este Fiscal de turno?" }, :class => "float-right" %></td>
         </tr>
 
       <% end %>
