@@ -112,7 +112,7 @@ class ProceduresController < ApplicationController
     t = procedure_params[:time].to_time
 
 
-    dateOfArrest = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec)
+    dateOfArrest = Time.zone.local(d.year, d.month, d.day, t.hour, t.min, t.sec)
 
     @procedure = Procedure.new(classification: classification_procedure,
                                creator: current_user,
@@ -282,7 +282,7 @@ class ProceduresController < ApplicationController
       d = procedure_params[:date].to_date
       t = procedure_params[:time].to_time
 
-      dateOfArrest = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec)
+      dateOfArrest = Time.zone.local(d.year, d.month, d.day, t.hour, t.min, t.sec)
 
       respond_to do |format|
         if @procedure.update!(classification: classification_procedure,
