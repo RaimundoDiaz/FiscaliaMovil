@@ -7,9 +7,9 @@ class Admin::ProsecutorsController < ApplicationController
   # GET /admin/prosecutors.json
   def index
     if current_user.local_prosecution.present?
-      @prosecutors = Prosecutor.not_deleted.where(local_prosecution: current_user.local_prosecution).order(:name)
+      @prosecutors = Prosecutor.not_operators.where(local_prosecution: current_user.local_prosecution).order(:name)
     else
-      @prosecutors = Prosecutor.not_deleted.order(:name)
+      @prosecutors = Prosecutor.not_operators.order(:name)
     end
 
   end

@@ -7,6 +7,7 @@ class Prosecutor < ApplicationRecord
 
   scope :not_deleted, -> { where(deleted: false) }
   scope :deleted, -> { where(deleted: true) }
+  scope :not_operators, -> { where(prosecutor_on_duty: true, deleted: false) }
 
   def soft_delete
     update(deleted: true)
