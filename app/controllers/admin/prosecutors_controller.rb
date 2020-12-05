@@ -17,6 +17,11 @@ class Admin::ProsecutorsController < ApplicationController
   # GET /admin/prosecutors/new
   def new
     @operador = params["operador"]
+    if @operador == "true"
+      @operador = true
+    else
+      @operador = false
+    end
     @prosecutor = Prosecutor.new
   end
 
