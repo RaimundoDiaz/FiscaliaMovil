@@ -40,7 +40,11 @@ class Admin::ProsecutorsController < ApplicationController
 
       respond_to do |format|
         if @prosecutor.save
-          format.html { redirect_to admin_prosecutors_path, notice: 'Fiscal ha sido creado con éxito.' }
+          if @prosecutor.prosecutor_on_duty == false
+            format.html { redirect_to admin_users_path(:attribute => 2), notice: 'Operador ha sido creado con éxito.' }
+          else
+            format.html { redirect_to admin_prosecutors_path, notice: 'Fiscal ha sido creado con éxito.' }
+          end
         else
           format.html { render :new }
         end
