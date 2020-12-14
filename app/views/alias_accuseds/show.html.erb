@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Alias:</strong>
+  <%= @alias_accused.alias %>
+</p>
+
+<p>
+  <strong>Person:</strong>
+  <%= @alias_accused.person_id %>
+</p>
+
+<%= link_to 'Edit', edit_alias_accused_path(@alias_accused) %> |
+<%= link_to 'Back', alias_accuseds_path %>

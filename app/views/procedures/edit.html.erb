@@ -1,0 +1,94 @@
+<span>
+  <div id="content_box">
+    <% if @procedure.state == "Draft" %>
+      <h1 class="d-flex justify-content-center"><b id="borradorTitulo">Borrador de procedimiento</b></h1>
+    <% else %>
+      <h1 class="d-flex justify-content-center"><b id="borradorTitulo">Edición de procedimiento</b></h1>
+    <% end %>
+    <div class="pr-5 pl-5 mt-5" id="form">
+      <%= render 'form'%>
+    </div>
+  </div>
+</span>
+
+<!-- Acussed Modal -->
+<div class="modal fade" id="accusedModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Agregar imputado</h5>
+        <button type="button" class="close" id="accusedClose" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type="text" class="mb-3 form-control" id="accusedName" aria-describedby="nameAcussed" placeholder="Nombre Completo">
+        <input type="text" class="mb-3 form-control" id="accusedAlias" aria-describedby="aliasAccused" placeholder="Alias o Sobrenombre">
+        <input type="text" class="mb-3 form-control" id="accusedRut" aria-describedby="rutAccused" placeholder="Rut">
+        <div id="accused-invalid-rut" class="invalid-feedback" hidden>Rut inválido.</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="close-accused-btn" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button id="modal-accused-btn" type="button" class="btn btn-primary" >Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Victim Modal -->
+<div class="modal fade" id="victimModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Agregar Víctima</h5>
+        <button type="button" class="close" id="victimClose" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type="text" class="mb-3 form-control" id="victimName" aria-describedby="nameVictim" placeholder="Nombre Completo">
+        <input type="text" class="mb-3 form-control" id="victimRut" aria-describedby="rutVictim" placeholder="Rut">
+        <div id="victim-invalid-rut" class="invalid-feedback" hidden>Rut inválido.</div>
+        <input type="text" class="mb-3 form-control" id="victimContact" aria-describedby="contactVictim" placeholder="Contacto">
+        <div class=" mb-3 d-flex justify-content-center custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" id="deceasedVictimSwitch">
+          <label class="custom-control-label" for="deceasedVictimSwitch">Fallecido?</label>
+        </div>
+        <textarea class="mb-3 form-control" id="victimStory" aria-describedby="storyVictim" placeholder="Detalles..."></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="close-victim-btn" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button id="modal-victim-btn" type="button" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Witness Modal -->
+<div class="modal fade" id="witnessModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Agregar Testigo</h5>
+        <button type="button" class="close" id="witnessClose" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type="text" class="mb-3 form-control" id="witnessName" aria-describedby="nameWitness" placeholder="Nombre Completo">
+        <input type="text" class="mb-3 form-control" id="witnessRut" aria-describedby="rutWitness" placeholder="Rut">
+        <div id="witness-invalid-rut" class="invalid-feedback" hidden>Rut inválido.</div>
+        <input type="text" class="mb-3 form-control" id="witnessContact" aria-describedby="witnessVictim" placeholder="Contacto">
+        <textarea class="mb-3 form-control" id="witnessStory" aria-describedby="storyWitness" placeholder="Detalles..."></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="close-witness-btn" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button id="modal-witness-btn" type="button" class="btn btn-primary" >Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.4/js/bootstrap-switch.js" data-turbolinks-track="true"></script>
+

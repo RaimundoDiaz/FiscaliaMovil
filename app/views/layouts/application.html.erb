@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<script>
+    setTimeout("$('.error_msgs').fadeOut('fast')", 3000)
+    setTimeout("$('.success_msgs').fadeOut('fast')", 3000)
+</script>
+<html lang="es">
+<head>
+  <title>Atenas</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= Gon::Base.render_data %>
+  <script src="https://kit.fontawesome.com/bb30ccd945.js" crossorigin="anonymous"></script>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+<% if user_signed_in? %>
+  <% if current_user.admin? %>
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <div style="margin-top: 5%; margin-bottom: 15%; margin-left: auto; margin-right: auto">
+                <%= image_tag "logo.png", size: "200x150" %>
+              </div>
+                    <% if current_user.local_prosecution.nil? and current_user.police_unit.nil? and current_user.prosecutor.nil?%>
+                      <li class="nav-item">
+                        <div class="nav-link">
+                          <%= link_to admin_users_path(:attribute => 1) do %>
+                            <i class="fas fa-users"></i>
+                            <span>Administradores Nacionales</span>
+                          <% end %>
+                        </div>
+                      </li>
+                    <% end %>
+                    <% if current_user.police_unit.present? %>
+                      <p style="margin-left: 6%;">Unidad Policial: <%= current_user.police_unit.name %></p>
+                    <% end %>
+                    <% if current_user.police_unit.present? or (current_user.local_prosecution.nil? and current_user.police_unit.nil? and current_user.prosecutor.nil?) %>
+                    <li class="nav-item">
+                              <a class="nav-link" href="<%=  admin_police_men_path  %>">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                </svg>
+                                Policias
+                              </a>
+                    </li>
+                    <%  end %>
+                    <% if current_user.local_prosecution.present? %>
+                      <p style="margin-left: 6%;">Fiscalía Local: <%= current_user.local_prosecution.name %></p>
+                    <% end %>
+                    <% if current_user.local_prosecution.present? or (current_user.local_prosecution.nil? and current_user.police_unit.nil? and current_user.prosecutor.nil?) %>
+                      <li class="nav-item">
+                        <a class="nav-link" href="<%= admin_prosecutors_path %>">
+                          <i class="fas fa-gavel"></i>
+                          Fiscales de turno
+                        </a>
+                      </li>
+
+                      <li class="nav-item">
+                        <div class="nav-link">
+                          <%= link_to admin_users_path(:attribute => 2) do %>
+                            <i class="fas fa-users"></i>
+                            <span>Usuarios de fiscalía</span>
+                          <% end %>
+                        </div>
+                      </li>
+                      <% end %>
+                    <% if current_user.local_prosecution.nil? and current_user.police_unit.nil? %>
+                      <li class="nav-item">
+                        <a class="nav-link" href="<%= admin_crimes_path %>">
+                          <i class="fas fa-bell"></i>
+                          Delitos
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="<%= admin_tags_path %>">
+                          <i class="fas fa-tag"></i>
+                          Marcas
+                        </a>
+                      </li>
+                      <% end %>
+                    <% if current_user.local_prosecution.nil? and current_user.police_unit.nil?%>
+                    <li class="nav-item">
+                      <a class="nav-link" href="<%= admin_police_units_path %>">
+                        <i class="fas fa-house-user"></i>
+                        Unidades policiales
+                      </a>
+                    </li>
+                    <% end %>
+                    <% if current_user.police_unit.present? or (current_user.local_prosecution.nil? and current_user.police_unit.nil? and current_user.prosecutor.nil?) %>
+                      <li class="nav-item">
+                        <div class="nav-link">
+                          <%= link_to admin_users_path(:attribute => 3) do %>
+                            <i class="fas fa-house-user"></i>
+                            <span>Usuarios de UP</span>
+                          <% end %>
+                        </div>
+                      </li>
+                    <% end %>
+                    <% if current_user.local_prosecution.nil? and current_user.police_unit.nil? %>
+                    <li class="nav-item">
+                      <a class="nav-link" href="<%= admin_local_prosecutions_path %>">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-building" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694L1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z"/>
+                          <path d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z"/>
+                        </svg>
+                        Fiscalias Locales
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="<%= admin_regional_prosecutions_path %>">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-globe2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855-.143.268-.276.56-.395.872.705.157 1.472.257 2.282.287V1.077zM4.249 3.539a8.372 8.372 0 0 1-1.198-.49 7.01 7.01 0 0 1 2.276-1.52 6.7 6.7 0 0 0-.597.932 8.854 8.854 0 0 0-.48 1.079zM3.509 7.5H1.017A6.964 6.964 0 0 1 2.38 3.825c.47.258.995.482 1.565.667A13.4 13.4 0 0 0 3.508 7.5zm1.4-2.741c.808.187 1.681.301 2.591.332V7.5H4.51c.035-.987.176-1.914.399-2.741zM8.5 5.09V7.5h2.99a12.342 12.342 0 0 0-.399-2.741c-.808.187-1.681.301-2.591.332zM4.51 8.5H7.5v2.409c-.91.03-1.783.145-2.591.332a12.343 12.343 0 0 1-.4-2.741zm3.99 0v2.409c.91.03 1.783.145 2.591.332.223-.827.364-1.754.4-2.741H8.5zm-3.282 3.696A12.63 12.63 0 0 1 7.5 11.91v3.014c-.67-.204-1.335-.82-1.887-1.855a7.776 7.776 0 0 1-.395-.872zm.11 2.276a6.696 6.696 0 0 1-.598-.933 8.853 8.853 0 0 1-.481-1.079 8.38 8.38 0 0 0-1.198.49 7.01 7.01 0 0 0 2.276 1.522zm-1.383-2.964a9.083 9.083 0 0 0-1.565.667A6.963 6.963 0 0 1 1.018 8.5h2.49a13.36 13.36 0 0 0 .437 3.008zm6.728 2.964a7.009 7.009 0 0 0 2.275-1.521 8.376 8.376 0 0 0-1.197-.49 8.853 8.853 0 0 1-.481 1.078 6.688 6.688 0 0 1-.597.933zM8.5 11.909c.81.03 1.577.13 2.282.287-.12.312-.252.604-.395.872-.552 1.035-1.218 1.65-1.887 1.855V11.91zm3.555-.401c.57.185 1.095.409 1.565.667A6.963 6.963 0 0 0 14.982 8.5h-2.49a13.36 13.36 0 0 1-.437 3.008zM14.982 7.5h-2.49a13.361 13.361 0 0 0-.437-3.008 9.123 9.123 0 0 0 1.565-.667A6.963 6.963 0 0 1 14.982 7.5zM11.27 2.461c.177.334.339.694.482 1.078a8.368 8.368 0 0 0 1.196-.49 7.01 7.01 0 0 0-2.275-1.52c.218.283.418.597.597.932zm-.488 1.343c-.705.157-1.473.257-2.282.287V1.077c.67.204 1.335.82 1.887 1.855.143.268.276.56.395.872z"/>
+                        </svg>
+                        Fiscalias Regionales
+                      </a>
+                    </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="<%= admin_police_stations_path %>">
+                          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-shield-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M5.187 1.025C6.23.749 7.337.5 8 .5c.662 0 1.77.249 2.813.525a61.09 61.09 0 0 1 2.772.815c.528.168.926.623 1.003 1.184.573 4.197-.756 7.307-2.367 9.365a11.191 11.191 0 0 1-2.418 2.3 6.942 6.942 0 0 1-1.007.586c-.27.124-.558.225-.796.225s-.526-.101-.796-.225a6.908 6.908 0 0 1-1.007-.586 11.192 11.192 0 0 1-2.417-2.3C2.167 10.331.839 7.221 1.412 3.024A1.454 1.454 0 0 1 2.415 1.84a61.11 61.11 0 0 1 2.772-.815z"/>
+                          </svg>
+                          Comisaría
+                        </a>
+                      </li>
+                      <% end %>
+                    <li class="nav-item">
+                      <br>
+                      <br>
+                    </li>
+                    <% if current_user.police_unit.present? %>
+                      <li class="nav-item">
+                        <%= link_to "Editar Unidad Policial", edit_admin_police_unit_path(current_user.police_unit.id, :viene => false), :class => "btn btn-success text-white ml-sm-4 mb-4" %>
+                      </li>
+                      <li class="nav-item">
+                        <%= button_to "Eliminar Unidad Policial", admin_police_unit_path(current_user.police_unit.id), :method => :delete, :class => "btn btn-danger text-white ml-sm-4 mb-4", data: { confirm: "¿Estás seguro que quieres borrar esta unidad policial?" } %>
+                      </li>
+                    <% elsif current_user.local_prosecution.present?%>
+                      <li class="nav-item">
+                        <%= link_to "Editar Fiscalía Local", edit_admin_local_prosecution_path(current_user.local_prosecution.id, :viene => false), :class => "btn btn-success text-white ml-sm-4 mb-4" %>
+                      </li>
+                      <li class="nav-item">
+                        <%= button_to "Eliminar Fiscalía Local", admin_local_prosecution_path(current_user.local_prosecution.id), :method => :delete, :class => "btn btn-danger text-white ml-sm-4 mb-4", data: { confirm: "¿Estás seguro que quieres borrar esta fiscalía local?" } %>
+                      </li>
+                    <% end %>
+                    <li class="nav-item">
+                      <%= button_to "Cerrar sesión", destroy_user_session_path, :method => :delete, :class => "btn btn-danger text-white ml-sm-4" %>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+              <main class="mainAdmin col-md-9 ml-sm-auto col-lg-10 pt-3 px-4" role="main">
+                <span class="success_msgs">
+                  <% if notice %>
+                    <p class="notice alert-success">
+                        <%= notice %>
+                    </p>
+                    <% end %>
+                </span>
+                <span class="error_msgs">
+                  <% if alert %>
+                    <p class="alert alert-success">
+                        <%= alert %>
+                    </p>
+                  <% end %>
+                </span>
+                <%= yield %>
+              </main>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  <% else %>
+    <header>
+      <nav class="navbar navbar-light bg-light">
+        <div class="navbar-brand">
+          <a style="margin-left: -1em" class="mr-sm-4"><%= link_to image_tag("FiscaliaLogo.png", width: "70em"), procedures_path %></a>
+          <a class="mr-sm-4"><%= link_to image_tag("FiscaliaNombre.png", width: "180em"), procedures_path %></a>
+        </div>
+        <% if current_user.notifications.where(seen: false).count > 0 %>
+          <!a style="margin-right: -0.4em"><!%= current_user.notifications.count %></a>
+          <a><%= link_to image_tag("Notification_1.png", width: "30em"), notifications_path %></a>
+          <a style="margin-left: -0.2em"><%= current_user.notifications.where(seen: false).count %></a>
+        <% else %>
+          <a><%= link_to image_tag("Notification_0.png", width: "30em"), notifications_path %></a>
+        <% end %>
+        <% if (current_user.prosecutor.present?) %>
+          <p style="color: #EC9D32; font-weight: bold; margin: 0px; font-size: small; width: 30%; margin-left: 1.2em;"><%= current_user.prosecutor.name %></p>
+        <% elsif (current_user.police_unit.present?) %>
+          <p style="color: #EC9D32; font-weight: bold; margin: 0px; font-size: small; width: 30%; margin-left: 1.2em;">Unidad
+            Policial: <%= current_user.police_unit.name %></p>
+        <% end %>
+        <%= form_with url: search_path, method: :get, local: true do |form| %>
+          <div class="form-inline row">
+            <%= form.text_field :query, :placeholder => "Buscar por Folio...", class: "form-control" %>
+            <%= form.submit "Buscar", class: ["btn", "btn-primary"] %>
+          </div>
+        <% end %>
+        <%= button_to "Búsqueda Avanzada", search_path, :method => :get, :class => "btn btn-primary text-white ml-sm-4" %>
+        <%= button_to "Cerrar sesión", destroy_user_session_path, :method => :delete, :class => "btn btn-warning text-white ml-sm-4" %>
+      </nav>
+    </header>
+
+
+    <main class="normalMain">
+     <span class="success_msgs">
+       <% if notice %>
+        <p class="notice alert-success">
+            <%= notice %>
+        </p> <% end %> </span>
+
+      <span class="error_msgs">
+        <% if alert %>
+        <p class="alert alert-success">
+            <%= alert %>
+        </p> <% end %> </span>
+      <%= yield %>
+    </main>
+  <% end %>
+<% else %>
+  <main class="normalMain">
+    <span class="success_msgs">
+      <% if notice %>
+        <p class="notice alert-success">
+            <%= notice %>
+        </p> <% end %> </span>
+
+    <span class="error_msgs">
+      <% if alert %>
+        <p class="alert alert-success">
+            <%= alert %>
+        </p> <% end %> </span>
+    <%= yield %>
+  </main>
+<% end %>
+
+
+<% if user_signed_in? %>
+  <footer class="light bg-light border-top p-1 mb-0">
+    <div class="container text-center text-md-left mt-2">
+      <div class="d-flex justify-content-between">
+        <div>
+          <h6 class="text font-weight-bold">Fiscalía Nacional</h6>
+          <hr class="teal accent-3 mb-2 mt-0 d-inline-block mx-auto" style="width: 60px;">
+          <p><a class="dark-grey-text" href="http://www.fiscaliadechile.cl/Fiscalia/index.do">Ir al sitio web</a></p>
+        </div>
+
+        <div>
+
+          <h6 class="text font-weight-bold">Contacto</h6>
+          <hr class="teal accent-3 mb-2 mt-0 d-inline-block mx-auto" style="width: 60px;">
+          <p>Fiscalia@gmail.com</p>
+
+        </div>
+
+        <div>
+          <a class="ml-sm-5"><%= image_tag("logo_olimpus.png", width: "200em") %></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+<% end %>
+</body>
+</html>

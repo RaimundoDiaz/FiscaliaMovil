@@ -1,0 +1,32 @@
+<%= stylesheet_link_tag "new_session" %>
+
+<div id="rcorners1login">
+  <%= image_tag "logo.png" %>
+  <h2 id="Ingresar">Ingresar</h2>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field">
+      <div class="label_form_email ml-lg-4 pl-2">
+      <%= f.label "Email"%><br />
+      </div>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+
+    <div class="field">
+      <div class="label_form_psswd ml-lg-4 pl-2">
+        <%= f.label "Contraseña" %><br />
+      </div>
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Ingresar", class: ["btn", "btn-warning", "button"] %>
+    </div>
+
+
+  <% end %>
+
+</div>
+
+
+

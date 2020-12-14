@@ -1,0 +1,48 @@
+#rcorners1login {
+    border-radius: 25px;
+    background: #FFFBFF;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 50%;
+    height: 50%;
+}
+
+#Ingresar {
+    margin-top: 2%;
+    font-weight: bold;
+}
+
+.label_form_email {
+    margin-top: 3%;
+    margin-right: 22%;
+}
+
+.label_form_psswd {
+    margin-top: 3%;
+    margin-right: 17%;
+}
+
+.remember_me {
+    display: inline-flex;
+    flex-flow: row;
+    justify-content: space-between;
+    margin-top: 3%;
+}
+
+.actions{
+    margin-top: 3%;
+}
+
+.div1{
+    margin-right: 100px;
+}
+
+.button{
+    font-weight: bold;
+    color: #FFFBFF;
+    background-color: #EC9A29;
+}
+
+.btn-warning:hover { color: #FFFBFF; background-color: #2274A5;}

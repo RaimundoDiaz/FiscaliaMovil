@@ -1,0 +1,25 @@
+<div id="content_box">
+
+  <h1>Mensajes del Procedimiento <%= @procedure.id %></h1>
+
+  <% @messages.each do |message| %>
+    <div class="messageBox">
+      <div class="topMessageBox">
+        <% if (message.user.police_unit != nil) %>
+          <%= message.user.police_unit.name %>
+
+        <% elsif (message.user.prosecutor != nil) %>
+          <%= message.user.prosecutor.local_prosecution.name %>
+        <% end %>
+      </div>
+      
+      <div class="bottomMessageBox">
+        <%= message.content %>
+      </div>
+    </div>
+  <% end %>
+
+
+  <%= render 'form', message: @new_message %>
+
+</div>

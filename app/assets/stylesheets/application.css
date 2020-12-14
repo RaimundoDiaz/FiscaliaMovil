@@ -1,0 +1,127 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require bootstrap
+ *= require chosen
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+    background-color: #2274A5;
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+footer {
+    background-color: #ffffff;
+}
+
+.normalMain {
+    padding-top: 10vh;
+    min-height: 85vh;
+    padding-bottom: 10vh;
+}
+
+.mainAdmin {
+    margin: 0;
+    min-height: 90vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+}
+
+#content_box_center {
+    border-radius: 25px;
+    background: #FFFBFF;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 50%;
+    height: 50%;
+}
+
+#content_box {
+    border-radius: 25px;
+    background: #FFFBFF;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    height: 50%;
+}
+
+.greyContainer {
+    display: inline-block;
+    border-radius: 10px;
+    background: #E7E7E7;
+    padding: 10px;
+    margin: auto;
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.whiteContainer {
+    border-radius: 10px;
+    background: #FFFBFF;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+}
+
+.notice {
+    text-align: center;
+    padding: 20px;
+    background-color: #428BCA;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.alert {
+
+    transition:  all 0.2s ease-in-out;
+    text-align: center;
+    padding: 20px;
+    background-color: #dd4342;
+    color: white;
+    margin-bottom: 15px;
+}
+/*
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    width:calc(100% - 26px);
+}
+
+.upload-btn-wrapper .btnr {
+    position: relative;
+}
+.upload-btn-wrapper .btnr + span {
+    padding: 5px;
+    font-weight: normal;
+}
+
+.upload-btn-wrapper input[type=file] {
+    font-size: 42px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+*/

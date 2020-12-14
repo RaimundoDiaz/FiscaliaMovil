@@ -1,0 +1,155 @@
+<div style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;" class="chartjs-size-monitor">
+  <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+    <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0">
+
+    </div>
+  </div>
+  <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+    <div style="position:absolute;width:200%;height:200%;left:0; top:0">
+
+    </div>
+  </div>
+</div>
+<div id="content_box">
+  <div class="container mt-3">
+    <% if @attribute == 1 %>
+      <div>
+        <h2 class="float-left">Usuarios</h2>
+        <% if current_user.local_prosecution.nil? and current_user.police_unit.nil? and current_user.prosecutor.nil?%>
+          <%= button_to "Crear Administrador Nacional", new_admin_user_path, :method => :get, :class => "btn btn-primary text-white mb-2 float-right" %>
+        <%end%>
+      </div>
+      <input class="form-control" id="myInput" type="text" placeholder="Buscar Usuario..">
+      <br>
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th>Email</th>
+          <th style="text-align: center; width: 18%">Acciones</th>
+        </tr>
+        </thead>
+        <tbody id="myTable">
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.email %></td>
+            <td style="text-align: center"><%= link_to 'Editar', edit_admin_user_path(user, role: 0) %> </td>
+          </tr>
+
+        <% end %>
+        </tbody>
+      </table>
+    <% elsif @attribute == 2%>
+      <div>
+        <h2 class="float-left">Usuarios</h2>
+        <% if current_user.local_prosecution.present? or (current_user.local_prosecution.nil? and current_user.police_unit.nil? and current_user.prosecutor.nil?)%>
+          <%= link_to "Crear Operador", new_admin_prosecutor_path(:operador => true), :method => :get, :class => "btn btn-primary text-white mb-2 float-right" %>
+        <%end%>
+      </div>
+      <input class="form-control" id="myInput" type="text" placeholder="Buscar Usuario..">
+      <br>
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th style="width: 10%">Email</th>
+          <th style="width: 40%">Pertenece a</th>
+          <th style="width: 10%;">Administrador</th>
+          <th style="width: 15%; text-align: center">Fiscal de turno</th>
+          <th style="text-align: center; width: 25%">Acciones</th>
+        </tr>
+        </thead>
+        <tbody id="myTable">
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.email %></td>
+            <% if user.police_unit.present? %>
+              <td><%= user.police_unit.name  %></td>
+              <% role = 1 %>
+            <%  end %>
+            <% if user.local_prosecution.present? %>
+              <td><%= user.local_prosecution.name  %></td>
+              <% role = 2 %>
+            <%  end %>
+            <% if user.prosecutor.present? %>
+              <td><%= user.prosecutor.local_prosecution.name  %></td>
+              <% role = 2 %>
+            <%  end %>
+            <% if user.local_prosecution.nil? and user.police_unit.nil? and user.prosecutor.nil?%>
+              <td>No aplica</td>
+              <% role = 0 %>
+            <%  end %>
+            <td style="text-align: center"><%= user.admin ? 'Si' : 'No' %></td>
+            <% if user.prosecutor.present? %>
+              <% if user.prosecutor.prosecutor_on_duty%>
+                <td style="text-align: center">Si</td>
+              <% elsif !user.prosecutor.prosecutor_on_duty%>
+                <td style="text-align: center">No</td>
+              <%  end %>
+            <% else %>
+              <td>No Aplica</td>
+            <%  end %>
+
+            <td style="text-align: center"><%= link_to 'Editar', edit_admin_user_path(user, role: role) %><%= link_to 'Eliminar', admin_user_path(user, :attribute => @attribute), method: :delete, data: { confirm: "¿Estás seguro que quieres borrar este usuario de fiscalía?" }, :class => "float-right" %> </td>
+          </tr>
+
+        <% end %>
+        </tbody>
+      </table>
+    <% elsif @attribute == 3 %>
+      <div>
+        <h2 class="float-left">Usuarios de UP</h2>
+      </div>
+      <input class="form-control" id="myInput" type="text" placeholder="Buscar Usuario..">
+      <br>
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th>Email</th>
+          <th style="width: 20%">Pertenece a</th>
+          <th style="width: 20%">Fiscalía Local</th>
+          <th style="width: 15%;">Administrador</th>
+          <th style="text-align: center; width: 18%">Acciones</th>
+        </tr>
+        </thead>
+        <tbody id="myTable">
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.email %></td>
+            <% if user.police_unit.present? %>
+              <td><%= user.police_unit.name  %></td>
+              <% role = 1 %>
+            <%  end %>
+            <% if user.local_prosecution.present? %>
+              <td><%= user.local_prosecution.name  %></td>
+              <% role = 2 %>
+            <%  end %>
+            <% if user.prosecutor.present? %>
+              <td><%= user.prosecutor.local_prosecution.name  %></td>
+              <% role = 2 %>
+            <%  end %>
+            <% if user.local_prosecution.nil? and user.police_unit.nil? and user.prosecutor.nil?%>
+              <td>No aplica</td>
+              <% role = 0 %>
+            <%  end %>
+            <td><%= user.police_unit.local_prosecution.name %></td>
+            <td style="text-align: center"><%= user.admin ? 'Si' : 'No' %></td>
+            <td style="text-align: center"><%= link_to 'Editar', edit_admin_user_path(user, role: role) %> <%= link_to 'Eliminar', admin_user_path(user, :attribute => @attribute), method: :delete, data: { confirm: "¿Estás seguro que quieres borrar este usuario de UP?" }, :class => "float-right" %></td>
+          </tr>
+
+        <% end %>
+        </tbody>
+      </table>
+    <% end %>
+
+
+  </div>
+  <script>
+      $(document).ready(function(){
+          $("#myInput").on("keyup", function() {
+              var value = $(this).val().toLowerCase();
+              $("#myTable tr").filter(function() {
+                  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+              });
+          });
+      });
+  </script>
+</div>

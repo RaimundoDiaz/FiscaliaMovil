@@ -1,0 +1,34 @@
+.messageBox {
+    display: inline-block;
+    border-radius: 5px;
+    background: #E7E7E7;
+    padding: 10px;
+    margin: auto;
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.topMessageBox
+{
+    font-weight: bold;
+    font-size: large;
+    color: #EC9D32;
+    width: available;
+    text-align: left;
+    margin-bottom: 1em;
+}
+
+.dateSide{
+    color: #000000;
+    font-weight: normal;
+    font-size: small;
+    float:right;
+}
+
+.bottomMessageBox
+{
+    width: available;
+    text-align: start;
+}

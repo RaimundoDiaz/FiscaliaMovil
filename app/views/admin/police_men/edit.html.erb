@@ -1,0 +1,29 @@
+<%= form_with(model: [:admin, @police_man], local: true) do |form| %>
+
+  <h1>Editar Policia</h1>
+  <div class="actions">
+    <div class="row">
+      <div class="form-group col-10">
+        <%= form.label :nombre %>
+        <%= form.text_field :name, class: "form-control"  %>
+      </div>
+
+      <div class="form-group col-10">
+        <%= form.label :rut %>
+        <%= form.text_field :rut, class: "form-control"  %>
+      </div>
+
+      <div class="form-group col-10">
+        <%= form.label :numero_de_placa %>
+        <%= form.text_field :badge, class: "form-control"  %>
+      </div>
+
+      <div class="form-group col-10">
+        <%= form.label :numero_de_teléfono %>
+        <%= form.text_field :phone_number, class: "form-control"  %>
+      </div>
+    </div>
+    <%= form.submit 'Editar Policia', class: ["btn", "btn-primary"]  %>
+    <%= link_to "Atras", admin_police_men_path, class: ["btn", "btn-secondary"] %>
+  </div>
+<% end %>
