@@ -1,25 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby version:2.7.1
 
-Things you may want to cover:
+* System dependencies:
+- `pg`
+- `faker`
+- `ffaker`
+- `file_validators`
+- `devise`
+- `omniauth`/`omniauth-google-oauth2`
+- `cancancan`
+- `pagy`
+- `bootsnap`
+- `rut_validator`
+- `roo`
+- `chosen-rails`
+- `gon`
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
+* Configuration:
+- Just do `bundle install`, `yarn install` and finally `rake db:populate` (this will make all the necessary migrations and database preparations.
 
 * Deployment instructions
+- `rails s` will do the trick
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
