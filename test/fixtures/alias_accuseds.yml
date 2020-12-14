@@ -1,9 +1,0 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  alias: MyString
-  accused: one
-
-two:
-  alias: MyString
-  accused: two
