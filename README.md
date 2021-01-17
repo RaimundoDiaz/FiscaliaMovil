@@ -2,7 +2,7 @@
 
 * Ruby version:2.7.1
 
-* System dependencies:
+## System dependencies:
 - `pg`
 - `faker`
 - `ffaker`
@@ -17,10 +17,10 @@
 - `chosen-rails`
 - `gon`
 
-* Configuration:
+## Configuration:
 - Just do `bundle install`, `yarn install` and finally `rake db:populate` (this will make all the necessary migrations and database preparations.
 
-* Deployment instructions
+## Deployment instructions
 - `rails s` will do the trick
 
 ## License
