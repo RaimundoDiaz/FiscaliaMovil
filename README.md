@@ -1,6 +1,6 @@
 # README
 
-* Ruby version:2.7.1
+* Ruby version: 2.7.1
 
 ## System dependencies:
 - `pg`
